@@ -12,6 +12,10 @@
 		801E168120C06326003D80FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E167F20C06326003D80FE /* Main.storyboard */; };
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
 		801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E168420C06327003D80FE /* LaunchScreen.storyboard */; };
+		806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0A20C089C200C6F76E /* Transaction.swift */; };
+		806E2A0D20C092F000C6F76E /* HD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0C20C092F000C6F76E /* HD.swift */; };
+		806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0E20C09A9500C6F76E /* Unspent.swift */; };
+		80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		801E168220C06327003D80FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801E168520C06327003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801E168720C06327003D80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		806E2A0A20C089C200C6F76E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		806E2A0C20C092F000C6F76E /* HD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HD.swift; sourceTree = "<group>"; };
+		806E2A0E20C09A9500C6F76E /* Unspent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unspent.swift; sourceTree = "<group>"; };
+		80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamouraiProvider.swift; sourceTree = "<group>"; };
 		88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,12 +68,24 @@
 			isa = PBXGroup;
 			children = (
 				801E167B20C06326003D80FE /* AppDelegate.swift */,
+				80724C0320C069B3005EC9A1 /* API */,
 				801E167F20C06326003D80FE /* Main.storyboard */,
 				801E168220C06327003D80FE /* Assets.xcassets */,
 				801E168420C06327003D80FE /* LaunchScreen.storyboard */,
 				801E168720C06327003D80FE /* Info.plist */,
 			);
 			path = Sentinel;
+			sourceTree = "<group>";
+		};
+		80724C0320C069B3005EC9A1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */,
+				806E2A0A20C089C200C6F76E /* Transaction.swift */,
+				806E2A0C20C092F000C6F76E /* HD.swift */,
+				806E2A0E20C09A9500C6F76E /* Unspent.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		A948E45EF0799050BC9BF0E6 /* Frameworks */ = {
@@ -205,7 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
+				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
+				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
+				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
