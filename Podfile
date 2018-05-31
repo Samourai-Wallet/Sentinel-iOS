@@ -9,4 +9,5 @@ target 'Sentinel' do
   pod 'PromiseKit', '~> 6.2.8'
   pod 'CryptoSwift', '~> 0.10.0'
   pod 'Moya', '~> 11.0.2'
+  pod 'secp256k1.swift'
 end

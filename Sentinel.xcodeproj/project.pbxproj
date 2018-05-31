@@ -16,6 +16,23 @@
 		806E2A0D20C092F000C6F76E /* HD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0C20C092F000C6F76E /* HD.swift */; };
 		806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0E20C09A9500C6F76E /* Unspent.swift */; };
 		80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */; };
+		807E26A820C0A69B00B03C4A /* SMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26A620C0A69B00B03C4A /* SMP.swift */; };
+		807E26A920C0A69B00B03C4A /* BigInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26A720C0A69B00B03C4A /* BigInt+Extension.swift */; };
+		807E26B620C0A6A200B03C4A /* RIPEMD160.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AA20C0A6A100B03C4A /* RIPEMD160.swift */; };
+		807E26B720C0A6A200B03C4A /* Bech32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AB20C0A6A100B03C4A /* Bech32.swift */; };
+		807E26B820C0A6A200B03C4A /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AC20C0A6A100B03C4A /* PrivateKey.swift */; };
+		807E26B920C0A6A200B03C4A /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AD20C0A6A100B03C4A /* Wallet.swift */; };
+		807E26BA20C0A6A200B03C4A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AE20C0A6A100B03C4A /* Network.swift */; };
+		807E26BB20C0A6A200B03C4A /* DataConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26AF20C0A6A100B03C4A /* DataConvertable.swift */; };
+		807E26BC20C0A6A200B03C4A /* Mnemonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B020C0A6A100B03C4A /* Mnemonic.swift */; };
+		807E26BD20C0A6A200B03C4A /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B120C0A6A100B03C4A /* Crypto.swift */; };
+		807E26BE20C0A6A200B03C4A /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B220C0A6A100B03C4A /* PublicKey.swift */; };
+		807E26BF20C0A6A200B03C4A /* SegwitAddrCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B320C0A6A200B03C4A /* SegwitAddrCoder.swift */; };
+		807E26C020C0A6A200B03C4A /* WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B420C0A6A200B03C4A /* WordList.swift */; };
+		807E26C120C0A6A200B03C4A /* Base58Encode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26B520C0A6A200B03C4A /* Base58Encode.swift */; };
+		807E26C320C0A82900B03C4A /* ECDSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807E26C220C0A82900B03C4A /* ECDSA.swift */; };
+		807E26C920C0A95100B03C4A /* secp256k1.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E26C520C0A95000B03C4A /* secp256k1.m */; };
+		807E26CA20C0A95100B03C4A /* NSData+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 807E26C620C0A95000B03C4A /* NSData+HexString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +47,26 @@
 		806E2A0C20C092F000C6F76E /* HD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HD.swift; sourceTree = "<group>"; };
 		806E2A0E20C09A9500C6F76E /* Unspent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unspent.swift; sourceTree = "<group>"; };
 		80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamouraiProvider.swift; sourceTree = "<group>"; };
+		807E26A620C0A69B00B03C4A /* SMP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMP.swift; sourceTree = "<group>"; };
+		807E26A720C0A69B00B03C4A /* BigInt+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+Extension.swift"; sourceTree = "<group>"; };
+		807E26AA20C0A6A100B03C4A /* RIPEMD160.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIPEMD160.swift; sourceTree = "<group>"; };
+		807E26AB20C0A6A100B03C4A /* Bech32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bech32.swift; sourceTree = "<group>"; };
+		807E26AC20C0A6A100B03C4A /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		807E26AD20C0A6A100B03C4A /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		807E26AE20C0A6A100B03C4A /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		807E26AF20C0A6A100B03C4A /* DataConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConvertable.swift; sourceTree = "<group>"; };
+		807E26B020C0A6A100B03C4A /* Mnemonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mnemonic.swift; sourceTree = "<group>"; };
+		807E26B120C0A6A100B03C4A /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		807E26B220C0A6A100B03C4A /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		807E26B320C0A6A200B03C4A /* SegwitAddrCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegwitAddrCoder.swift; sourceTree = "<group>"; };
+		807E26B420C0A6A200B03C4A /* WordList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordList.swift; sourceTree = "<group>"; };
+		807E26B520C0A6A200B03C4A /* Base58Encode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Base58Encode.swift; sourceTree = "<group>"; };
+		807E26C220C0A82900B03C4A /* ECDSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDSA.swift; sourceTree = "<group>"; };
+		807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel-Bridging-Header.h"; sourceTree = "<group>"; };
+		807E26C520C0A95000B03C4A /* secp256k1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = secp256k1.m; sourceTree = "<group>"; };
+		807E26C620C0A95000B03C4A /* NSData+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+HexString.m"; sourceTree = "<group>"; };
+		807E26C720C0A95000B03C4A /* secp256k1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = secp256k1.h; sourceTree = "<group>"; };
+		807E26C820C0A95100B03C4A /* NSData+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+HexString.h"; sourceTree = "<group>"; };
 		88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,12 +104,8 @@
 		801E167A20C06326003D80FE /* Sentinel */ = {
 			isa = PBXGroup;
 			children = (
-				801E167B20C06326003D80FE /* AppDelegate.swift */,
-				80724C0320C069B3005EC9A1 /* API */,
-				801E167F20C06326003D80FE /* Main.storyboard */,
-				801E168220C06327003D80FE /* Assets.xcassets */,
-				801E168420C06327003D80FE /* LaunchScreen.storyboard */,
-				801E168720C06327003D80FE /* Info.plist */,
+				807E26CC20C0AABC00B03C4A /* Core */,
+				807E26CE20C0AB1600B03C4A /* Supporting Files */,
 			);
 			path = Sentinel;
 			sourceTree = "<group>";
@@ -80,12 +113,84 @@
 		80724C0320C069B3005EC9A1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				807E26CD20C0AAD700B03C4A /* Samourai */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		807E26A420C0A65900B03C4A /* HDWalletKit */ = {
+			isa = PBXGroup;
+			children = (
+				807E26CB20C0AA8F00B03C4A /* secp256k1 */,
+				807E26A520C0A68000B03C4A /* BigInt */,
+				807E26B520C0A6A200B03C4A /* Base58Encode.swift */,
+				807E26AB20C0A6A100B03C4A /* Bech32.swift */,
+				807E26B120C0A6A100B03C4A /* Crypto.swift */,
+				807E26AF20C0A6A100B03C4A /* DataConvertable.swift */,
+				807E26B020C0A6A100B03C4A /* Mnemonic.swift */,
+				807E26AE20C0A6A100B03C4A /* Network.swift */,
+				807E26AC20C0A6A100B03C4A /* PrivateKey.swift */,
+				807E26B220C0A6A100B03C4A /* PublicKey.swift */,
+				807E26AA20C0A6A100B03C4A /* RIPEMD160.swift */,
+				807E26B320C0A6A200B03C4A /* SegwitAddrCoder.swift */,
+				807E26C220C0A82900B03C4A /* ECDSA.swift */,
+				807E26AD20C0A6A100B03C4A /* Wallet.swift */,
+				807E26B420C0A6A200B03C4A /* WordList.swift */,
+			);
+			path = HDWalletKit;
+			sourceTree = "<group>";
+		};
+		807E26A520C0A68000B03C4A /* BigInt */ = {
+			isa = PBXGroup;
+			children = (
+				807E26A720C0A69B00B03C4A /* BigInt+Extension.swift */,
+				807E26A620C0A69B00B03C4A /* SMP.swift */,
+			);
+			path = BigInt;
+			sourceTree = "<group>";
+		};
+		807E26CB20C0AA8F00B03C4A /* secp256k1 */ = {
+			isa = PBXGroup;
+			children = (
+				807E26C820C0A95100B03C4A /* NSData+HexString.h */,
+				807E26C620C0A95000B03C4A /* NSData+HexString.m */,
+				807E26C720C0A95000B03C4A /* secp256k1.h */,
+				807E26C520C0A95000B03C4A /* secp256k1.m */,
+			);
+			path = secp256k1;
+			sourceTree = "<group>";
+		};
+		807E26CC20C0AABC00B03C4A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				807E26A420C0A65900B03C4A /* HDWalletKit */,
+				80724C0320C069B3005EC9A1 /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		807E26CD20C0AAD700B03C4A /* Samourai */ = {
+			isa = PBXGroup;
+			children = (
 				80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */,
 				806E2A0A20C089C200C6F76E /* Transaction.swift */,
 				806E2A0C20C092F000C6F76E /* HD.swift */,
 				806E2A0E20C09A9500C6F76E /* Unspent.swift */,
 			);
-			path = API;
+			path = Samourai;
+			sourceTree = "<group>";
+		};
+		807E26CE20C0AB1600B03C4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				801E167B20C06326003D80FE /* AppDelegate.swift */,
+				807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */,
+				801E167F20C06326003D80FE /* Main.storyboard */,
+				801E168220C06327003D80FE /* Assets.xcassets */,
+				801E168420C06327003D80FE /* LaunchScreen.storyboard */,
+				801E168720C06327003D80FE /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A948E45EF0799050BC9BF0E6 /* Frameworks */ = {
@@ -139,6 +244,7 @@
 				TargetAttributes = {
 					801E167720C06326003D80FE = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -204,6 +310,7 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -212,6 +319,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -225,11 +333,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807E26A920C0A69B00B03C4A /* BigInt+Extension.swift in Sources */,
+				807E26A820C0A69B00B03C4A /* SMP.swift in Sources */,
+				807E26BE20C0A6A200B03C4A /* PublicKey.swift in Sources */,
+				807E26BB20C0A6A200B03C4A /* DataConvertable.swift in Sources */,
+				807E26BA20C0A6A200B03C4A /* Network.swift in Sources */,
+				807E26B620C0A6A200B03C4A /* RIPEMD160.swift in Sources */,
+				807E26C320C0A82900B03C4A /* ECDSA.swift in Sources */,
+				807E26CA20C0A95100B03C4A /* NSData+HexString.m in Sources */,
+				807E26B920C0A6A200B03C4A /* Wallet.swift in Sources */,
+				807E26C120C0A6A200B03C4A /* Base58Encode.swift in Sources */,
 				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
 				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
+				807E26BC20C0A6A200B03C4A /* Mnemonic.swift in Sources */,
+				807E26BD20C0A6A200B03C4A /* Crypto.swift in Sources */,
+				807E26B720C0A6A200B03C4A /* Bech32.swift in Sources */,
+				807E26C920C0A95100B03C4A /* secp256k1.m in Sources */,
+				807E26B820C0A6A200B03C4A /* PrivateKey.swift in Sources */,
+				807E26BF20C0A6A200B03C4A /* SegwitAddrCoder.swift in Sources */,
+				807E26C020C0A6A200B03C4A /* WordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,9 +499,10 @@
 			baseConfigurationReference = 88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,6 +510,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.samourai.Sentinel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Supporting Files/Sentinel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -394,9 +522,10 @@
 			baseConfigurationReference = DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,6 +533,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.samourai.Sentinel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Supporting Files/Sentinel-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
