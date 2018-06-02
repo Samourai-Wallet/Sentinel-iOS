@@ -24,11 +24,11 @@ class BalanceViewController: UIViewController {
         super.viewDidLoad()
         
         let balanceStyle = Style {
-            $0.font = UIFont.roboto(weight: UIFont.Weight.heavy, size: 40)
+            $0.font = UIFont.robotoMono(size: 40)
         }
         
         let btcStyle = Style {
-            $0.font = UIFont.roboto(weight: UIFont.Weight.heavy, size: 20)
+            $0.font = UIFont.robotoMono(size: 20)
         }
         
         balanceLabel.attributedText = "\(balance.btc())".set(style: balanceStyle) + "BTC".set(style: btcStyle)

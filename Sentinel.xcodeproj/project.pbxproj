@@ -21,11 +21,7 @@
 		8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */; };
 		8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */; };
 		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
-		806A8AD420C1E1CC008AC0CF /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AD320C1E1CB008AC0CF /* Roboto-Regular.ttf */; };
 		806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AD520C1E1F3008AC0CF /* Roboto.swift */; };
-		806A8ADA20C1E53C008AC0CF /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AD720C1E53B008AC0CF /* Roboto-Black.ttf */; };
-		806A8ADB20C1E53C008AC0CF /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AD820C1E53C008AC0CF /* Roboto-Bold.ttf */; };
-		806A8ADC20C1E53C008AC0CF /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AD920C1E53C008AC0CF /* Roboto-Medium.ttf */; };
 		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
 		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
 		806A8AE320C1F723008AC0CF /* Trx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE220C1F723008AC0CF /* Trx.swift */; };
@@ -67,11 +63,7 @@
 		8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowViewController.swift; sourceTree = "<group>"; };
 		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
-		806A8AD320C1E1CB008AC0CF /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		806A8AD520C1E1F3008AC0CF /* Roboto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roboto.swift; sourceTree = "<group>"; };
-		806A8AD720C1E53B008AC0CF /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
-		806A8AD820C1E53C008AC0CF /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		806A8AD920C1E53C008AC0CF /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
 		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
 		806A8AE220C1F723008AC0CF /* Trx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trx.swift; sourceTree = "<group>"; };
@@ -204,10 +196,6 @@
 		806A8AD220C1E1BA008AC0CF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				806A8AD320C1E1CB008AC0CF /* Roboto-Regular.ttf */,
-				806A8AD720C1E53B008AC0CF /* Roboto-Black.ttf */,
-				806A8AD820C1E53C008AC0CF /* Roboto-Bold.ttf */,
-				806A8AD920C1E53C008AC0CF /* Roboto-Medium.ttf */,
 				8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */,
 				806A8AD520C1E1F3008AC0CF /* Roboto.swift */,
 			);
@@ -386,18 +374,14 @@
 			files = (
 				8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */,
 				806A8AEC20C20933008AC0CF /* NoWalletViewController.xib in Resources */,
-				806A8ADC20C1E53C008AC0CF /* Roboto-Medium.ttf in Resources */,
 				806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
-				806A8AD420C1E1CC008AC0CF /* Roboto-Regular.ttf in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
-				806A8ADA20C1E53C008AC0CF /* Roboto-Black.ttf in Resources */,
 				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
 				806A8AF320C20FA8008AC0CF /* NewWalletTableViewCell.xib in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
-				806A8ADB20C1E53C008AC0CF /* Roboto-Bold.ttf in Resources */,
 				801E168120C06326003D80FE /* Main.storyboard in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
 				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
@@ -437,6 +421,8 @@
 				"${BUILT_PRODUCTS_DIR}/HDWallet/HDWallet.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftRichString/SwiftRichString.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
@@ -448,6 +434,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDWallet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRichString.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
