@@ -39,8 +39,10 @@ extension String {
                     return nil
                 }
             } else {
-                
-                switch base58DecodedBytes.first! {
+                guard let firstByte = base58DecodedBytes.first else {
+                    return nil
+                }
+                switch firstByte {
                 case Network.main.publicKeyHash:
                     return .p2pkh
                 case Network.main.scriptHash:
