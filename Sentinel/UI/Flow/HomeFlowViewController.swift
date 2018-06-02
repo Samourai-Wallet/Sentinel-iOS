@@ -18,4 +18,10 @@ class HomeFlowViewController: UIViewController {
         self.transition(to: transactionsVCContainer, duration: 0, child: BottomMergedViewController(), completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(balance: 23232), completion: nil)
     }
+    
+    @IBAction func newWalletAction(_ sender: UIBarButtonItem) {
+        let vc = NewWalletViewController()
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
 }

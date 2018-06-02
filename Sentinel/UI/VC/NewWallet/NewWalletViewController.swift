@@ -8,6 +8,15 @@
 
 import UIKit
 
+
 class NewWalletViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @IBAction func cancelAction(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }
