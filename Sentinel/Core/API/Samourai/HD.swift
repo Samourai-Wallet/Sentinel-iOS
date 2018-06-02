@@ -19,9 +19,9 @@ extension Samourai {
         struct Info: Codable {
             let latest_block: Samourai.Transaction.Block
         }
-        
+
         let info: Info
-        
+
         struct Address: Codable {
             let address: String
             let final_balance: Int
@@ -29,9 +29,9 @@ extension Samourai {
             let change_index: Int
             let n_tx: Int
         }
-        
+
         let addresses: [Address]
-        
-        let txs: [Transaction]
+
+        let txs: [Trx]
     }
 }

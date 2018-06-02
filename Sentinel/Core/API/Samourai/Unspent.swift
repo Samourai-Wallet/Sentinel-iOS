@@ -11,11 +11,6 @@ import Foundation
 extension Samourai {
     struct Unspent {
         
-        struct Xpub {
-            let m: String
-            let path: String
-        }
-        
         struct Output {
             let tx_hash: String
             let tx_output_n: Int
