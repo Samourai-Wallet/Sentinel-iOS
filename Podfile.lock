@@ -18,6 +18,11 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.2.8):
     - PromiseKit/CorePromise
+  - Realm (3.6.0):
+    - Realm/Headers (= 3.6.0)
+  - Realm/Headers (3.6.0)
+  - RealmSwift (3.6.0):
+    - Realm (= 3.6.0)
   - Result (3.2.4)
   - secp256k1.swift (0.1.4)
   - SwiftRichString (2.0.1)
@@ -27,6 +32,7 @@ DEPENDENCIES:
   - HDWallet (from `https://github.com/euwars/HDWallet.git`, commit `4d56af5c9edad8badcd96c69d2bbab66d0b5853d`)
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
+  - RealmSwift (~> 3.6.0)
   - secp256k1.swift (~> 0.1.4)
   - SwiftRichString (~> 2.0.1)
 
@@ -36,6 +42,8 @@ SPEC REPOS:
     - CryptoSwift
     - Moya
     - PromiseKit
+    - Realm
+    - RealmSwift
     - Result
     - secp256k1.swift
     - SwiftRichString
@@ -56,10 +64,12 @@ SPEC CHECKSUMS:
   HDWallet: 4c2bdb37c5b794aa81545b2f73185584cdd60ddd
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
+  Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
+  RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: 0fb40744adaab8b391a3c58acf9250531abb9e85
+PODFILE CHECKSUM: 07520628b392350ac735e9e75db8df9383d5a5e1
 
 COCOAPODS: 1.5.2
