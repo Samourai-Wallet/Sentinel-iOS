@@ -16,12 +16,27 @@ class Sentinel {
     let realm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     let samouraiAPI = MoyaProvider<Samourai>()
     
-    enum Errors: Error {
+    enum Errors: Error, LocalizedError {
         case unvalidAddres
         case walletNameAlreadyDup
         case walletAdressAlreadyDup
         case noName
         case noAddress
+        
+        public var errorDescription: String? {
+            switch self {
+            case .unvalidAddres:
+                return "The entered address is not valid"
+            case .walletNameAlreadyDup:
+                return "This wallet name is already in use"
+            case .walletAdressAlreadyDup:
+                return "This address has been already added"
+            case .noName:
+                return "Please enter a name"
+            case .noAddress:
+                return "Please enter a address"
+            }
+        }
     }
     
     func addWallet(name: String?, addr: String?) -> Promise<Void> {
@@ -135,6 +150,36 @@ extension Sentinel {
     func updateTransactions(hd: Samourai.HD) -> Promise<Void> {
         return Promise<Void> { seal in
             
+            
+            hd.addresses.forEach({ (address) in
+                guard let wallet = realm.objects(Wallet.self).filter(NSPredicate(format: "address == %@", address.address)).first else {
+                    return
+                }
+                
+                guard (address.account_index != nil) else {
+                    return
+                }
+                
+                func setAccIndex() {
+                    do {
+                        try realm.write {
+                            wallet.accIndex.value = address.account_index
+                            realm.add(wallet, update: true)
+                        }
+                    } catch {}
+                }
+                
+                if let currentAccIndex = wallet.accIndex.value {
+                    guard currentAccIndex != address.account_index else {
+                        return
+                    }
+                    setAccIndex()
+                }else{
+                    setAccIndex()
+                }
+            })
+            
+            
             hd.txs.forEach { (transaction) in
                 let wTransaction = WalletTransaction()
                 wTransaction.txid = transaction.hash
@@ -180,6 +225,16 @@ extension Sentinel {
             }
             seal.fulfill(())
         }
+    }
+    
+    func remove(wallet: Wallet) {
+        do {
+            try realm.write {
+                let transactions = realm.objects(WalletTransaction.self).filter("wallet == %@", wallet)
+                realm.delete(transactions)
+                realm.delete(wallet)
+            }
+        }catch {}
     }
 }
 

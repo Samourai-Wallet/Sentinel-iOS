@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HDWalletKit
 
 class WalletViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }

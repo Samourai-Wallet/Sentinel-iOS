@@ -12,9 +12,13 @@ class Wallet: Object {
     @objc dynamic var address = ""
     @objc dynamic var name = ""
     let balance = RealmOptional<Int>()
-    @objc dynamic var n_tx = 0
+    let accIndex = RealmOptional<Int>()
     
     var addrType: AddressType? {
         return address.addrType()
+    }
+    
+    override static func primaryKey() -> String? {
+        return "address"
     }
 }

@@ -32,7 +32,7 @@ class TransactionTableViewCell: UITableViewCell {
         }
         
         valueLabel.text = "\(abs(walletTransaction.value).btc())"
-        walletNameLabel.text = walletTransaction.wallet!.name
+        walletNameLabel.text = walletTransaction.wallet?.name
         statusLabel.isHidden = walletTransaction.isConfirmed
         let date = Date(timeIntervalSince1970: TimeInterval(walletTransaction.time))
         let df = DateFormatter()

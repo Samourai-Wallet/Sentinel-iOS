@@ -68,22 +68,22 @@ extension WalletsViewController: UITableViewDelegate {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             let qr = UIAlertAction(title: "Show QR", style: .default) { (action) in
-                // when cancel is tapped
             }
             alertController.addAction(qr)
             
             let cancelAction = UIAlertAction(title: "Rename", style: .default) { (action) in
-                // when cancel is tapped
             }
             alertController.addAction(cancelAction)
             
             let destroyAction = UIAlertAction(title: "Remove", style: .destructive) { (action) in
-                // when destroy is tapped
+                self.sentinel.remove(wallet: self.sentinel.wallet(forRow: indexPath.row))
             }
             alertController.addAction(destroyAction)
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-                // when destroy is tapped
+                if let selected = self.walletsTableView.indexPathForSelectedRow {
+                    self.walletsTableView.deselectRow(at: selected, animated: true)
+                }
             }
             alertController.addAction(cancel)
             

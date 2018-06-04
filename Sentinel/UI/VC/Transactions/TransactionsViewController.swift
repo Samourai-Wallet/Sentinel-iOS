@@ -87,15 +87,19 @@ class TransactionsViewController: UIViewController {
 extension TransactionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = self.data[self.keys[section]]?.count {
-            notrx.isHidden = true
             return count
         }
-        notrx.isHidden = false
         return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.data.count
+        let count = self.data.count
+        if count == 0 {
+            notrx.isHidden = false
+        }else{
+            notrx.isHidden = true
+        }
+        return count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
