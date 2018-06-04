@@ -9,12 +9,14 @@
 import UIKit
 import QRCodeReader
 
-class NewWalletViewController: UIViewController {
+class NewWalletViewController: UIViewController, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    let wallet: Wallet?
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
+    @IBOutlet var qrScanButton: UIButton!
     
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
@@ -24,11 +26,29 @@ class NewWalletViewController: UIViewController {
         return QRCodeReaderViewController(builder: builder)
     }()
     
-    init(sentinel: Sentinel) {
+    init(sentinel: Sentinel, wallet: Wallet? = nil) {
         self.sentinel = sentinel
+        self.wallet = wallet
         super.init(nibName: nil, bundle: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        guard let wallet = wallet else {
+            return
+        }
+        self.nameTextField.text = wallet.name
+        self.addressTextField.text = wallet.address
+        self.addressTextField.isEnabled = false
+        self.addressTextField.delegate = self
+        self.addressTextField.alpha = 0.8
+        self.qrScanButton.isHidden = true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -36,14 +56,27 @@ class NewWalletViewController: UIViewController {
     }
     
     @IBAction func createAction(_ sender: Any) {
-        _ = sentinel.addWallet(name: nameTextField.text, addr: addressTextField.text).done {
-            self.dismiss(animated: true, completion: nil)
-            }.catch { (err) in
-                let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
-                let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
-                }
-                alertController.addAction(cancel)
-                self.present(alertController, animated: true)
+        if let wallet = wallet {
+            //rename
+            _ = sentinel.renameWallet(wallet: wallet, name: nameTextField.text).done {
+                self.dismiss(animated: true, completion: nil)
+                }.catch({ (err) in
+                    let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    }
+                    alertController.addAction(cancel)
+                    self.present(alertController, animated: true)
+                })
+        }else {
+            _ = sentinel.addWallet(name: nameTextField.text, addr: addressTextField.text).done {
+                self.dismiss(animated: true, completion: nil)
+                }.catch { (err) in
+                    let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    }
+                    alertController.addAction(cancel)
+                    self.present(alertController, animated: true)
+            }
         }
     }
     

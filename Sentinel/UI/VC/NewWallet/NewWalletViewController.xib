@@ -12,8 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewWalletViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
-                <outlet property="addressTextField" destination="10w-kL-0bz" id="OHh-og-y9B"/>
-                <outlet property="nameTextField" destination="yCU-ot-GkU" id="jZ8-Tu-uCe"/>
+                <outlet property="addressTextField" destination="yCU-ot-GkU" id="9s2-5N-Nir"/>
+                <outlet property="nameTextField" destination="10w-kL-0bz" id="xas-8Z-RZQ"/>
+                <outlet property="qrScanButton" destination="TuM-Nr-aOW" id="BXX-v9-yJm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uDS-AD-uYW"/>
             </connections>
         </placeholder>

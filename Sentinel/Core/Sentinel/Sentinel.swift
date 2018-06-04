@@ -94,6 +94,25 @@ class Sentinel {
         }
     }
     
+    func renameWallet(wallet: Wallet, name: String?) -> Promise<Void> {
+        return Promise<Void> { seal in
+            guard let name = name else {
+                seal.reject(Errors.noName)
+                return
+            }
+            
+            do {
+                try realm.write {
+                    wallet.name = name
+                    realm.add(wallet, update: true)
+                    seal.fulfill(())
+                }
+            } catch let err {
+                seal.reject(err)
+            }
+        }
+    }
+    
     private func isValidWalletName(name: String) -> Bool {
         let count = realm.objects(Wallet.self).filter(NSPredicate(format: "name == %@", name)).count
         if count == 0 { return true }

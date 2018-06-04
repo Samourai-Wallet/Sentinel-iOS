@@ -71,9 +71,11 @@ extension WalletsViewController: UITableViewDelegate {
             }
             alertController.addAction(qr)
             
-            let cancelAction = UIAlertAction(title: "Rename", style: .default) { (action) in
+            let rename = UIAlertAction(title: "Rename", style: .default) { (action) in
+                let renameVC = NewWalletViewController(sentinel: self.sentinel, wallet: self.sentinel.wallet(forRow: indexPath.row))
+                self.present(renameVC, animated: true)
             }
-            alertController.addAction(cancelAction)
+            alertController.addAction(rename)
             
             let destroyAction = UIAlertAction(title: "Remove", style: .destructive) { (action) in
                 self.sentinel.remove(wallet: self.sentinel.wallet(forRow: indexPath.row))
