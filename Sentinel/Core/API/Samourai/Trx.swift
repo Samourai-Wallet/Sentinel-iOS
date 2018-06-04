@@ -15,7 +15,7 @@ extension Samourai {
         let version: Int
         let locktime: Int
         let result: Int
-        let block_height: Int
+        let block_height: Int?
         let balance: Int
         
         struct Input: Codable {
@@ -28,8 +28,10 @@ extension Samourai {
                 let value: Int
                 let addr: String
                 
-                let xpub: Xpub
+                let xpub: Xpub?
             }
+            
+            let prev_out: PrevOut
         }
         
         let inputs: [Input]
@@ -38,7 +40,7 @@ extension Samourai {
             let n: Int
             let value: Int
             let addr: String
-            let xpub: Xpub
+            let xpub: Xpub?
         }
         
         let out: [Output]

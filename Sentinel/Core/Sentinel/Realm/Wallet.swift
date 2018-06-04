@@ -11,6 +11,10 @@ import RealmSwift
 class Wallet: Object {
     @objc dynamic var address = ""
     @objc dynamic var name = ""
-    @objc dynamic var balance = 0
+    let balance = RealmOptional<Int>()
     @objc dynamic var n_tx = 0
+    
+    var addrType: AddressType? {
+        return address.addrType()
+    }
 }

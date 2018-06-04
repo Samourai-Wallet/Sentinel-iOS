@@ -8,7 +8,7 @@
 
 import Foundation
 import PromiseKit
-import HDWallet
+import HDWalletKit
 
 enum AddressType {
     case pub

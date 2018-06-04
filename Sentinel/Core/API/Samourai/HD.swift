@@ -25,8 +25,8 @@ extension Samourai {
         struct Address: Codable {
             let address: String
             let final_balance: Int
-            let account_index: Int
-            let change_index: Int
+            let account_index: Int?
+            let change_index: Int?
             let n_tx: Int
         }
 
