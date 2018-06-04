@@ -67,12 +67,6 @@
                         <barButtonItem key="leftBarButtonItem" image="Settings" id="ea7-jB-Fli">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="+" image="Add" id="JR0-HQ-OOp">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="newWalletAction:" destination="kMk-9q-3Ly" id="e3k-hm-3EO"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="balanceVCContainer" destination="gSV-tO-P0O" id="0Xu-ze-hDx"/>
@@ -85,7 +79,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="25" height="25"/>
         <image name="Settings" width="25" height="25"/>
     </resources>
 </document>
