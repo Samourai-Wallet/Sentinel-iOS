@@ -27,8 +27,6 @@
 		806A8AE320C1F723008AC0CF /* Trx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE220C1F723008AC0CF /* Trx.swift */; };
 		806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */; };
 		806A8AE720C205CC008AC0CF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE620C205CC008AC0CF /* Util.swift */; };
-		806A8AE920C20925008AC0CF /* NoWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE820C20925008AC0CF /* NoWalletViewController.swift */; };
-		806A8AEC20C20933008AC0CF /* NoWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEB20C20933008AC0CF /* NoWalletViewController.xib */; };
 		806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */; };
 		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
 		806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D586720C549F0003C5290 /* SettingsViewController.swift */; };
@@ -78,8 +76,6 @@
 		806A8AE220C1F723008AC0CF /* Trx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trx.swift; sourceTree = "<group>"; };
 		806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit_Moya_Decode.swift; sourceTree = "<group>"; };
 		806A8AE620C205CC008AC0CF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		806A8AE820C20925008AC0CF /* NoWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWalletViewController.swift; sourceTree = "<group>"; };
-		806A8AEB20C20933008AC0CF /* NoWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
 		806D586720C549F0003C5290 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +183,6 @@
 				80C4045620C4AE250086318C /* QRMaker */,
 				80C4044C20C4963A0086318C /* Wallet */,
 				8087CCAB20C2C64600A03D90 /* Wallets */,
-				806A8AEA20C20928008AC0CF /* NoWallet */,
 				806A8AED20C20E31008AC0CF /* NewWallet */,
 				8047AB9020C15C88007541F8 /* Balance */,
 				8047AB9120C15C92007541F8 /* Transactions */,
@@ -232,15 +227,6 @@
 				8087CCB420C3130800A03D90 /* AddressType.swift */,
 			);
 			path = Sentinel;
-			sourceTree = "<group>";
-		};
-		806A8AEA20C20928008AC0CF /* NoWallet */ = {
-			isa = PBXGroup;
-			children = (
-				806A8AE820C20925008AC0CF /* NoWalletViewController.swift */,
-				806A8AEB20C20933008AC0CF /* NoWalletViewController.xib */,
-			);
-			path = NoWallet;
 			sourceTree = "<group>";
 		};
 		806A8AED20C20E31008AC0CF /* NewWallet */ = {
@@ -440,7 +426,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */,
-				806A8AEC20C20933008AC0CF /* NoWalletViewController.xib in Resources */,
 				806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
@@ -539,7 +524,6 @@
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
 				806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */,
-				806A8AE920C20925008AC0CF /* NoWalletViewController.swift in Sources */,
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
 				8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */,
