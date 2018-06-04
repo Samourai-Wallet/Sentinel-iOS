@@ -8,20 +8,30 @@
 
 import UIKit
 import SwiftRichString
+import RealmSwift
 
 class BalanceViewController: UIViewController {
-    @IBOutlet var balanceLabel: UILabel!
-    let balance: Int
-    
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
-    init(balance: Int) {
-        self.balance = balance
+    let sentinel: Sentinel
+    var wallet: Wallet?
+    var notificationToken: NotificationToken? = nil
+    @IBOutlet var balanceLabel: UILabel!
+    
+    init(sentinel: Sentinel, wallet: Wallet? = nil) {
+        self.sentinel = sentinel
+        self.wallet = wallet
         super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationToken = sentinel.realm.objects(Wallet.self).observe({ (change) in
+            self.updateBalance(wallet: self.wallet)
+        })
+    }
+    
+    func updateBalance(wallet: Wallet? = nil) {
         
         let balanceStyle = Style {
             $0.font = UIFont.robotoMono(size: 40)
@@ -31,6 +41,11 @@ class BalanceViewController: UIViewController {
             $0.font = UIFont.robotoMono(size: 20)
         }
         
-        balanceLabel.attributedText = "\(balance.btc())".set(style: balanceStyle) + "BTC".set(style: btcStyle)
+        if let wallet = wallet {
+            guard let balance = wallet.balance.value?.btc() else { return }
+            balanceLabel.attributedText = "\(balance)".set(style: balanceStyle) + "BTC".set(style: btcStyle)
+        } else {
+            balanceLabel.attributedText = "\(sentinel.totalBalance().btc())".set(style: balanceStyle) + "BTC".set(style: btcStyle)
+        }
     }
 }

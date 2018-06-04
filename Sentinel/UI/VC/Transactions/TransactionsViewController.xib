@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransactionsViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
+                <outlet property="notrx" destination="bqo-ym-NJ8" id="UZW-mL-0gW"/>
                 <outlet property="transactionsTableView" destination="Bqo-qP-qYo" id="aJo-IP-AQi"/>
                 <outlet property="view" destination="iN0-l3-epB" id="g4r-rf-VbB"/>
             </connections>
@@ -21,16 +22,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="singleLineEtched" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bqo-qP-qYo">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bqo-qP-qYo">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="separatorInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="TO6-OJ-pm4"/>
                         <outlet property="delegate" destination="-1" id="5ae-ZW-BHc"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No transactions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqo-ym-NJ8">
+                    <rect key="frame" x="126.5" y="333" width="121" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.15294117647058825" green="0.17254901960784313" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -38,6 +45,8 @@
                 <constraint firstItem="Bqo-qP-qYo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="H2N-iL-WKj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Bqo-qP-qYo" secondAttribute="trailing" id="Mq3-ZZ-UA3"/>
                 <constraint firstItem="Bqo-qP-qYo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qlm-F2-8Xv"/>
+                <constraint firstItem="bqo-ym-NJ8" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="mKl-Oz-i3B"/>
+                <constraint firstItem="bqo-ym-NJ8" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="roB-0T-TiW"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

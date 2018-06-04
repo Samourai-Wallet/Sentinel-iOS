@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WalletsViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
+                <outlet property="noaddr" destination="Ab8-95-mLs" id="coM-kU-b4N"/>
                 <outlet property="view" destination="iN0-l3-epB" id="m2o-dx-eWa"/>
                 <outlet property="walletsTableView" destination="Fi1-qB-DFQ" id="m4l-KA-YHm"/>
             </connections>
@@ -21,21 +22,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="singleLineEtched" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fi1-qB-DFQ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelectionDuringEditing="YES" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fi1-qB-DFQ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="separatorInset" minX="24" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Jco-cb-Jmn"/>
+                        <outlet property="delegate" destination="-1" id="JPT-gv-L04"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No addresses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-95-mLs">
+                    <rect key="frame" x="127" y="323" width="121" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Fi1-qB-DFQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7mr-GA-WrT"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fi1-qB-DFQ" secondAttribute="bottom" id="ABN-TY-NkO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fi1-qB-DFQ" secondAttribute="trailing" id="Rqb-Y9-oq5"/>
+                <constraint firstItem="Ab8-95-mLs" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WjO-Iy-3nY"/>
+                <constraint firstItem="Ab8-95-mLs" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Wjw-WM-Gng"/>
                 <constraint firstItem="Fi1-qB-DFQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ekY-ln-2nn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

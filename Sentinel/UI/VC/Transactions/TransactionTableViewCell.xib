@@ -31,7 +31,6 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="arrowIn" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-Le-EHw">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
-                                        <color key="tintColor" red="0.21176470588235294" green="0.8666666666666667" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="pen-bs-tVX"/>
                                         </constraints>
@@ -56,7 +55,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="5.0 BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0y5-9J-YNs">
                                                 <rect key="frame" x="0.0" y="0.0" width="259" height="24"/>
                                                 <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="18"/>
-                                                <color key="textColor" red="0.21176470589999999" green="0.86666666670000003" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.35686274509803922" green="0.84313725490196079" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Wallet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-rL-Oef">
@@ -70,7 +69,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL4-2M-0pk">
                                         <rect key="frame" x="269" y="0.0" width="56" height="43"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" red="0.99215686274509807" green="0.81176470588235294" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.87058823529411766" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -86,6 +85,13 @@
                     <constraint firstAttribute="bottom" secondItem="IjL-rV-HYd" secondAttribute="bottom" constant="10" id="qh6-a6-fwU"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="indicatorImageView" destination="VZb-Le-EHw" id="wBL-b1-DnU"/>
+                <outlet property="statusLabel" destination="sL4-2M-0pk" id="H8A-j3-9b0"/>
+                <outlet property="timeLabel" destination="HJ4-SM-Din" id="bfB-V6-mez"/>
+                <outlet property="valueLabel" destination="0y5-9J-YNs" id="UjR-QS-Ctm"/>
+                <outlet property="walletNameLabel" destination="JTa-rL-Oef" id="QdF-k9-nPs"/>
+            </connections>
             <point key="canvasLocation" x="364.5" y="-243"/>
         </tableViewCell>
     </objects>
