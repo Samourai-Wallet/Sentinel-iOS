@@ -31,6 +31,8 @@
 		806A8AEC20C20933008AC0CF /* NoWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEB20C20933008AC0CF /* NoWalletViewController.xib */; };
 		806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */; };
 		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
+		806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D586720C549F0003C5290 /* SettingsViewController.swift */; };
+		806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D586920C549F8003C5290 /* SettingsViewController.xib */; };
 		806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0A20C089C200C6F76E /* Transaction.swift */; };
 		806E2A0D20C092F000C6F76E /* HD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0C20C092F000C6F76E /* HD.swift */; };
 		806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0E20C09A9500C6F76E /* Unspent.swift */; };
@@ -43,6 +45,14 @@
 		8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */; };
 		8087CCB520C3130800A03D90 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB420C3130800A03D90 /* AddressType.swift */; };
 		8087CCB820C3444300A03D90 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB720C3444300A03D90 /* Wallet.swift */; };
+		80C4044E20C496480086318C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4044D20C496480086318C /* WalletViewController.swift */; };
+		80C4045020C496670086318C /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4044F20C496660086318C /* WalletViewController.xib */; };
+		80C4045220C4A2880086318C /* TrxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045120C4A2880086318C /* TrxViewController.swift */; };
+		80C4045520C4A2BB0086318C /* TrxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4045420C4A2BB0086318C /* TrxViewController.xib */; };
+		80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045720C4AE3A0086318C /* QRMakerViewController.swift */; };
+		80C4045A20C4AE4A0086318C /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4045920C4AE4A0086318C /* QRMakerViewController.xib */; };
+		80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045B20C4AEEA0086318C /* QRMaker.swift */; };
+		80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1FFA620C4394F004245EF /* WalletTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +82,8 @@
 		806A8AEB20C20933008AC0CF /* NoWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
+		806D586720C549F0003C5290 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		806D586920C549F8003C5290 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		806E2A0A20C089C200C6F76E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		806E2A0C20C092F000C6F76E /* HD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HD.swift; sourceTree = "<group>"; };
 		806E2A0E20C09A9500C6F76E /* Unspent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unspent.swift; sourceTree = "<group>"; };
@@ -85,6 +97,14 @@
 		8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		8087CCB420C3130800A03D90 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
 		8087CCB720C3444300A03D90 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		80C4044D20C496480086318C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		80C4044F20C496660086318C /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
+		80C4045120C4A2880086318C /* TrxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrxViewController.swift; sourceTree = "<group>"; };
+		80C4045420C4A2BB0086318C /* TrxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrxViewController.xib; sourceTree = "<group>"; };
+		80C4045720C4AE3A0086318C /* QRMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMakerViewController.swift; sourceTree = "<group>"; };
+		80C4045920C4AE4A0086318C /* QRMakerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRMakerViewController.xib; sourceTree = "<group>"; };
+		80C4045B20C4AEEA0086318C /* QRMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaker.swift; sourceTree = "<group>"; };
+		80F1FFA620C4394F004245EF /* WalletTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransaction.swift; sourceTree = "<group>"; };
 		88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +152,6 @@
 		8047AB8B20C15801007541F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				8087CCA520C2B79900A03D90 /* BottomMerged */,
 				8047AB9B20C16369007541F8 /* Flow */,
 				8047AB9A20C1635E007541F8 /* VC */,
 				8047AB9E20C163A4007541F8 /* Extension */,
@@ -164,11 +183,15 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				806D586620C54866003C5290 /* Settings */,
+				80C4045620C4AE250086318C /* QRMaker */,
+				80C4044C20C4963A0086318C /* Wallet */,
 				8087CCAB20C2C64600A03D90 /* Wallets */,
 				806A8AEA20C20928008AC0CF /* NoWallet */,
 				806A8AED20C20E31008AC0CF /* NewWallet */,
 				8047AB9020C15C88007541F8 /* Balance */,
 				8047AB9120C15C92007541F8 /* Transactions */,
+				80C4045320C4A28E0086318C /* Trx */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -176,6 +199,7 @@
 		8047AB9B20C16369007541F8 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				8087CCA520C2B79900A03D90 /* BottomMerged */,
 				8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */,
 			);
 			path = Flow;
@@ -226,6 +250,15 @@
 				806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */,
 			);
 			path = NewWallet;
+			sourceTree = "<group>";
+		};
+		806D586620C54866003C5290 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				806D586720C549F0003C5290 /* SettingsViewController.swift */,
+				806D586920C549F8003C5290 /* SettingsViewController.xib */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		80724C0320C069B3005EC9A1 /* API */ = {
@@ -295,8 +328,37 @@
 			isa = PBXGroup;
 			children = (
 				8087CCB720C3444300A03D90 /* Wallet.swift */,
+				80F1FFA620C4394F004245EF /* WalletTransaction.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		80C4044C20C4963A0086318C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				80C4044D20C496480086318C /* WalletViewController.swift */,
+				80C4044F20C496660086318C /* WalletViewController.xib */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		80C4045320C4A28E0086318C /* Trx */ = {
+			isa = PBXGroup;
+			children = (
+				80C4045120C4A2880086318C /* TrxViewController.swift */,
+				80C4045420C4A2BB0086318C /* TrxViewController.xib */,
+			);
+			path = Trx;
+			sourceTree = "<group>";
+		};
+		80C4045620C4AE250086318C /* QRMaker */ = {
+			isa = PBXGroup;
+			children = (
+				80C4045720C4AE3A0086318C /* QRMakerViewController.swift */,
+				80C4045920C4AE4A0086318C /* QRMakerViewController.xib */,
+				80C4045B20C4AEEA0086318C /* QRMaker.swift */,
+			);
+			path = QRMaker;
 			sourceTree = "<group>";
 		};
 		A948E45EF0799050BC9BF0E6 /* Frameworks */ = {
@@ -382,10 +444,14 @@
 				806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
+				80C4045A20C4AE4A0086318C /* QRMakerViewController.xib in Resources */,
+				80C4045520C4A2BB0086318C /* TrxViewController.xib in Resources */,
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
+				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
+				80C4045020C496670086318C /* WalletViewController.xib in Resources */,
 				801E168120C06326003D80FE /* Main.storyboard in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
 				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
@@ -422,9 +488,10 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/HDWallet/HDWallet.framework",
+				"${BUILT_PRODUCTS_DIR}/HDWalletKit/HDWalletKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -435,9 +502,10 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDWallet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDWalletKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -457,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB820C3444300A03D90 /* Wallet.swift in Sources */,
+				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,
 				8087CCA720C2B7CE00A03D90 /* BottomMerged.swift in Sources */,
 				806A8AE720C205CC008AC0CF /* Util.swift in Sources */,
@@ -464,6 +533,8 @@
 				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
 				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
 				806A8AE320C1F723008AC0CF /* Trx.swift in Sources */,
+				80C4044E20C496480086318C /* WalletViewController.swift in Sources */,
+				80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
@@ -472,13 +543,16 @@
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
 				8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */,
+				80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */,
 				8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */,
 				806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */,
 				806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */,
+				806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */,
 				8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */,
 				806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */,
 				8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */,
 				8087CCB520C3130800A03D90 /* AddressType.swift in Sources */,
+				80C4045220C4A2880086318C /* TrxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
   - CryptoSwift (0.10.0)
-  - HDWallet (0.1.0):
+  - HDWalletKit (0.1.0):
     - CryptoSwift (~> 0.10.0)
     - secp256k1.swift (~> 0.1.4)
   - Moya (11.0.2):
@@ -18,6 +18,7 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.2.8):
     - PromiseKit/CorePromise
+  - QRCodeReader.swift (8.2.0)
   - Realm (3.6.0):
     - Realm/Headers (= 3.6.0)
   - Realm/Headers (3.6.0)
@@ -29,9 +30,10 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
-  - HDWallet (from `https://github.com/euwars/HDWallet.git`, commit `4d56af5c9edad8badcd96c69d2bbab66d0b5853d`)
+  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `922a12bd6ed2aec70315a669cba060730f158d2f`)
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
+  - QRCodeReader.swift (~> 8.2.0)
   - RealmSwift (~> 3.6.0)
   - secp256k1.swift (~> 0.1.4)
   - SwiftRichString (~> 2.0.1)
@@ -42,6 +44,7 @@ SPEC REPOS:
     - CryptoSwift
     - Moya
     - PromiseKit
+    - QRCodeReader.swift
     - Realm
     - RealmSwift
     - Result
@@ -49,27 +52,28 @@ SPEC REPOS:
     - SwiftRichString
 
 EXTERNAL SOURCES:
-  HDWallet:
-    :commit: 4d56af5c9edad8badcd96c69d2bbab66d0b5853d
-    :git: https://github.com/euwars/HDWallet.git
+  HDWalletKit:
+    :commit: 922a12bd6ed2aec70315a669cba060730f158d2f
+    :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 CHECKOUT OPTIONS:
-  HDWallet:
-    :commit: 4d56af5c9edad8badcd96c69d2bbab66d0b5853d
-    :git: https://github.com/euwars/HDWallet.git
+  HDWalletKit:
+    :commit: 922a12bd6ed2aec70315a669cba060730f158d2f
+    :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
-  HDWallet: 4c2bdb37c5b794aa81545b2f73185584cdd60ddd
+  HDWalletKit: 9e7edc7c321a66b3a151f5640b3d8afdcd09dae1
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
+  QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
   RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: 950bcde0422f765103b520ddf849b16fee68d1f4
+PODFILE CHECKSUM: bc8a9a31d61bd90c1768c07963742be9c188d606
 
 COCOAPODS: 1.5.2
