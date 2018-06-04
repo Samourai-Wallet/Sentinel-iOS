@@ -14,5 +14,5 @@ target 'Sentinel' do
   pod 'SwiftRichString', '~> 2.0.1'
   pod 'RealmSwift', '~> 3.6.0'
   pod 'QRCodeReader.swift', '~> 8.2.0'
-  pod 'HDWalletKit', :git => 'https://github.com/Samourai-Wallet/HDWalletKit.git', :commit => '922a12bd6ed2aec70315a669cba060730f158d2f'
+  pod 'HDWalletKit', :git => 'https://github.com/Samourai-Wallet/HDWalletKit.git', :commit => '038e23a64f70090ff5068fbcc8f91fa925e26540'
 end

@@ -41,6 +41,11 @@ class BalanceViewController: UIViewController {
             $0.font = UIFont.robotoMono(size: 20)
         }
         
+        guard sentinel.numberOfWallets > 0 else {
+            balanceLabel.text = "--"
+            return
+        }
+        
         if let wallet = wallet {
             guard let balance = wallet.balance.value?.btc() else { return }
             balanceLabel.attributedText = "\(balance)".set(style: balanceStyle) + "BTC".set(style: btcStyle)

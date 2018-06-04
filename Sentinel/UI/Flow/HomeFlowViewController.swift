@@ -13,7 +13,7 @@ protocol HomeFlowDelegate {
     func editStateChanged(isEditing: Bool)
 }
 
-class HomeFlowViewController: UIViewController {
+class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate {
     @IBOutlet var balanceVCContainer: UIView!
     @IBOutlet var transactionsVCContainer: UIView!
     
@@ -25,12 +25,15 @@ class HomeFlowViewController: UIViewController {
         self.transition(to: transactionsVCContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(sentinel: sentinel), completion: nil)
         sentinel.update()
-        
-        toggleBarItems()
-    }
-    
-    @IBAction func newWalletAction(_ sender: UIBarButtonItem) {
-
+     
+        if sentinel.numberOfWallets == 0 {
+            let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
+            let settings = UIBarButtonItem(image: UIImage(named: "Settings")!, style: .plain, target: self, action: #selector(showSettings))
+            self.navigationItem.rightBarButtonItems = [add]
+            self.navigationItem.leftBarButtonItems = [settings]
+        } else {
+            toggleBarItems()
+        }
     }
     
     var isEditingToggles = true
@@ -59,7 +62,14 @@ class HomeFlowViewController: UIViewController {
     
     @objc func showNewAddress() {
         let vc = NewWalletViewController(sentinel: sentinel)
+        vc.delegate = self
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
+    }
+    
+    func newAccontAdded() {
+        if sentinel.numberOfWallets == 1 {
+            toggleBarItems()
+        }
     }
 }

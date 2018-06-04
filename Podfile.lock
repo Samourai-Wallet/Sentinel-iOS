@@ -30,7 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
-  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `922a12bd6ed2aec70315a669cba060730f158d2f`)
+  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `038e23a64f70090ff5068fbcc8f91fa925e26540`)
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
   - QRCodeReader.swift (~> 8.2.0)
@@ -53,12 +53,12 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   HDWalletKit:
-    :commit: 922a12bd6ed2aec70315a669cba060730f158d2f
+    :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 CHECKOUT OPTIONS:
   HDWalletKit:
-    :commit: 922a12bd6ed2aec70315a669cba060730f158d2f
+    :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 SPEC CHECKSUMS:
@@ -74,6 +74,6 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: bc8a9a31d61bd90c1768c07963742be9c188d606
+PODFILE CHECKSUM: 1ce4f6d02b447566a44a280c685810f6ace29844
 
 COCOAPODS: 1.5.2

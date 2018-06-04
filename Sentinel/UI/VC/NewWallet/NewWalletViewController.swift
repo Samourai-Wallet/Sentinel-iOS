@@ -9,11 +9,16 @@
 import UIKit
 import QRCodeReader
 
+protocol NewWalletViewControllerDelegate {
+    func newAccontAdded()
+}
+
 class NewWalletViewController: UIViewController, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
     let wallet: Wallet?
+    var delegate: NewWalletViewControllerDelegate?
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var qrScanButton: UIButton!
@@ -69,6 +74,7 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
                 })
         }else {
             _ = sentinel.addWallet(name: nameTextField.text, addr: addressTextField.text).done {
+                self.delegate?.newAccontAdded()
                 self.dismiss(animated: true, completion: nil)
                 }.catch { (err) in
                     let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)

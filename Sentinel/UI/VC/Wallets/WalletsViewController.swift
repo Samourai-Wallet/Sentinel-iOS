@@ -67,9 +67,17 @@ extension WalletsViewController: UITableViewDelegate {
         if tableView.isEditing {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let qr = UIAlertAction(title: "Show QR", style: .default) { (action) in
-                let qrVC = QRMakerViewController(wallet: self.sentinel.wallet(forRow: indexPath.row))
+            let qr = UIAlertAction(title: "Account QR", style: .default) { (action) in
+                let qrVC = QRMakerViewController(wallet: self.sentinel.wallet(forRow: indexPath.row), isReciving: false)
                 self.show(qrVC, sender: self)
+                if let selected = self.walletsTableView.indexPathForSelectedRow {
+                    self.walletsTableView.deselectRow(at: selected, animated: true)
+                }
+            }
+            if (self.sentinel.wallet(forRow: indexPath.row).accIndex.value != nil) {
+                qr.isEnabled = false
+            }else{
+                qr.isEnabled = true
             }
             alertController.addAction(qr)
             

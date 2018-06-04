@@ -7,33 +7,68 @@
 //
 
 import UIKit
+import HDWalletKit
 
 class QRMakerViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
-
+    
     let wallet: Wallet
+    let isReciving: Bool
     @IBOutlet var qrImageView: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
-
-    init(wallet: Wallet) {
+    
+    init(wallet: Wallet, isReciving: Bool) {
         self.wallet = wallet
+        self.isReciving = isReciving
         super.init(nibName: nil, bundle: nil)
-        self.title = "Deposit Address"
+        if isReciving {
+            self.title = "Receiving Address"
+        }else{
+            self.title = "Account QR"
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var str = wallet.address
-        if wallet.address.addrType() == .bech32 {
-            str = wallet.address.uppercased()
+        guard let type = wallet.address.addrType() else {
+            return
         }
         
+        var str = ""
+        
+        do {
+            if isReciving {
+                switch type {
+                case .bech32:
+                    str = wallet.address.uppercased()
+                case .pub:
+                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).address
+                case .bip49:
+                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP49
+                case .bip84:
+                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84
+                case .p2pkh, .p2sh:
+                    str = wallet.address
+                }
+                addressLabel.text = str
+            }else{
+                if type == .bech32 {
+                    str = wallet.address.uppercased()
+                    addressLabel.text = wallet.address
+                }else {
+                    addressLabel.text = wallet.address
+                    str = wallet.address
+                }
+            }
+        } catch let err{
+            print(err.localizedDescription)
+        }
+
+        print(str)
         let new = QRCode(str)
         qrImageView.image = new?.image
         
-        addressLabel.text = wallet.address
         nameLabel.text = wallet.name
     }
 }

@@ -35,7 +35,7 @@ class WalletViewController: UIViewController {
     }
     
     @objc func showQR() {
-        let qrVC = QRMakerViewController(wallet: wallet)
+        let qrVC = QRMakerViewController(wallet: wallet, isReciving: true)
         show(qrVC, sender: self)
     }
 }
