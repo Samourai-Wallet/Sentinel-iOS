@@ -74,9 +74,10 @@ extension WalletsViewController: UITableViewDelegate {
                     self.walletsTableView.deselectRow(at: selected, animated: true)
                 }
             }
-            if (self.sentinel.wallet(forRow: indexPath.row).accIndex.value != nil) {
-                qr.isEnabled = false
-            }else{
+            switch self.sentinel.wallet(forRow: indexPath.row).address.addrType()! {
+            case .pub, .bip84, .bip49:
+                if !(self.sentinel.wallet(forRow: indexPath.row).accIndex.value != nil) { qr.isEnabled = false }
+            default:
                 qr.isEnabled = true
             }
             alertController.addAction(qr)

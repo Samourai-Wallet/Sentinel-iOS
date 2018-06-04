@@ -33,7 +33,11 @@ class TransactionTableViewCell: UITableViewCell {
         
         valueLabel.text = "\(abs(walletTransaction.value).btc())"
         walletNameLabel.text = walletTransaction.wallet?.name
-        statusLabel.isHidden = walletTransaction.isConfirmed
+        if walletTransaction.conf == 3 {
+            statusLabel.isHidden = true
+        }else{
+            statusLabel.isHidden = false
+        }
         let date = Date(timeIntervalSince1970: TimeInterval(walletTransaction.time))
         let df = DateFormatter()
         df.dateFormat = "HH:mm"

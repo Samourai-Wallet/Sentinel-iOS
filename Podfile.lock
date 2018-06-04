@@ -4,6 +4,7 @@ PODS:
   - HDWalletKit (0.1.0):
     - CryptoSwift (~> 0.10.0)
     - secp256k1.swift (~> 0.1.4)
+  - lottie-ios (2.5.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
   - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `038e23a64f70090ff5068fbcc8f91fa925e26540`)
+  - lottie-ios (~> 2.5.0)
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
   - QRCodeReader.swift (~> 8.2.0)
@@ -42,6 +44,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CryptoSwift
+    - lottie-ios
     - Moya
     - PromiseKit
     - QRCodeReader.swift
@@ -65,6 +68,7 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
   HDWalletKit: 9e7edc7c321a66b3a151f5640b3d8afdcd09dae1
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
@@ -74,6 +78,6 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: 1ce4f6d02b447566a44a280c685810f6ace29844
+PODFILE CHECKSUM: bb81ead515ccd18884dd64ce39d036328c072fc0
 
 COCOAPODS: 1.5.2

@@ -198,14 +198,18 @@ extension Sentinel {
                 }
             })
             
-            
             hd.txs.forEach { (transaction) in
                 let wTransaction = WalletTransaction()
                 wTransaction.txid = transaction.hash
                 wTransaction.value = transaction.result
                 wTransaction.time = transaction.time
-                if (transaction.block_height != nil) {
-                    wTransaction.isConfirmed = true
+                if let bHeight = transaction.block_height {
+                    let confirmations = (hd.info.latest_block.height - bHeight) + 1
+                    if confirmations > 2 {
+                        wTransaction.conf = 3
+                    }else{
+                        wTransaction.conf = confirmations
+                    }
                 }
                 
                 transaction.inputs.forEach({ (input) in

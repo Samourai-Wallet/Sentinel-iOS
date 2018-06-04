@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController" customModule="Sentinel" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StreetPriceViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
-                <outlet property="settingsTableView" destination="Neq-rW-21A" id="YVt-f6-QpO"/>
-                <outlet property="view" destination="iN0-l3-epB" id="fPD-rC-32r"/>
+                <outlet property="streetPriceTableView" destination="1r9-gu-PNc" id="tbf-LR-KMC"/>
+                <outlet property="view" destination="iN0-l3-epB" id="PZ4-dd-y3Y"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,22 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-rW-21A">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1r9-gu-PNc">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="L0b-wN-nw7"/>
-                        <outlet property="delegate" destination="-1" id="m6o-tg-pOj"/>
+                        <outlet property="dataSource" destination="-1" id="nNt-Ta-5Ju"/>
+                        <outlet property="delegate" destination="-1" id="zfT-IX-RbZ"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Neq-rW-21A" secondAttribute="bottom" id="U3F-v3-0Rq"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Neq-rW-21A" secondAttribute="trailing" id="V6d-dL-kqJ"/>
-                <constraint firstItem="Neq-rW-21A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZLE-GZ-8jf"/>
-                <constraint firstItem="Neq-rW-21A" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="blN-q0-Cr8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1r9-gu-PNc" secondAttribute="trailing" id="MeJ-yN-g44"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="1r9-gu-PNc" secondAttribute="bottom" id="Yb5-E0-O7t"/>
+                <constraint firstItem="1r9-gu-PNc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bgM-D0-Tlg"/>
+                <constraint firstItem="1r9-gu-PNc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uaf-VP-7oT"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>

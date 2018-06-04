@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomMergedViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
+                <outlet property="animationContainer" destination="jsm-ft-g28" id="USJ-by-8Oj"/>
+                <outlet property="bottomScrollView" destination="hx6-WK-fEW" id="XoY-a3-oD7"/>
                 <outlet property="leftContainer" destination="EPR-jS-5fp" id="3JY-Rp-2u1"/>
                 <outlet property="rightContainer" destination="wtz-MH-67w" id="j9C-1E-1hB"/>
                 <outlet property="view" destination="iN0-l3-epB" id="y5h-Hr-2Jt"/>
@@ -38,7 +40,7 @@
                                     <color key="backgroundColor" red="0.0" green="0.75547796487808228" blue="0.41658711433410645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="wtz-MH-67w" secondAttribute="bottom" id="36R-uv-j5q"/>
                                 <constraint firstItem="wtz-MH-67w" firstAttribute="width" secondItem="eSF-5f-uq1" secondAttribute="width" multiplier="0.5" id="5df-hp-c7N"/>
@@ -59,16 +61,39 @@
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="leading" secondItem="hx6-WK-fEW" secondAttribute="leading" id="pWP-Cb-vhO"/>
                         <constraint firstAttribute="bottom" secondItem="eSF-5f-uq1" secondAttribute="bottom" id="wg0-mC-cWa"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="7GG-5e-f6x"/>
+                    </connections>
                 </scrollView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-ft-g28" customClass="LOTAnimationView">
+                    <rect key="frame" x="127" y="573" width="120" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="3G3-7U-C5z"/>
+                        <constraint firstAttribute="height" constant="44" id="EyT-6O-tWL"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="tVl-FG-3wm" appends="YES" id="JeF-u6-8a5"/>
+                    </connections>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.15294117647058825" green="0.17254901960784313" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hx6-WK-fEW" secondAttribute="trailing" id="2AM-mW-25c"/>
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bG1-EO-q3o"/>
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bR1-yD-cIM"/>
+                <constraint firstItem="jsm-ft-g28" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f4K-Sl-yL7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hx6-WK-fEW" secondAttribute="bottom" id="pPl-gb-fXd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" constant="50" id="yYI-lo-Xkg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
+        <tapGestureRecognizer id="tVl-FG-3wm">
+            <connections>
+                <action selector="animationContainerTapped:" destination="-1" id="2U1-pC-Ftn"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

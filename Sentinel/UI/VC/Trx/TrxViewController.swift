@@ -34,12 +34,7 @@ class TrxViewController: UIViewController {
             amountLabel.text = "\(walletTransaction.value.btc())"
         }
         
-        if walletTransaction.isConfirmed {
-            statusLabel.text = "Confirmed"
-            statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.8431372549, blue: 0.4156862745, alpha: 1)
-        }else{
-            statusLabel.text = "Pending"
-        }
+        statusLabel.text = walletTransaction.status()
         
         let fmt = NumberFormatter()
         fmt.numberStyle = .decimal

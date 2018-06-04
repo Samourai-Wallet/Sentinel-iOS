@@ -12,6 +12,7 @@ target 'Sentinel' do
   pod 'Moya', '~> 11.0.2'
   pod 'secp256k1.swift', '~> 0.1.4'
   pod 'SwiftRichString', '~> 2.0.1'
+  pod 'lottie-ios', '~> 2.5.0'
   pod 'RealmSwift', '~> 3.6.0'
   pod 'QRCodeReader.swift', '~> 8.2.0'
   pod 'HDWalletKit', :git => 'https://github.com/Samourai-Wallet/HDWalletKit.git', :commit => '038e23a64f70090ff5068fbcc8f91fa925e26540'

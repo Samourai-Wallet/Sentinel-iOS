@@ -9,7 +9,7 @@
 import RealmSwift
 
 class WalletTransaction: Object {
-    @objc dynamic var isConfirmed = false
+    @objc dynamic var conf = 0
     @objc dynamic var time = 0
     @objc dynamic var value = 0
     @objc dynamic var txid = ""
@@ -17,5 +17,12 @@ class WalletTransaction: Object {
     
     override static func primaryKey() -> String? {
         return "txid"
+    }
+    
+    func status() -> String {
+        if conf < 3 {
+            return "Pending \(conf)/3"
+        }
+        return "Confirmed"
     }
 }

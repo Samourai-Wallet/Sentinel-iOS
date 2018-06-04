@@ -55,7 +55,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     }
     
     @objc func showSettings() {
-        let vc = SettingsViewController()
+        let vc = UINavigationController(rootViewController: SettingsViewController(sentinel: sentinel))
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }

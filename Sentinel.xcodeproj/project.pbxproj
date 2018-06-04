@@ -31,11 +31,14 @@
 		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
 		806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D586720C549F0003C5290 /* SettingsViewController.swift */; };
 		806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D586920C549F8003C5290 /* SettingsViewController.xib */; };
+		806D588220C5DA1F003C5290 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 806D588120C5DA1F003C5290 /* data.json */; };
+		806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */; };
+		806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D588720C5F204003C5290 /* StreetPriceViewController.xib */; };
 		806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0A20C089C200C6F76E /* Transaction.swift */; };
 		806E2A0D20C092F000C6F76E /* HD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0C20C092F000C6F76E /* HD.swift */; };
 		806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0E20C09A9500C6F76E /* Unspent.swift */; };
 		80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */; };
-		8087CCA720C2B7CE00A03D90 /* BottomMerged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCA620C2B7CE00A03D90 /* BottomMerged.swift */; };
+		8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */; };
 		8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8087CCA820C2B7E900A03D90 /* BottomMergedViewController.xib */; };
 		8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8087CCAC20C2C66700A03D90 /* WalletsViewController.xib */; };
 		8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCAE20C2C66C00A03D90 /* WalletsViewController.swift */; };
@@ -80,12 +83,15 @@
 		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
 		806D586720C549F0003C5290 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		806D586920C549F8003C5290 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		806D588120C5DA1F003C5290 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPriceViewController.swift; sourceTree = "<group>"; };
+		806D588720C5F204003C5290 /* StreetPriceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreetPriceViewController.xib; sourceTree = "<group>"; };
 		806E2A0A20C089C200C6F76E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		806E2A0C20C092F000C6F76E /* HD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HD.swift; sourceTree = "<group>"; };
 		806E2A0E20C09A9500C6F76E /* Unspent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unspent.swift; sourceTree = "<group>"; };
 		80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamouraiProvider.swift; sourceTree = "<group>"; };
 		807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel-Bridging-Header.h"; sourceTree = "<group>"; };
-		8087CCA620C2B7CE00A03D90 /* BottomMerged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMerged.swift; sourceTree = "<group>"; };
+		8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMergedViewController.swift; sourceTree = "<group>"; };
 		8087CCA820C2B7E900A03D90 /* BottomMergedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomMergedViewController.xib; sourceTree = "<group>"; };
 		8087CCAC20C2C66700A03D90 /* WalletsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsViewController.xib; sourceTree = "<group>"; };
 		8087CCAE20C2C66C00A03D90 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				806D588320C5F1EF003C5290 /* StreetPrice */,
 				806D586620C54866003C5290 /* Settings */,
 				80C4045620C4AE250086318C /* QRMaker */,
 				80C4044C20C4963A0086318C /* Wallet */,
@@ -247,6 +254,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		806D588320C5F1EF003C5290 /* StreetPrice */ = {
+			isa = PBXGroup;
+			children = (
+				806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */,
+				806D588720C5F204003C5290 /* StreetPriceViewController.xib */,
+			);
+			path = StreetPrice;
+			sourceTree = "<group>";
+		};
 		80724C0320C069B3005EC9A1 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +309,8 @@
 		8087CCA520C2B79900A03D90 /* BottomMerged */ = {
 			isa = PBXGroup;
 			children = (
-				8087CCA620C2B7CE00A03D90 /* BottomMerged.swift */,
+				8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */,
+				806D588120C5DA1F003C5290 /* data.json */,
 				8087CCA820C2B7E900A03D90 /* BottomMergedViewController.xib */,
 			);
 			path = BottomMerged;
@@ -434,8 +451,10 @@
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
+				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
+				806D588220C5DA1F003C5290 /* data.json in Resources */,
 				80C4045020C496670086318C /* WalletViewController.xib in Resources */,
 				801E168120C06326003D80FE /* Main.storyboard in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
@@ -481,6 +500,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftRichString/SwiftRichString.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -495,6 +515,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRichString.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,9 +531,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB820C3444300A03D90 /* Wallet.swift in Sources */,
+				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,
-				8087CCA720C2B7CE00A03D90 /* BottomMerged.swift in Sources */,
+				8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */,
 				806A8AE720C205CC008AC0CF /* Util.swift in Sources */,
 				806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */,
 				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
