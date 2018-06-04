@@ -68,6 +68,8 @@ extension WalletsViewController: UITableViewDelegate {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             let qr = UIAlertAction(title: "Show QR", style: .default) { (action) in
+                let qrVC = QRMakerViewController(wallet: self.sentinel.wallet(forRow: indexPath.row))
+                self.show(qrVC, sender: self)
             }
             alertController.addAction(qr)
             
