@@ -132,16 +132,18 @@ class Sentinel {
 
 extension Sentinel {
     func update() {
-        updatePrice().then { () -> Promise<Samourai.HD> in
-            return self.getHD()
-            }.then { (hd) -> Promise<Samourai.HD> in
-                return self.updateRealm(hd: hd)
-            }.then({ (hd) -> Promise<Void> in
-                return self.updateTransactions(hd: hd)
-            }).done { () in
-                print("finished")
-            }.catch { (err) in
-                print(err.localizedDescription)
+        if numberOfWallets > 0 {
+            updatePrice().then { () -> Promise<Samourai.HD> in
+                return self.getHD()
+                }.then { (hd) -> Promise<Samourai.HD> in
+                    return self.updateRealm(hd: hd)
+                }.then({ (hd) -> Promise<Void> in
+                    return self.updateTransactions(hd: hd)
+                }).done { () in
+                    print("finished")
+                }.catch { (err) in
+                    print(err.localizedDescription)
+            }
         }
     }
     
