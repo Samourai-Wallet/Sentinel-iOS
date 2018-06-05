@@ -10,20 +10,34 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
     
+    var tapGestureRecognizer: UITapGestureRecognizer!
+    var fiatPrice = false
+    var transaction: WalletTransaction!
     @IBOutlet var indicatorImageView: UIImageView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var valueLabel: UILabel!
     @IBOutlet var walletNameLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        NotificationCenter.default.addObserver(self, selector: #selector(toggleAndUpdate), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = contentView.backgroundColor
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
+        valueLabel.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func setData(walletTransaction: WalletTransaction) {
-        
-        if walletTransaction.value < 0 {
+        self.transaction = walletTransaction
+        update()
+    }
+    
+    private func update() {
+        if transaction.value < 0 {
             valueLabel.textColor = UIColor.white
             indicatorImageView.image = UIImage(named: "arrowOut")!
         } else {
@@ -31,16 +45,30 @@ class TransactionTableViewCell: UITableViewCell {
             indicatorImageView.image = UIImage(named: "arrowIn")!
         }
         
-        valueLabel.text = "\(abs(walletTransaction.value).btc())"
-        walletNameLabel.text = walletTransaction.wallet?.name
-        if walletTransaction.conf == 3 {
+        if fiatPrice {
+            valueLabel.text = "\((Float(abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price")))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
+        }else {
+            valueLabel.text = "\(abs(transaction.value).btc()) BTC"
+        }
+        
+        walletNameLabel.text = transaction.wallet?.name
+        if transaction.conf == 3 {
             statusLabel.isHidden = true
         }else{
             statusLabel.isHidden = false
         }
-        let date = Date(timeIntervalSince1970: TimeInterval(walletTransaction.time))
+        let date = Date(timeIntervalSince1970: TimeInterval(transaction.time))
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
         timeLabel.text = df.string(from: date)
+    }
+    
+    @objc func toggleAndUpdate() {
+        self.fiatPrice = !self.fiatPrice
+        self.update()
+    }
+    
+    @objc func priceTapped() {
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "TogglePrice")))
     }
 }

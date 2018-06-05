@@ -15,6 +15,7 @@ class Sentinel {
     
     let realm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     let samouraiAPI = MoyaProvider<Samourai>()
+    let streetPriceAPI = MoyaProvider<StreetPrice>()
     
     enum Errors: Error, LocalizedError {
         case unvalidAddres
@@ -22,6 +23,7 @@ class Sentinel {
         case walletAdressAlreadyDup
         case noName
         case noAddress
+        case noPrice
         
         public var errorDescription: String? {
             switch self {
@@ -35,6 +37,8 @@ class Sentinel {
                 return "Please enter a name"
             case .noAddress:
                 return "Please enter a address"
+            case .noPrice:
+                return "Failed to obtain stree price"
             }
         }
     }
@@ -128,8 +132,10 @@ class Sentinel {
 
 extension Sentinel {
     func update() {
-        getHD().then { (hd) -> Promise<Samourai.HD> in
-            return self.updateRealm(hd: hd)
+        updatePrice().then { () -> Promise<Samourai.HD> in
+            return self.getHD()
+            }.then { (hd) -> Promise<Samourai.HD> in
+                return self.updateRealm(hd: hd)
             }.then({ (hd) -> Promise<Void> in
                 return self.updateTransactions(hd: hd)
             }).done { () in
@@ -258,6 +264,67 @@ extension Sentinel {
                 realm.delete(wallet)
             }
         }catch {}
+    }
+}
+
+extension Sentinel {
+    //StreetPrice
+    func updatePrice() -> Promise<Void> {
+        return Promise<Void> { seal in
+            if !(UserDefaults.standard.string(forKey: "PriceSourceCurrency") != nil) {
+                _ = UserDefaults.standard.set("Localbitcoins.com USD", forKey: "PriceSourceCurrency")
+            }
+            guard let providerSetting = UserDefaults.standard.string(forKey: "PriceSourceCurrency") else {
+                return
+            }
+            
+            let providerStr = providerSetting.split(separator: " ").first!
+            let currencyStr = String(providerSetting.split(separator: " ").last!)
+            
+            var provider: StreetPrice
+            switch providerStr {
+            case "WEX":
+                provider = .wex(currency: currencyStr)
+            case "Bitfinex":
+                provider = .bitfinex
+            default:
+                provider = .localbitcoins
+            }
+            
+            streetPriceAPI.request(target: provider).then { (response) -> Promise<[String: Any]> in
+                return self.json(data: response.data)
+                }.done { (json) in
+                    if providerStr == "Localbitcoins.com" {
+                        guard let currencyDic = json[currencyStr] as? [String: Any] else { seal.reject(Errors.noPrice); return }
+                        guard let average = currencyDic["avg_12h"] as? String else { seal.reject(Errors.noPrice); return }
+                        _ = UserDefaults.standard.set(Double(average), forKey: "Price")
+                        seal.fulfill(())
+                    }else if providerStr == "WEX" {
+                        guard let currencyDic = json["btc_\(currencyStr.lowercased())"] as? [String: Any] else { seal.reject(Errors.noPrice); return }
+                        guard let average = currencyDic["avg"] as? Double else { seal.reject(Errors.noPrice); return }
+                        _ = UserDefaults.standard.set(average, forKey: "Price")
+                        seal.fulfill(())
+                    }else{
+                        guard let average = json["mid"] as? String else { seal.reject(Errors.noPrice); return }
+                        _ = UserDefaults.standard.set(Double(average), forKey: "Price")
+                        seal.fulfill(())
+                    }
+                }.catch { (err) in
+                    seal.reject(err)
+            }
+        }
+    }
+    
+    private func json(data: Data) -> Promise<[String: Any]> {
+        return Promise<[String: Any]> { seal in
+            do {
+                if let decoded = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    seal.fulfill(decoded)
+                }
+            }catch let err {
+                seal.reject(err)
+            }
+        }
     }
 }
 

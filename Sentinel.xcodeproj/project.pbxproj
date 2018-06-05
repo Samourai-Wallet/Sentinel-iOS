@@ -21,6 +21,7 @@
 		8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */; };
 		8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */; };
 		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
+		8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */; };
 		806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AD520C1E1F3008AC0CF /* Roboto.swift */; };
 		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
 		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
@@ -73,6 +74,7 @@
 		8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowViewController.swift; sourceTree = "<group>"; };
 		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPricesProvider.swift; sourceTree = "<group>"; };
 		806A8AD520C1E1F3008AC0CF /* Roboto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roboto.swift; sourceTree = "<group>"; };
 		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
 		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
@@ -217,6 +219,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		8068206720C6B28600F5F0B2 /* StreetPrices */ = {
+			isa = PBXGroup;
+			children = (
+				8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */,
+			);
+			path = StreetPrices;
+			sourceTree = "<group>";
+		};
 		806A8AD220C1E1BA008AC0CF /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +276,7 @@
 		80724C0320C069B3005EC9A1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				8068206720C6B28600F5F0B2 /* StreetPrices */,
 				807E26CD20C0AAD700B03C4A /* Samourai */,
 			);
 			path = API;
@@ -531,6 +542,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB820C3444300A03D90 /* Wallet.swift in Sources */,
+				8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */,
 				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,

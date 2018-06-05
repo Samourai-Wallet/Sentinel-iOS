@@ -23,20 +23,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="484" height="94.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-qw-wvt">
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-qw-wvt">
                         <rect key="frame" x="24" y="10" width="445" height="74.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="ECN-gO-Ykb">
-                                <rect key="frame" x="0.0" y="0.0" width="295.5" height="74.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="74.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" verticalHuggingPriority="249" text="My Cold Storage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAj-X1-Mso">
-                                        <rect key="frame" x="0.0" y="0.0" width="295.5" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="47.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="ds7a8das98das78dds7a8das98das78dds7a8das98das78d" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-2f-p1f">
-                                        <rect key="frame" x="0.0" y="27.5" width="295.5" height="47"/>
+                                        <rect key="frame" x="0.0" y="27.5" width="314" height="47"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -44,16 +44,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="sg9-As-rGG">
-                                <rect key="frame" x="335.5" y="0.0" width="109.5" height="74.5"/>
+                                <rect key="frame" x="344" y="0.0" width="101" height="74.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="0.24232" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZx-tT-X94">
-                                        <rect key="frame" x="0.0" y="0.0" width="109.5" height="47.5"/>
-                                        <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="26"/>
+                                    <label opaque="NO" contentMode="left" text="0.24232" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZx-tT-X94">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9o-jH-hpQ">
-                                        <rect key="frame" x="84" y="27.5" width="25.5" height="47"/>
+                                    <label opaque="NO" contentMode="left" verticalHuggingPriority="249" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9o-jH-hpQ">
+                                        <rect key="frame" x="75.5" y="27.5" width="25.5" height="47"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -75,6 +75,7 @@
             <connections>
                 <outlet property="addrLabel" destination="QBb-2f-p1f" id="SIq-ic-ZlD"/>
                 <outlet property="balanceLabel" destination="aZx-tT-X94" id="HX0-2h-0rq"/>
+                <outlet property="currencyLabel" destination="P9o-jH-hpQ" id="ae7-LQ-uGO"/>
                 <outlet property="nameLabel" destination="EAj-X1-Mso" id="H8A-rV-tiy"/>
             </connections>
             <point key="canvasLocation" x="209" y="-264"/>
