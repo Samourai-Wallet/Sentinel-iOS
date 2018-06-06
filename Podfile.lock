@@ -36,7 +36,8 @@ DEPENDENCIES:
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
   - QRCodeReader.swift (~> 8.2.0)
-  - RealmSwift (~> 3.6.0)
+  - Realm (from `https://github.com/realm/realm-cocoa`, branch `tg/xcode-10`)
+  - RealmSwift (from `https://github.com/realm/realm-cocoa`, branch `tg/xcode-10`)
   - secp256k1.swift (~> 0.1.4)
   - SwiftRichString (~> 2.0.1)
 
@@ -48,8 +49,6 @@ SPEC REPOS:
     - Moya
     - PromiseKit
     - QRCodeReader.swift
-    - Realm
-    - RealmSwift
     - Result
     - secp256k1.swift
     - SwiftRichString
@@ -58,11 +57,27 @@ EXTERNAL SOURCES:
   HDWalletKit:
     :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
+  Realm:
+    :branch: tg/xcode-10
+    :git: https://github.com/realm/realm-cocoa
+    :submodules: true
+  RealmSwift:
+    :branch: tg/xcode-10
+    :git: https://github.com/realm/realm-cocoa
+    :submodules: true
 
 CHECKOUT OPTIONS:
   HDWalletKit:
     :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
+  Realm:
+    :commit: a49409b1b841fc0913995a44d8f75052f79e05f7
+    :git: https://github.com/realm/realm-cocoa
+    :submodules: true
+  RealmSwift:
+    :commit: a49409b1b841fc0913995a44d8f75052f79e05f7
+    :git: https://github.com/realm/realm-cocoa
+    :submodules: true
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
@@ -73,11 +88,11 @@ SPEC CHECKSUMS:
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
-  RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
+  RealmSwift: ba8dc87e9113a6b854e1445ba253522906cd443e
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: bb81ead515ccd18884dd64ce39d036328c072fc0
+PODFILE CHECKSUM: 0f0f64f520f68f909466adeb965e4eb5338b086e
 
 COCOAPODS: 1.5.3
