@@ -47,7 +47,7 @@ class QRMakerViewController: UIViewController {
                 case .bip49:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP49
                 case .bip84:
-                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84
+                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84.uppercased()
                 case .p2pkh, .p2sh:
                     str = wallet.address
                 }
