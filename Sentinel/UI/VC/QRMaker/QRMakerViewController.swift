@@ -42,16 +42,20 @@ class QRMakerViewController: UIViewController {
                 switch type {
                 case .bech32:
                     str = wallet.address.uppercased()
+                    addressLabel.text = str
                 case .pub:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).address
+                    addressLabel.text = str
                 case .bip49:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP49
+                    addressLabel.text = str
                 case .bip84:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84.uppercased()
+                    addressLabel.text = wallet.address
                 case .p2pkh, .p2sh:
                     str = wallet.address
+                    addressLabel.text = str
                 }
-                addressLabel.text = str
             }else{
                 if type == .bech32 {
                     str = wallet.address.uppercased()
