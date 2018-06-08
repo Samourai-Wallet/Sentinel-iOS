@@ -16,7 +16,8 @@ class SettingsViewController: UIViewController {
     
     let data = ["Street pricee",
                 "Import wallet",
-                "Export wallet"]
+                "Export wallet",
+                "Set pincode"]
     
     init(sentinel: Sentinel) {
         self.sentinel = sentinel
@@ -84,6 +85,9 @@ extension SettingsViewController: UITableViewDelegate {
             show(importVC, sender: self)
         } else if indexPath.row == 2 {
             let importVC = ExportViewController(sentinel: sentinel)
+            show(importVC, sender: self)
+        } else if indexPath.row == 3 {
+            let importVC = PincodeViewController()
             show(importVC, sender: self)
         }
     }

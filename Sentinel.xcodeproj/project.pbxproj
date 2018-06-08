@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
+		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
+		8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8019763520CA8ED20066CAC6 /* PincodeViewController.xib */; };
+		8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */; };
 		801E167C20C06326003D80FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801E167B20C06326003D80FE /* AppDelegate.swift */; };
 		801E168120C06326003D80FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E167F20C06326003D80FE /* Main.storyboard */; };
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
@@ -63,6 +66,9 @@
 
 /* Begin PBXFileReference section */
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeViewController.swift; sourceTree = "<group>"; };
+		8019763520CA8ED20066CAC6 /* PincodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PincodeViewController.xib; sourceTree = "<group>"; };
+		8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationViewController.swift; sourceTree = "<group>"; };
 		801E167820C06326003D80FE /* Sentinel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801E167B20C06326003D80FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801E168020C06326003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +139,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8019763220CA8EB70066CAC6 /* Pincode */ = {
+			isa = PBXGroup;
+			children = (
+				8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */,
+				8019763520CA8ED20066CAC6 /* PincodeViewController.xib */,
+			);
+			path = Pincode;
+			sourceTree = "<group>";
+		};
+		8019763920CAA7860066CAC6 /* RootNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */,
+			);
+			path = RootNavigation;
+			sourceTree = "<group>";
+		};
 		801E166F20C06326003D80FE = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +218,7 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				8019763220CA8EB70066CAC6 /* Pincode */,
 				8068206B20C6DF1500F5F0B2 /* Export */,
 				8068206A20C6DF0D00F5F0B2 /* Import */,
 				806D588320C5F1EF003C5290 /* StreetPrice */,
@@ -213,6 +237,7 @@
 		8047AB9B20C16369007541F8 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				8019763920CAA7860066CAC6 /* RootNavigation */,
 				8087CCA520C2B79900A03D90 /* BottomMerged */,
 				8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */,
 			);
@@ -497,6 +522,7 @@
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
+				8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */,
 				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
@@ -539,6 +565,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/HDWalletKit/HDWalletKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
@@ -554,6 +581,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDWalletKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
@@ -590,6 +618,7 @@
 				80C4044E20C496480086318C /* WalletViewController.swift in Sources */,
 				80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
+				8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */,
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
 				806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */,
@@ -602,6 +631,7 @@
 				8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */,
 				806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */,
 				806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */,
+				8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */,
 				806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */,
 				8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */,
 				806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */,
