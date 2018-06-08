@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomMergedViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
                 <outlet property="animationContainer" destination="jsm-ft-g28" id="USJ-by-8Oj"/>
+                <outlet property="bc" destination="iB4-71-fUc" id="o8E-zD-Vcs"/>
                 <outlet property="bottomScrollView" destination="hx6-WK-fEW" id="XoY-a3-oD7"/>
                 <outlet property="leftContainer" destination="EPR-jS-5fp" id="3JY-Rp-2u1"/>
                 <outlet property="rightContainer" destination="wtz-MH-67w" id="j9C-1E-1hB"/>
@@ -22,25 +23,25 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx6-WK-fEW">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hx6-WK-fEW">
+                    <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSF-5f-uq1">
-                            <rect key="frame" x="0.0" y="0.0" width="750" height="647"/>
+                            <rect key="frame" x="0.0" y="0.0" width="828" height="716"/>
                             <subviews>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPR-jS-5fp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.89587918129999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wtz-MH-67w">
-                                    <rect key="frame" x="375" y="0.0" width="375" height="647"/>
+                                    <rect key="frame" x="414" y="0.0" width="414" height="716"/>
                                     <color key="backgroundColor" red="0.0" green="0.75547796487808228" blue="0.41658711433410645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="wtz-MH-67w" secondAttribute="bottom" id="36R-uv-j5q"/>
                                 <constraint firstItem="wtz-MH-67w" firstAttribute="width" secondItem="eSF-5f-uq1" secondAttribute="width" multiplier="0.5" id="5df-hp-c7N"/>
@@ -53,25 +54,38 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="top" secondItem="hx6-WK-fEW" secondAttribute="top" id="3gr-Kp-kAL"/>
                         <constraint firstAttribute="trailing" secondItem="eSF-5f-uq1" secondAttribute="trailing" id="CM8-uK-vQx"/>
+                        <constraint firstItem="eSF-5f-uq1" firstAttribute="width" secondItem="hx6-WK-fEW" secondAttribute="width" id="Te2-tu-p6q"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="height" secondItem="hx6-WK-fEW" secondAttribute="height" id="WPc-ai-0gS"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="width" secondItem="hx6-WK-fEW" secondAttribute="width" multiplier="2" id="cWU-cv-qgZ"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="leading" secondItem="hx6-WK-fEW" secondAttribute="leading" id="pWP-Cb-vhO"/>
                         <constraint firstAttribute="bottom" secondItem="eSF-5f-uq1" secondAttribute="bottom" id="wg0-mC-cWa"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Te2-tu-p6q"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <mask key="constraints">
+                            <include reference="Te2-tu-p6q"/>
+                            <exclude reference="cWU-cv-qgZ"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="7GG-5e-f6x"/>
                     </connections>
                 </scrollView>
-                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-ft-g28" customClass="LOTAnimationView">
-                    <rect key="frame" x="127" y="573" width="120" height="44"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-ft-g28" customClass="LOTAnimationView">
+                    <rect key="frame" x="147" y="667" width="120" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="120" id="3G3-7U-C5z"/>
-                        <constraint firstAttribute="height" constant="44" id="EyT-6O-tWL"/>
+                        <constraint firstAttribute="height" constant="44" id="LfD-2h-pDT"/>
+                        <constraint firstAttribute="width" constant="120" id="UYp-AP-fwN"/>
                     </constraints>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="tVl-FG-3wm" appends="YES" id="JeF-u6-8a5"/>
@@ -85,10 +99,20 @@
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bG1-EO-q3o"/>
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bR1-yD-cIM"/>
                 <constraint firstItem="jsm-ft-g28" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f4K-Sl-yL7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" constant="25" id="iB4-71-fUc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hx6-WK-fEW" secondAttribute="bottom" id="pPl-gb-fXd"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" constant="50" id="yYI-lo-Xkg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="heightClass=compact-widthClass=compact">
+                <mask key="subviews">
+                    <exclude reference="jsm-ft-g28"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=regular">
+                <mask key="subviews">
+                    <exclude reference="jsm-ft-g28"/>
+                </mask>
+            </variation>
         </view>
         <tapGestureRecognizer id="tVl-FG-3wm">
             <connections>

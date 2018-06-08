@@ -69,7 +69,6 @@ class QRMakerViewController: UIViewController {
             print(err.localizedDescription)
         }
 
-        print(str)
         let new = QRCode(str)
         qrImageView.image = new?.image
         

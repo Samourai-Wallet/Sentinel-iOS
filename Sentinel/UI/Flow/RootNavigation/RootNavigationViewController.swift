@@ -12,19 +12,12 @@ import Locksmith
 class RootNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.checkForPin),
-                                               name:NSNotification.Name.UIApplicationWillEnterForeground,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.checkForPin), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         checkForPin()
     }
     
     @objc func checkForPin() {
-        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil) else {
-            showHome()
-            return
-        }
-        guard let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date else {
+        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil), let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date else {
             showHome()
             return
         }

@@ -24,7 +24,6 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         super.viewDidLoad()
         self.transition(to: transactionsVCContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(sentinel: sentinel), completion: nil)
-        sentinel.update()
      
         if sentinel.numberOfWallets == 0 {
             let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
@@ -34,6 +33,9 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         } else {
             toggleBarItems()
         }
+        
+        sentinel.update()
+        NotificationCenter.default.addObserver(self, selector: #selector(sentinel.update), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     var isEditingToggles = true
@@ -71,5 +73,6 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         if sentinel.numberOfWallets == 1 {
             toggleBarItems()
         }
+        sentinel.update()
     }
 }

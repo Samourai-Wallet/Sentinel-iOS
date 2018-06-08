@@ -140,7 +140,7 @@ class Sentinel {
 }
 
 extension Sentinel {
-    func update() {
+    @objc func update() {
         if numberOfWallets > 0 {
             updatePrice().then { () -> Promise<Samourai.HD> in
                 return self.getHD()
@@ -396,7 +396,6 @@ extension Sentinel {
             }
             
             wallets?.forEach { (iWallet) in
-                print(iWallet)
                 guard let name = iWallet["name"] as? String, let address = iWallet["address"] as? String else {
                     return
                 }

@@ -99,7 +99,8 @@ extension WalletsViewController: UITableViewDelegate {
                 }
             }
             alertController.addAction(cancel)
-            
+            alertController.popoverPresentationController?.sourceRect = view.frame
+            alertController.popoverPresentationController?.sourceView = view
             present(alertController, animated: true)
         }else{
             let wallet = WalletViewController(sentinel: sentinel, wallet: sentinel.wallet(forRow: indexPath.row))

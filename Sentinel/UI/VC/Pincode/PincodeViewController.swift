@@ -100,6 +100,7 @@ class PincodeViewController: UIViewController {
             guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return }
             guard let savedPin = dictionary["pinCodeHash"] as? String else { return }
             if tempPass == savedPin {
+                UserDefaults.standard.set(Date(), forKey: "lastPin")
                 (self.navigationController as! RootNavigationViewController).showHome()
             }
         }else{
