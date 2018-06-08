@@ -18,6 +18,16 @@ class Wallet: Object {
         return address.addrType()
     }
     
+    var raw: [String: Any] {
+        var rawDic: [String: Any] = [:]
+        rawDic["address"] = address
+        rawDic["name"] = name
+        if let index = self.accIndex.value {
+            rawDic["receiveIdx"] = index
+        }
+        return rawDic
+    }
+    
     override static func primaryKey() -> String? {
         return "address"
     }

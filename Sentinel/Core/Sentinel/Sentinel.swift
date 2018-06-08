@@ -10,6 +10,7 @@ import Foundation
 import PromiseKit
 import RealmSwift
 import Moya
+import CryptoSwift
 
 class Sentinel {
     
@@ -24,6 +25,9 @@ class Sentinel {
         case noName
         case noAddress
         case noPrice
+        case nothingToExport
+        case failedToExport
+        case failedToImport
         
         public var errorDescription: String? {
             switch self {
@@ -39,6 +43,12 @@ class Sentinel {
                 return "Please enter a address"
             case .noPrice:
                 return "Failed to obtain stree price"
+            case .nothingToExport:
+                return "You have no account to export"
+            case .failedToExport:
+                return "Failed export the wallet"
+            case .failedToImport:
+                return "Failed import the wallet"
             }
         }
     }
@@ -88,9 +98,8 @@ class Sentinel {
             
             do {
                 try realm.write {
-                    realm.add(newWallet)
+                    realm.add(newWallet, update: true)
                     seal.fulfill(())
-                    update()
                 }
             } catch let err {
                 seal.reject(err)
@@ -355,5 +364,56 @@ extension Sentinel {
             }
         }
         return total
+    }
+}
+
+extension Sentinel {
+    func exportWallet(password: String) -> Promise<String> {
+        return Promise<String> { seal in
+            guard numberOfWallets > 0 else {
+                seal.reject(Errors.nothingToExport)
+                return
+            }
+            
+            var all: [[String: Any]] = []
+            _ = realm.objects(Wallet.self).forEach({ (wallet) in
+                all.append(wallet.raw)
+            })
+            
+            let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
+            let json = try! JSONSerialization.data(withJSONObject: all, options: [])
+            let encrypted = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs7).encrypt(json.bytes).toBase64()!
+            let b64 = try! JSONSerialization.data(withJSONObject: ["version": "2", "payload": encrypted], options: []).base64EncodedString()
+            seal.fulfill(b64)
+        }
+    }
+    
+    func importWallet(input: String, password: String) -> Promise<Void> {
+        return Promise<Void> { seal in
+            let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
+            guard let decodedInputData = Data(base64Encoded: input), let decodedInput = try? JSONSerialization.jsonObject(with: decodedInputData, options: []) as? [String: String], let payload = decodedInput!["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs7).decrypt(Data(base64Encoded: payload)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
+                return
+            }
+            
+            wallets?.forEach { (iWallet) in
+                print(iWallet)
+                guard let name = iWallet["name"] as? String, let address = iWallet["address"] as? String else {
+                    return
+                }
+                
+                do {
+                    try realm.write {
+                        let newWallet = Wallet()
+                        newWallet.name = name
+                        newWallet.address = address
+                        realm.add(newWallet, update: true)
+                    }
+                } catch let err {
+                    seal.reject(err)
+                }
+            }
+            update()
+            seal.fulfill(())
+        }
     }
 }

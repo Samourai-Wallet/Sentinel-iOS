@@ -13,11 +13,10 @@ class SettingsViewController: UIViewController {
     
     let sentinel: Sentinel
     @IBOutlet var settingsTableView: UITableView!
-
+    
     let data = ["Street pricee",
                 "Import wallet",
                 "Export wallet"]
-    
     
     init(sentinel: Sentinel) {
         self.sentinel = sentinel
@@ -80,6 +79,12 @@ extension SettingsViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             let streetPriceVC = StreetPriceViewController(sentinel: sentinel)
             show(streetPriceVC, sender: self)
+        } else if indexPath.row == 1 {
+            let importVC = ImportViewController(sentinel: sentinel)
+            show(importVC, sender: self)
+        } else if indexPath.row == 2 {
+            let importVC = ExportViewController(sentinel: sentinel)
+            show(importVC, sender: self)
         }
     }
 }

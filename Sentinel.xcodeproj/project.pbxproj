@@ -22,6 +22,8 @@
 		8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */; };
 		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
 		8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */; };
+		8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */; };
+		8068206F20C6DF4300F5F0B2 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */; };
 		806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AD520C1E1F3008AC0CF /* Roboto.swift */; };
 		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
 		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
@@ -47,6 +49,8 @@
 		8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */; };
 		8087CCB520C3130800A03D90 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB420C3130800A03D90 /* AddressType.swift */; };
 		8087CCB820C3444300A03D90 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB720C3444300A03D90 /* Wallet.swift */; };
+		80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B2039520C80A6400CF0086 /* ExportViewController.xib */; };
+		80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2039720C80A7000CF0086 /* ExportViewController.swift */; };
 		80C4044E20C496480086318C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4044D20C496480086318C /* WalletViewController.swift */; };
 		80C4045020C496670086318C /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4044F20C496660086318C /* WalletViewController.xib */; };
 		80C4045220C4A2880086318C /* TrxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045120C4A2880086318C /* TrxViewController.swift */; };
@@ -75,6 +79,8 @@
 		8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowViewController.swift; sourceTree = "<group>"; };
 		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPricesProvider.swift; sourceTree = "<group>"; };
+		8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportViewController.xib; sourceTree = "<group>"; };
 		806A8AD520C1E1F3008AC0CF /* Roboto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roboto.swift; sourceTree = "<group>"; };
 		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
 		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 		8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		8087CCB420C3130800A03D90 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
 		8087CCB720C3444300A03D90 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		80B2039520C80A6400CF0086 /* ExportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportViewController.xib; sourceTree = "<group>"; };
+		80B2039720C80A7000CF0086 /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		80C4044D20C496480086318C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		80C4044F20C496660086318C /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
 		80C4045120C4A2880086318C /* TrxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrxViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +195,8 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				8068206B20C6DF1500F5F0B2 /* Export */,
+				8068206A20C6DF0D00F5F0B2 /* Import */,
 				806D588320C5F1EF003C5290 /* StreetPrice */,
 				806D586620C54866003C5290 /* Settings */,
 				80C4045620C4AE250086318C /* QRMaker */,
@@ -225,6 +235,24 @@
 				8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */,
 			);
 			path = StreetPrices;
+			sourceTree = "<group>";
+		};
+		8068206A20C6DF0D00F5F0B2 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */,
+				8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		8068206B20C6DF1500F5F0B2 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				80B2039720C80A7000CF0086 /* ExportViewController.swift */,
+				80B2039520C80A6400CF0086 /* ExportViewController.xib */,
+			);
+			path = Export;
 			sourceTree = "<group>";
 		};
 		806A8AD220C1E1BA008AC0CF /* Fonts */ = {
@@ -427,6 +455,11 @@
 					801E167720C06326003D80FE = {
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -458,7 +491,9 @@
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
 				80C4045A20C4AE4A0086318C /* QRMakerViewController.xib in Resources */,
+				8068206F20C6DF4300F5F0B2 /* ImportViewController.xib in Resources */,
 				80C4045520C4A2BB0086318C /* TrxViewController.xib in Resources */,
+				80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */,
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
@@ -560,8 +595,10 @@
 				806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */,
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
+				8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */,
 				8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */,
 				80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */,
+				80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */,
 				8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */,
 				806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */,
 				806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */,
@@ -726,6 +763,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.samourai.Sentinel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Supporting Files/Sentinel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImportViewController" customModule="Sentinel" customModuleProvider="target">
+            <connections>
+                <outlet property="encryptedTextField" destination="rwf-HK-VT0" id="dwY-Ve-izj"/>
+                <outlet property="passwordTextField" destination="LB6-2t-C3E" id="4BO-1J-pgT"/>
+                <outlet property="view" destination="iN0-l3-epB" id="l94-dg-ey0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rwf-HK-VT0">
+                    <rect key="frame" x="15" y="157" width="345" height="30"/>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1529411765" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ANR-55-lOl"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzd-Xs-uUD">
+                    <rect key="frame" x="15" y="45" width="345" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-2t-C3E">
+                    <rect key="frame" x="15" y="76" width="345" height="30"/>
+                    <color key="backgroundColor" red="0.1333333333" green="0.1529411765" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="textColor" red="0.6705882353" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" textContentType="password"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Dvd-zh-JMT"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encrypted wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA5-1j-xTu">
+                    <rect key="frame" x="15" y="126" width="309" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0H-pp-qPf">
+                    <rect key="frame" x="339" y="126" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="Uac-Do-LTv"/>
+                        <constraint firstAttribute="height" constant="21" id="sFl-ek-rpS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <state key="normal" image="Scan"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.15223172309999999" green="0.1718740761" blue="0.20122173430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rwf-HK-VT0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="4ky-cx-wHv"/>
+                <constraint firstItem="mzd-Xs-uUD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="N4z-Al-cwf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mzd-Xs-uUD" secondAttribute="trailing" constant="15" id="V7N-4w-1cd"/>
+                <constraint firstItem="LB6-2t-C3E" firstAttribute="top" secondItem="mzd-Xs-uUD" secondAttribute="bottom" constant="10" id="apO-M1-AkC"/>
+                <constraint firstItem="uA5-1j-xTu" firstAttribute="top" secondItem="LB6-2t-C3E" secondAttribute="bottom" constant="20" id="cIp-la-D1L"/>
+                <constraint firstItem="mzd-Xs-uUD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="cd0-5X-c72"/>
+                <constraint firstItem="rwf-HK-VT0" firstAttribute="top" secondItem="uA5-1j-xTu" secondAttribute="bottom" constant="10" id="dps-8R-L8e"/>
+                <constraint firstItem="LB6-2t-C3E" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="edm-gi-hhl"/>
+                <constraint firstItem="rwf-HK-VT0" firstAttribute="top" secondItem="s0H-pp-qPf" secondAttribute="bottom" constant="10" id="r1R-Qo-tbf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="LB6-2t-C3E" secondAttribute="trailing" constant="15" id="saB-9g-1ys"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rwf-HK-VT0" secondAttribute="trailing" constant="15" id="tUn-zO-C61"/>
+                <constraint firstItem="uA5-1j-xTu" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="vFp-pm-p6T"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="s0H-pp-qPf" secondAttribute="trailing" constant="15" id="vMy-X3-yLl"/>
+                <constraint firstItem="s0H-pp-qPf" firstAttribute="leading" secondItem="uA5-1j-xTu" secondAttribute="trailing" constant="15" id="wiR-HT-z9R"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Scan" width="25" height="25"/>
+    </resources>
+</document>

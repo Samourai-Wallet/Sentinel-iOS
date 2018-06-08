@@ -10,7 +10,7 @@ import Foundation
 import PromiseKit
 import HDWalletKit
 
-enum AddressType {
+enum AddressType: String {
     case pub
     case bip49
     case bip84
