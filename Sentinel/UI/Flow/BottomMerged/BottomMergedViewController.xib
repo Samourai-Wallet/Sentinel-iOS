@@ -58,23 +58,11 @@
                     <constraints>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="top" secondItem="hx6-WK-fEW" secondAttribute="top" id="3gr-Kp-kAL"/>
                         <constraint firstAttribute="trailing" secondItem="eSF-5f-uq1" secondAttribute="trailing" id="CM8-uK-vQx"/>
-                        <constraint firstItem="eSF-5f-uq1" firstAttribute="width" secondItem="hx6-WK-fEW" secondAttribute="width" id="Te2-tu-p6q"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="height" secondItem="hx6-WK-fEW" secondAttribute="height" id="WPc-ai-0gS"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="width" secondItem="hx6-WK-fEW" secondAttribute="width" multiplier="2" id="cWU-cv-qgZ"/>
                         <constraint firstItem="eSF-5f-uq1" firstAttribute="leading" secondItem="hx6-WK-fEW" secondAttribute="leading" id="pWP-Cb-vhO"/>
                         <constraint firstAttribute="bottom" secondItem="eSF-5f-uq1" secondAttribute="bottom" id="wg0-mC-cWa"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Te2-tu-p6q"/>
-                        </mask>
-                    </variation>
-                    <variation key="heightClass=regular-widthClass=regular">
-                        <mask key="constraints">
-                            <include reference="Te2-tu-p6q"/>
-                            <exclude reference="cWU-cv-qgZ"/>
-                        </mask>
-                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="7GG-5e-f6x"/>
                     </connections>
@@ -104,11 +92,6 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <variation key="heightClass=compact-widthClass=compact">
-                <mask key="subviews">
-                    <exclude reference="jsm-ft-g28"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=regular">
                 <mask key="subviews">
                     <exclude reference="jsm-ft-g28"/>
                 </mask>
