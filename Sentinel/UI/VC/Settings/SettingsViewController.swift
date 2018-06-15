@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Locksmith
 
 class SettingsViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
@@ -14,10 +15,21 @@ class SettingsViewController: UIViewController {
     let sentinel: Sentinel
     @IBOutlet var settingsTableView: UITableView!
     
-    let data = ["Street pricee",
-                "Import wallet",
-                "Export wallet",
-                "Set pincode"]
+    var data: [(String, UIViewController?)] {
+        var items: [(String, UIViewController?)] = [("Street pricee", StreetPriceViewController(sentinel: sentinel)),
+                     ("Import wallet", ImportViewController(sentinel: sentinel)),
+                     ("Export wallet", ExportViewController(sentinel: sentinel)),
+                     ("Set pincode", PincodeViewController(mode: .set))]
+        
+        guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return items }
+        guard (dictionary["pinCodeHash"] as? String) != nil else { return items }
+        
+        items = Array(items.dropLast())
+        items.append(("Remove pincode", PincodeViewController(mode: .remove)))
+        items.append(("Scramble pincode", nil))
+        
+        return items
+    }
     
     init(sentinel: Sentinel) {
         self.sentinel = sentinel
@@ -59,17 +71,35 @@ extension SettingsViewController: UITableViewDataSource {
         return data.count
     }
     
+    var sw: UISwitch {
+        let sw = UISwitch()
+        sw.isOn = UserDefaults.standard.bool(forKey: "isScrambled")
+        sw.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+        return sw
+    }
+    
+    @objc func switchChanged(mySwitch: UISwitch) {
+        UserDefaults.standard.set(mySwitch.isOn, forKey: "isScrambled")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "cell")
         cell.accessoryType = .disclosureIndicator
-        cell.textLabel?.text = data[indexPath.row]
+        cell.textLabel?.text = data[indexPath.row].0
         cell.textLabel?.textColor = UIColor.white
         cell.backgroundColor = #colorLiteral(red: 0.1529411765, green: 0.1725490196, blue: 0.2, alpha: 1)
-        
         if indexPath.row == 0 {
             cell.detailTextLabel?.text = UserDefaults.standard.string(forKey: "PriceSourceCurrency")!
         }else{
             cell.detailTextLabel?.text = nil
+        }
+        
+        if indexPath.row == 4 {
+            cell.selectionStyle = .none
+            cell.accessoryView = sw
+        }else{
+            cell.selectionStyle = .default
+            cell.accessoryView = nil
         }
         return cell
     }
@@ -77,18 +107,7 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let streetPriceVC = StreetPriceViewController(sentinel: sentinel)
-            show(streetPriceVC, sender: self)
-        } else if indexPath.row == 1 {
-            let importVC = ImportViewController(sentinel: sentinel)
-            show(importVC, sender: self)
-        } else if indexPath.row == 2 {
-            let importVC = ExportViewController(sentinel: sentinel)
-            show(importVC, sender: self)
-        } else if indexPath.row == 3 {
-            let importVC = PincodeViewController()
-            show(importVC, sender: self)
-        }
+        guard let vc = data[indexPath.row].1 else { return }
+        show(vc, sender: self)
     }
 }

@@ -11,7 +11,6 @@ import UIKit
 class TransactionTableViewCell: UITableViewCell {
     
     var tapGestureRecognizer: UITapGestureRecognizer!
-    var fiatPrice = false
     var transaction: WalletTransaction!
     @IBOutlet var indicatorImageView: UIImageView!
     @IBOutlet var timeLabel: UILabel!
@@ -21,7 +20,9 @@ class TransactionTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(toggleAndUpdate), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.update), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
+        
+        UserDefaults.standard.bool(forKey: "isFiat")
     }
     
     override func awakeFromNib() {
@@ -36,7 +37,7 @@ class TransactionTableViewCell: UITableViewCell {
         update()
     }
     
-    private func update() {
+    @objc private func update() {
         if transaction.value < 0 {
             valueLabel.textColor = UIColor.white
             indicatorImageView.image = UIImage(named: "arrowOut")!
@@ -45,7 +46,7 @@ class TransactionTableViewCell: UITableViewCell {
             indicatorImageView.image = UIImage(named: "arrowIn")!
         }
         
-        if fiatPrice {
+        if UserDefaults.standard.bool(forKey: "isFiat") {
             valueLabel.text = "\((Float(abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price")))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
         }else {
             valueLabel.text = "\(abs(transaction.value).btc()) BTC"
@@ -63,12 +64,8 @@ class TransactionTableViewCell: UITableViewCell {
         timeLabel.text = df.string(from: date)
     }
     
-    @objc func toggleAndUpdate() {
-        self.fiatPrice = !self.fiatPrice
-        self.update()
-    }
-    
     @objc func priceTapped() {
+        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: "isFiat"), forKey: "isFiat")
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "TogglePrice")))
     }
 }

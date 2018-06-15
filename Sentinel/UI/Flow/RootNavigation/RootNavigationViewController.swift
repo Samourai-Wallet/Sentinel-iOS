@@ -14,6 +14,7 @@ class RootNavigationViewController: UINavigationController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkForPin), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         checkForPin()
+        UserDefaults.standard.set(false, forKey: "isFiat")
     }
     
     @objc func checkForPin() {
@@ -22,7 +23,7 @@ class RootNavigationViewController: UINavigationController {
             return
         }
         if Int(Date().timeIntervalSince(lastPin)) > 900 {
-            self.viewControllers = [PincodeViewController(isLogin: true)]
+            self.viewControllers = [PincodeViewController(mode: .login)]
         }else{
             showHome()
         }

@@ -65,6 +65,7 @@ extension StreetPriceViewController: UITableViewDelegate {
         let defaults = UserDefaults.standard
         defaults.set("\(exchanges[indexPath.section]) \(currencies[indexPath.section][indexPath.row])", forKey: "PriceSourceCurrency")
         tableView.reloadData()
+        sentinel.update()
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

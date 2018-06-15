@@ -35,7 +35,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         }
         
         sentinel.update()
-        NotificationCenter.default.addObserver(self, selector: #selector(sentinel.update), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.update), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
     }
     
     var isEditingToggles = true
@@ -73,6 +73,10 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         if sentinel.numberOfWallets == 1 {
             toggleBarItems()
         }
+        sentinel.update()
+    }
+    
+    @objc func update() {
         sentinel.update()
     }
 }

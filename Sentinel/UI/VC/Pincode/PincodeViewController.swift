@@ -12,18 +12,22 @@ import Locksmith
 class PincodeViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
-    var isScrambled: Bool? = false
+    enum Mode: String {
+        case set = "New PIN"
+        case confirm = "Confirm PIN"
+        case login = "Enter PIN"
+        case remove = "Remove PIN"
+    }
+    
+    let currentMode: Mode
+    var nextItem: UIBarButtonItem!
+    var prevHash: String?
     @IBOutlet var rootStackView: UIStackView!
     @IBOutlet var textField: UITextField!
-    var nextItem: UIBarButtonItem!
     
-    var prevHash: String?
-    var isLogin: Bool? = false
-    
-    init(prevHash: String? = nil, isLogin: Bool? = false, isScrambled: Bool? = false) {
+    init(prevHash: String? = nil, mode: Mode) {
         self.prevHash = prevHash
-        self.isLogin = isLogin
-        self.isScrambled = isScrambled
+        self.currentMode = mode
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,7 +38,8 @@ class PincodeViewController: UIViewController {
             (subStack as! UIStackView).subviews.forEach({ (sub) in
                 if let sub = sub as? UIButton {
                     if let number = titles.first {
-                        if isScrambled! {
+                        let isScrambled = UserDefaults.standard.bool(forKey: "isScrambled")
+                        if isScrambled {
                             let random = arc4random_uniform(UInt32(titles.count))
                             let char = titles[Int(random)]
                             titles.remove(at: titles.index(of: char!)!)
@@ -50,21 +55,22 @@ class PincodeViewController: UIViewController {
             })
         }
         
-        self.title = "Enter PIN"
-        guard !isLogin! else {
-            return
+        func setup() {
+            self.title = currentMode.rawValue
+            switch currentMode {
+            case .set:
+                nextItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(self.nextStep))
+                nextItem.isEnabled = false
+                self.navigationItem.rightBarButtonItems = [nextItem]
+            case .confirm:
+                nextItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.nextStep))
+                nextItem.isEnabled = false
+                self.navigationItem.rightBarButtonItems = [nextItem]
+            case .login: break
+            case .remove: break
+            }
         }
-        
-        if (prevHash != nil) {
-            self.title = "Confirm PIN"
-            nextItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.nextStep))
-        }else {
-            nextItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(self.nextStep))
-            self.title = "New PIN"
-        }
-        
-        nextItem.isEnabled = false
-        self.navigationItem.rightBarButtonItems = [nextItem]
+        setup()
     }
     
     
@@ -72,7 +78,6 @@ class PincodeViewController: UIViewController {
         if (prevHash != nil) {
             // set password
             do {
-                try Locksmith.deleteDataForUserAccount(userAccount: "account")
                 try Locksmith.saveData(data: ["pinCodeHash": prevHash!], forUserAccount: "account")
                 UserDefaults.standard.set(Date(), forKey: "lastPin")
                 self.navigationController?.popToRootViewController(animated: true)
@@ -80,7 +85,7 @@ class PincodeViewController: UIViewController {
                 print(err)
             }
         }else{
-            let confirmVC = PincodeViewController(prevHash: tempPass)
+            let confirmVC = PincodeViewController(prevHash: tempPass, mode: .confirm)
             show(confirmVC, sender: self)
         }
     }
@@ -95,15 +100,22 @@ class PincodeViewController: UIViewController {
             tempPass += sender.titleLabel!.text!
         }
         
-        if isLogin! {
-            // check and let in
+        if currentMode == .login {
             guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return }
             guard let savedPin = dictionary["pinCodeHash"] as? String else { return }
             if tempPass == savedPin {
                 UserDefaults.standard.set(Date(), forKey: "lastPin")
                 (self.navigationController as! RootNavigationViewController).showHome()
             }
-        }else{
+        } else if currentMode == .remove {
+            guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return }
+            guard let savedPin = dictionary["pinCodeHash"] as? String else { return }
+            if tempPass == savedPin {
+                try? Locksmith.deleteDataForUserAccount(userAccount: "account")
+                UserDefaults.standard.removeObject(forKey: "lastPin")
+                self.navigationController?.popViewController(animated: true)
+            }
+        } else {
             if tempPass.count < 9 && tempPass.count > 4 {
                 nextItem.isEnabled = true
             }else{
