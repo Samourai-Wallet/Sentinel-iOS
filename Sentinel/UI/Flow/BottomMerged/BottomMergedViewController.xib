@@ -67,7 +67,7 @@
                     </connections>
                 </scrollView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsm-ft-g28" customClass="LOTAnimationView">
-                    <rect key="frame" x="147" y="667" width="120" height="44"/>
+                    <rect key="frame" x="147" y="692" width="120" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -86,7 +86,7 @@
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bG1-EO-q3o"/>
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bR1-yD-cIM"/>
                 <constraint firstItem="jsm-ft-g28" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f4K-Sl-yL7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" constant="25" id="iB4-71-fUc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" id="iB4-71-fUc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hx6-WK-fEW" secondAttribute="bottom" id="pPl-gb-fXd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
