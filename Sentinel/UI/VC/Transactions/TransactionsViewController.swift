@@ -21,6 +21,13 @@ class TransactionsViewController: UIViewController {
     @IBOutlet var notrx: UILabel!
     @IBOutlet var transactionsTableView: UITableView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.update), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        return refreshControl
+    }()
+    
     init(sentinel: Sentinel, wallet: Wallet? = nil) {
         self.sentinel = sentinel
         self.wallet = wallet
@@ -39,6 +46,7 @@ class TransactionsViewController: UIViewController {
         
         self.transactionsTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.transactionsTableView.tableFooterView = UIView(frame: .zero)
+        self.transactionsTableView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +93,13 @@ class TransactionsViewController: UIViewController {
         
         self.transactionsTableView.reloadData()
     }
+    
+    @objc func update() {
+        refreshControl.beginRefreshing()
+        _ = sentinel.update().done {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension TransactionsViewController: UITableViewDataSource {
@@ -98,8 +113,10 @@ extension TransactionsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         let count = self.data.count
         if count == 0 {
+            tableView.isHidden = true
             notrx.isHidden = false
         }else{
+            tableView.isHidden = false
             notrx.isHidden = true
         }
         return count

@@ -19,6 +19,13 @@ class WalletsViewController: UIViewController {
     @IBOutlet var walletsTableView: UITableView!
     @IBOutlet var noaddr: UILabel!
 
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.update), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        return refreshControl
+    }()
+    
     init(sentinel: Sentinel, homeFlowViewController: HomeFlowViewController) {
         self.sentinel = sentinel
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +43,7 @@ class WalletsViewController: UIViewController {
         
         self.walletsTableView.register(UINib(nibName: "WalletsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.walletsTableView.tableFooterView = UIView(frame: .zero)
+        self.walletsTableView.refreshControl = refreshControl
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +55,13 @@ class WalletsViewController: UIViewController {
         
         self.walletsTableView.deselectRow(at: selected, animated: true)
     }
+    
+    @objc func update() {
+        refreshControl.beginRefreshing()
+        _ = sentinel.update().done {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 extension WalletsViewController: UITableViewDataSource {
@@ -54,10 +69,12 @@ extension WalletsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = sentinel.numberOfWallets
         guard count == 0 else {
+            tableView.isHidden = false
             noaddr.isHidden = true
             return count
         }
         
+        tableView.isHidden = true
         noaddr.isHidden = false
         
         return count

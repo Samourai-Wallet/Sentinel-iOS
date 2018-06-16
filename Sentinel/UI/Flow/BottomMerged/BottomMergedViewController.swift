@@ -21,14 +21,7 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var animationContainer: UIView!
     @IBOutlet var bottomScrollView: UIScrollView!
     @IBOutlet var bc: NSLayoutConstraint!
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(self.update), for: UIControlEvents.valueChanged)
-        refreshControl.tintColor = .white
-        return refreshControl
-    }()
-    
+
     init(sentinel: Sentinel, homeFlowViewController: HomeFlowViewController) {
         self.sentinel = sentinel
         self.homeFlowViewController = homeFlowViewController
@@ -43,7 +36,6 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         animationView.frame = CGRect(x: 0, y: 0, width: 120, height: 44)
         animationContainer.addSubview(animationView)
         animationView.setProgressWithFrame(10)
-        bottomScrollView.refreshControl = refreshControl
     }
     
     override func viewDidLayoutSubviews() {
@@ -55,7 +47,6 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         
         bc.constant = 50
     }
-    
     
     @IBAction func animationContainerTapped(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: sender.view!)
@@ -81,13 +72,6 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         
         if !(frame <= 0 || frame >= 140) {
             animationView.setProgressWithFrame(NSNumber(integerLiteral: frame))
-        }
-    }
-    
-    @objc func update() {
-        refreshControl.beginRefreshing()
-        _ = sentinel.update().done {
-            self.refreshControl.endRefreshing()
         }
     }
 }
