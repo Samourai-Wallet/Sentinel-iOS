@@ -14,31 +14,35 @@ protocol HomeFlowDelegate {
 }
 
 class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate {
-    @IBOutlet var balanceVCContainer: UIView!
-    @IBOutlet var transactionsVCContainer: UIView!
     
     let sentinel = Sentinel()
+    
     var delegate: HomeFlowDelegate?
+    var isEditingToggles = true
+    
+    @IBOutlet var balanceVCContainer: UIView!
+    @IBOutlet var bottomMergedContainer: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.transition(to: transactionsVCContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
+        
+        self.transition(to: bottomMergedContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(sentinel: sentinel), completion: nil)
-     
-        if sentinel.numberOfWallets == 0 {
-            let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
-            let settings = UIBarButtonItem(image: UIImage(named: "Settings")!, style: .plain, target: self, action: #selector(showSettings))
-            self.navigationItem.rightBarButtonItems = [add]
-            self.navigationItem.leftBarButtonItems = [settings]
-        } else {
-            toggleBarItems()
-        }
         
         sentinel.update()
         NotificationCenter.default.addObserver(self, selector: #selector(self.update), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        guard sentinel.numberOfWallets == 0 else {
+            toggleBarItems()
+            return
+        }
+        
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
+        let settings = UIBarButtonItem(image: UIImage(named: "Settings")!, style: .plain, target: self, action: #selector(showSettings))
+        self.navigationItem.rightBarButtonItems = [add]
+        self.navigationItem.leftBarButtonItems = [settings]
     }
     
-    var isEditingToggles = true
     @objc func toggleBarItems() {
         if isEditingToggles {
             let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toggleBarItems))
@@ -70,10 +74,12 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     }
     
     func newAccontAdded() {
-        if sentinel.numberOfWallets == 1 {
-            toggleBarItems()
+        guard sentinel.numberOfWallets == 1 else {
+            sentinel.update()
+            return
         }
-        sentinel.update()
+        
+        toggleBarItems()
     }
     
     @objc func update() {

@@ -35,6 +35,8 @@ class QRMakerViewController: UIViewController {
             return
         }
         
+        //REDO AFTER LIB UPDATE
+        
         var str = ""
         
         do {
@@ -48,9 +50,13 @@ class QRMakerViewController: UIViewController {
                     addressLabel.text = str
                 case .bip49:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP49
+                    let k = try! PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).deriveds(at: 0).addressBIP49
+                    print(k)
                     addressLabel.text = str
                 case .bip84:
                     str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84.uppercased()
+                    let k = try! PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).deriveds(at: 0).addressBIP84
+                    print(k)
                     addressLabel.text = wallet.address
                 case .p2pkh, .p2sh:
                     str = wallet.address
@@ -68,9 +74,9 @@ class QRMakerViewController: UIViewController {
         } catch let err{
             print(err.localizedDescription)
         }
-
-        let new = QRCode(str)
-        qrImageView.image = new?.image
+        
+        //        let new = QRCode(str)
+        //        qrImageView.image = new?.image
         
         nameLabel.text = wallet.name
     }

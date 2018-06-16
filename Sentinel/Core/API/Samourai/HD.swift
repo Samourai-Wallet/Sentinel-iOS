@@ -9,7 +9,9 @@
 import Foundation
 
 extension Samourai {
+    
     struct HD: Codable {
+        
         struct Wallet: Codable {
             let final_balance: Int
         }

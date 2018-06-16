@@ -33,6 +33,7 @@ internal extension CIImage {
         return result
     }
 }
+
 extension UIDevice {
     struct Device {
         // iDevice detection code

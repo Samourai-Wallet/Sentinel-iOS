@@ -31,7 +31,6 @@ extension UIViewController {
             })
         }
         
-        
         if let existing = current {
             if existing == child {
                 existing.willMove(toParentViewController: nil)

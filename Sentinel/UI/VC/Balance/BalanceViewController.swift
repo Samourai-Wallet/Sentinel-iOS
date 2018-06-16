@@ -14,9 +14,11 @@ class BalanceViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    
     var wallet: Wallet?
     var notificationToken: NotificationToken? = nil
     var tapGestureRecognizer: UITapGestureRecognizer!
+    
     @IBOutlet var balanceLabel: UILabel!
     
     init(sentinel: Sentinel, wallet: Wallet? = nil) {
@@ -27,12 +29,15 @@ class BalanceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         notificationToken = sentinel.realm.objects(Wallet.self).observe({ (change) in
             self.updateBalance()
         })
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBalance), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
+        
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
         balanceLabel.addGestureRecognizer(tapGestureRecognizer)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateBalance), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
     }
     
     @objc func updateBalance() {
@@ -51,6 +56,8 @@ class BalanceViewController: UIViewController {
         }
         
         let isFiat = UserDefaults.standard.bool(forKey: "isFiat")
+        
+        //REDO
         
         if let wallet = wallet {
             guard let balance = wallet.balance.value?.btc() else {

@@ -13,6 +13,7 @@ class TrxViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let walletTransaction: WalletTransaction
+    
     @IBOutlet var amountLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!

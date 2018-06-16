@@ -9,10 +9,12 @@
 import RealmSwift
 
 class Wallet: Object {
-    @objc dynamic var address = ""
-    @objc dynamic var name = ""
+
     let balance = RealmOptional<Int>()
     let accIndex = RealmOptional<Int>()
+    
+    @objc dynamic var address = ""
+    @objc dynamic var name = ""
     
     var addrType: AddressType? {
         return address.addrType()

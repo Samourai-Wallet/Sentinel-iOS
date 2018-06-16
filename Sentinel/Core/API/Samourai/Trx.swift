@@ -9,6 +9,7 @@
 import Foundation
 
 extension Samourai {
+    
     struct Trx: Codable {
         let hash: String
         let time: Int
@@ -27,7 +28,6 @@ extension Samourai {
                 let vout: Int
                 let value: Int
                 let addr: String
-                
                 let xpub: Xpub?
             }
             

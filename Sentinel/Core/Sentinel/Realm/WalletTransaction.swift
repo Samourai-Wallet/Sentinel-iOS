@@ -9,6 +9,7 @@
 import RealmSwift
 
 class WalletTransaction: Object {
+    
     @objc dynamic var conf = 0
     @objc dynamic var time = 0
     @objc dynamic var value = 0
@@ -20,9 +21,10 @@ class WalletTransaction: Object {
     }
     
     func status() -> String {
-        if conf < 3 {
-            return "Pending \(conf)/3"
+        guard conf < 3 else {
+            return "Confirmed"
         }
-        return "Confirmed"
+        
+        return "Pending \(conf)/3"
     }
 }

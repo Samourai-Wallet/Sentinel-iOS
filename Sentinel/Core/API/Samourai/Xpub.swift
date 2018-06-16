@@ -9,6 +9,7 @@
 import Foundation
 
 extension Samourai {
+    
     struct Xpub: Codable {
         let m: String
         let path: String

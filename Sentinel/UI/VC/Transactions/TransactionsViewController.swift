@@ -43,9 +43,12 @@ class TransactionsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let selected = transactionsTableView.indexPathForSelectedRow {
-            self.transactionsTableView.deselectRow(at: selected, animated: true)
+        
+        guard let selected = transactionsTableView.indexPathForSelectedRow else {
+            return
         }
+        
+        self.transactionsTableView.deselectRow(at: selected, animated: true)
     }
     
     func loadItems(wallet: Wallet?) {

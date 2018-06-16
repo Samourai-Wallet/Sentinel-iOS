@@ -13,6 +13,7 @@ class WalletsTableViewCell: UITableViewCell {
     var tapGestureRecognizer: UITapGestureRecognizer!
     var wallet: Wallet!
     var fiatPrice = false
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addrLabel: UILabel!
     @IBOutlet var balanceLabel: UILabel!
@@ -25,6 +26,7 @@ class WalletsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         backgroundColor = contentView.backgroundColor
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
         balanceLabel.addGestureRecognizer(tapGestureRecognizer)

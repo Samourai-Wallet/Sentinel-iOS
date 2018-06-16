@@ -9,6 +9,7 @@
 import Foundation
 
 extension Samourai {
+    
     struct Unspent {
         
         struct Output {
@@ -19,7 +20,6 @@ extension Samourai {
             let value: Int
             let script: String
             let confirmations: Int
-            
             let xpub: Xpub
         }
         

@@ -12,7 +12,6 @@
 		8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8019763520CA8ED20066CAC6 /* PincodeViewController.xib */; };
 		8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */; };
 		801E167C20C06326003D80FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801E167B20C06326003D80FE /* AppDelegate.swift */; };
-		801E168120C06326003D80FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E167F20C06326003D80FE /* Main.storyboard */; };
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
 		801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E168420C06327003D80FE /* LaunchScreen.storyboard */; };
 		8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */; };
@@ -35,6 +34,8 @@
 		806A8AE720C205CC008AC0CF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE620C205CC008AC0CF /* Util.swift */; };
 		806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */; };
 		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
+		806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB520D5514800438F5C /* RootNavigationViewController.xib */; };
+		806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB820D551C100438F5C /* HomeFlowViewController.xib */; };
 		806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D586720C549F0003C5290 /* SettingsViewController.swift */; };
 		806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D586920C549F8003C5290 /* SettingsViewController.xib */; };
 		806D588220C5DA1F003C5290 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 806D588120C5DA1F003C5290 /* data.json */; };
@@ -71,7 +72,6 @@
 		8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationViewController.swift; sourceTree = "<group>"; };
 		801E167820C06326003D80FE /* Sentinel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801E167B20C06326003D80FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		801E168020C06326003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801E168220C06327003D80FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801E168520C06327003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801E168720C06327003D80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +95,8 @@
 		806A8AE620C205CC008AC0CF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
+		806D1CB520D5514800438F5C /* RootNavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootNavigationViewController.xib; sourceTree = "<group>"; };
+		806D1CB820D551C100438F5C /* HomeFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFlowViewController.xib; sourceTree = "<group>"; };
 		806D586720C549F0003C5290 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		806D586920C549F8003C5290 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		806D588120C5DA1F003C5290 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */,
+				806D1CB520D5514800438F5C /* RootNavigationViewController.xib */,
 			);
 			path = RootNavigation;
 			sourceTree = "<group>";
@@ -238,8 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				8019763920CAA7860066CAC6 /* RootNavigation */,
+				806D1CB720D551B200438F5C /* HomeFlow */,
 				8087CCA520C2B79900A03D90 /* BottomMerged */,
-				8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -308,6 +311,15 @@
 			path = NewWallet;
 			sourceTree = "<group>";
 		};
+		806D1CB720D551B200438F5C /* HomeFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */,
+				806D1CB820D551C100438F5C /* HomeFlowViewController.xib */,
+			);
+			path = HomeFlow;
+			sourceTree = "<group>";
+		};
 		806D586620C54866003C5290 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,7 +374,6 @@
 			children = (
 				801E167B20C06326003D80FE /* AppDelegate.swift */,
 				807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */,
-				801E167F20C06326003D80FE /* Main.storyboard */,
 				801E168220C06327003D80FE /* Assets.xcassets */,
 				801E168420C06327003D80FE /* LaunchScreen.storyboard */,
 				801E168720C06327003D80FE /* Info.plist */,
@@ -512,6 +523,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */,
+				806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */,
 				806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
@@ -528,7 +540,7 @@
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
 				806D588220C5DA1F003C5290 /* data.json in Resources */,
 				80C4045020C496670086318C /* WalletViewController.xib in Resources */,
-				801E168120C06326003D80FE /* Main.storyboard in Resources */,
+				806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
 				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
 			);
@@ -644,14 +656,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		801E167F20C06326003D80FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				801E168020C06326003D80FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		801E168420C06327003D80FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

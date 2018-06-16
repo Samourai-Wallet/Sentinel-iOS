@@ -14,6 +14,7 @@ class WalletViewController: UIViewController {
     
     let sentinel: Sentinel
     let wallet: Wallet
+    
     @IBOutlet var balanceContainer: UIView!
     @IBOutlet var transactionsContainer: UIView!
     

@@ -12,8 +12,10 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    
     var export: String?
     var exportAction: UIAlertAction!
+    
     @IBOutlet var qrImageView: UIImageView!
     
     init(sentinel: Sentinel) {
@@ -23,6 +25,7 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Exoport wallet"
         
         let alert = UIAlertController(title: "Export Password", message: "Please enter a pssword", preferredStyle: UIAlertControllerStyle.alert)

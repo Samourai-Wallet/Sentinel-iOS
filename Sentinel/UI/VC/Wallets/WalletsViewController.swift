@@ -13,7 +13,9 @@ class WalletsViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    
     var notificationToken: NotificationToken? = nil
+    
     @IBOutlet var walletsTableView: UITableView!
     @IBOutlet var noaddr: UILabel!
 
@@ -38,20 +40,26 @@ class WalletsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let selected = walletsTableView.indexPathForSelectedRow {
-            self.walletsTableView.deselectRow(at: selected, animated: true)
+        
+        guard let selected = walletsTableView.indexPathForSelectedRow else {
+            return
         }
+        
+        self.walletsTableView.deselectRow(at: selected, animated: true)
     }
 }
 
 extension WalletsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = sentinel.numberOfWallets
-        if count == 0 {
-            noaddr.isHidden = false
-        }else{
+        guard count == 0 else {
             noaddr.isHidden = true
+            return count
         }
+        
+        noaddr.isHidden = false
+        
         return count
     }
     
@@ -63,6 +71,7 @@ extension WalletsViewController: UITableViewDataSource {
 }
 
 extension WalletsViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -114,6 +123,7 @@ extension WalletsViewController: UITableViewDelegate {
 }
 
 extension WalletsViewController: HomeFlowDelegate {
+    
     func editStateChanged(isEditing: Bool) {
         self.walletsTableView.setEditing(isEditing, animated: true)
     }

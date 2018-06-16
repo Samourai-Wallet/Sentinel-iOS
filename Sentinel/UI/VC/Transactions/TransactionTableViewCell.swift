@@ -20,13 +20,13 @@ class TransactionTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.update), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
         
-        UserDefaults.standard.bool(forKey: "isFiat")
+        NotificationCenter.default.addObserver(self, selector: #selector(self.update), name: Notification.Name(rawValue: "TogglePrice"), object: nil)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         backgroundColor = contentView.backgroundColor
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
         valueLabel.addGestureRecognizer(tapGestureRecognizer)
@@ -38,6 +38,9 @@ class TransactionTableViewCell: UITableViewCell {
     }
     
     @objc private func update() {
+        
+        //REDO
+        
         if transaction.value < 0 {
             valueLabel.textColor = UIColor.white
             indicatorImageView.image = UIImage(named: "arrowOut")!

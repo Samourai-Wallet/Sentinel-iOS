@@ -13,9 +13,12 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    
     var importItem: UIBarButtonItem!
+    
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var encryptedTextField: UITextField!
+    
     lazy var readerVC: QRCodeReaderViewController = {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
@@ -30,17 +33,20 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         importItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.importWallets))
         importItem.isEnabled = false
         self.navigationItem.rightBarButtonItems = [importItem]
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if passwordTextField.text!.count > 5 && encryptedTextField.text!.count > 5 {
-            importItem.isEnabled = true
-        }else{
+        guard passwordTextField.text!.count > 5 && encryptedTextField.text!.count > 5 else {
             importItem.isEnabled = false
+            return true
         }
+        
+        importItem.isEnabled = true
+
         return true
     }
     

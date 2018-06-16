@@ -20,8 +20,10 @@ class PincodeViewController: UIViewController {
     }
     
     let currentMode: Mode
+    
     var nextItem: UIBarButtonItem!
     var prevHash: String?
+    
     @IBOutlet var rootStackView: UIStackView!
     @IBOutlet var textField: UITextField!
     
@@ -33,6 +35,7 @@ class PincodeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var titles = "1234567890"
         rootStackView.subviews.forEach { (subStack) in
             (subStack as! UIStackView).subviews.forEach({ (sub) in

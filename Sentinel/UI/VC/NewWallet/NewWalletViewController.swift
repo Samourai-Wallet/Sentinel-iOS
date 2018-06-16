@@ -18,7 +18,9 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
     
     let sentinel: Sentinel
     let wallet: Wallet?
+    
     var delegate: NewWalletViewControllerDelegate?
+    
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var qrScanButton: UIButton!
@@ -27,7 +29,6 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
         let builder = QRCodeReaderViewControllerBuilder {
             $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
         }
-        
         return QRCodeReaderViewController(builder: builder)
     }()
     
@@ -43,6 +44,7 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
         guard let wallet = wallet else {
             return
         }
+        
         self.nameTextField.text = wallet.name
         self.addressTextField.text = wallet.address
         self.addressTextField.isEnabled = false
@@ -57,22 +59,10 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-        
     }
     
     @IBAction func createAction(_ sender: Any) {
-        if let wallet = wallet {
-            //rename
-            _ = sentinel.renameWallet(wallet: wallet, name: nameTextField.text).done {
-                self.dismiss(animated: true, completion: nil)
-                }.catch({ (err) in
-                    let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
-                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
-                    }
-                    alertController.addAction(cancel)
-                    self.present(alertController, animated: true)
-                })
-        }else {
+        guard let wallet = wallet else {
             _ = sentinel.addWallet(name: nameTextField.text, addr: addressTextField.text).done {
                 self.delegate?.newAccontAdded()
                 self.dismiss(animated: true, completion: nil)
@@ -83,7 +73,18 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
                     alertController.addAction(cancel)
                     self.present(alertController, animated: true)
             }
+            return
         }
+        
+        _ = sentinel.renameWallet(wallet: wallet, name: nameTextField.text).done {
+            self.dismiss(animated: true, completion: nil)
+            }.catch({ (err) in
+                let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
+                let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                }
+                alertController.addAction(cancel)
+                self.present(alertController, animated: true)
+            })
     }
     
     @IBAction func scanAction(_ sender: AnyObject) {
@@ -94,6 +95,7 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension NewWalletViewController: QRCodeReaderViewControllerDelegate {
+    
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)

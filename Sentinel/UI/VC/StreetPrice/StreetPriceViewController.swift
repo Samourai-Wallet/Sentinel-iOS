@@ -12,6 +12,7 @@ class StreetPriceViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
     let sentinel: Sentinel
+    
     @IBOutlet var streetPriceTableView: UITableView!
     
     let exchanges = ["Localbitcoins.com",
@@ -33,6 +34,7 @@ class StreetPriceViewController: UIViewController {
 }
 
 extension StreetPriceViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return exchanges.count
     }

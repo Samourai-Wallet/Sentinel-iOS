@@ -109,6 +109,7 @@ class Sentinel {
     
     func renameWallet(wallet: Wallet, name: String?) -> Promise<Void> {
         return Promise<Void> { seal in
+            
             guard let name = name else {
                 seal.reject(Errors.noName)
                 return
@@ -140,33 +141,39 @@ class Sentinel {
 }
 
 extension Sentinel {
+    
     @objc func update() {
-        if numberOfWallets > 0 {
-            updatePrice().then { () -> Promise<Samourai.HD> in
-                return self.getHD()
-                }.then { (hd) -> Promise<Samourai.HD> in
-                    return self.updateRealm(hd: hd)
-                }.then({ (hd) -> Promise<Void> in
-                    return self.updateTransactions(hd: hd)
-                }).done { () in
-                    print("finished")
-                }.catch { (err) in
-                    print(err.localizedDescription)
-            }
+        guard numberOfWallets > 0 else {
+            return
+        }
+        
+        updatePrice().then { () -> Promise<Samourai.HD> in
+            return self.getHD()
+            }.then { (hd) -> Promise<Samourai.HD> in
+                return self.updateRealm(hd: hd)
+            }.then({ (hd) -> Promise<Void> in
+                return self.updateTransactions(hd: hd)
+            }).done { () in
+                print("finished")
+            }.catch { (err) in
+                print(err.localizedDescription)
         }
     }
     
     func getHD() -> Promise<Samourai.HD> {
         var actives: [String] = []
         let addresses = realm.objects(Wallet.self)
+        
         addresses.forEach { (wallet) in
             actives.append(wallet.address)
         }
+        
         return samouraiAPI.requestDecoded(target: Samourai.multiaddr(active: actives, new: nil, bip49: nil, bip84: nil), type: Samourai.HD.self)
     }
     
     func updateRealm(hd: Samourai.HD) -> Promise<Samourai.HD> {
         return Promise<Samourai.HD> { seal in
+            
             hd.addresses.forEach { (yWallet) in
                 guard let wallet = realm.objects(Wallet.self).filter(NSPredicate(format: "address == %@", yWallet.address)).first else { return }
                 
@@ -179,6 +186,7 @@ extension Sentinel {
                     seal.reject(err)
                 }
             }
+            
             seal.fulfill(hd)
         }
     }
@@ -186,8 +194,8 @@ extension Sentinel {
     func updateTransactions(hd: Samourai.HD) -> Promise<Void> {
         return Promise<Void> { seal in
             
-            
             hd.addresses.forEach({ (address) in
+                
                 guard let wallet = realm.objects(Wallet.self).filter(NSPredicate(format: "address == %@", address.address)).first else {
                     return
                 }
@@ -220,6 +228,7 @@ extension Sentinel {
                 wTransaction.txid = transaction.hash
                 wTransaction.value = transaction.result
                 wTransaction.time = transaction.time
+                
                 if let bHeight = transaction.block_height {
                     let confirmations = (hd.info.latest_block.height - bHeight) + 1
                     if confirmations > 2 {
@@ -278,13 +287,17 @@ extension Sentinel {
     }
 }
 
+// MARK: StreetPrice
+
 extension Sentinel {
-    //StreetPrice
+    
     func updatePrice() -> Promise<Void> {
         return Promise<Void> { seal in
+            
             if !(UserDefaults.standard.string(forKey: "PriceSourceCurrency") != nil) {
                 _ = UserDefaults.standard.set("Localbitcoins.com USD", forKey: "PriceSourceCurrency")
             }
+            
             guard let providerSetting = UserDefaults.standard.string(forKey: "PriceSourceCurrency") else {
                 return
             }
@@ -339,7 +352,10 @@ extension Sentinel {
     }
 }
 
+// MARK: Util
+
 extension Sentinel {
+    
     var numberOfWallets: Int {
         return realm.objects(Wallet.self).count
     }
@@ -367,7 +383,10 @@ extension Sentinel {
     }
 }
 
+// MARK: Import/Export
+
 extension Sentinel {
+    
     func exportWallet(password: String) -> Promise<String> {
         return Promise<String> { seal in
             guard numberOfWallets > 0 else {
@@ -390,7 +409,9 @@ extension Sentinel {
     
     func importWallet(input: String, password: String) -> Promise<Void> {
         return Promise<Void> { seal in
+            
             let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
+            
             guard let decodedInputData = Data(base64Encoded: input), let decodedInput = try? JSONSerialization.jsonObject(with: decodedInputData, options: []) as? [String: String], let payload = decodedInput!["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs7).decrypt(Data(base64Encoded: payload)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
                 return
             }
@@ -411,7 +432,9 @@ extension Sentinel {
                     seal.reject(err)
                 }
             }
+            
             update()
+            
             seal.fulfill(())
         }
     }

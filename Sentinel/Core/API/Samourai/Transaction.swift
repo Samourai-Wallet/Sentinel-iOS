@@ -9,6 +9,7 @@
 import Foundation
 
 extension Samourai {
+    
     struct Transaction: Codable {
         let txid: String
         let size: Int

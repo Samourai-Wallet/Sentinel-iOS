@@ -15,6 +15,7 @@ enum StreetPrice {
 }
 
 extension StreetPrice: TargetType {
+    
     var baseURL: URL {
         switch self {
         case .localbitcoins:

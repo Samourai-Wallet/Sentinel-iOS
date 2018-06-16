@@ -15,11 +15,11 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     let sentinel: Sentinel
     let animationView = LOTAnimationView(name: "data")
     let homeFlowViewController: HomeFlowViewController
+    
     @IBOutlet var leftContainer: UIView!
     @IBOutlet var rightContainer: UIView!
     @IBOutlet var animationContainer: UIView!
     @IBOutlet var bottomScrollView: UIScrollView!
-    
     @IBOutlet var bc: NSLayoutConstraint!
     
     init(sentinel: Sentinel, homeFlowViewController: HomeFlowViewController) {
@@ -40,19 +40,24 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if !UIDevice.Device.IS_IPHONE_X {
-            bc.constant = 50
+        
+        guard !UIDevice.Device.IS_IPHONE_X else {
+            return
         }
+        
+        bc.constant = 50
     }
     
     
     @IBAction func animationContainerTapped(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: sender.view!)
-        if location.x < (sender.view?.frame.width)!/2 {
-            bottomScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-        }else{
+        
+        guard location.x < (sender.view?.frame.width)!/2 else {
             bottomScrollView.setContentOffset(CGPoint(x: bottomScrollView.frame.width, y: 0), animated: true)
+            return
         }
+        
+        bottomScrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
