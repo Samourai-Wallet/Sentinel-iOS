@@ -11,7 +11,7 @@ import Lottie
 
 class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
-
+    
     let sentinel: Sentinel
     let animationView = LOTAnimationView(name: "data")
     let homeFlowViewController: HomeFlowViewController
@@ -21,6 +21,13 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var animationContainer: UIView!
     @IBOutlet var bottomScrollView: UIScrollView!
     @IBOutlet var bc: NSLayoutConstraint!
+    
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.update), for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = .white
+        return refreshControl
+    }()
     
     init(sentinel: Sentinel, homeFlowViewController: HomeFlowViewController) {
         self.sentinel = sentinel
@@ -32,10 +39,11 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.transition(to: leftContainer, duration: 0, child: WalletsViewController(sentinel: sentinel, homeFlowViewController: homeFlowViewController), completion: nil)
         self.transition(to: rightContainer, duration: 0, child: TransactionsViewController(sentinel: sentinel), completion: nil)
-    
+        
         animationView.frame = CGRect(x: 0, y: 0, width: 120, height: 44)
         animationContainer.addSubview(animationView)
         animationView.setProgressWithFrame(10)
+        bottomScrollView.refreshControl = refreshControl
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,6 +81,13 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         
         if !(frame <= 0 || frame >= 140) {
             animationView.setProgressWithFrame(NSNumber(integerLiteral: frame))
+        }
+    }
+    
+    @objc func update() {
+        refreshControl.beginRefreshing()
+        _ = sentinel.update().done {
+            self.refreshControl.endRefreshing()
         }
     }
 }

@@ -142,21 +142,28 @@ class Sentinel {
 
 extension Sentinel {
     
-    @objc func update() {
-        guard numberOfWallets > 0 else {
-            return
-        }
-        
-        updatePrice().then { () -> Promise<Samourai.HD> in
-            return self.getHD()
-            }.then { (hd) -> Promise<Samourai.HD> in
-                return self.updateRealm(hd: hd)
-            }.then({ (hd) -> Promise<Void> in
-                return self.updateTransactions(hd: hd)
-            }).done { () in
-                print("finished")
-            }.catch { (err) in
-                print(err.localizedDescription)
+    @discardableResult
+    func update() -> Promise<Void> {
+        return Promise<Void> { seal in
+            
+            guard numberOfWallets > 0 else {
+                seal.fulfill(())
+                return
+            }
+            
+            updatePrice().then { () -> Promise<Samourai.HD> in
+                return self.getHD()
+                }.then { (hd) -> Promise<Samourai.HD> in
+                    return self.updateRealm(hd: hd)
+                }.then({ (hd) -> Promise<Void> in
+                    return self.updateTransactions(hd: hd)
+                }).done { () in
+                    print("finished")
+                }.catch { (err) in
+                    print(err.localizedDescription)
+                }.finally {
+                    seal.fulfill(())
+            }
         }
     }
     

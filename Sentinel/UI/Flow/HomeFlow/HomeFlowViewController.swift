@@ -74,11 +74,11 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     }
     
     func newAccontAdded() {
+        update()
         guard sentinel.numberOfWallets == 1 else {
-            sentinel.update()
             return
         }
-        
+
         toggleBarItems()
     }
     
