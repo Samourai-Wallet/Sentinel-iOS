@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.7.2)
   - CryptoSwift (0.10.0)
-  - HDWalletKit (0.1.0):
+  - HDWalletKit (0.1.1):
     - CryptoSwift (~> 0.10.0)
     - secp256k1.swift (~> 0.1.4)
   - Locksmith (4.0.0)
@@ -32,7 +32,7 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
-  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `038e23a64f70090ff5068fbcc8f91fa925e26540`)
+  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `37abdf66fbb53ce5361331d1699284be91ac7dde`)
   - Locksmith (~> 4.0.0)
   - lottie-ios (~> 2.5.0)
   - Moya (~> 11.0.2)
@@ -59,18 +59,18 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   HDWalletKit:
-    :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
+    :commit: 37abdf66fbb53ce5361331d1699284be91ac7dde
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 CHECKOUT OPTIONS:
   HDWalletKit:
-    :commit: 038e23a64f70090ff5068fbcc8f91fa925e26540
+    :commit: 37abdf66fbb53ce5361331d1699284be91ac7dde
     :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
-  HDWalletKit: 9e7edc7c321a66b3a151f5640b3d8afdcd09dae1
+  HDWalletKit: 6ee3b97f4565f052e6739ba26749e2002782d0e2
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -82,6 +82,6 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: 65c0afcd52854b7f9e19fba7b4555600280ed892
+PODFILE CHECKSUM: c41e7379edeb786648a640b500e31a3afd67ec47
 
 COCOAPODS: 1.5.3
