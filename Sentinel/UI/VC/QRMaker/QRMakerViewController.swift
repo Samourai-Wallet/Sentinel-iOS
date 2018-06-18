@@ -53,13 +53,16 @@ class QRMakerViewController: UIViewController {
             case .p2pkh, .p2sh:
                 return (wallet.address, wallet.address)
             case .pub:
-                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).address
+                let index = (wallet.accIndex.value != nil) ? wallet.accIndex.value! : 0
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(index)).derived(at: UInt32(index)).address
                 return (address, address)
             case .bip49:
-                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).addressBIP49
+                let index = (wallet.accIndex.value != nil) ? wallet.accIndex.value! : 0
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(index)).derived(at: UInt32(index)).addressBIP49
                 return (address, address)
             case .bip84:
-                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).addressBIP84
+                let index = (wallet.accIndex.value != nil) ? wallet.accIndex.value! : 0
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(index)).derived(at: UInt32(index)).addressBIP84
                 return (address.uppercased(), address.lowercased())
             }
         } else {
