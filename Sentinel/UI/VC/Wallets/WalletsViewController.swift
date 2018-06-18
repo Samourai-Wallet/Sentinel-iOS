@@ -35,7 +35,7 @@ class WalletsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.walletsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
+        self.walletsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0)
 
         notificationToken = sentinel.realm.objects(Wallet.self).observe({ (change) in
             self.walletsTableView.reloadData()

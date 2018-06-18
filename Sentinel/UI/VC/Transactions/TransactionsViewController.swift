@@ -37,7 +37,7 @@ class TransactionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.transactionsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 34, right: 0)
+        self.transactionsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 110, right: 0)
         
         self.transactionsTableView.contentOffset = CGPoint(x: 0, y: -50)
         notificationToken = sentinel.realm.objects(WalletTransaction.self).observe({ (change) in

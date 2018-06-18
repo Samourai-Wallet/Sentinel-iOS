@@ -87,7 +87,7 @@
                 <constraint firstItem="hx6-WK-fEW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="bR1-yD-cIM"/>
                 <constraint firstItem="jsm-ft-g28" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="f4K-Sl-yL7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="jsm-ft-g28" secondAttribute="bottom" id="iB4-71-fUc"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hx6-WK-fEW" secondAttribute="bottom" id="pPl-gb-fXd"/>
+                <constraint firstAttribute="bottom" secondItem="hx6-WK-fEW" secondAttribute="bottom" id="pPl-gb-fXd"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <variation key="heightClass=compact-widthClass=compact">
