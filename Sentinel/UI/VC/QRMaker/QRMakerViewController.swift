@@ -31,53 +31,43 @@ class QRMakerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let type = wallet.address.addrType() else {
-            return
-        }
         
-        //REDO AFTER LIB UPDATE
+        let info = data()
         
-        var str = ""
+        let new = QRCode(info.0)
+        qrImageView.image = new?.image
         
-        do {
-            if isReciving {
-                switch type {
-                case .bech32:
-                    str = wallet.address.uppercased()
-                    addressLabel.text = str
-                case .pub:
-                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).address
-                    addressLabel.text = str
-                case .bip49:
-                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP49
-                    let k = try! PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).deriveds(at: 0).addressBIP49
-                    print(k)
-                    addressLabel.text = str
-                case .bip84:
-                    str = try PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).addressBIP84.uppercased()
-                    let k = try! PublicKey(xpub: wallet.address, network: Network.main, index: UInt32(wallet.accIndex.value!)).deriveds(at: 0).addressBIP84
-                    print(k)
-                    addressLabel.text = wallet.address
-                case .p2pkh, .p2sh:
-                    str = wallet.address
-                    addressLabel.text = str
-                }
-            }else{
-                if type == .bech32 {
-                    str = wallet.address.uppercased()
-                    addressLabel.text = wallet.address
-                }else {
-                    addressLabel.text = wallet.address
-                    str = wallet.address
-                }
-            }
-        } catch let err{
-            print(err.localizedDescription)
-        }
-        
-        //        let new = QRCode(str)
-        //        qrImageView.image = new?.image
-        
+        addressLabel.text = info.1
         nameLabel.text = wallet.name
+    }
+    
+    private func data() -> (String, String) {
+        guard let addrType = wallet.address.addrType() else {
+            return ("", "")
+        }
+        
+        if isReciving {
+            switch addrType {
+            case .bech32:
+                return (wallet.address.uppercased(), wallet.address.lowercased())
+            case .p2pkh, .p2sh:
+                return (wallet.address, wallet.address)
+            case .pub:
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).address
+                return (address, address)
+            case .bip49:
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).addressBIP49
+                return (address, address)
+            case .bip84:
+                let address = try! PublicKey(xpub: wallet.address, network: .main, index: UInt32(wallet.accIndex.value!)).derived(at: UInt32(wallet.accIndex.value!)).addressBIP84
+                return (address.uppercased(), address.lowercased())
+            }
+        } else {
+            if addrType == .bech32 {
+                return (wallet.address.uppercased(), wallet.address.lowercased())
+            }else {
+                return (wallet.address, wallet.address)
+            }
+        }
     }
 }
