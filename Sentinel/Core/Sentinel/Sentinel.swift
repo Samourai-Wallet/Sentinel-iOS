@@ -159,10 +159,10 @@ extension Sentinel {
                     return self.updateTransactions(hd: hd)
                 }).done { () in
                     print("finished")
+                    seal.fulfill(())
                 }.catch { (err) in
                     print(err.localizedDescription)
-                }.finally {
-                    seal.fulfill(())
+                    seal.reject(err)
             }
         }
     }
