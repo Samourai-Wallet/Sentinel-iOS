@@ -60,6 +60,7 @@ class WalletsTableViewCell: UITableViewCell {
     }
     
     @objc func priceTapped() {
+        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: "isFiat"), forKey: "isFiat")
         NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "TogglePrice")))
     }
 }
