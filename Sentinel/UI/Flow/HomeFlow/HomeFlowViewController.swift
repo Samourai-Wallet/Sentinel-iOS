@@ -38,7 +38,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         }
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
-        let settings = UIBarButtonItem(image: UIImage(named: "Settings")!, style: .plain, target: self, action: #selector(showSettings))
+        let settings = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
         self.navigationItem.rightBarButtonItems = [add]
         self.navigationItem.leftBarButtonItems = [settings]
     }
@@ -46,7 +46,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     @objc func toggleBarItems() {
         if isEditingToggles {
             let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toggleBarItems))
-            let settings = UIBarButtonItem(image: UIImage(named: "Settings")!, style: .plain, target: self, action: #selector(showSettings))
+            let settings = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
             self.navigationItem.rightBarButtonItems = [edit]
             self.navigationItem.leftBarButtonItems = [settings]
         }else{
