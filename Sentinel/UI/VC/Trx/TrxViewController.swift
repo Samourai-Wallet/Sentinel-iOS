@@ -23,7 +23,7 @@ class TrxViewController: UIViewController {
     init(walletTransaction: WalletTransaction) {
         self.walletTransaction = walletTransaction
         super.init(nibName: nil, bundle: nil)
-        self.title = "Detail"
+        self.title = "Transaction"
     }
     
     override func viewDidLoad() {
