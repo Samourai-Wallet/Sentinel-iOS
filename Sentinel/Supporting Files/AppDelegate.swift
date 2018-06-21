@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = RootNavigationViewController()
         window?.makeKeyAndVisible()
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         return true
     }
     
@@ -43,5 +44,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // Send notifications for changes
+        print("Background Sync Started")
+        let sentinel = Sentinel()
+        sentinel.update().done {
+            print("Background Sync result: New DATA")
+            completionHandler(UIBackgroundFetchResult.newData)
+            }.catch { (err) in
+                print("Background Sync result: NO DATA")
+                completionHandler(UIBackgroundFetchResult.noData)
+            }.finally {
+                print("Background Sync Finished")
+        }
     }
 }
