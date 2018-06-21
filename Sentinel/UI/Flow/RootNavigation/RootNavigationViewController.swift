@@ -22,6 +22,7 @@ class RootNavigationViewController: UINavigationController {
         navigationBar.barTintColor = #colorLiteral(red: 0.4220947623, green: 0.4648562074, blue: 0.5403060317, alpha: 1)
         navigationBar.backgroundColor = #colorLiteral(red: 0.4220947623, green: 0.4648562074, blue: 0.5403060317, alpha: 1)
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkForPin), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.cover), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         checkForPin()
         
         UserDefaults.standard.set(false, forKey: "isFiat")
@@ -36,8 +37,16 @@ class RootNavigationViewController: UINavigationController {
         showPIN()
     }
     
+    lazy var homeVC: HomeFlowViewController = {
+        return HomeFlowViewController()
+    }()
+    
     func showHome() {
-        self.viewControllers = [HomeFlowViewController()]
+        self.viewControllers = [homeVC]
+    }
+    
+    @objc func cover() {
+        self.viewControllers = [CoverViewController(bg: viewControllers.first!.view.snapshotView(afterScreenUpdates: false)!)]
     }
     
     func showPIN() {

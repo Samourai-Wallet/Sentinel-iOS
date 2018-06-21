@@ -43,6 +43,11 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         self.navigationItem.leftBarButtonItems = [settings]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @objc func toggleBarItems() {
         if isEditingToggles {
             let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toggleBarItems))

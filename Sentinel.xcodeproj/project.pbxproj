@@ -53,6 +53,8 @@
 		8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */; };
 		8087CCB520C3130800A03D90 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB420C3130800A03D90 /* AddressType.swift */; };
 		8087CCB820C3444300A03D90 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB720C3444300A03D90 /* Wallet.swift */; };
+		80B04C8920DBBDF800FA94B8 /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */; };
+		80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */; };
 		80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B2039520C80A6400CF0086 /* ExportViewController.xib */; };
 		80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2039720C80A7000CF0086 /* ExportViewController.swift */; };
 		80C4044E20C496480086318C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4044D20C496480086318C /* WalletViewController.swift */; };
@@ -115,6 +117,8 @@
 		8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
 		8087CCB420C3130800A03D90 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
 		8087CCB720C3444300A03D90 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
+		80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
 		80B2039520C80A6400CF0086 /* ExportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportViewController.xib; sourceTree = "<group>"; };
 		80B2039720C80A7000CF0086 /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
 		80C4044D20C496480086318C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				80B04C8720DBBDB400FA94B8 /* Cover */,
 				8019763220CA8EB70066CAC6 /* Pincode */,
 				8068206B20C6DF1500F5F0B2 /* Export */,
 				8068206A20C6DF0D00F5F0B2 /* Import */,
@@ -411,6 +416,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		80B04C8720DBBDB400FA94B8 /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */,
+				80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
 		80C4044C20C4963A0086318C /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +554,7 @@
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
 				806D588220C5DA1F003C5290 /* data.json in Resources */,
 				80C4045020C496670086318C /* WalletViewController.xib in Resources */,
+				80B04C8920DBBDF800FA94B8 /* CoverViewController.xib in Resources */,
 				806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
 				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
@@ -633,6 +648,7 @@
 				8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */,
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
+				80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */,
 				806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */,
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
