@@ -11,12 +11,15 @@ import PromiseKit
 import RealmSwift
 import Moya
 import CryptoSwift
+import Starscream
+import UserNotifications
 
 class Sentinel {
     
     let realm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     let samouraiAPI = MoyaProvider<Samourai>()
     let streetPriceAPI = MoyaProvider<StreetPrice>()
+    let socket = WebSocket(url: URL(string: "wss://api.samourai.io/v2/inv")!)
     
     enum Errors: Error, LocalizedError {
         case unvalidAddres
@@ -51,6 +54,10 @@ class Sentinel {
                 return "Failed import the wallet"
             }
         }
+    }
+    
+    init() {
+        socket.delegate = self
     }
     
     func addWallet(name: String?, addr: String?) -> Promise<Void> {
@@ -145,8 +152,9 @@ extension Sentinel {
     @discardableResult
     func update() -> Promise<Void> {
         return Promise<Void> { seal in
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             guard numberOfWallets > 0 else {
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 seal.fulfill(())
                 return
             }
@@ -158,11 +166,15 @@ extension Sentinel {
                 }.then({ (hd) -> Promise<Void> in
                     return self.updateTransactions(hd: hd)
                 }).done { () in
-                    print("finished")
                     seal.fulfill(())
                 }.catch { (err) in
                     print(err.localizedDescription)
                     seal.reject(err)
+                }.finally {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                    if !self.socket.isConnected {
+                        self.socket.connect()
+                    }
             }
         }
     }
@@ -186,7 +198,6 @@ extension Sentinel {
                 
                 do {
                     try realm.write {
-                        print(yWallet.final_balance)
                         wallet.balance.value = yWallet.final_balance
                     }
                 } catch let err {
@@ -270,6 +281,31 @@ extension Sentinel {
                         wTransaction.wallet = wallet
                     }
                 })
+                
+                let local = realm.objects(WalletTransaction.self).filter(NSPredicate(format: "txid == %@", transaction.hash)).first
+                
+                guard !wTransaction.isEqual(local) else {
+                    return
+                }
+                
+                if UIApplication.shared.applicationState != .active && !(local != nil) {
+                    let center = UNUserNotificationCenter.current()
+                    
+                    let content = UNMutableNotificationContent()
+                    
+                    if wTransaction.value > 0 {
+                        content.title = "Incoming Transaction - \(wTransaction.wallet!.name)"
+                        content.body = "A Transactiong with value of \(wTransaction.value.btc())btc has been recivied."
+                    }else {
+                        content.title = "Outgoing Transaction - \(wTransaction.wallet!.name)"
+                        content.body = "A Transactiong with value of \(wTransaction.value.btc())btc has been sent."
+                    }
+                    
+                    content.sound = UNNotificationSound.default()
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+                    let request = UNNotificationRequest(identifier: wTransaction.txid, content: content, trigger: trigger)
+                    center.add(request, withCompletionHandler: { (error) in })
+                }
                 
                 do {
                     try realm.write {
@@ -445,4 +481,27 @@ extension Sentinel {
             seal.fulfill(())
         }
     }
+}
+
+extension Sentinel: WebSocketDelegate {
+    func websocketDidConnect(socket: WebSocketClient) {
+        print("Socket Conneceted")
+        socket.write(string: "{\"op\":\"blocks_sub\"}")
+        let wallets = realm.objects(Wallet.self)
+        wallets.forEach { (wallet) in
+            socket.write(string: "{\"op\":\"addr_sub\", \"addr\":\"" + wallet.address + "\"}")
+        }
+    }
+    
+    func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        print("Socket Disconnected")
+        socket.connect()
+    }
+    
+    func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
+        guard text.count > 5 else { return }
+        update()
+    }
+    
+    func websocketDidReceiveData(socket: WebSocketClient, data: Data) { }
 }

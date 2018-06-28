@@ -28,6 +28,7 @@ PODS:
     - Realm (= 3.7.1)
   - Result (3.2.4)
   - secp256k1.swift (0.1.4)
+  - Starscream (3.0.5)
   - SwiftRichString (2.0.1)
 
 DEPENDENCIES:
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - QRCodeReader.swift (~> 8.2.0)
   - RealmSwift (~> 3.7.1)
   - secp256k1.swift (~> 0.1.4)
+  - Starscream (~> 3.0.5)
   - SwiftRichString (~> 2.0.1)
 
 SPEC REPOS:
@@ -55,6 +57,7 @@ SPEC REPOS:
     - RealmSwift
     - Result
     - secp256k1.swift
+    - Starscream
     - SwiftRichString
 
 EXTERNAL SOURCES:
@@ -80,8 +83,9 @@ SPEC CHECKSUMS:
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: a01ea99ad06d171b6b1d8b081d90f56293357ebe
+PODFILE CHECKSUM: caccff4db7caf9db163a5c65949081d00f7450c8
 
 COCOAPODS: 1.5.3

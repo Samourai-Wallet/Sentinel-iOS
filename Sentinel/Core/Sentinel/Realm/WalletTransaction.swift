@@ -27,4 +27,16 @@ class WalletTransaction: Object {
         
         return "Pending \(conf)/3"
     }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let compareable = object as? WalletTransaction else {
+            return false
+        }
+        
+        return self.conf == compareable.conf &&
+            self.time == compareable.time &&
+            self.value == compareable.value &&
+            self.txid == compareable.txid &&
+            self.wallet == compareable.wallet
+    }
 }
