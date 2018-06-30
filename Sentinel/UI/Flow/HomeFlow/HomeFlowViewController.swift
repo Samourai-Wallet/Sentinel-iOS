@@ -28,10 +28,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         
         self.transition(to: bottomMergedContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(sentinel: sentinel), completion: nil)
-        
-        sentinel.update()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.update), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        
+                
         guard sentinel.numberOfWallets == 0 else {
             toggleBarItems()
             return

@@ -13,6 +13,7 @@ import Moya
 import CryptoSwift
 import Starscream
 import UserNotifications
+import Reachability
 
 class Sentinel {
     
@@ -20,7 +21,8 @@ class Sentinel {
     let samouraiAPI = MoyaProvider<Samourai>()
     let streetPriceAPI = MoyaProvider<StreetPrice>()
     let socket = WebSocket(url: URL(string: "wss://api.samourai.io/v2/inv")!)
-    
+    let reachability = Reachability()!
+
     enum Errors: Error, LocalizedError {
         case unvalidAddres
         case walletNameAlreadyDup
@@ -58,6 +60,9 @@ class Sentinel {
     
     init() {
         socket.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilityChanged, object: reachability)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.fup), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        try? self.reachability.startNotifier()
     }
     
     func addWallet(name: String?, addr: String?) -> Promise<Void> {
@@ -177,6 +182,10 @@ extension Sentinel {
                     }
             }
         }
+    }
+    
+    @objc func fup() {
+        self.update()
     }
     
     func getHD() -> Promise<Samourai.HD> {
@@ -495,7 +504,6 @@ extension Sentinel: WebSocketDelegate {
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
         print("Socket Disconnected")
-        socket.connect()
     }
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
@@ -504,4 +512,19 @@ extension Sentinel: WebSocketDelegate {
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) { }
+}
+
+extension Sentinel {
+    @objc func reachabilityChanged(note: Notification) {
+        
+        let reachability = note.object as! Reachability
+        
+        switch reachability.connection {
+        case .wifi, .cellular:
+            socket.disconnect()
+            self.update()
+        case .none:
+            socket.disconnect()
+        }
+    }
 }
