@@ -295,10 +295,10 @@ extension Sentinel {
                     
                     if wTransaction.value > 0 {
                         content.title = "Incoming Transaction - \(wTransaction.wallet!.name)"
-                        content.body = "A Transactiong with value of \(wTransaction.value.btc())btc has been recivied."
+                        content.body = "A Transaction with value of \(wTransaction.value.btc())btc has been received."
                     }else {
                         content.title = "Outgoing Transaction - \(wTransaction.wallet!.name)"
-                        content.body = "A Transactiong with value of \(wTransaction.value.btc())btc has been sent."
+                        content.body = "A Transaction with value of \(wTransaction.value.btc())btc has been sent."
                     }
                     
                     content.sound = UNNotificationSound.default()
