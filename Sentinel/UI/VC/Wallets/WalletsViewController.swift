@@ -60,7 +60,9 @@ class WalletsViewController: UIViewController {
         refreshControl.beginRefreshing()
         _ = sentinel.update().done {
             self.refreshControl.endRefreshing()
-        }
+            }.catch({ (err) in
+                self.refreshControl.endRefreshing()
+            })
     }
 }
 
