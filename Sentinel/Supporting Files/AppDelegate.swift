@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = RootNavigationViewController()
         window?.makeKeyAndVisible()
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound];
         center.requestAuthorization(options: options) {
@@ -47,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

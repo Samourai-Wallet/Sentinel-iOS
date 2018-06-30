@@ -310,6 +310,8 @@ extension Sentinel {
                         content.body = "A Transaction with value of \(wTransaction.value.btc())btc has been sent."
                     }
                     
+                    UIApplication.shared.applicationIconBadgeNumber += 1
+                    
                     content.sound = UNNotificationSound.default()
                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
                     let request = UNNotificationRequest(identifier: wTransaction.txid, content: content, trigger: trigger)
