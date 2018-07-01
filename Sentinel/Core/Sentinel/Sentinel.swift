@@ -177,7 +177,7 @@ extension Sentinel {
                     seal.reject(err)
                 }.finally {
                     UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                    if !self.socket.isConnected {
+                    if !self.socket.isConnected && UIApplication.shared.applicationState == .active {
                         self.socket.connect()
                     }
             }
