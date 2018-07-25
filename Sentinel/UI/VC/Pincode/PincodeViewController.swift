@@ -40,7 +40,11 @@ class PincodeViewController: UIViewController {
         rootStackView.subviews.forEach { (subStack) in
             (subStack as! UIStackView).subviews.forEach({ (sub) in
                 if let sub = sub as? UIButton {
-                    if let number = titles.first {
+                    if sub.tag == 0 {
+                        guard let number = titles.first else {
+                            return
+                        }
+                        
                         let isScrambled = UserDefaults.standard.bool(forKey: "isScrambled")
                         if isScrambled {
                             let random = arc4random_uniform(UInt32(titles.count))
@@ -51,8 +55,10 @@ class PincodeViewController: UIViewController {
                             sub.setTitle(String(number), for: UIControlState.normal)
                             titles = String(titles.dropFirst())
                         }
-                    }else {
+                        
+                    } else if sub.tag == 1 {
                         sub.setTitle("delete", for: UIControlState.normal)
+
                     }
                 }
             })
@@ -82,6 +88,7 @@ class PincodeViewController: UIViewController {
             // set password
             do {
                 try Locksmith.saveData(data: ["pinCodeHash": prevHash!], forUserAccount: "account")
+                UserDefaults.standard.set(true, forKey: "isScrambled")
                 UserDefaults.standard.set(Date(), forKey: "lastPin")
                 self.navigationController?.popToRootViewController(animated: true)
             }catch let err {

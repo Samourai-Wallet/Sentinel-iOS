@@ -15,8 +15,8 @@ class QRMakerViewController: UIViewController {
     let wallet: Wallet
     let isReciving: Bool
     @IBOutlet var qrImageView: UIImageView!
-    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var typeLabel: UILabel!
     
     init(wallet: Wallet, isReciving: Bool) {
         self.wallet = wallet
@@ -25,7 +25,7 @@ class QRMakerViewController: UIViewController {
         if isReciving {
             self.title = "Receiving Address"
         }else{
-            self.title = "Account QR"
+            self.title = wallet.name
         }
     }
     
@@ -38,7 +38,36 @@ class QRMakerViewController: UIViewController {
         qrImageView.image = new?.image
         
         addressLabel.text = info.1
-        nameLabel.text = wallet.name
+        
+        if let type = wallet.address.addrType() {
+            switch type {
+            case .bech32, .bip84:
+                typeLabel.text = "Segwit"
+            case .p2sh, .bip49:
+                typeLabel.text = "Segwit Compatibility"
+            case .p2pkh, .pub:
+                typeLabel.text = "Standard"
+            }
+        }
+        
+        let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareAction))
+        self.navigationItem.rightBarButtonItems = [shareItem]
+    }
+    
+    @objc func shareAction() {
+        let activityViewController = UIActivityViewController(activityItems: [shareImage()], applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    private func shareImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: view.bounds.width, height: view.bounds.width + addressLabel.bounds.height + 10), false, UIScreen.main.scale)
+        
+        view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
     }
     
     private func data() -> (String, String) {
@@ -72,5 +101,15 @@ class QRMakerViewController: UIViewController {
                 return (wallet.address, wallet.address)
             }
         }
+    }
+    
+    @IBAction func saveToClipboard(_ sender: UITapGestureRecognizer) {
+        let alert = UIAlertController(title: "Copied", message: "Public key has been copied to your clipboard!", preferredStyle: UIAlertControllerStyle.alert)
+        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+            UIPasteboard.general.string = self.addressLabel.text
+        }
+        alert.addAction(ok)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

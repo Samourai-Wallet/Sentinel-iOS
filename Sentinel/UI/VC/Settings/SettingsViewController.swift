@@ -17,8 +17,8 @@ class SettingsViewController: UIViewController {
     
     var data: [(String, UIViewController?)] {
         var items: [(String, UIViewController?)] = [("Street pricee", StreetPriceViewController(sentinel: sentinel)),
-                     ("Import wallet", ImportViewController(sentinel: sentinel)),
-                     ("Export wallet", ExportViewController(sentinel: sentinel)),
+                     ("Import Watchlist", ImportViewController(sentinel: sentinel)),
+                     ("Export Watchlist", ExportViewController(sentinel: sentinel)),
                      ("Set pincode", PincodeViewController(mode: .set))]
         
         guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return items }

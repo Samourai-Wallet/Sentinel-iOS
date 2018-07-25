@@ -23,9 +23,23 @@ class RootNavigationViewController: UINavigationController {
         navigationBar.backgroundColor = #colorLiteral(red: 0.4220947623, green: 0.4648562074, blue: 0.5403060317, alpha: 1)
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkForPin), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.cover), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
-        checkForPin()
         
-        UserDefaults.standard.set(false, forKey: "isFiat")
+        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil) else {
+            
+            showHome()
+            return
+        }
+        showPIN()
+    }
+    
+    var loaded = false
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if loaded {
+            checkForPin()
+        }else {
+            loaded = true
+        }
     }
     
     @objc func checkForPin() {
@@ -46,7 +60,7 @@ class RootNavigationViewController: UINavigationController {
     }
     
     @objc func cover() {
-        self.viewControllers = [CoverViewController(bg: viewControllers.first!.view.snapshotView(afterScreenUpdates: false)!)]
+        self.viewControllers = [CoverViewController(bg: viewControllers.first!.view.snapshotView(afterScreenUpdates: true)!)]
     }
     
     func showPIN() {

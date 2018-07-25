@@ -66,15 +66,15 @@ class BalanceViewController: UIViewController {
             }
             
             if isFiat {
-                balanceLabel.attributedText = "\((Float(abs(balance)*UserDefaults.standard.double(forKey: "Price"))))".set(style: balanceStyle) + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
+                balanceLabel.attributedText = "\((Float(abs(balance)*UserDefaults.standard.double(forKey: "Price"))))".set(style: balanceStyle) + " " + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
             }else{
-                balanceLabel.attributedText = "\(balance)".set(style: balanceStyle) + "BTC".set(style: btcStyle)
+                balanceLabel.attributedText = "\(balance)".set(style: balanceStyle) + " BTC".set(style: btcStyle)
             }
         } else {
             if isFiat {
-                balanceLabel.attributedText = "\((Float(abs(sentinel.totalBalance()).btc()*UserDefaults.standard.double(forKey: "Price"))))".set(style: balanceStyle) + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
+                balanceLabel.attributedText = "\((Float(abs(sentinel.totalBalance()).btc()*UserDefaults.standard.double(forKey: "Price"))))".set(style: balanceStyle) + " " + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
             }else{
-                balanceLabel.attributedText = "\(sentinel.totalBalance().btc())".set(style: balanceStyle) + "BTC".set(style: btcStyle)
+                balanceLabel.attributedText = "\(sentinel.totalBalance().btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
             }
         }
     }

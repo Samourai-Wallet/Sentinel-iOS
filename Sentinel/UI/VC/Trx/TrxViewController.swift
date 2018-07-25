@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SwiftRichString
 
 class TrxViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
@@ -29,10 +30,19 @@ class TrxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let balanceStyle = Style {
+            $0.font = UIFont.robotoMono(size: 40)
+        }
+        
+        let btcStyle = Style {
+            $0.font = UIFont.robotoMono(size: 20)
+        }
+        
+
         if walletTransaction.value > 0 {
-            amountLabel.text = "+\(walletTransaction.value.btc())"
+            amountLabel.attributedText = "+\(walletTransaction.value.btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
         }else{
-            amountLabel.text = "\(walletTransaction.value.btc())"
+            amountLabel.attributedText = "\(walletTransaction.value.btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
         }
         
         statusLabel.text = walletTransaction.status()

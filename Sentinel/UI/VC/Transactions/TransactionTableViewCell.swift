@@ -10,7 +10,6 @@ import UIKit
 
 class TransactionTableViewCell: UITableViewCell {
     
-    var tapGestureRecognizer: UITapGestureRecognizer!
     var transaction: WalletTransaction!
     @IBOutlet var indicatorImageView: UIImageView!
     @IBOutlet var timeLabel: UILabel!
@@ -28,8 +27,6 @@ class TransactionTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         backgroundColor = contentView.backgroundColor
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
-        valueLabel.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func setData(walletTransaction: WalletTransaction) {
@@ -50,9 +47,12 @@ class TransactionTableViewCell: UITableViewCell {
         }
         
         if UserDefaults.standard.bool(forKey: "isFiat") {
-            valueLabel.text = "\((Float(abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price")))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
+            valueLabel.text = "\((Float((round(100*abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price"))/100)))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
         }else {
-            valueLabel.text = "\(abs(transaction.value).btc()) BTC"
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = NumberFormatter.Style.decimal
+            let finalNumber = numberFormatter.number(from: "\(abs(transaction.value).btc())")
+            valueLabel.text = "\(finalNumber!) BTC"
         }
         
         walletNameLabel.text = transaction.wallet?.name
@@ -65,10 +65,5 @@ class TransactionTableViewCell: UITableViewCell {
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
         timeLabel.text = df.string(from: date)
-    }
-    
-    @objc func priceTapped() {
-        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: "isFiat"), forKey: "isFiat")
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "TogglePrice")))
     }
 }

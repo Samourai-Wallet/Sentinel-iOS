@@ -22,11 +22,12 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     
     @IBOutlet var balanceVCContainer: UIView!
     @IBOutlet var bottomMergedContainer: UIView!
+    var bottomMergedVC: BottomMergedViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.transition(to: bottomMergedContainer, duration: 0, child: BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self), completion: nil)
+        bottomMergedVC = BottomMergedViewController(sentinel: sentinel, homeFlowViewController: self)
+        self.transition(to: bottomMergedContainer, duration: 0, child: bottomMergedVC, completion: nil)
         self.transition(to: self.balanceVCContainer, duration: 0, child: BalanceViewController(sentinel: sentinel), completion: nil)
                 
         guard sentinel.numberOfWallets == 0 else {
@@ -51,11 +52,15 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
             let settings = UIBarButtonItem(title: "Settings", style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
             self.navigationItem.rightBarButtonItems = [edit]
             self.navigationItem.leftBarButtonItems = [settings]
+            bottomMergedVC.animationContainer.isHidden = false
+            bottomMergedVC.bottomScrollView.isScrollEnabled = true
         }else{
             let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
             let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(toggleBarItems))
             self.navigationItem.rightBarButtonItems = [add]
             self.navigationItem.leftBarButtonItems = [done]
+            bottomMergedVC.animationContainer.isHidden = true
+            bottomMergedVC.bottomScrollView.isScrollEnabled = false
         }
         
         isEditingToggles = !isEditingToggles

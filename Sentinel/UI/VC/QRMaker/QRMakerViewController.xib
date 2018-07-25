@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,8 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRMakerViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="6KO-lk-dhv" id="lO7-Tb-Gwf"/>
-                <outlet property="nameLabel" destination="geG-hb-Fzl" id="7Km-xZ-YKC"/>
                 <outlet property="qrImageView" destination="sUF-9A-NpI" id="0eD-rn-ltF"/>
+                <outlet property="typeLabel" destination="0Ip-vb-jSQ" id="wAX-ye-Lfj"/>
                 <outlet property="view" destination="iN0-l3-epB" id="lkJ-Eg-dK4"/>
             </connections>
         </placeholder>
@@ -25,48 +24,53 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sUF-9A-NpI">
-                    <rect key="frame" x="10" y="30" width="355" height="355"/>
+                    <rect key="frame" x="20" y="30" width="335" height="335"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="sUF-9A-NpI" secondAttribute="height" multiplier="1:1" id="OHd-dk-ZDi"/>
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="o8p-S3-cDL">
-                    <rect key="frame" x="15" y="400" width="345" height="56"/>
+                    <rect key="frame" x="15" y="385" width="345" height="56"/>
                     <subviews>
                         <stackView opaque="NO" tag="-1" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FL5-fx-paZ">
                             <rect key="frame" x="0.0" y="0.0" width="345" height="20.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-2c-HP6" userLabel="Address">
-                                    <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Public Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-2c-HP6" userLabel="Address">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="70" id="zH6-cx-EP8"/>
+                                        <constraint firstAttribute="width" constant="80" id="zH6-cx-EP8"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6KO-lk-dhv">
-                                    <rect key="frame" x="80" y="0.0" width="265" height="20.5"/>
+                                    <rect key="frame" x="90" y="0.0" width="255" height="20.5"/>
+                                    <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="wue-Rr-y9m" appends="YES" id="Xdl-dR-BY1"/>
+                                    </connections>
                                 </label>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="lastBaseline" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oKQ-jp-0hW">
+                        <stackView opaque="NO" tag="-1" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bWN-7Z-ZEb">
                             <rect key="frame" x="0.0" y="35.5" width="345" height="20.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpk-AY-cto">
-                                    <rect key="frame" x="0.0" y="0.0" width="70" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.85000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAc-NF-Xgq" userLabel="Address">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="70" id="XyJ-I8-X0s"/>
+                                        <constraint firstAttribute="width" constant="80" id="puL-Iu-1xN"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geG-hb-Fzl">
-                                    <rect key="frame" x="80" y="0.0" width="265" height="20.5"/>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ip-vb-jSQ">
+                                    <rect key="frame" x="90" y="0.0" width="255" height="20.5"/>
+                                    <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -78,14 +82,19 @@
             </subviews>
             <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="sUF-9A-NpI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="6qG-i2-kYz"/>
+                <constraint firstItem="sUF-9A-NpI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="6qG-i2-kYz"/>
                 <constraint firstItem="o8p-S3-cDL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Eeq-59-aIz"/>
-                <constraint firstItem="o8p-S3-cDL" firstAttribute="top" secondItem="sUF-9A-NpI" secondAttribute="bottom" constant="15" id="GhV-QM-X08"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sUF-9A-NpI" secondAttribute="trailing" constant="10" id="Qiw-kR-my2"/>
+                <constraint firstItem="o8p-S3-cDL" firstAttribute="top" secondItem="sUF-9A-NpI" secondAttribute="bottom" constant="20" id="GhV-QM-X08"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sUF-9A-NpI" secondAttribute="trailing" constant="20" id="Qiw-kR-my2"/>
                 <constraint firstItem="sUF-9A-NpI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="i0l-2i-tQx"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="o8p-S3-cDL" secondAttribute="trailing" constant="15" id="vEb-B5-sDJ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
+        <tapGestureRecognizer id="wue-Rr-y9m">
+            <connections>
+                <action selector="saveToClipboard:" destination="-1" id="QRq-BU-wTP"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
