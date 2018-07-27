@@ -61,7 +61,7 @@ class QRMakerViewController: UIViewController {
     }
     
     private func shareImage() -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: view.bounds.width, height: view.bounds.width + addressLabel.bounds.height + 10), false, UIScreen.main.scale)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: view.bounds.width, height: view.bounds.width + addressLabel.bounds.height + 8), false, UIScreen.main.scale)
         
         view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         
