@@ -26,7 +26,7 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Exoport wallet"
+        self.title = "Export wallet"
         
         let alert = UIAlertController(title: "Export Password", message: "Please enter a pssword", preferredStyle: UIAlertControllerStyle.alert)
 
