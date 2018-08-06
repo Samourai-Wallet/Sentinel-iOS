@@ -21,18 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = RootNavigationViewController()
         window?.makeKeyAndVisible()
+        
         application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         UIApplication.shared.applicationIconBadgeNumber = 0
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
 
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge];
-        center.requestAuthorization(options: options) {
-            (granted, error) in
-            if !granted {
-                print("Something went wrong")
-            }
-        }
+        center.requestAuthorization(options: options) { (granted, error) in } 
         
         return true
     }
