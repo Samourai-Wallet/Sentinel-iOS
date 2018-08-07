@@ -10,7 +10,11 @@ import UIKit
 
 extension Int {
     func btc() -> Double {
-        return Double(self) / 100000000
+        let result = Double(self) / 100000000
+        if !result.isNormal {
+            return 0
+        }
+        return result
     }
 }
 
