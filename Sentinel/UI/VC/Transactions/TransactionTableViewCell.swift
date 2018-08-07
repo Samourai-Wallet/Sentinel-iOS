@@ -49,7 +49,7 @@ class TransactionTableViewCell: UITableViewCell {
         if UserDefaults.standard.bool(forKey: "isFiat") {
             valueLabel.text = "\((Float((round(100*abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price"))/100)))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
         }else {
-            valueLabel.text = "\(transaction.value.btc()) BTC"
+            valueLabel.text = "\(abs(transaction.value.btc())) BTC"
         }
         
         walletNameLabel.text = transaction.wallet?.name
