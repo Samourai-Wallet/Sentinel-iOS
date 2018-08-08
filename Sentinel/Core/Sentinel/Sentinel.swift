@@ -455,7 +455,7 @@ extension Sentinel {
             
             let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
             let json = try! JSONSerialization.data(withJSONObject: all, options: [])
-            let encrypted = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs7).encrypt(json.bytes).toBase64()!
+            let encrypted = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).encrypt(json.bytes).toBase64()!
             let b64 = try! JSONSerialization.data(withJSONObject: ["version": "2", "payload": encrypted], options: []).base64EncodedString()
             seal.fulfill(b64)
         }
@@ -466,7 +466,8 @@ extension Sentinel {
             
             let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
             
-            guard let decodedInputData = Data(base64Encoded: input), let decodedInput = try? JSONSerialization.jsonObject(with: decodedInputData, options: []) as? [String: String], let payload = decodedInput!["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs7).decrypt(Data(base64Encoded: payload)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
+            guard let decodedInputData = Data(base64Encoded: input), let decodedInput = try? JSONSerialization.jsonObject(with: decodedInputData, options: []) as? [String: String?], let payload = decodedInput!["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).decrypt(Data(base64Encoded: payload!)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
+                seal.reject(Errors.failedToImport)
                 return
             }
             
