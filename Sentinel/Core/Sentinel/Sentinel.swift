@@ -452,12 +452,17 @@ extension Sentinel {
             _ = realm.objects(Wallet.self).forEach({ (wallet) in
                 all.append(wallet.raw)
             })
-            
-            let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
-            let json = try! JSONSerialization.data(withJSONObject: all, options: [])
-            let encrypted = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).encrypt(json.bytes).toBase64()!
-            let b64 = try! JSONSerialization.data(withJSONObject: ["version": "2", "payload": encrypted], options: []).base64EncodedString()
-            seal.fulfill(b64)
+            do {
+                let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
+                let json = try JSONSerialization.data(withJSONObject: all, options: [.prettyPrinted])
+                let encrypted = try AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).encrypt(json.bytes).toBase64()!
+                let b64 = try JSONSerialization.data(withJSONObject: ["version": "2", "payload": encrypted], options: [.prettyPrinted])
+                let str = String(data: b64, encoding: .utf8)
+                seal.fulfill(str!)
+            } catch let err {
+                seal.reject(err)
+
+            }
         }
     }
     
@@ -466,11 +471,11 @@ extension Sentinel {
             
             let key: Array<UInt8> = Array(password.sha256().bytes[0..<16])
             
-            guard let decodedInputData = Data(base64Encoded: input), let decodedInput = try? JSONSerialization.jsonObject(with: decodedInputData, options: []) as? [String: String?], let payload = decodedInput!["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).decrypt(Data(base64Encoded: payload!)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
+            guard let inputData = input.data(using: .utf8), let decodedInput = try? JSONSerialization.jsonObject(with: inputData, options: []) as? [String: String], let version = decodedInput?["version"], version == "2", let payload = decodedInput?["payload"], let decryptedWallets = try? AES(key: key, blockMode: CBC(iv: key), padding: .pkcs5).decrypt(Data(base64Encoded: payload)!.bytes), let wallets = try? JSONSerialization.jsonObject(with: Data(bytes: decryptedWallets), options: []) as? [[String: Any]] else {
                 seal.reject(Errors.failedToImport)
                 return
             }
-            
+
             wallets?.forEach { (iWallet) in
                 guard let name = iWallet["name"] as? String, let address = iWallet["address"] as? String else {
                     return
