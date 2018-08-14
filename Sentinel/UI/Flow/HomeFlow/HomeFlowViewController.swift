@@ -64,6 +64,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         }
         
         isEditingToggles = !isEditingToggles
+        bottomMergedVC.bottomScrollView.setContentOffset(CGPoint.zero, animated: true)
         delegate?.editStateChanged(isEditing: isEditingToggles)
     }
     
