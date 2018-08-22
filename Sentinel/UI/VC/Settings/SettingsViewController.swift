@@ -16,17 +16,17 @@ class SettingsViewController: UIViewController {
     @IBOutlet var settingsTableView: UITableView!
     
     var data: [(String, UIViewController?)] {
-        var items: [(String, UIViewController?)] = [("Street pricee", StreetPriceViewController(sentinel: sentinel)),
-                     ("Import Watchlist", ImportViewController(sentinel: sentinel)),
-                     ("Export Watchlist", ExportViewController(sentinel: sentinel)),
-                     ("Set pincode", PincodeViewController(mode: .set))]
+        var items: [(String, UIViewController?)] = [(NSLocalizedString("Street Price", comment: ""), StreetPriceViewController(sentinel: sentinel)),
+                                                    (NSLocalizedString("Import Watchlist", comment: ""), ImportViewController(sentinel: sentinel)),
+                                                    (NSLocalizedString("Export Watchlist", comment: ""), ExportViewController(sentinel: sentinel)),
+                                                    (NSLocalizedString("Set pincode", comment: ""), PincodeViewController(mode: .set))]
         
         guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return items }
         guard (dictionary["pinCodeHash"] as? String) != nil else { return items }
         
         items = Array(items.dropLast())
-        items.append(("Remove pincode", PincodeViewController(mode: .remove)))
-        items.append(("Scramble pincode", nil))
+        items.append((NSLocalizedString("Remove pincode", comment: ""), PincodeViewController(mode: .remove)))
+        items.append((NSLocalizedString("Scramble pincode", comment: ""), nil))
         
         return items
     }

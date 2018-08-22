@@ -23,7 +23,7 @@ class QRMakerViewController: UIViewController {
         self.isReciving = isReciving
         super.init(nibName: nil, bundle: nil)
         if isReciving {
-            self.title = "Receiving Address"
+            self.title = NSLocalizedString("Receiving Address", comment: "")
         }else{
             self.title = wallet.name
         }
@@ -42,11 +42,11 @@ class QRMakerViewController: UIViewController {
         if let type = wallet.address.addrType() {
             switch type {
             case .bech32, .bip84:
-                typeLabel.text = "Segwit"
+                typeLabel.text = NSLocalizedString("Segwit", comment: "")
             case .p2sh, .bip49:
-                typeLabel.text = "Segwit Compatibility"
+                typeLabel.text = NSLocalizedString("Segwit Compatibility", comment: "")
             case .p2pkh, .pub:
-                typeLabel.text = "Standard"
+                typeLabel.text = NSLocalizedString("Standard", comment: "")
             }
         }
         
@@ -104,8 +104,8 @@ class QRMakerViewController: UIViewController {
     }
     
     @IBAction func saveToClipboard(_ sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Copied", message: "Public key has been copied to your clipboard!", preferredStyle: UIAlertControllerStyle.alert)
-        let ok = UIAlertAction(title: "OK", style: .default) { (action) in
+        let alert = UIAlertController(title: NSLocalizedString("Copied", comment: ""), message: NSLocalizedString("Public key has been copied to your clipboard!", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) { (action) in
             UIPasteboard.general.string = self.addressLabel.text
         }
         alert.addAction(ok)

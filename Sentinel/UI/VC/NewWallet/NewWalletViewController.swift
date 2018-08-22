@@ -67,8 +67,8 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
                 self.delegate?.newAccontAdded()
                 self.dismiss(animated: true, completion: nil)
                 }.catch { (err) in
-                    let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
-                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    let alertController = UIAlertController(title: NSLocalizedString("Failed", comment: ""), message: err.localizedDescription, preferredStyle: .alert)
+                    let cancel = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { (action) in
                     }
                     alertController.addAction(cancel)
                     self.present(alertController, animated: true)
@@ -79,8 +79,8 @@ class NewWalletViewController: UIViewController, UITextFieldDelegate {
         _ = sentinel.renameWallet(wallet: wallet, name: nameTextField.text).done {
             self.dismiss(animated: true, completion: nil)
             }.catch({ (err) in
-                let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
-                let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                let alertController = UIAlertController(title: NSLocalizedString("Failed", comment: ""), message: err.localizedDescription, preferredStyle: .alert)
+                let cancel = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { (action) in
                 }
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true)

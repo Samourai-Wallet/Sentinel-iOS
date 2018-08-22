@@ -15,6 +15,11 @@
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
 		801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E168420C06327003D80FE /* LaunchScreen.storyboard */; };
 		8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */; };
+		802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802828CF212DAE1A003C1E56 /* Localizable.strings */; };
+		802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D2212DB155003C1E56 /* ImportViewController.xib */; };
+		802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D5212DB21F003C1E56 /* QRMakerViewController.xib */; };
+		802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */; };
+		802828D9212DB365003C1E56 /* TrxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828DB212DB365003C1E56 /* TrxViewController.xib */; };
 		8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB8C20C1588E007541F8 /* BalanceViewController.xib */; };
 		8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB8E20C1589B007541F8 /* BalanceViewController.swift */; };
 		8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */; };
@@ -25,14 +30,12 @@
 		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
 		8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */; };
 		8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */; };
-		8068206F20C6DF4300F5F0B2 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */; };
 		806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AD520C1E1F3008AC0CF /* Roboto.swift */; };
 		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
 		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
 		806A8AE320C1F723008AC0CF /* Trx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE220C1F723008AC0CF /* Trx.swift */; };
 		806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */; };
 		806A8AE720C205CC008AC0CF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE620C205CC008AC0CF /* Util.swift */; };
-		806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */; };
 		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
 		806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB520D5514800438F5C /* RootNavigationViewController.xib */; };
 		806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB820D551C100438F5C /* HomeFlowViewController.xib */; };
@@ -60,9 +63,7 @@
 		80C4044E20C496480086318C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4044D20C496480086318C /* WalletViewController.swift */; };
 		80C4045020C496670086318C /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4044F20C496660086318C /* WalletViewController.xib */; };
 		80C4045220C4A2880086318C /* TrxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045120C4A2880086318C /* TrxViewController.swift */; };
-		80C4045520C4A2BB0086318C /* TrxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4045420C4A2BB0086318C /* TrxViewController.xib */; };
 		80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045720C4AE3A0086318C /* QRMakerViewController.swift */; };
-		80C4045A20C4AE4A0086318C /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4045920C4AE4A0086318C /* QRMakerViewController.xib */; };
 		80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045B20C4AEEA0086318C /* QRMaker.swift */; };
 		80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1FFA620C4394F004245EF /* WalletTransaction.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,11 @@
 		801E168520C06327003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801E168720C06327003D80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		802828CE212DAE1A003C1E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		802828D1212DB155003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImportViewController.xib; sourceTree = "<group>"; };
+		802828D4212DB21F003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QRMakerViewController.xib; sourceTree = "<group>"; };
+		802828D7212DB2EB003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewWalletViewController.xib; sourceTree = "<group>"; };
+		802828DA212DB365003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TrxViewController.xib; sourceTree = "<group>"; };
 		802DB0B120E4D6100008DC85 /* Sentinel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentinel.entitlements; sourceTree = "<group>"; };
 		8047AB8C20C1588E007541F8 /* BalanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceViewController.xib; sourceTree = "<group>"; };
 		8047AB8E20C1589B007541F8 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
@@ -89,14 +95,12 @@
 		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPricesProvider.swift; sourceTree = "<group>"; };
 		8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
-		8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImportViewController.xib; sourceTree = "<group>"; };
 		806A8AD520C1E1F3008AC0CF /* Roboto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roboto.swift; sourceTree = "<group>"; };
 		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
 		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
 		806A8AE220C1F723008AC0CF /* Trx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trx.swift; sourceTree = "<group>"; };
 		806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit_Moya_Decode.swift; sourceTree = "<group>"; };
 		806A8AE620C205CC008AC0CF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewWalletViewController.xib; sourceTree = "<group>"; };
 		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
 		806D1CB520D5514800438F5C /* RootNavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootNavigationViewController.xib; sourceTree = "<group>"; };
 		806D1CB820D551C100438F5C /* HomeFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFlowViewController.xib; sourceTree = "<group>"; };
@@ -125,9 +129,7 @@
 		80C4044D20C496480086318C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
 		80C4044F20C496660086318C /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
 		80C4045120C4A2880086318C /* TrxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrxViewController.swift; sourceTree = "<group>"; };
-		80C4045420C4A2BB0086318C /* TrxViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrxViewController.xib; sourceTree = "<group>"; };
 		80C4045720C4AE3A0086318C /* QRMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMakerViewController.swift; sourceTree = "<group>"; };
-		80C4045920C4AE4A0086318C /* QRMakerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QRMakerViewController.xib; sourceTree = "<group>"; };
 		80C4045B20C4AEEA0086318C /* QRMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaker.swift; sourceTree = "<group>"; };
 		80F1FFA620C4394F004245EF /* WalletTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransaction.swift; sourceTree = "<group>"; };
 		88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */,
-				8068206E20C6DF4300F5F0B2 /* ImportViewController.xib */,
+				802828D2212DB155003C1E56 /* ImportViewController.xib */,
 			);
 			path = Import;
 			sourceTree = "<group>";
@@ -313,7 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */,
-				806A8AEE20C20E75008AC0CF /* NewWalletViewController.xib */,
+				802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */,
 			);
 			path = NewWallet;
 			sourceTree = "<group>";
@@ -379,6 +381,7 @@
 		807E26CE20C0AB1600B03C4A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				802828CF212DAE1A003C1E56 /* Localizable.strings */,
 				801E167B20C06326003D80FE /* AppDelegate.swift */,
 				807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */,
 				801E168220C06327003D80FE /* Assets.xcassets */,
@@ -440,7 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				80C4045120C4A2880086318C /* TrxViewController.swift */,
-				80C4045420C4A2BB0086318C /* TrxViewController.xib */,
+				802828DB212DB365003C1E56 /* TrxViewController.xib */,
 			);
 			path = Trx;
 			sourceTree = "<group>";
@@ -449,7 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				80C4045720C4AE3A0086318C /* QRMakerViewController.swift */,
-				80C4045920C4AE4A0086318C /* QRMakerViewController.xib */,
+				802828D5212DB21F003C1E56 /* QRMakerViewController.xib */,
 				80C4045B20C4AEEA0086318C /* QRMaker.swift */,
 			);
 			path = QRMaker;
@@ -543,12 +546,13 @@
 			files = (
 				8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */,
 				806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */,
-				806A8AEF20C20E75008AC0CF /* NewWalletViewController.xib in Resources */,
+				802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */,
+				802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
-				80C4045A20C4AE4A0086318C /* QRMakerViewController.xib in Resources */,
-				8068206F20C6DF4300F5F0B2 /* ImportViewController.xib in Resources */,
-				80C4045520C4A2BB0086318C /* TrxViewController.xib in Resources */,
+				802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */,
+				802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */,
+				802828D9212DB365003C1E56 /* TrxViewController.xib in Resources */,
 				80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */,
 				8087CCA920C2B7E900A03D90 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
@@ -687,6 +691,46 @@
 				801E168520C06327003D80FE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		802828CF212DAE1A003C1E56 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828CE212DAE1A003C1E56 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		802828D2212DB155003C1E56 /* ImportViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D1212DB155003C1E56 /* Base */,
+			);
+			name = ImportViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828D5212DB21F003C1E56 /* QRMakerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D4212DB21F003C1E56 /* Base */,
+			);
+			name = QRMakerViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D7212DB2EB003C1E56 /* Base */,
+			);
+			name = NewWalletViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828DB212DB365003C1E56 /* TrxViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828DA212DB365003C1E56 /* Base */,
+			);
+			name = TrxViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

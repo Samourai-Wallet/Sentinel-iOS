@@ -95,7 +95,7 @@ extension WalletsViewController: UITableViewDelegate {
         if tableView.isEditing {
             let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
-            let qr = UIAlertAction(title: "Account QR", style: .default) { (action) in
+            let qr = UIAlertAction(title: NSLocalizedString("Account QR", comment: ""), style: .default) { (action) in
                 let qrVC = QRMakerViewController(wallet: self.sentinel.wallet(forRow: indexPath.row), isReciving: false)
                 self.show(qrVC, sender: self)
                 if let selected = self.walletsTableView.indexPathForSelectedRow {
@@ -110,18 +110,18 @@ extension WalletsViewController: UITableViewDelegate {
             }
             alertController.addAction(qr)
             
-            let rename = UIAlertAction(title: "Rename", style: .default) { (action) in
+            let rename = UIAlertAction(title: NSLocalizedString("Rename", comment: ""), style: .default) { (action) in
                 let renameVC = NewWalletViewController(sentinel: self.sentinel, wallet: self.sentinel.wallet(forRow: indexPath.row))
                 self.present(renameVC, animated: true)
             }
             alertController.addAction(rename)
             
-            let destroyAction = UIAlertAction(title: "Remove", style: .destructive) { (action) in
+            let destroyAction = UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive) { (action) in
                 self.sentinel.remove(wallet: self.sentinel.wallet(forRow: indexPath.row))
             }
             alertController.addAction(destroyAction)
             
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
                 if let selected = self.walletsTableView.indexPathForSelectedRow {
                     self.walletsTableView.deselectRow(at: selected, animated: true)
                 }

@@ -24,7 +24,7 @@ class TrxViewController: UIViewController {
     init(walletTransaction: WalletTransaction) {
         self.walletTransaction = walletTransaction
         super.init(nibName: nil, bundle: nil)
-        self.title = "Transaction"
+        self.title = NSLocalizedString("Transaction", comment: "")
     }
     
     override func viewDidLoad() {

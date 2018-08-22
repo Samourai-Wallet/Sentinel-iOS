@@ -12,11 +12,24 @@ import Locksmith
 class PincodeViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     
-    enum Mode: String {
-        case set = "New PIN"
-        case confirm = "Confirm PIN"
-        case login = "Enter PIN"
-        case remove = "Remove PIN"
+    enum Mode {
+        case set
+        case confirm
+        case login
+        case remove
+        
+        var stringValue: String {
+            switch self {
+            case .set:
+                return NSLocalizedString("NewPIN", comment: "")
+            case .confirm:
+                return NSLocalizedString("Confirm PIN", comment: "")
+            case .login:
+                return NSLocalizedString("Enter PIN", comment: "")
+            case .remove:
+                return NSLocalizedString("Remove PIN", comment: "")
+            }
+        }
     }
     
     let currentMode: Mode
@@ -65,14 +78,14 @@ class PincodeViewController: UIViewController {
         }
         
         func setup() {
-            self.title = currentMode.rawValue
+            self.title = currentMode.stringValue
             switch currentMode {
             case .set:
-                nextItem = UIBarButtonItem(title: "Confirm", style: .plain, target: self, action: #selector(self.nextStep))
+                nextItem = UIBarButtonItem(title: NSLocalizedString("Confirm", comment: ""), style: .plain, target: self, action: #selector(self.nextStep))
                 nextItem.isEnabled = false
                 self.navigationItem.rightBarButtonItems = [nextItem]
             case .confirm:
-                nextItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.nextStep))
+                nextItem = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: .plain, target: self, action: #selector(self.nextStep))
                 nextItem.isEnabled = false
                 self.navigationItem.rightBarButtonItems = [nextItem]
             case .login: break

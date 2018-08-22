@@ -26,11 +26,11 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Export wallet"
+        self.title = NSLocalizedString("Export wallet", comment: "")
         
-        let alert = UIAlertController(title: "Export Password", message: "Please enter a pssword", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: NSLocalizedString("Export Password", comment: ""), message: NSLocalizedString("Please enter a pssword", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
 
-        exportAction = UIAlertAction(title: "Export", style: UIAlertActionStyle.default) { (action: UIAlertAction) in
+        exportAction = UIAlertAction(title: NSLocalizedString("Export", comment: ""), style: UIAlertActionStyle.default) { (action: UIAlertAction) in
             self.sentinel.exportWallet(password: alert.textFields!.first!.text!).done { (json) in
                 self.export = json
                 let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.share))
@@ -42,14 +42,14 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
         }
         exportAction.isEnabled = false
         
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action) in
             self.navigationController?.popViewController(animated: true)
         }
         
         alert.addTextField { (textField: UITextField) in
             textField.delegate = self
             textField.textContentType = .password
-            textField.placeholder = "Password here"
+            textField.placeholder = NSLocalizedString("Password here", comment: "")
         }
         
         alert.addAction(exportAction)

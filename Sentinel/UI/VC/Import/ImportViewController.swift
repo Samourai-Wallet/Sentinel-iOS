@@ -52,15 +52,15 @@ class ImportViewController: UIViewController, UITextFieldDelegate {
     
     @objc func importWallets() {
         sentinel.importWallet(input: encryptedTextField.text!, password: passwordTextField.text!).done {
-            let alertController = UIAlertController(title: "Imported!", message: "Your wallet has been successfully imported.", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+            let alertController = UIAlertController(title: NSLocalizedString("Imported!", comment: ""), message: NSLocalizedString("Your wallet has been successfully imported.", comment: ""), preferredStyle: .alert)
+            let cancel = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { (action) in
                 self.navigationController?.popViewController(animated: true)
             }
             alertController.addAction(cancel)
             self.present(alertController, animated: true)
             }.catch { (err) in
-                let alertController = UIAlertController(title: "Failed", message: err.localizedDescription, preferredStyle: .alert)
-                let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                let alertController = UIAlertController(title: NSLocalizedString("Failed", comment: ""), message: err.localizedDescription, preferredStyle: .alert)
+                let cancel = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel) { (action) in
                 }
                 alertController.addAction(cancel)
                 self.present(alertController, animated: true)
