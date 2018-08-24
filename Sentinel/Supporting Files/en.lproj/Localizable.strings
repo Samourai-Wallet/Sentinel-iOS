@@ -20,7 +20,7 @@
 
 
 // MARK: ExportViewController
-"Export" = "Export"
+"Export" = "Export";
 "Export wallet" = "Export wallet";
 "Export Password" = "Export Password";
 "Please enter a pssword" = "Please enter a pssword";
