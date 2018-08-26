@@ -39,10 +39,10 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.settingsTableView.tableFooterView = UIView(frame: .zero)
-        self.title = "Settings"
+        self.title = NSLocalizedString("Settings", comment: "")
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.tintColor = .white
-        let close = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dissmiss))
+        let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dissmiss))
         self.navigationItem.leftBarButtonItems = [close]
         
         guard (UserDefaults.standard.string(forKey: "PriceSourceCurrency") != nil) else {

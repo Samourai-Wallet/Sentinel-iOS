@@ -1,10 +1,10 @@
-/* 
-  English.strings
-  Sentinel
-
-  Created by Farzad Nazifi on 8/22/18.
-  Copyright © 2018 Samourai. All rights reserved.
-*/
+/*
+ English.strings
+ Sentinel
+ 
+ Created by Farzad Nazifi on 8/22/18.
+ Copyright © 2018 Samourai. All rights reserved.
+ */
 
 // MARK: HomeFlowViewController
 "Settings" = "Settings";
@@ -17,15 +17,14 @@
 "Remove PIN" = "Remove PIN";
 "Done" = "Done";
 "Confirm" = "Confirm";
+"Edit" = "Edit";
 
 
 // MARK: ExportViewController
-"Export" = "Export"
+"Export" = "Export";
 "Export wallet" = "Export wallet";
 "Export Password" = "Export Password";
 "Please enter a pssword" = "Please enter a pssword";
-"Export wallet" = "Export wallet";
-"Export wallet" = "Export wallet";
 "Cancel" = "Cancel";
 "Password here" = "Password here";
 
@@ -43,6 +42,7 @@
 "Export Watchlist" = "Export Watchlist";
 "Remove pincode" = "Remove pincode";
 "Scramble pincode" = "Scramble pincode";
+"Set pincode" = "Set pincode";
 
 
 // MARK: QRMakerViewController
@@ -58,7 +58,6 @@
 "Account QR" = "Account QR";
 "Rename" = "Rename";
 "Remove" = "Remove";
-"Cancel" = "Cancel";
 
 // MARK: TrxViewController
 "Transaction" = "Transaction";

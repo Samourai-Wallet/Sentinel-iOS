@@ -48,7 +48,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     
     @objc func toggleBarItems() {
         if isEditingToggles {
-            let edit = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(toggleBarItems))
+            let edit = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
             let settings = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
             self.navigationItem.rightBarButtonItems = [edit]
             self.navigationItem.leftBarButtonItems = [settings]
@@ -56,7 +56,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
             bottomMergedVC.bottomScrollView.isScrollEnabled = true
         }else{
             let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
-            let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(toggleBarItems))
+            let done = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
             self.navigationItem.rightBarButtonItems = [add]
             self.navigationItem.leftBarButtonItems = [done]
             bottomMergedVC.animationContainer.isHidden = true
