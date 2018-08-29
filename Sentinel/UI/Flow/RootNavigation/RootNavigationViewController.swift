@@ -19,8 +19,8 @@ class RootNavigationViewController: UINavigationController {
         navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         navigationBar.tintColor = .white
         navigationBar.isTranslucent = false
-        navigationBar.barTintColor = #colorLiteral(red: 0.4220947623, green: 0.4648562074, blue: 0.5403060317, alpha: 1)
-        navigationBar.backgroundColor = #colorLiteral(red: 0.4220947623, green: 0.4648562074, blue: 0.5403060317, alpha: 1)
+        navigationBar.barTintColor = #colorLiteral(red: 0.2823529412, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+        navigationBar.backgroundColor = #colorLiteral(red: 0.2823529412, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkForPin), name:NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.cover), name:NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         
