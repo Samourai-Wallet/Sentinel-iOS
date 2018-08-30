@@ -48,7 +48,11 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
         
         alert.addTextField { (textField: UITextField) in
             textField.delegate = self
-            textField.textContentType = .password
+            if #available(iOS 11.0, *) {
+                textField.textContentType = .password
+            } else {
+                // Fallback on earlier versions
+            }
             textField.placeholder = NSLocalizedString("Password here", comment: "")
         }
         

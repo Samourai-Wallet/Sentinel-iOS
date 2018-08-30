@@ -67,7 +67,11 @@ class TrxViewController: UIViewController {
             return
         }
         let safari = SFSafariViewController(url: url)
-        safari.dismissButtonStyle = .close
+        if #available(iOS 11.0, *) {
+            safari.dismissButtonStyle = .close
+        } else {
+            // Fallback on earlier versions
+        }
         present(safari, animated: true, completion: nil)
     }
 }

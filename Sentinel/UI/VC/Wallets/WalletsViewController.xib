@@ -33,7 +33,7 @@
                     </connections>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchlist Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ab8-95-mLs">
-                    <rect key="frame" x="125.5" y="317" width="124" height="21"/>
+                    <rect key="frame" x="125.5" y="293" width="124" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fi1-qB-DFQ" secondAttribute="bottom" id="ABN-TY-NkO"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fi1-qB-DFQ" secondAttribute="trailing" id="Rqb-Y9-oq5"/>
                 <constraint firstItem="Ab8-95-mLs" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WjO-Iy-3nY"/>
-                <constraint firstItem="Ab8-95-mLs" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-16" id="Wjw-WM-Gng"/>
+                <constraint firstItem="Ab8-95-mLs" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" constant="-40" id="Wjw-WM-Gng"/>
                 <constraint firstItem="Fi1-qB-DFQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ekY-ln-2nn"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
