@@ -28,7 +28,7 @@ class WalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        transition(to: balanceContainer, duration: 0, child: BalanceViewController(sentinel: sentinel, wallet: wallet), completion: nil)
+        transition(to: balanceContainer, duration: 0, child: BalanceViewController(sentinel: sentinel, walletAddress: wallet.address), completion: nil)
         transition(to: transactionsContainer, duration: 0, child: TransactionsViewController(sentinel: sentinel, wallet: wallet), completion: nil)
         
         let camera = UIBarButtonItem(image: UIImage(named: "Scan")!, style: .plain, target: self, action: #selector(showQR))

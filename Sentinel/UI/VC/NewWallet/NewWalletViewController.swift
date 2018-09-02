@@ -99,7 +99,7 @@ extension NewWalletViewController: QRCodeReaderViewControllerDelegate {
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         dismiss(animated: true, completion: nil)
-        self.addressTextField.text = result.value
+        self.addressTextField.text = result.value.replacingOccurrences(of: "bitcoin:", with: "")
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {

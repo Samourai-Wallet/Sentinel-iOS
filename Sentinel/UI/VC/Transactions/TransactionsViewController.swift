@@ -136,7 +136,7 @@ extension TransactionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionTableViewCell
-        cell.setData(walletTransaction: (self.data[keys[indexPath.section]]?.reversed()[indexPath.row])!)
+        cell.setData(walletTransactionID: (self.data[keys[indexPath.section]]?.reversed()[indexPath.row])?.txid)
         return cell
     }
 }

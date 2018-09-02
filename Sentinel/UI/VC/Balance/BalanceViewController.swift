@@ -15,15 +15,15 @@ class BalanceViewController: UIViewController {
     
     let sentinel: Sentinel
     
-    var wallet: Wallet?
+    var walletAddress: String? = nil
     var notificationToken: NotificationToken? = nil
     var tapGestureRecognizer: UITapGestureRecognizer!
     
     @IBOutlet var balanceLabel: UILabel!
     
-    init(sentinel: Sentinel, wallet: Wallet? = nil) {
+    init(sentinel: Sentinel, walletAddress: String? = nil) {
         self.sentinel = sentinel
-        self.wallet = wallet
+        self.walletAddress = walletAddress
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -59,7 +59,8 @@ class BalanceViewController: UIViewController {
         
         //REDO
         
-        if let wallet = wallet {
+        let realm = try! Realm()
+        if let walletAddress = walletAddress, let wallet = realm.objects(Wallet.self).filter("address == %@", walletAddress).first{
             guard let balance = wallet.balance.value?.btc() else {
                 balanceLabel.text = "--"
                 return

@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TransactionTableViewCell: UITableViewCell {
     
-    var transaction: WalletTransaction!
+    var walletTransactionID: String? = ""
     @IBOutlet var indicatorImageView: UIImageView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var valueLabel: UILabel!
@@ -29,14 +30,18 @@ class TransactionTableViewCell: UITableViewCell {
         backgroundColor = contentView.backgroundColor
     }
     
-    func setData(walletTransaction: WalletTransaction) {
-        self.transaction = walletTransaction
+    func setData(walletTransactionID: String? = nil) {
+        self.walletTransactionID = walletTransactionID
         update()
     }
     
     @objc private func update() {
         
         //REDO
+        let realm = try! Realm()
+        guard let trxID = walletTransactionID, let transaction = realm.objects(WalletTransaction.self).filter("txid == %@", trxID).first else {
+            return
+        }
         
         if transaction.value < 0 {
             valueLabel.textColor = UIColor.white
