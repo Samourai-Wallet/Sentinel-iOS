@@ -28,7 +28,7 @@ Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/
 
 ### License:
 
-[Unlicense](https://github.com/Samourai-Wallet/Sentinel-iOS/blob/master/LICENSE) (https://github.com/Samourai-Wallet/Sentinel-iOS/blob/master/LICENSE)
+[Unlicense](https://github.com/Samourai-Wallet/Sentinel-iOS/blob/develop/LICENSE) (https://github.com/Samourai-Wallet/Sentinel-iOS/blob/develop/LICENSE)
 
 ### Contributing:
 
