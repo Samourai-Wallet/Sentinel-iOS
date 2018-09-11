@@ -28,7 +28,7 @@ class ExportViewController: UIViewController, UITextFieldDelegate {
         
         self.title = NSLocalizedString("Export wallet", comment: "")
         
-        let alert = UIAlertController(title: NSLocalizedString("Export Password", comment: ""), message: NSLocalizedString("Please enter a pssword", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: NSLocalizedString("Export Password", comment: ""), message: NSLocalizedString("Please enter a password", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
 
         exportAction = UIAlertAction(title: NSLocalizedString("Export", comment: ""), style: UIAlertActionStyle.default) { (action: UIAlertAction) in
             self.sentinel.exportWallet(password: alert.textFields!.first!.text!).done { (json) in
