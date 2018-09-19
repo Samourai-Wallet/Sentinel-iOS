@@ -27,8 +27,9 @@ extension Int {
         let currency = String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!)
     
         if isFiat {
-            let val = round(100*abs(btc()*price))/100
+            let val = abs(btc()*price)
             let formatter = NumberFormatter()
+            formatter.maximumFractionDigits = 2
             formatter.numberStyle = .currency
             formatter.currencyCode = currency
             formatter.locale = NSLocale.current
@@ -37,9 +38,14 @@ extension Int {
             guard let result = formatter.string(from: NSNumber(value: val)) else {
                 return ("--", "")
             }
-            return (String(result.split(separator: " ").last!), String(result.split(separator: " ").first!))
+            
+            if result.split(separator: " ").count > 1 {
+                return (String(result.split(separator: " ").last!), String(result.split(separator: " ").first!))
+            }
+
+            return (String(result.split(separator: " ").first!.dropFirst()), String(result.split(separator: " ").last!))
         }else{
-            return ("\(btc())", "BTC")
+            return ("\(abs(btc()))", "BTC")
         }
     }
 }
