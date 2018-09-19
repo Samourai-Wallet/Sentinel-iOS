@@ -11,6 +11,8 @@ import Locksmith
 
 class RootNavigationViewController: UINavigationController {
     
+    var loaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,23 +34,13 @@ class RootNavigationViewController: UINavigationController {
         showPIN()
     }
     
-    var loaded = false
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if loaded {
-            checkForPin()
-        }else {
-            loaded = true
-        }
-    }
-    
     @objc func checkForPin() {
-        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil), let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date, Int(Date().timeIntervalSince(lastPin)) > 900 else {
-            showHome()
+        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil), let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date, Int(Date().timeIntervalSince(lastPin)) < 900, loaded else {
+            showPIN()
             return
         }
         
-        showPIN()
+        showHome()
     }
     
     lazy var homeVC: HomeFlowViewController = {
@@ -56,6 +48,7 @@ class RootNavigationViewController: UINavigationController {
     }()
     
     func showHome() {
+        loaded = true
         self.viewControllers = [homeVC]
     }
     
