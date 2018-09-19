@@ -43,40 +43,28 @@ class BalanceViewController: UIViewController {
     @objc func updateBalance() {
         
         let balanceStyle = Style {
-            $0.font = UIFont.robotoMono(size: 40)
+            $0.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .regular)
         }
         
         let btcStyle = Style {
-            $0.font = UIFont.robotoMono(size: 20)
+            $0.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .regular)
         }
         
         guard sentinel.numberOfWallets > 0 else {
             balanceLabel.text = "--"
             return
         }
-        
-        let isFiat = UserDefaults.standard.bool(forKey: "isFiat")
-        
-        //REDO
-        
+                
         let realm = try! Realm()
         if let walletAddress = walletAddress, let wallet = realm.objects(Wallet.self).filter("address == %@", walletAddress).first{
-            guard let balance = wallet.balance.value?.btc() else {
+            guard (wallet.balance.value?.btc()) != nil else {
                 balanceLabel.text = "--"
                 return
             }
             
-            if isFiat {
-                balanceLabel.attributedText = "\((Float((round(100*abs(balance)*UserDefaults.standard.double(forKey: "Price"))/100))))".set(style: balanceStyle) + " " + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
-            }else{
-                balanceLabel.attributedText = "\(balance)".set(style: balanceStyle) + " BTC".set(style: btcStyle)
-            }
+            balanceLabel.attributedText = wallet.balance.value!.price().0 + wallet.balance.value!.price().1.set(style: btcStyle)
         } else {
-            if isFiat {
-                balanceLabel.attributedText = "\((Float((round(100*abs(sentinel.totalBalance()).btc()*UserDefaults.standard.double(forKey: "Price"))/100))))".set(style: balanceStyle) + " " + String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!).set(style: btcStyle)
-            }else{
-                balanceLabel.attributedText = "\(sentinel.totalBalance().btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
-            }
+            balanceLabel.attributedText = sentinel.totalBalance().price().0.set(style: balanceStyle) + " " + sentinel.totalBalance().price().1.set(style: btcStyle)
         }
     }
     

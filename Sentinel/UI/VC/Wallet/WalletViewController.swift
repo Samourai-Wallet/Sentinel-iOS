@@ -30,12 +30,9 @@ class WalletViewController: UIViewController {
         
         transition(to: balanceContainer, duration: 0, child: BalanceViewController(sentinel: sentinel, walletAddress: wallet.address), completion: nil)
         transition(to: transactionsContainer, duration: 0, child: TransactionsViewController(sentinel: sentinel, wallet: wallet), completion: nil)
-        
-        let camera = UIBarButtonItem(image: UIImage(named: "Scan")!, style: .plain, target: self, action: #selector(showQR))
-        self.navigationItem.rightBarButtonItems = [camera]
     }
     
-    @objc func showQR() {
+    @IBAction func showReciving(_ sender: UIButton) {
         let qrVC = QRMakerViewController(wallet: wallet, isReciving: true)
         show(qrVC, sender: self)
     }

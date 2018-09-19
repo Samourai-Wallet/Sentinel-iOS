@@ -31,11 +31,11 @@ class TrxViewController: UIViewController {
         super.viewDidLoad()
         
         let balanceStyle = Style {
-            $0.font = UIFont.robotoMono(size: 40)
+            $0.font = UIFont.monospacedDigitSystemFont(ofSize: 40, weight: .regular)
         }
         
         let btcStyle = Style {
-            $0.font = UIFont.robotoMono(size: 20)
+            $0.font = UIFont.monospacedDigitSystemFont(ofSize: 20, weight: .regular)
         }
         
 
@@ -47,12 +47,10 @@ class TrxViewController: UIViewController {
         
         statusLabel.text = walletTransaction.status()
         
-        let fmt = NumberFormatter()
-        fmt.numberStyle = .decimal
-        let x = abs(walletTransaction.value.btc())*7600
-        valueLabel.text = fmt.string(from: NSNumber(value: Float(x)))! + " USD"
+        valueLabel.text = walletTransaction.value.price(isFiatForced: true).0 + " " + walletTransaction.value.price(isFiatForced: true).1
         
         let df = DateFormatter()
+        df.locale = NSLocale.current
         df.dateFormat = "MM-dd-yyyy HH:mm"
         
         dateLabel.text = df.string(from: Date(timeIntervalSince1970: TimeInterval(walletTransaction.time)))

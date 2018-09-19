@@ -10,9 +10,7 @@ import UIKit
 
 class WalletsTableViewCell: UITableViewCell {
     
-    var tapGestureRecognizer: UITapGestureRecognizer!
     var wallet: Wallet!
-    var fiatPrice = false
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addrLabel: UILabel!
@@ -28,8 +26,6 @@ class WalletsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         backgroundColor = contentView.backgroundColor
-        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(priceTapped))
-        balanceLabel.addGestureRecognizer(tapGestureRecognizer)
     }
     
     func setData(wallet: Wallet) {
@@ -38,7 +34,6 @@ class WalletsTableViewCell: UITableViewCell {
     }
     
     @objc func toggleAndUpdate() {
-        self.fiatPrice = !self.fiatPrice
         self.update()
     }
     
@@ -47,20 +42,10 @@ class WalletsTableViewCell: UITableViewCell {
         addrLabel.text = wallet.address
         
         if let balance = wallet.balance.value {
-            if fiatPrice {
-                balanceLabel.text = "\((Float(balance.btc()*UserDefaults.standard.double(forKey: "Price"))))"
-                currencyLabel.text = String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!)
-            }else{
-                balanceLabel.text = "\(balance.btc())"
-                currencyLabel.text = "BTC"
-            }
+            balanceLabel.text = balance.price().0
+            currencyLabel.text = balance.price().1
         }else{
             balanceLabel.text = "-"
         }
-    }
-    
-    @objc func priceTapped() {
-        UserDefaults.standard.set(!UserDefaults.standard.bool(forKey: "isFiat"), forKey: "isFiat")
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "TogglePrice")))
     }
 }

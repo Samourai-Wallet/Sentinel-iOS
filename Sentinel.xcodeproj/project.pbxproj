@@ -15,7 +15,6 @@
 		801E167C20C06326003D80FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801E167B20C06326003D80FE /* AppDelegate.swift */; };
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
 		801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E168420C06327003D80FE /* LaunchScreen.storyboard */; };
-		8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */; };
 		802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802828CF212DAE1A003C1E56 /* Localizable.strings */; };
 		802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D2212DB155003C1E56 /* ImportViewController.xib */; };
 		802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D5212DB21F003C1E56 /* QRMakerViewController.xib */; };
@@ -31,7 +30,6 @@
 		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
 		8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */; };
 		8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */; };
-		806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AD520C1E1F3008AC0CF /* Roboto.swift */; };
 		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
 		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
 		806A8AE320C1F723008AC0CF /* Trx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE220C1F723008AC0CF /* Trx.swift */; };
@@ -89,7 +87,6 @@
 		801E167B20C06326003D80FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		801E168220C06327003D80FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801E168720C06327003D80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		802828CE212DAE1A003C1E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		802828D1212DB155003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImportViewController.xib; sourceTree = "<group>"; };
 		802828D4212DB21F003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QRMakerViewController.xib; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPricesProvider.swift; sourceTree = "<group>"; };
 		8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
-		806A8AD520C1E1F3008AC0CF /* Roboto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roboto.swift; sourceTree = "<group>"; };
 		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
 		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
 		806A8AE220C1F723008AC0CF /* Trx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trx.swift; sourceTree = "<group>"; };
@@ -211,7 +207,6 @@
 				8047AB9B20C16369007541F8 /* Flow */,
 				8047AB9A20C1635E007541F8 /* VC */,
 				8047AB9E20C163A4007541F8 /* Extension */,
-				806A8AD220C1E1BA008AC0CF /* Fonts */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -300,15 +295,6 @@
 				80B2039520C80A6400CF0086 /* ExportViewController.xib */,
 			);
 			path = Export;
-			sourceTree = "<group>";
-		};
-		806A8AD220C1E1BA008AC0CF /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				8025A7A720C296EF00F50709 /* RobotoMono-Regular.ttf */,
-				806A8AD520C1E1F3008AC0CF /* Roboto.swift */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		806A8ADF20C1E658008AC0CF /* Sentinel */ = {
@@ -567,7 +553,6 @@
 				80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */,
 				80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
-				8025A7A820C296EF00F50709 /* RobotoMono-Regular.ttf in Resources */,
 				8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */,
 				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
@@ -673,7 +658,6 @@
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
 				80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */,
-				806A8AD620C1E1F3008AC0CF /* Roboto.swift in Sources */,
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
 				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
 				8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */,

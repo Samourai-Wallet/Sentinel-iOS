@@ -37,7 +37,6 @@ class TransactionTableViewCell: UITableViewCell {
     
     @objc private func update() {
         
-        //REDO
         let realm = try! Realm()
         guard let trxID = walletTransactionID, let transaction = realm.objects(WalletTransaction.self).filter("txid == %@", trxID).first else {
             return
@@ -51,11 +50,7 @@ class TransactionTableViewCell: UITableViewCell {
             indicatorImageView.image = UIImage(named: "arrowIn")!
         }
         
-        if UserDefaults.standard.bool(forKey: "isFiat") {
-            valueLabel.text = "\((Float((round(100*abs(transaction.value).btc()*UserDefaults.standard.double(forKey: "Price"))/100)))) " + UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!
-        }else {
-            valueLabel.text = "\(abs(transaction.value.btc())) BTC"
-        }
+        valueLabel.text = transaction.value.price().0 + " " + transaction.value.price().1
         
         walletNameLabel.text = transaction.wallet?.name
         if transaction.conf == 3 {
@@ -66,6 +61,7 @@ class TransactionTableViewCell: UITableViewCell {
         let date = Date(timeIntervalSince1970: TimeInterval(transaction.time))
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
+        df.locale = NSLocale.current
         timeLabel.text = df.string(from: date)
     }
 }

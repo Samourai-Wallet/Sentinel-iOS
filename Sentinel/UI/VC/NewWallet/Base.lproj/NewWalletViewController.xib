@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,6 @@
             <connections>
                 <outlet property="addressTextField" destination="yCU-ot-GkU" id="9s2-5N-Nir"/>
                 <outlet property="nameTextField" destination="10w-kL-0bz" id="xas-8Z-RZQ"/>
-                <outlet property="qrScanButton" destination="TuM-Nr-aOW" id="BXX-v9-yJm"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uDS-AD-uYW"/>
             </connections>
         </placeholder>
@@ -68,33 +67,27 @@
                                     <action selector="cancelAction:" destination="-1" id="yuL-dX-GT6"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="save" id="l6O-f6-xAk">
-                                <connections>
-                                    <action selector="createAction:" destination="-1" id="7Cb-Ai-DNO"/>
-                                </connections>
-                            </barButtonItem>
+                            <rightBarButtonItems>
+                                <barButtonItem systemItem="save" id="l6O-f6-xAk">
+                                    <connections>
+                                        <action selector="createAction:" destination="-1" id="7Cb-Ai-DNO"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem image="Scan" id="VTV-mR-obs">
+                                    <connections>
+                                        <action selector="scanAction:" destination="-1" id="0JO-hr-5g3"/>
+                                    </connections>
+                                </barButtonItem>
+                            </rightBarButtonItems>
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TuM-Nr-aOW">
-                    <rect key="frame" x="339" y="180" width="21" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="c7M-f3-10n"/>
-                        <constraint firstAttribute="width" constant="21" id="eRL-A2-f3T"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                    <state key="normal" image="Scan"/>
-                    <connections>
-                        <action selector="scanAction:" destination="-1" eventType="touchUpInside" id="rHv-Oe-Hfd"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.15218323469161987" green="0.17199999094009399" blue="0.19716167449951172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yCU-ot-GkU" secondAttribute="trailing" constant="15" id="1og-zm-OlE"/>
                 <constraint firstItem="nPE-vi-DBh" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="7sq-mx-Mib"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="73I-IO-7ZO" secondAttribute="trailing" constant="15" id="9HW-RF-jpU"/>
-                <constraint firstItem="TuM-Nr-aOW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zBY-cC-rv8" secondAttribute="trailing" constant="8" symbolic="YES" id="Agh-Xk-A6o"/>
                 <constraint firstItem="73I-IO-7ZO" firstAttribute="top" secondItem="nPE-vi-DBh" secondAttribute="bottom" constant="15" id="BcK-H1-MSd"/>
                 <constraint firstItem="zBY-cC-rv8" firstAttribute="top" secondItem="10w-kL-0bz" secondAttribute="bottom" constant="20" id="EtW-Sk-cDL"/>
                 <constraint firstItem="yCU-ot-GkU" firstAttribute="top" secondItem="zBY-cC-rv8" secondAttribute="bottom" constant="10" id="GgX-eI-Fid"/>
@@ -103,9 +96,7 @@
                 <constraint firstItem="zBY-cC-rv8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Kab-YP-127"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="10w-kL-0bz" secondAttribute="trailing" constant="15" id="KhN-k7-ihe"/>
                 <constraint firstItem="10w-kL-0bz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Qth-Rx-PJC"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TuM-Nr-aOW" secondAttribute="trailing" constant="15" id="UaL-bt-0Zp"/>
                 <constraint firstItem="nPE-vi-DBh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dKd-Hh-7Op"/>
-                <constraint firstItem="yCU-ot-GkU" firstAttribute="top" secondItem="TuM-Nr-aOW" secondAttribute="bottom" constant="10" id="gHR-Xc-ZlO"/>
                 <constraint firstItem="10w-kL-0bz" firstAttribute="top" secondItem="73I-IO-7ZO" secondAttribute="bottom" constant="10" id="rBS-Gh-Lkt"/>
                 <constraint firstItem="73I-IO-7ZO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="zjf-7d-Kbf"/>
             </constraints>
@@ -114,6 +105,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Scan" width="25" height="25"/>
+        <image name="Scan" width="19" height="19"/>
     </resources>
 </document>

@@ -20,7 +20,6 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var rightContainer: UIView!
     @IBOutlet var animationContainer: UIView!
     @IBOutlet var bottomScrollView: UIScrollView!
-    @IBOutlet var bc: NSLayoutConstraint!
 
     init(sentinel: Sentinel, homeFlowViewController: HomeFlowViewController) {
         self.sentinel = sentinel
@@ -36,16 +35,6 @@ class BottomMergedViewController: UIViewController, UIScrollViewDelegate {
         animationView.frame = CGRect(x: 0, y: 0, width: 120, height: 44)
         animationContainer.addSubview(animationView)
         animationView.setProgressWithFrame(10)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        guard !UIDevice.Device.IS_IPHONE_X else {
-            return
-        }
-        
-        bc.constant = 50
     }
     
     @IBAction func animationContainerTapped(_ sender: UITapGestureRecognizer) {
