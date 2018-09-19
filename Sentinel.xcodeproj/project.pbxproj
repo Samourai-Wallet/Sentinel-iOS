@@ -72,7 +72,6 @@
 		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
 		800029FB213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
 		800029FC213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/TrxViewController.strings; sourceTree = "<group>"; };
-		800029FD213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		800029FE213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
 		80002A0021334831006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/ImportViewController.strings; sourceTree = "<group>"; };
 		80002A02213348C4006D6CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImportViewController.strings; sourceTree = "<group>"; };
@@ -93,6 +92,11 @@
 		802828D7212DB2EB003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewWalletViewController.xib; sourceTree = "<group>"; };
 		802828DA212DB365003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TrxViewController.xib; sourceTree = "<group>"; };
 		802DB0B120E4D6100008DC85 /* Sentinel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentinel.entitlements; sourceTree = "<group>"; };
+		80458F302152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ImportViewController.strings; sourceTree = "<group>"; };
+		80458F312152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
+		80458F322152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
+		80458F332152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TrxViewController.strings; sourceTree = "<group>"; };
+		80458F352152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8047AB8C20C1588E007541F8 /* BalanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceViewController.xib; sourceTree = "<group>"; };
 		8047AB8E20C1589B007541F8 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsViewController.xib; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 				en,
 				Base,
 				fa,
+				fr,
 			);
 			mainGroup = 801E166F20C06326003D80FE;
 			productRefGroup = 801E167920C06326003D80FE /* Products */;
@@ -692,7 +697,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				800029F0213341C4006D6CC2 /* Base */,
-				800029FD213346B6006D6CC2 /* fa */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -702,6 +706,7 @@
 			children = (
 				802828CE212DAE1A003C1E56 /* en */,
 				800029FE213346B6006D6CC2 /* fa */,
+				80458F352152B6130066BE9F /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -712,6 +717,7 @@
 				802828D1212DB155003C1E56 /* Base */,
 				80002A0021334831006D6CC2 /* fa */,
 				80002A02213348C4006D6CC2 /* en */,
+				80458F302152B6130066BE9F /* fr */,
 			);
 			name = ImportViewController.xib;
 			sourceTree = "<group>";
@@ -722,6 +728,7 @@
 				802828D4212DB21F003C1E56 /* Base */,
 				800029FA213346B6006D6CC2 /* fa */,
 				80002A0421334993006D6CC2 /* en */,
+				80458F312152B6130066BE9F /* fr */,
 			);
 			name = QRMakerViewController.xib;
 			sourceTree = "<group>";
@@ -732,6 +739,7 @@
 				802828D7212DB2EB003C1E56 /* Base */,
 				800029FB213346B6006D6CC2 /* fa */,
 				80002A06213349E9006D6CC2 /* en */,
+				80458F322152B6130066BE9F /* fr */,
 			);
 			name = NewWalletViewController.xib;
 			sourceTree = "<group>";
@@ -742,6 +750,7 @@
 				802828DA212DB365003C1E56 /* Base */,
 				800029FC213346B6006D6CC2 /* fa */,
 				80002A0821334A07006D6CC2 /* en */,
+				80458F332152B6130066BE9F /* fr */,
 			);
 			name = TrxViewController.xib;
 			sourceTree = "<group>";
