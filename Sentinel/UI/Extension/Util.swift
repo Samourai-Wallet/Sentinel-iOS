@@ -16,6 +16,32 @@ extension Int {
         }
         return result
     }
+    
+    func price(isFiatForced: Bool? = nil) -> (String, String) {
+        var isFiat = UserDefaults.standard.bool(forKey: "isFiat")
+        if isFiatForced != nil {
+            isFiat = isFiatForced!
+        }
+        
+        let price = UserDefaults.standard.double(forKey: "Price")
+        let currency = String(UserDefaults.standard.string(forKey: "PriceSourceCurrency")!.split(separator: " ").last!)
+    
+        if isFiat {
+            let val = round(100*abs(btc()*price))/100
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+            formatter.currencyCode = currency
+            formatter.locale = NSLocale.current
+            formatter.negativePrefix = "\(formatter.negativePrefix!) "
+            formatter.positivePrefix = "\(formatter.positivePrefix!) "
+            guard let result = formatter.string(from: NSNumber(value: val)) else {
+                return ("--", "")
+            }
+            return (String(result.split(separator: " ").last!), String(result.split(separator: " ").first!))
+        }else{
+            return ("\(btc())", "BTC")
+        }
+    }
 }
 
 internal typealias Scale = (dx: CGFloat, dy: CGFloat)
