@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Sentinel/Supporting Files/en.lproj/InfoPlist.strings" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(NOM_PRODUIT)</source>
+        <note>Bundle name</note>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>Il est nécessaire d\'utiliser la caméra pour scanner les codes QR.</source>
+        <note>Privacy - Camera Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSPhotoLibraryAddUsageDescription">
+        <source>Pour sauvegarder le code QR</source>
+        <note>Privacy - Photo Library Additions Usage Description</note>
+      </trans-unit>
+      <trans-unit id="NSPhotoLibraryUsageDescription">
+        <source>Pour sauvegarder le code QR</source>
+        <note>Privacy - Photo Library Usage Description</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Sentinel/Supporting Files/en.lproj/Localizable.strings" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="Account QR">
+        <source>Compte QR</source>
+        <note>MARK: WalletsViewController</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Annuler</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Confirm">
+        <source>Confirmer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Confirm PIN">
+        <source>Confirmer code PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Copied">
+        <source>Copié</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Done">
+        <source>Terminé</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit">
+        <source>Éditer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Enter PIN">
+        <source>Entrer code PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Export">
+        <source>Exporter</source>
+        <note>MARK: ExportViewController</note>
+      </trans-unit>
+      <trans-unit id="Export Password">
+        <source>Exporter le Mot de Passe</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Export Watchlist">
+        <source>Exporter la Liste de Suivi</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Export wallet">
+        <source>Exporter le Portefeuille</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Failed">
+        <source>Échec</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Import Watchlist">
+        <source>Importer la Liste de Suivi</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Imported">
+        <source>Importée</source>
+        <note>MARK: ImportViewController</note>
+      </trans-unit>
+      <trans-unit id="Imported!">
+        <source>Importé!</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="New PIN">
+        <source>Nouveau PIN</source>
+        <note>MARK: HomeFlowViewController</note>
+      </trans-unit>
+      <trans-unit id="NewPIN">
+        <source>Nouveau PIN</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Password here">
+        <source>Mot de Passe içi</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Please enter a password">
+        <source>Veuillez saisir un mot de passe</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Public key has been copied to your clipboard!">
+        <source>La clé publique a été copiée dans le presse-papier!</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Receiving Address">
+        <source>Adresse de Réception</source>
+        <note>MARK: QRMakerViewController</note>
+      </trans-unit>
+      <trans-unit id="Remove">
+        <source>Retirer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Remove PIN">
+        <source>Retirer PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Remove pincode">
+        <source>Retirer code PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rename">
+        <source>Renommer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Scramble pincode">
+        <source>Affichage aléatoire code PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Segwit">
+        <source>Segwit</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Segwit Compatibility">
+        <source>Compatibilité Segwit</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Set pincode">
+        <source>Définir code PIN</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Settings">
+        <source>Paramètres</source>
+        <note>MARK: HomeFlowViewController</note>
+      </trans-unit>
+      <trans-unit id="Standard">
+        <source>Standard</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Street Price">
+        <source>Cours Actuel</source>
+        <note>MARK: SettingsViewController</note>
+      </trans-unit>
+      <trans-unit id="Transaction">
+        <source>Transaction</source>
+        <note>MARK: TrxViewController</note>
+      </trans-unit>
+      <trans-unit id="Your wallet has been successfully imported.">
+        <source>Votre portefeuille a été importé avec succès.</source>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Sentinel/UI/VC/Import/Base.lproj/ImportViewController.xib" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="mzd-Xs-uUD.text">
+        <source>Mot de Passe</source>
+        <note>Class = "UILabel"; text = "Password"; ObjectID = "mzd-Xs-uUD";</note>
+      </trans-unit>
+      <trans-unit id="uA5-1j-xTu.text">
+        <source>Portefeuille chiffré</source>
+        <note>Class = "UILabel"; text = "Encrypted wallet"; ObjectID = "uA5-1j-xTu";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Sentinel/UI/VC/NewWallet/Base.lproj/NewWalletViewController.xib" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="73I-IO-7ZO.text">
+        <source>Nom</source>
+        <note>Class = "UILabel"; text = "Name"; ObjectID = "73I-IO-7ZO";</note>
+      </trans-unit>
+      <trans-unit id="QYG-EH-ybU.title">
+        <source>Nouvel élément</source>
+        <note>Class = "UINavigationItem"; title = "New Item"; ObjectID = "QYG-EH-ybU";</note>
+      </trans-unit>
+      <trans-unit id="zBY-cC-rv8.text">
+        <source>Adresse</source>
+        <note>Class = "UILabel"; text = "Address"; ObjectID = "zBY-cC-rv8";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Sentinel/UI/VC/QRMaker/Base.lproj/QRMakerViewController.xib" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="0Ip-vb-jSQ.text">
+        <source>--</source>
+        <note>Class = "UILabel"; text = "--"; ObjectID = "0Ip-vb-jSQ";</note>
+      </trans-unit>
+      <trans-unit id="6KO-lk-dhv.text">
+        <source>--</source>
+        <note>Class = "UILabel"; text = "--"; ObjectID = "6KO-lk-dhv";</note>
+      </trans-unit>
+      <trans-unit id="IfS-2c-HP6.text">
+        <source>Clé Publique</source>
+        <note>Class = "UILabel"; text = "Public Key"; ObjectID = "IfS-2c-HP6";</note>
+      </trans-unit>
+      <trans-unit id="hAc-NF-Xgq.text">
+        <source>Type</source>
+        <note>Class = "UILabel"; text = "Type"; ObjectID = "hAc-NF-Xgq";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Sentinel/UI/VC/Trx/Base.lproj/TrxViewController.xib" datatype="plaintext" source-language="en">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="10.0" build-num="10L232m"/>
+    </header>
+    <body>
+      <trans-unit id="2h4-eQ-Awe.text">
+        <source>--</source>
+        <note>Class = "UITextView"; text = "--"; ObjectID = "2h4-eQ-Awe";</note>
+      </trans-unit>
+      <trans-unit id="9vt-GQ-zBr.text">
+        <source>Status</source>
+        <note>Class = "UILabel"; text = "Status"; ObjectID = "9vt-GQ-zBr";</note>
+      </trans-unit>
+      <trans-unit id="Mcl-nj-UkM.text">
+        <source>Identifiant de Transaction</source>
+        <note>Class = "UILabel"; text = "Transaction ID"; ObjectID = "Mcl-nj-UkM";</note>
+      </trans-unit>
+      <trans-unit id="OMx-PI-zp1.text">
+        <source>Date</source>
+        <note>Class = "UILabel"; text = "Date"; ObjectID = "OMx-PI-zp1";</note>
+      </trans-unit>
+      <trans-unit id="efm-Qy-H7Q.text">
+        <source>--</source>
+        <note>Class = "UILabel"; text = "--"; ObjectID = "efm-Qy-H7Q";</note>
+      </trans-unit>
+      <trans-unit id="seL-ij-FYp.text">
+        <source>--</source>
+        <note>Class = "UILabel"; text = "--"; ObjectID = "seL-ij-FYp";</note>
+      </trans-unit>
+      <trans-unit id="xSz-Vp-lYw.text">
+        <source>0</source>
+        <note>Class = "UILabel"; text = "0"; ObjectID = "xSz-Vp-lYw";</note>
+      </trans-unit>
+      <trans-unit id="yoM-dJ-koa.text">
+        <source>--</source>
+        <note>Class = "UILabel"; text = "--"; ObjectID = "yoM-dJ-koa";</note>
+      </trans-unit>
+      <trans-unit id="zBF-ab-rnS.text">
+        <source>Valeur actuelle</source>
+        <note>Class = "UILabel"; text = "Current Value"; ObjectID = "zBF-ab-rnS";</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
