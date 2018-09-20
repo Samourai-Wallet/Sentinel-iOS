@@ -62,7 +62,7 @@ class BalanceViewController: UIViewController {
                 return
             }
             
-            balanceLabel.attributedText = wallet.balance.value!.price().0 + wallet.balance.value!.price().1.set(style: btcStyle)
+            balanceLabel.attributedText = wallet.balance.value!.price().0 + " " + wallet.balance.value!.price().1.set(style: btcStyle)
         } else {
             balanceLabel.attributedText = sentinel.totalBalance().price().0.set(style: balanceStyle) + " " + sentinel.totalBalance().price().1.set(style: btcStyle)
         }
