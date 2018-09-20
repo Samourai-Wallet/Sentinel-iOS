@@ -40,9 +40,9 @@ class TrxViewController: UIViewController {
         
 
         if walletTransaction.value > 0 {
-            amountLabel.attributedText = "+\(walletTransaction.value.btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
+            amountLabel.attributedText = "+\(walletTransaction.value.price(isFiatForced: false).0)".set(style: balanceStyle) + " BTC".set(style: btcStyle)
         }else{
-            amountLabel.attributedText = "\(walletTransaction.value.btc())".set(style: balanceStyle) + " BTC".set(style: btcStyle)
+            amountLabel.attributedText = "\(walletTransaction.value.price(isFiatForced: false).0)".set(style: balanceStyle) + " BTC".set(style: btcStyle)
         }
         
         statusLabel.text = walletTransaction.status()

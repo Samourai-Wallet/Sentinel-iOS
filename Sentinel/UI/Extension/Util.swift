@@ -45,7 +45,11 @@ extension Int {
 
             return (String(result.split(separator: " ").first!.dropFirst()), String(result.split(separator: " ").last!))
         }else{
-            return ("\(abs(btc()))", "BTC")
+            let val = abs(btc())
+            let formatter = NumberFormatter()
+            formatter.maximumFractionDigits = 10
+            formatter.minimumIntegerDigits = 1
+            return (formatter.string(from: NSNumber(value: val))!, "BTC")
         }
     }
 }
