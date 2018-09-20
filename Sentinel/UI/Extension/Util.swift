@@ -49,6 +49,7 @@ extension Int {
             let formatter = NumberFormatter()
             formatter.maximumFractionDigits = 10
             formatter.minimumIntegerDigits = 1
+            formatter.locale = NSLocale.current
             return (formatter.string(from: NSNumber(value: val))!, "BTC")
         }
     }
