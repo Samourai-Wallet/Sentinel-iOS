@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
         var items: [(String, UIViewController?)] = [(NSLocalizedString("Street Price", comment: ""), StreetPriceViewController(sentinel: sentinel)),
                                                     (NSLocalizedString("Import Watchlist", comment: ""), ImportViewController(sentinel: sentinel)),
                                                     (NSLocalizedString("Export Watchlist", comment: ""), ExportViewController(sentinel: sentinel)),
+                                                    (NSLocalizedString("Push Transaction", comment: ""), PushTXViewController(sentinel: sentinel)),
                                                     (NSLocalizedString("Set pincode", comment: ""), PincodeViewController(mode: .set))]
         
         guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return items }

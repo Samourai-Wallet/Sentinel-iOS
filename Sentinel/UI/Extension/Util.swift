@@ -94,3 +94,16 @@ extension UIDevice {
         static let IS_IPHONE_X         = IS_IPHONE && SCREEN_MAX_LENGTH == 812
     }
 }
+
+extension UIViewController {
+    func alert(title: String, message: String, close: String, action: (()  -> Void)? = nil) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let done = UIAlertAction(title: close, style: .default) { (a) in
+            if let action = action {
+                action()
+            }
+        }
+        alertVC.addAction(done)
+        present(alertVC, animated: true, completion: nil)
+    }
+}

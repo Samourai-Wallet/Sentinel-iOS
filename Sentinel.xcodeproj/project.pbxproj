@@ -20,6 +20,8 @@
 		802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D5212DB21F003C1E56 /* QRMakerViewController.xib */; };
 		802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */; };
 		802828D9212DB365003C1E56 /* TrxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828DB212DB365003C1E56 /* TrxViewController.xib */; };
+		803AD34A216F2AE00009390F /* PushTXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803AD349216F2ADF0009390F /* PushTXViewController.swift */; };
+		803AD34C216F2AE70009390F /* PushTXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803AD34B216F2AE70009390F /* PushTXViewController.xib */; };
 		8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB8C20C1588E007541F8 /* BalanceViewController.xib */; };
 		8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB8E20C1589B007541F8 /* BalanceViewController.swift */; };
 		8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */; };
@@ -92,6 +94,8 @@
 		802828D7212DB2EB003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewWalletViewController.xib; sourceTree = "<group>"; };
 		802828DA212DB365003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TrxViewController.xib; sourceTree = "<group>"; };
 		802DB0B120E4D6100008DC85 /* Sentinel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentinel.entitlements; sourceTree = "<group>"; };
+		803AD349216F2ADF0009390F /* PushTXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTXViewController.swift; sourceTree = "<group>"; };
+		803AD34B216F2AE70009390F /* PushTXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PushTXViewController.xib; sourceTree = "<group>"; };
 		80458F302152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ImportViewController.strings; sourceTree = "<group>"; };
 		80458F312152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
 		80458F322152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
@@ -205,6 +209,15 @@
 			path = Sentinel;
 			sourceTree = "<group>";
 		};
+		803AD348216F2AC70009390F /* PushTX */ = {
+			isa = PBXGroup;
+			children = (
+				803AD349216F2ADF0009390F /* PushTXViewController.swift */,
+				803AD34B216F2AE70009390F /* PushTXViewController.xib */,
+			);
+			path = PushTX;
+			sourceTree = "<group>";
+		};
 		8047AB8B20C15801007541F8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +251,7 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				803AD348216F2AC70009390F /* PushTX */,
 				80B04C8720DBBDB400FA94B8 /* Cover */,
 				8019763220CA8EB70066CAC6 /* Pincode */,
 				8068206B20C6DF1500F5F0B2 /* Export */,
@@ -568,6 +582,7 @@
 				806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */,
 				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
 				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
+				803AD34C216F2AE70009390F /* PushTXViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8087CCB820C3444300A03D90 /* Wallet.swift in Sources */,
+				803AD34A216F2AE00009390F /* PushTXViewController.swift in Sources */,
 				8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */,
 				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
