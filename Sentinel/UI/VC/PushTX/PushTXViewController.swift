@@ -8,10 +8,18 @@
 
 import UIKit
 import Alamofire
+import QRCodeReader
 
 class PushTXViewController: UIViewController {
     let sentinel: Sentinel
     @IBOutlet var textView: UITextView!
+    
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+        }
+        return QRCodeReaderViewController(builder: builder)
+    }()
     
     required init?(coder aDecoder: NSCoder) { fatalError("...") }
     init(sentinel: Sentinel) {
@@ -87,5 +95,24 @@ class PushTXViewController: UIViewController {
             return false
         }
         return true
+    }
+    
+    @IBAction func scanAction(_ sender: Any) {
+        readerVC.delegate = self
+        readerVC.modalPresentationStyle = .formSheet
+        present(readerVC, animated: true, completion: nil)
+    }
+}
+
+extension PushTXViewController: QRCodeReaderViewControllerDelegate {
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
+        self.textView.text = result.value
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -37,6 +37,18 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1F-th-u5h">
+                    <rect key="frame" x="339" y="36" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="0li-fg-fu5"/>
+                        <constraint firstAttribute="height" constant="21" id="RsB-Q8-HWL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <state key="normal" image="Scan"/>
+                    <connections>
+                        <action selector="scanAction:" destination="-1" eventType="touchUpInside" id="eJH-HD-Nbe"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.15218323469161987" green="0.17199999094009399" blue="0.19716167449951172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -45,9 +57,14 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bZG-Wc-tLU" secondAttribute="trailing" constant="10" id="fhe-3D-Rmw"/>
                 <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="5rZ-xJ-v4b" secondAttribute="bottom" constant="8" id="h2b-v8-I5g"/>
                 <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="45" id="njU-mp-p3C"/>
+                <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="t1F-th-u5h" secondAttribute="bottom" constant="8" id="r2d-zp-Uls"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="t1F-th-u5h" secondAttribute="trailing" constant="15" id="zJI-ZL-vn0"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
         </view>
     </objects>
+    <resources>
+        <image name="Scan" width="19" height="19"/>
+    </resources>
 </document>
