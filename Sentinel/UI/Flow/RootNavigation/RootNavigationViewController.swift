@@ -35,12 +35,12 @@ class RootNavigationViewController: UINavigationController {
     }
     
     @objc func checkForPin() {
-        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil), let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date, Int(Date().timeIntervalSince(lastPin)) < 900, loaded else {
-            showPIN()
+        guard (Locksmith.loadDataForUserAccount(userAccount: "account") != nil), let lastPin = UserDefaults.standard.value(forKey: "lastPin") as? Date, Int(Date().timeIntervalSince(lastPin)) > 900, loaded else {
+            showHome()
             return
         }
+        showPIN()
         
-        showHome()
     }
     
     lazy var homeVC: HomeFlowViewController = {
