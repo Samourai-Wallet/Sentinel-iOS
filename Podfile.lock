@@ -47,7 +47,7 @@ DEPENDENCIES:
   - SwiftRichString (~> 2.0.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - CryptoSwift
     - Locksmith
@@ -92,4 +92,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b5336c3f57f88f5d0de222f1f060dbd9e976439f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1
