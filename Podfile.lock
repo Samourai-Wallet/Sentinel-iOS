@@ -22,11 +22,11 @@ PODS:
     - PromiseKit/CorePromise
   - QRCodeReader.swift (8.2.0)
   - ReachabilitySwift (4.1.0)
-  - Realm (3.7.1):
-    - Realm/Headers (= 3.7.1)
-  - Realm/Headers (3.7.1)
-  - RealmSwift (3.7.1):
-    - Realm (= 3.7.1)
+  - Realm (3.20.0):
+    - Realm/Headers (= 3.20.0)
+  - Realm/Headers (3.20.0)
+  - RealmSwift (3.20.0):
+    - Realm (= 3.20.0)
   - Result (3.2.4)
   - secp256k1.swift (0.1.4)
   - Starscream (3.0.5)
@@ -41,7 +41,7 @@ DEPENDENCIES:
   - PromiseKit (~> 6.2.8)
   - QRCodeReader.swift (~> 8.2.0)
   - ReachabilitySwift (~> 4.1.0)
-  - RealmSwift (~> 3.7.1)
+  - RealmSwift (~> 3.20.0)
   - secp256k1.swift (~> 0.1.4)
   - Starscream (~> 3.0.5)
   - SwiftRichString (~> 2.0.1)
@@ -56,12 +56,13 @@ SPEC REPOS:
     - PromiseKit
     - QRCodeReader.swift
     - ReachabilitySwift
-    - Realm
-    - RealmSwift
     - Result
     - secp256k1.swift
     - Starscream
     - SwiftRichString
+  trunk:
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   HDWalletKit:
@@ -83,13 +84,13 @@ SPEC CHECKSUMS:
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
   ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
-  Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
-  RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
+  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
+  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: b5336c3f57f88f5d0de222f1f060dbd9e976439f
+PODFILE CHECKSUM: 2b80b752d62fb9adc141f6233d1e71b6fbfc3bb3
 
 COCOAPODS: 1.9.1

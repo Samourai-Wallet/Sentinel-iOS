@@ -13,7 +13,7 @@ target 'Sentinel' do
   pod 'secp256k1.swift', '~> 0.1.4'
   pod 'SwiftRichString', '~> 2.0.1'
   pod 'lottie-ios', '~> 2.5.0'
-  pod 'RealmSwift', '~> 3.7.1'
+  pod 'RealmSwift', '~> 3.20.0'
   pod 'Locksmith', '~> 4.0.0'
   pod 'QRCodeReader.swift', '~> 8.2.0'
   pod 'Starscream', '~> 3.0.5'
