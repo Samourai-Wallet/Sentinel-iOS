@@ -8,7 +8,7 @@ Run `pod install` in the project directory. When it's finished, you can now open
 
 ### BIP44:
 
-Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
+Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) by Marek Palatinus and Pavol Rusnak.
 
 ### BIP49 (Segwit):
 
