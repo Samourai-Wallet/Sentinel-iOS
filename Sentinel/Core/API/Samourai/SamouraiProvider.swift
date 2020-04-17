@@ -22,7 +22,11 @@ enum Samourai {
 extension Samourai: TargetType {
     
     var baseURL: URL {
-        return URL(string: "https://api.samouraiwallet.com/v2/")!
+        if TorManager.shared.state == .connected {
+            return URL(string: "http://d2oagweysnavqgcfsfawqwql2rwxend7xxpriq676lzsmtfwbt75qbqd.onion/v2/")!
+        } else {
+            return URL(string: "https://api.samouraiwallet.com/v2/")!
+        }
     }
     
     var path: String {

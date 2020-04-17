@@ -25,6 +25,8 @@ class TorManager : NSObject {
     }
 
     static let shared = TorManager()
+    public var state = TorState.none
+    public var session : URLSession?
     
     private static let torBaseConf : TorConfiguration = {
         let conf = TorConfiguration()
@@ -77,6 +79,8 @@ class TorManager : NSObject {
     }
 
     func startTor(delegate: TorManagerDelegate?) {
+        state = .started
+        
         torController = TorController(socketHost: "127.0.0.1", port: 39060)
         torThread = TorThread(configuration: TorManager.torBaseConf)
         torThread?.start()
@@ -102,9 +106,11 @@ class TorManager : NSObject {
                     self.torController?.addObserver(forCircuitEstablished: { established in
                         if established {
                             NSLog("Success! Circuit established")
+                            self.state = .connected
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
                                 NSLog("Getting session configuration...")
                                 let session = URLSession(configuration: conf!)
+                                self.session = session
                                 let url = URL(string: "https://check.torproject.org/")!
                                 let task = session.dataTask(with: url) { data, response, error in
                                     if let error = error {
