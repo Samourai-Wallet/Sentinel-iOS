@@ -10,7 +10,6 @@ import Moya
 
 enum StreetPrice {
     case localbitcoins
-    case wex(currency: String)
     case bitfinex
 }
 
@@ -20,8 +19,6 @@ extension StreetPrice: TargetType {
         switch self {
         case .localbitcoins:
             return URL(string: "https://localbitcoins.com/bitcoinaverage/ticker-all-currencies/")!
-        case .wex(let currency):
-            return URL(string: "https://wex.nz/api/3/ticker/btc_\(currency.lowercased())")!
         case .bitfinex:
             return URL(string: "https://api.bitfinex.com/v1/pubticker/btcusd")!
         }
