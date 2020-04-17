@@ -30,7 +30,7 @@ PODS:
   - Result (3.2.4)
   - secp256k1.swift (0.1.4)
   - Starscream (3.0.5)
-  - SwiftRichString (2.0.1)
+  - SwiftRichString (3.7.1)
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
@@ -44,7 +44,7 @@ DEPENDENCIES:
   - RealmSwift (~> 3.20.0)
   - secp256k1.swift (~> 0.1.4)
   - Starscream (~> 3.0.5)
-  - SwiftRichString (~> 2.0.1)
+  - SwiftRichString (~> 3.7.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -59,10 +59,10 @@ SPEC REPOS:
     - Result
     - secp256k1.swift
     - Starscream
-    - SwiftRichString
   trunk:
     - Realm
     - RealmSwift
+    - SwiftRichString
 
 EXTERNAL SOURCES:
   HDWalletKit:
@@ -89,8 +89,8 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
-  SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
+  SwiftRichString: 9a6a70b4fe2cf428e38348b5ada5400da74621fd
 
-PODFILE CHECKSUM: 2b80b752d62fb9adc141f6233d1e71b6fbfc3bb3
+PODFILE CHECKSUM: 0226eb8bfb3f2ad590bfb63dad778b65d3e8b5da
 
 COCOAPODS: 1.9.1
