@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4CD7D62449EB2A00A077DC /* Tor.framework */; };
+		1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */; };
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
 		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
 		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
@@ -69,6 +71,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4CD7D62449EB2A00A077DC /* Tor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tor.framework; path = Carthage/Build/iOS/Tor.framework; sourceTree = "<group>"; };
+		1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Tor.framework.dSYM; path = Carthage/Build/iOS/Tor.framework.dSYM; sourceTree = "<group>"; };
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */,
 				5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +167,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4CD7DA2449EB5800A077DC /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				1B4CD7D62449EB2A00A077DC /* Tor.framework */,
+				1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */,
+			);
+			name = Carthage;
+			sourceTree = "<group>";
+		};
 		8019763220CA8EB70066CAC6 /* Pincode */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +197,7 @@
 		801E166F20C06326003D80FE = {
 			isa = PBXGroup;
 			children = (
+				1B4CD7DA2449EB5800A077DC /* Carthage */,
 				801E167A20C06326003D80FE /* Sentinel */,
 				801E167920C06326003D80FE /* Products */,
 				C6A3F8AF070575C496E5E047 /* Pods */,
@@ -574,6 +589,7 @@
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */,
 				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
+				1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
 				806D588220C5DA1F003C5290 /* data.json in Resources */,
@@ -870,6 +886,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2A49Z99PS8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -896,6 +916,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
