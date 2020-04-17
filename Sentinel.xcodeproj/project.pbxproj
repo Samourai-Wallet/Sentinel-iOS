@@ -516,6 +516,7 @@
 				801E167520C06326003D80FE /* Frameworks */,
 				801E167620C06326003D80FE /* Resources */,
 				D0EDEE2B67B3FF4539A316D1 /* [CP] Embed Pods Frameworks */,
+				1B4CD7DB2449EC1900A077DC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -605,6 +606,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B4CD7DB2449EC1900A077DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Tor.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Tor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		42E8B929B193505FB805FAFA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
