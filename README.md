@@ -1,5 +1,5 @@
 # Sentinel iOS
-Sentinel Watch Only Bitcoin Wallet for iOS(iPhone, iPad and iPod touch)
+Sentinel Watch Only Bitcoin Wallet for iOS (iPhone, iPad and iPod touch)
 
 ### Build:
 Requirements: Xcode Version 9.4+, Cocoapods Version 1.5.3+
