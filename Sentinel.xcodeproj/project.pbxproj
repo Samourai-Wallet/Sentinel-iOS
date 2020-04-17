@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4CD7D62449EB2A00A077DC /* Tor.framework */; };
 		1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */; };
+		1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CD7DC2449ED7300A077DC /* TorManager.swift */; };
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
 		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
 		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		1B4CD7D62449EB2A00A077DC /* Tor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tor.framework; path = Carthage/Build/iOS/Tor.framework; sourceTree = "<group>"; };
 		1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Tor.framework.dSYM; path = Carthage/Build/iOS/Tor.framework.dSYM; sourceTree = "<group>"; };
+		1B4CD7DC2449ED7300A077DC /* TorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorManager.swift; sourceTree = "<group>"; };
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				8087CCB620C343CD00A03D90 /* Realm */,
 				806A8ADD20C1E654008AC0CF /* Sentinel.swift */,
 				8087CCB420C3130800A03D90 /* AddressType.swift */,
+				1B4CD7DC2449ED7300A077DC /* TorManager.swift */,
 			);
 			path = Sentinel;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */,
 				8087CCB520C3130800A03D90 /* AddressType.swift in Sources */,
 				80C4045220C4A2880086318C /* TrxViewController.swift in Sources */,
+				1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
