@@ -47,6 +47,9 @@ class TransactionsViewController: UIViewController {
         self.transactionsTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         self.transactionsTableView.tableFooterView = UIView(frame: .zero)
         self.transactionsTableView.refreshControl = refreshControl
+        
+        // TODO / FIXME - temporary, just for testing
+        TorManager.shared.startTor(delegate: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
