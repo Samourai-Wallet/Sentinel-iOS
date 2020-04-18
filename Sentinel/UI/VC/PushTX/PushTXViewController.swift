@@ -47,11 +47,11 @@ class PushTXViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.httpBody = "tx=\(textView.text!)".data(using: .utf8)!
-        Alamofire.request(request).responseJSON { (response) in
+        AF.request(request).responseJSON { (response) in
             
-            guard response.result.error == nil else {
+            guard response.error == nil else {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
-                self.alert(title: "Error", message: "Failed to push the transaction. \(response.result.error!.localizedDescription)", close: "OK!")
+                self.alert(title: "Error", message: "Failed to push the transaction. \(response.error!.localizedDescription)", close: "OK!")
                 return
             }
             
@@ -61,7 +61,7 @@ class PushTXViewController: UIViewController {
                 return
             }
             
-            guard let json = response.result.value as? [String: Any] else {
+            guard let json = response.value as? [String: Any] else {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
                 return
             }
