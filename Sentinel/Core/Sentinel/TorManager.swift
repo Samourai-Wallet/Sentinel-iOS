@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol TorManagerDelegate : class {
 
@@ -26,7 +27,7 @@ class TorManager : NSObject {
 
     static let shared = TorManager()
     public var state = TorState.none
-    public var session : URLSession?
+    private var torSession : Alamofire.Session?
     
     private static let torBaseConf : TorConfiguration = {
         let conf = TorConfiguration()
@@ -77,6 +78,35 @@ class TorManager : NSObject {
         }
         return nil
     }
+    
+    func session() -> Alamofire.Session {
+        switch (TorManager.shared.state) {
+        case .connected:
+            guard self.torSession != nil else {
+                NSLog("Tor connected but no valid session returned. Using default.")
+                return Alamofire.Session.default
+            }
+            return self.torSession!
+        default:
+            return Alamofire.Session.default
+        }
+    }
+    
+    private func constructSession(configuration: URLSessionConfiguration) -> Alamofire.Session {
+        if let session = self.torSession {
+            return session
+        }
+        
+        let rootQueue = DispatchQueue(label: "com.samouraiwallet.torQueue")
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        queue.underlyingQueue = rootQueue
+        let delegate = SessionDelegate()
+        let urlSession = URLSession(configuration: configuration,
+                                    delegate: delegate,
+                                    delegateQueue: queue)
+        return Session(session: urlSession, delegate: delegate, rootQueue: rootQueue)
+    }
 
     func startTor(delegate: TorManagerDelegate?) {
         state = .started
@@ -108,30 +138,7 @@ class TorManager : NSObject {
                             NSLog("Success! Circuit established")
                             self.state = .connected
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
-                                NSLog("Getting session configuration...")
-                                let session = URLSession(configuration: conf!)
-                                self.session = session
-                                let url = URL(string: "https://check.torproject.org/")!
-                                let task = session.dataTask(with: url) { data, response, error in
-                                    if let error = error {
-                                        NSLog("Error!")
-                                        NSLog(error.localizedDescription)
-                                        return
-                                    }
-                                    guard let httpResponse = response as? HTTPURLResponse,
-                                        (200...299).contains(httpResponse.statusCode) else {
-                                        NSLog("Success! 200-something.")
-                                        return
-                                    }
-                                    if let mimeType = httpResponse.mimeType, mimeType == "text/html",
-                                        let data = data,
-                                        let string = String(data: data, encoding: .utf8) {
-                                        DispatchQueue.main.async {
-                                            NSLog(string)
-                                        }
-                                    }
-                                }
-                                task.resume()
+                                self.torSession = TorManager.shared.constructSession(configuration: conf!)
                             })
                         }
                     })

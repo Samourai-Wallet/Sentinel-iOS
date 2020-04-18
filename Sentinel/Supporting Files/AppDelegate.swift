@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge];
         center.requestAuthorization(options: options) { (granted, error) in } 
         
+        // TODO / FIXME - temporary, just for testing
+        TorManager.shared.startTor(delegate: nil)
+        
         return true
     }
     

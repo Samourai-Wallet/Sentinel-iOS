@@ -18,7 +18,7 @@ import Reachability
 class Sentinel {
     
     let realm = try! Realm(configuration: Realm.Configuration.defaultConfiguration)
-    let samouraiAPI = MoyaProvider<Samourai>()
+    let samouraiAPI = MoyaProvider<Samourai>(session: TorManager.shared.session())
     let streetPriceAPI = MoyaProvider<StreetPrice>()
     let socket = WebSocket(url: URL(string: "wss://api.samourai.io/v2/inv")!)
     let reachability = Reachability()!
