@@ -10,7 +10,6 @@ import Foundation
 import Alamofire
 
 protocol TorManagerDelegate : class {
-
     func torConnProgress(_ progress: Int)
     func torConnFinished()
 }
@@ -24,55 +23,16 @@ class TorManager : NSObject {
         case stopped
     }
 
-    static let shared = TorManager()
+    public static let shared = TorManager()
     public var state = TorState.none
-    private var torSession : Alamofire.Session?
     
-    private static let torBaseConf : TorConfiguration = {
-        let conf = TorConfiguration()
-        conf.cookieAuthentication = true
-
-        #if DEBUG
-        let logLocation = "notice stdout"
-        #else
-        let logLocation = "notice file /dev/null"
-        #endif
-
-        conf.arguments = [
-            "--allow-missing-torrc",
-            "--ignore-missing-torrc",
-            "--ClientOnly", "1",
-            "--AvoidDiskWrites", "1",
-            "--SocksPort", "127.0.0.1:39050",
-            "--ControlPort", "127.0.0.1:39060",
-            "--Log", logLocation,
-            "--ClientUseIPv6", "1"
-        ]
-
-
-        // Store in <appdir>/Library/Caches/tor to persist descriptors etc
-        if let dataDir = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-            .first?.appendingPathComponent("tor", isDirectory: true) {
-
-            // Create data dir if necessary
-            try? FileManager.default.createDirectory(at: dataDir, withIntermediateDirectories: true)
-
-            // Create auth dir if necessary
-            let authDir = dataDir.appendingPathComponent("auth", isDirectory: true)
-            try? FileManager.default.createDirectory(at: authDir, withIntermediateDirectories: true)
-
-            conf.dataDirectory = dataDir
-            conf.arguments += ["--ClientOnionAuthDir", authDir.path]
-        }
-
-        return conf
-    }()
-        
+    private static let configuration = TorConfig()
+    private var torSession : Alamofire.Session?
     private var torController: TorController?
     private var torThread: TorThread?
 
     private var cookie: Data? {
-        if let cookieUrl = TorManager.torBaseConf.dataDirectory?.appendingPathComponent("control_auth_cookie") {
+        if let cookieUrl = TorManager.configuration.dataDirectory?.appendingPathComponent("control_auth_cookie") {
             return try? Data(contentsOf: cookieUrl)
         }
         return nil
@@ -111,7 +71,7 @@ class TorManager : NSObject {
         state = .started
         
         torController = TorController(socketHost: "127.0.0.1", port: 39060)
-        torThread = TorThread(configuration: TorManager.torBaseConf)
+        torThread = TorThread(configuration: TorManager.configuration)
         torThread?.start()
         
         // Use weakDelegate in closures to avoid retain cycles
