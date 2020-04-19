@@ -13,7 +13,6 @@ protocol TorManagerDelegate : class {
 
     func torConnProgress(_ progress: Int)
     func torConnFinished()
-    func torConnDifficulties()
 }
 
 class TorManager : NSObject {
@@ -115,6 +114,9 @@ class TorManager : NSObject {
         torThread = TorThread(configuration: TorManager.torBaseConf)
         torThread?.start()
         
+        // Use weakDelegate in closures to avoid retain cycles
+        weak var weakDelegate = delegate
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             if !(self.torController?.isConnected ?? false) {
                 do {
@@ -133,19 +135,49 @@ class TorManager : NSObject {
                 if success {
                     NSLog("Success!")
                     
-                    self.torController?.addObserver(forCircuitEstablished: { established in
+                    var completeObs: Any?
+                    completeObs = self.torController?.addObserver(forCircuitEstablished: { established in
                         if established {
                             NSLog("Success! Circuit established")
                             self.state = .connected
+                            self.torController?.removeObserver(completeObs)
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
                                 self.torSession = TorManager.shared.constructSession(configuration: conf!)
                             })
+                            weakDelegate?.torConnFinished()
                         }
+                    })
+                    
+                    var progressObserver: Any?
+                    progressObserver = self.torController?.addObserver(forStatusEvents: {
+                        (type: String, severity: String, action: String, arguments: [String : String]?) -> Bool in
+
+                        if type == "STATUS_CLIENT" && action == "BOOTSTRAP" {
+                            let progress = Int(arguments!["PROGRESS"]!)!
+                            weakDelegate?.torConnProgress(progress)
+                            if progress >= 100 {
+                                self.torController?.removeObserver(progressObserver)
+                            }
+                            return true
+                        }
+
+                        return false
                     })
                 } else {
                     NSLog("Didn't connect to control port.")
                 }
             })
         })
+    }
+    
+    func stopTor() {
+        torController?.disconnect()
+        torController = nil
+
+        // More cleanup
+        torThread?.cancel()
+        torThread = nil
+
+        state = .stopped
     }
 }
