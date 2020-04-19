@@ -10,6 +10,14 @@ import Foundation
 
 class TorConfig : TorConfiguration {
     
+    // Tor needs a while to start so cookie doesn't exist right away
+    var authCookie: Data? {
+        if let cookieUrl = self.dataDirectory?.appendingPathComponent("control_auth_cookie") {
+            return try? Data(contentsOf: cookieUrl)
+        }
+        return nil
+    }
+    
     override init() {
         super.init()
         self.cookieAuthentication = true

@@ -30,13 +30,6 @@ class TorManager : NSObject {
     private var torSession : Alamofire.Session?
     private var torController: TorController?
     private var torThread: TorThread?
-
-    private var cookie: Data? {
-        if let cookieUrl = TorManager.configuration.dataDirectory?.appendingPathComponent("control_auth_cookie") {
-            return try? Data(contentsOf: cookieUrl)
-        }
-        return nil
-    }
     
     func session() -> Alamofire.Session {
         switch (TorManager.shared.state) {
@@ -86,7 +79,7 @@ class TorManager : NSObject {
                 }
             }
 
-            guard let cookie = self.cookie else {
+            guard let cookie = TorManager.configuration.authCookie else {
                 NSLog("Could not connect to Tor - cookie unreadable!")
                 return
             }
