@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol TorManagerDelegate : class {
     func torConnProgress(_ progress: Int)
@@ -24,41 +23,13 @@ class TorManager : NSObject {
     }
 
     public static let shared = TorManager()
-    public var state = TorState.none
+    
+    var state = TorState.none
+    var sessionHandler = SessionHandler()
     
     private static let configuration = TorConfig()
-    private var torSession : Alamofire.Session?
     private var torController: TorController?
     private var torThread: TorThread?
-    
-    func session() -> Alamofire.Session {
-        switch (TorManager.shared.state) {
-        case .connected:
-            guard self.torSession != nil else {
-                NSLog("Tor connected but no valid session returned. Using default.")
-                return Alamofire.Session.default
-            }
-            return self.torSession!
-        default:
-            return Alamofire.Session.default
-        }
-    }
-    
-    private func constructSession(configuration: URLSessionConfiguration) -> Alamofire.Session {
-        if let session = self.torSession {
-            return session
-        }
-        
-        let rootQueue = DispatchQueue(label: "com.samouraiwallet.torQueue")
-        let queue = OperationQueue()
-        queue.maxConcurrentOperationCount = 1
-        queue.underlyingQueue = rootQueue
-        let delegate = SessionDelegate()
-        let urlSession = URLSession(configuration: configuration,
-                                    delegate: delegate,
-                                    delegateQueue: queue)
-        return Session(session: urlSession, delegate: delegate, rootQueue: rootQueue)
-    }
 
     func startTor(delegate: TorManagerDelegate?) {
         state = .started
@@ -95,7 +66,7 @@ class TorManager : NSObject {
                             self.state = .connected
                             self.torController?.removeObserver(completeObs)
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
-                                self.torSession = TorManager.shared.constructSession(configuration: conf!)
+                                self.sessionHandler.torSessionEstablished(conf!)
                             })
                             weakDelegate?.torConnFinished()
                         }

@@ -195,7 +195,7 @@ extension Sentinel {
             actives.append(wallet.address)
         }
         
-        let samouraiAPI = MoyaProvider<Samourai>(session: TorManager.shared.session())
+        let samouraiAPI = MoyaProvider<Samourai>(session: TorManager.shared.sessionHandler.session())
         return samouraiAPI.requestDecoded(target: Samourai.multiaddr(active: actives, new: nil, bip49: nil, bip84: nil), type: Samourai.HD.self)
     }
     
