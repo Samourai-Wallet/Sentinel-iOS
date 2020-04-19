@@ -178,6 +178,14 @@
 			name = Carthage;
 			sourceTree = "<group>";
 		};
+		1BBA28B4244C998F0041F7CA /* Tor */ = {
+			isa = PBXGroup;
+			children = (
+				1B4CD7DC2449ED7300A077DC /* TorManager.swift */,
+			);
+			path = Tor;
+			sourceTree = "<group>";
+		};
 		8019763220CA8EB70066CAC6 /* Pincode */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,9 +344,9 @@
 			isa = PBXGroup;
 			children = (
 				8087CCB620C343CD00A03D90 /* Realm */,
+				1BBA28B4244C998F0041F7CA /* Tor */,
 				806A8ADD20C1E654008AC0CF /* Sentinel.swift */,
 				8087CCB420C3130800A03D90 /* AddressType.swift */,
-				1B4CD7DC2449ED7300A077DC /* TorManager.swift */,
 			);
 			path = Sentinel;
 			sourceTree = "<group>";
