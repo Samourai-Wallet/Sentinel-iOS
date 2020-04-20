@@ -30,13 +30,18 @@ class TorManager : NSObject {
     private static let configuration = TorConfig()
     private var torController: TorController?
     private var torThread: TorThread?
-
-    func startTor(delegate: TorManagerDelegate?) {
-        state = .started
-        
+    
+    override init() {
+        super.init()
         torController = TorController(socketHost: "127.0.0.1", port: 39060)
         torThread = TorThread(configuration: TorManager.configuration)
-        torThread?.start()
+    }
+
+    func startTor(delegate: TorManagerDelegate?) {
+        if state == .none {
+            torThread?.start()
+        }
+        state = .started
         
         // Use weakDelegate in closures to avoid retain cycles
         weak var weakDelegate = delegate
@@ -94,7 +99,7 @@ class TorManager : NSObject {
         })
     }
     
-    func stopTor() {
+    func killTor() {
         NSLog("Disconnecting Tor controller...")
         torController?.disconnect()
         torController = nil
@@ -105,6 +110,17 @@ class TorManager : NSObject {
         torThread = nil
         
         state = .stopped
+    }
+    
+    func stopTor() {
+        state = .stopped
+        
+        // NOTE: It seems that there is no clean way to stop the Tor process
+        // The iOS OnionBrowser only implements an experimental shutdown
+        // which doesn't seem to work properly. Tor thread is never stopped.
+        // See https://github.com/iCepa/Tor.framework/tree/v402.7.1/Tor
+        //
+        // killTor()
     }
     
     func showDebugInfo() {
