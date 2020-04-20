@@ -69,7 +69,7 @@ class NetworkViewController: UIViewController {
     private func torIsInitializing() {
         labelStatus.text = NSLocalizedString("Tor initializing...", comment: "")
         viewStreetLight.backgroundColor = UIColor.orange
-        buttonRenew.isHidden = false
+        buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
     }
     
