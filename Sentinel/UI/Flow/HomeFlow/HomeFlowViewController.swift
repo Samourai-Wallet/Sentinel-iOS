@@ -37,7 +37,8 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
         let settings = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
-        self.navigationItem.rightBarButtonItems = [add]
+        let network = UIBarButtonItem.menuButton(self, action: #selector(showNetworkSettings), imageName: "network")
+        self.navigationItem.rightBarButtonItems = [add, network]
         self.navigationItem.leftBarButtonItems = [settings]
     }
     
@@ -47,17 +48,18 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     }
     
     @objc func toggleBarItems() {
+        let network = UIBarButtonItem.menuButton(self, action: #selector(showNetworkSettings), imageName: "network")
         if isEditingToggles {
             let edit = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
             let settings = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
-            self.navigationItem.rightBarButtonItems = [edit]
+            self.navigationItem.rightBarButtonItems = [edit, network]
             self.navigationItem.leftBarButtonItems = [settings]
             bottomMergedVC.animationContainer.isHidden = false
             bottomMergedVC.bottomScrollView.isScrollEnabled = true
         }else{
             let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
             let done = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
-            self.navigationItem.rightBarButtonItems = [add]
+            self.navigationItem.rightBarButtonItems = [add, network]
             self.navigationItem.leftBarButtonItems = [done]
             bottomMergedVC.animationContainer.isHidden = true
             bottomMergedVC.bottomScrollView.isScrollEnabled = false
@@ -70,6 +72,12 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     
     @objc func showSettings() {
         let vc = UINavigationController(rootViewController: SettingsViewController(sentinel: sentinel))
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func showNetworkSettings() {
+        let vc = UINavigationController(rootViewController: NetworkViewController())
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
     }

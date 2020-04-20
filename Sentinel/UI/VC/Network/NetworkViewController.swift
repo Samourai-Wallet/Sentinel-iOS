@@ -20,10 +20,18 @@ class NetworkViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = NSLocalizedString("Network", comment: "")
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
+        let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dissmiss))
+        self.navigationItem.leftBarButtonItems = [close]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         updateViews()
+    }
+    
+    @objc func dissmiss() {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func torButtonPressed(_ sender: Any) {
