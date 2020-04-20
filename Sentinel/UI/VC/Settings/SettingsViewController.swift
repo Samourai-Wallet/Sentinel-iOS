@@ -20,7 +20,8 @@ class SettingsViewController: UIViewController {
                                                     (NSLocalizedString("Import Watchlist", comment: ""), ImportViewController(sentinel: sentinel)),
                                                     (NSLocalizedString("Export Watchlist", comment: ""), ExportViewController(sentinel: sentinel)),
                                                     (NSLocalizedString("Push Transaction", comment: ""), PushTXViewController(sentinel: sentinel)),
-                                                    (NSLocalizedString("Set pincode", comment: ""), PincodeViewController(mode: .set))]
+                                                    (NSLocalizedString("Set pincode", comment: ""), PincodeViewController(mode: .set)),
+                                                    (NSLocalizedString("Enable Tor", comment: ""), NetworkViewController())]
         
         guard let dictionary = Locksmith.loadDataForUserAccount(userAccount: "account") else { return items }
         guard (dictionary["pinCodeHash"] as? String) != nil else { return items }
