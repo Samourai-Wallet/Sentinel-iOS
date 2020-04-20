@@ -9,7 +9,6 @@
 import UIKit
 
 class NetworkViewController: UIViewController {
-
     
     @IBOutlet weak var buttonTor: UIButton!
     @IBOutlet weak var buttonRenew: UIButton!
@@ -21,8 +20,42 @@ class NetworkViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = NSLocalizedString("Network", comment: "")
-        
-        torDidStop()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateViews()
+    }
+    
+    @IBAction func torButtonPressed(_ sender: Any) {
+        if TorManager.shared.state == .connected {
+            TorManager.shared.stopTor()
+            torDidStop()
+        } else {
+            TorManager.shared.startTor(delegate: self)
+            torIsInitializing()
+        }
+    }
+    
+    
+    @IBAction func renewPressed(_ sender: Any) {
+    }
+    
+    private func updateViews() {
+        switch (TorManager.shared.state) {
+        case .connected:
+            torDidConnect()
+        case .stopped, .none:
+            torDidStop()
+        case .started:
+            torIsInitializing()
+        }
+    }
+    
+    private func torIsInitializing() {
+        labelStatus.text = NSLocalizedString("Tor initializing...", comment: "")
+        viewStreetLight.backgroundColor = UIColor.orange
+        buttonRenew.isHidden = false
+        buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
     }
     
     private func torDidConnect() {
@@ -38,16 +71,18 @@ class NetworkViewController: UIViewController {
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension NetworkViewController : TorManagerDelegate {
+    func torConnProgress(_ progress: Int) {
+        DispatchQueue.main.async {
+            self.labelStatus.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
+        }
     }
-    */
-
+    
+    func torConnFinished() {
+        DispatchQueue.main.async {
+            self.torDidConnect()
+        }
+    }
 }
