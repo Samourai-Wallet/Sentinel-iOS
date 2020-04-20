@@ -101,7 +101,25 @@ class TorManager : NSObject {
         // More cleanup
         torThread?.cancel()
         torThread = nil
-
+        
         state = .stopped
+    }
+    
+    func torReconnect(_ callback: ((_ success: Bool) -> Void)? = nil) {
+        torController?.resetConnection(callback)
+    }
+    
+    func closeAllCircuits(_ callback: @escaping ((_ success: Bool) -> Void)) {
+        self.getCircuits { circuits in
+            self.closeCircuits(circuits, callback)
+        }
+    }
+    
+    func closeCircuits(_ circuits: [TorCircuit], _ callback: @escaping ((_ success: Bool) -> Void)) {
+        torController?.close(circuits, completion: callback)
+    }
+    
+    func getCircuits(_ callback: @escaping ((_ circuits: [TorCircuit]) -> Void)) {
+        torController?.getCircuits(callback)
     }
 }

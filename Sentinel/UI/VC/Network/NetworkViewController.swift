@@ -36,8 +36,11 @@ class NetworkViewController: UIViewController {
         }
     }
     
-    
     @IBAction func renewPressed(_ sender: Any) {
+        TorManager.shared.torReconnect()
+        TorManager.shared.closeAllCircuits { (success) in
+            // TODO - notify if NYM renew was successful
+        }
     }
     
     private func updateViews() {
