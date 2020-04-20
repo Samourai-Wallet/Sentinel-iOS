@@ -27,9 +27,9 @@ class NetworkViewController: UIViewController {
         self.navigationItem.leftBarButtonItems = [close]
         
         #if DEBUG
-        buttonTor.isHidden = false
+        buttonTorInfo.isHidden = true
         #else
-        buttonTor.isHidden = true
+        buttonTorInfo.isHidden = true
         #endif
     }
     
