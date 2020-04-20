@@ -502,7 +502,7 @@ extension Sentinel {
 
 extension Sentinel: WebSocketDelegate {
     func websocketDidConnect(socket: WebSocketClient) {
-        print("Socket Conneceted")
+        NSLog("Socket connected")
         socket.write(string: "{\"op\":\"blocks_sub\"}")
         let wallets = realm.objects(Wallet.self)
         wallets.forEach { (wallet) in
