@@ -106,6 +106,7 @@ class TorManager : NSObject {
     }
     
     func torReconnect(_ callback: ((_ success: Bool) -> Void)? = nil) {
+        // Sends "SIGNAL RELOAD" and "SIGNAL NEWNYM" to the Tor thread.
         torController?.resetConnection(callback)
     }
     
