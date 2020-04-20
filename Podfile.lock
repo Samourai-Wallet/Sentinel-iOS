@@ -29,6 +29,7 @@ PODS:
   - secp256k1.swift (0.1.4)
   - Starscream (3.0.5)
   - SwiftRichString (2.0.1)
+  - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - secp256k1.swift (~> 0.1.4)
   - Starscream (~> 3.0.5)
   - SwiftRichString (~> 2.0.1)
+  - Toast-Swift (~> 5.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -60,6 +62,7 @@ SPEC REPOS:
     - Moya
     - Realm
     - RealmSwift
+    - Toast-Swift
 
 EXTERNAL SOURCES:
   HDWalletKit:
@@ -86,7 +89,8 @@ SPEC CHECKSUMS:
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: a13ecc1d1a7ed15be59cb0f511f12f6c0d2fe9fd
+PODFILE CHECKSUM: b580adfc754263cb900d53659e84ec2908c4f917
 
 COCOAPODS: 1.9.1

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class NetworkViewController: UIViewController {
     
@@ -57,6 +58,7 @@ class NetworkViewController: UIViewController {
             TorManager.shared.torReconnect { (success) in
                 if success {
                     NSLog("Tor reconnect successful. Tor identity renewed.")
+                    self.showLocalizedToast("Tor identity renewed")
                 } else {
                     NSLog("Tor reconnect failed")
                 }
@@ -76,6 +78,12 @@ class NetworkViewController: UIViewController {
             torDidStop()
         case .started:
             torIsInitializing()
+        }
+    }
+    
+    private func showLocalizedToast(_ message: String) {
+        DispatchQueue.main.async {
+            self.view.makeToast(NSLocalizedString(message, comment: ""))
         }
     }
     

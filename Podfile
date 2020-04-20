@@ -7,6 +7,7 @@ target 'Sentinel' do
   inhibit_all_warnings!
 
   # Pods for Sentinel
+  pod 'Toast-Swift', '~> 5.0.0'
   pod 'PromiseKit', '~> 6.2.8'
   pod 'CryptoSwift', '~> 0.10.0'
   pod 'Moya', '~> 14.0.0'
