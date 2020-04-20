@@ -14,7 +14,7 @@ class NetworkViewController: UIViewController {
     @IBOutlet weak var buttonRenew: UIButton!
     @IBOutlet weak var labelStatus: UILabel!
     @IBOutlet weak var viewStreetLight: UIView!
-    
+    @IBOutlet weak var buttonTorInfo: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,12 @@ class NetworkViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dissmiss))
         self.navigationItem.leftBarButtonItems = [close]
+        
+        #if DEBUG
+        buttonTor.isHidden = false
+        #else
+        buttonTor.isHidden = true
+        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,9 +51,16 @@ class NetworkViewController: UIViewController {
     }
     
     @IBAction func renewPressed(_ sender: Any) {
-        TorManager.shared.torReconnect()
         TorManager.shared.closeAllCircuits { (success) in
             // TODO - notify if NYM renew was successful
+            
+            TorManager.shared.torReconnect { (success) in
+                if success {
+                    NSLog("Tor reconnect successful. Tor identity renewed.")
+                } else {
+                    NSLog("Tor reconnect failed")
+                }
+            }
         }
     }
     

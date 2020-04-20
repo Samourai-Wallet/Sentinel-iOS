@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="buttonRenew" destination="pKo-pT-S4U" id="hAe-jA-iij"/>
                 <outlet property="buttonTor" destination="UVE-7h-IHB" id="FwI-Ir-oX1"/>
+                <outlet property="buttonTorInfo" destination="YzX-Ta-WEn" id="gaO-iq-aEz"/>
                 <outlet property="labelStatus" destination="iav-O0-hyi" id="dat-BA-OXz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewStreetLight" destination="9dV-Xc-kx7" id="UzD-5H-LEO"/>
@@ -46,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKo-pT-S4U">
-                            <rect key="frame" x="205" y="20" width="53" height="40.5"/>
+                            <rect key="frame" x="189" y="20" width="53" height="40.5"/>
                             <state key="normal" title="RENEW"/>
                             <connections>
                                 <action selector="renewPressed:" destination="-1" eventType="touchUpInside" id="Ctn-Wc-kS9"/>
@@ -86,7 +87,7 @@
                         <constraint firstItem="7Pr-hT-cxf" firstAttribute="leading" secondItem="9dV-Xc-kx7" secondAttribute="trailing" constant="8" symbolic="YES" id="74P-UE-a2b"/>
                         <constraint firstAttribute="bottom" secondItem="UVE-7h-IHB" secondAttribute="bottom" constant="20" symbolic="YES" id="DJQ-N7-QWd"/>
                         <constraint firstAttribute="trailing" secondItem="UVE-7h-IHB" secondAttribute="trailing" constant="20" symbolic="YES" id="IhI-6V-rbZ"/>
-                        <constraint firstItem="UVE-7h-IHB" firstAttribute="leading" secondItem="pKo-pT-S4U" secondAttribute="trailing" constant="16" id="J36-1m-JUJ"/>
+                        <constraint firstItem="UVE-7h-IHB" firstAttribute="leading" secondItem="pKo-pT-S4U" secondAttribute="trailing" multiplier="1.1" constant="8" symbolic="YES" id="J36-1m-JUJ"/>
                         <constraint firstItem="pKo-pT-S4U" firstAttribute="top" secondItem="l3g-by-jsB" secondAttribute="top" constant="20" symbolic="YES" id="QNt-4N-vbM"/>
                         <constraint firstAttribute="bottom" secondItem="7Pr-hT-cxf" secondAttribute="bottom" constant="20" symbolic="YES" id="eTb-n0-L9e"/>
                         <constraint firstItem="UVE-7h-IHB" firstAttribute="top" secondItem="l3g-by-jsB" secondAttribute="top" constant="20" symbolic="YES" id="fgj-NP-ACY"/>
@@ -96,7 +97,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lS-DT-1N8">
-                    <rect key="frame" x="10" y="16.5" width="355" height="20.5"/>
+                    <rect key="frame" x="20" y="16.5" width="345" height="20.5"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -114,7 +115,7 @@
                 <constraint firstItem="YzX-Ta-WEn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1ow-eY-bdH"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" id="AAa-Pg-gZw"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="Cho-sa-MN2"/>
-                <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="2lS-DT-1N8" secondAttribute="leading" id="HdD-Nk-75s"/>
+                <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="2lS-DT-1N8" secondAttribute="leading" constant="-10" id="HdD-Nk-75s"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" symbolic="YES" id="JBR-Cx-EEU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YzX-Ta-WEn" secondAttribute="bottom" constant="10" id="Yop-1s-N3q"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="trailing" secondItem="2lS-DT-1N8" secondAttribute="trailing" id="lpo-HZ-sHS"/>
