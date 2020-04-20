@@ -101,13 +101,22 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-Ta-WEn">
+                    <rect key="frame" x="139.5" y="627" width="96" height="30"/>
+                    <state key="normal" title="Print TOR info"/>
+                    <connections>
+                        <action selector="debugPressed:" destination="-1" eventType="touchUpInside" id="nNy-bS-7eg"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.15577822920000001" green="0.17330455780000001" blue="0.19479134679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="YzX-Ta-WEn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1ow-eY-bdH"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" id="AAa-Pg-gZw"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="Cho-sa-MN2"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="2lS-DT-1N8" secondAttribute="leading" id="HdD-Nk-75s"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" symbolic="YES" id="JBR-Cx-EEU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YzX-Ta-WEn" secondAttribute="bottom" constant="10" id="Yop-1s-N3q"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="trailing" secondItem="2lS-DT-1N8" secondAttribute="trailing" id="lpo-HZ-sHS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l3g-by-jsB" secondAttribute="trailing" constant="10" id="nsi-OC-xRc"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="y8E-la-pdB"/>

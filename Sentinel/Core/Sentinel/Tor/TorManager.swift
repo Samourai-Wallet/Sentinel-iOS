@@ -95,14 +95,28 @@ class TorManager : NSObject {
     }
     
     func stopTor() {
+        NSLog("Disconnecting Tor controller...")
         torController?.disconnect()
         torController = nil
 
         // More cleanup
+        NSLog("Cancelling Tor thread...")
         torThread?.cancel()
         torThread = nil
         
         state = .stopped
+    }
+    
+    func showDebugInfo() {
+        if let thread = TorThread.active {
+            NSLog("Active TOR thread: \(thread)")
+        } else {
+            NSLog("No active TOR thread")
+        }
+        
+        getCircuits { (circuits) in
+            NSLog("\(circuits.count) circuits established")
+        }
     }
     
     func torReconnect(_ callback: ((_ success: Bool) -> Void)? = nil) {

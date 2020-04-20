@@ -43,6 +43,10 @@ class NetworkViewController: UIViewController {
         }
     }
     
+    @IBAction func debugPressed(_ sender: Any) {
+        TorManager.shared.showDebugInfo()
+    }
+    
     private func updateViews() {
         switch (TorManager.shared.state) {
         case .connected:
