@@ -23,10 +23,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3g-by-jsB">
-                    <rect key="frame" x="10" y="45" width="355" height="80.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lS-DT-1N8">
+                    <rect key="frame" x="20" y="16.5" width="345" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-Ta-WEn">
+                    <rect key="frame" x="139.5" y="627" width="96" height="30"/>
+                    <state key="normal" title="Print TOR info"/>
+                    <connections>
+                        <action selector="debugPressed:" destination="-1" eventType="touchUpInside" id="nNy-bS-7eg"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m42-AN-qkK" userLabel="separatorBottom">
+                    <rect key="frame" x="0.0" y="130.5" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="8fn-6P-CUC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4f3-VH-5uv" userLabel="separatorTop">
+                    <rect key="frame" x="0.0" y="49" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="bw3-6J-iQJ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3g-by-jsB" userLabel="torRoutingView">
+                    <rect key="frame" x="10" y="50" width="355" height="80.5"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-Xc-kx7">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dV-Xc-kx7" userLabel="streetLightView">
                             <rect key="frame" x="20" y="28.5" width="24" height="24"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
@@ -98,28 +125,21 @@
                         <constraint firstItem="7Pr-hT-cxf" firstAttribute="top" secondItem="l3g-by-jsB" secondAttribute="top" constant="20" symbolic="YES" id="tzW-Dg-y48"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connections" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lS-DT-1N8">
-                    <rect key="frame" x="20" y="16.5" width="345" height="20.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzX-Ta-WEn">
-                    <rect key="frame" x="139.5" y="627" width="96" height="30"/>
-                    <state key="normal" title="Print TOR info"/>
-                    <connections>
-                        <action selector="debugPressed:" destination="-1" eventType="touchUpInside" id="nNy-bS-7eg"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.15577822920000001" green="0.17330455780000001" blue="0.19479134679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YzX-Ta-WEn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1ow-eY-bdH"/>
-                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" id="AAa-Pg-gZw"/>
-                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="Cho-sa-MN2"/>
+                <constraint firstAttribute="trailing" secondItem="4f3-VH-5uv" secondAttribute="trailing" id="2AS-nF-pXJ"/>
+                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="4f3-VH-5uv" secondAttribute="bottom" id="5Uq-qw-Oz3"/>
+                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="Cho-sa-MN2"/>
+                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="13" id="Fql-J6-HP8"/>
+                <constraint firstItem="m42-AN-qkK" firstAttribute="top" secondItem="l3g-by-jsB" secondAttribute="bottom" id="HI9-f6-KcV"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="2lS-DT-1N8" secondAttribute="leading" constant="-10" id="HdD-Nk-75s"/>
-                <constraint firstItem="l3g-by-jsB" firstAttribute="top" secondItem="2lS-DT-1N8" secondAttribute="bottom" constant="8" symbolic="YES" id="JBR-Cx-EEU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YzX-Ta-WEn" secondAttribute="bottom" constant="10" id="Yop-1s-N3q"/>
+                <constraint firstItem="m42-AN-qkK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YwN-nB-Lgl"/>
+                <constraint firstItem="4f3-VH-5uv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dlT-PS-Bia"/>
+                <constraint firstAttribute="trailing" secondItem="m42-AN-qkK" secondAttribute="trailing" id="huY-Ma-GPj"/>
+                <constraint firstItem="m42-AN-qkK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ksy-gm-yV1"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="trailing" secondItem="2lS-DT-1N8" secondAttribute="trailing" id="lpo-HZ-sHS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="l3g-by-jsB" secondAttribute="trailing" constant="10" id="nsi-OC-xRc"/>
                 <constraint firstItem="l3g-by-jsB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="y8E-la-pdB"/>
