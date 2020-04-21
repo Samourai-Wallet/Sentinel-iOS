@@ -15,6 +15,7 @@ enum Samourai {
     case xpub(xpub: String)
     case addxpub(xpub: String, type: String, segwit: String?)
     case tx(txid: String)
+    case pushtx(tx: String)
     case header(hash: String)
     case fees
 }
@@ -41,6 +42,8 @@ extension Samourai: TargetType {
             return "xpub/"
         case .tx(let txid):
             return "tx/\(txid)"
+        case .pushtx:
+            return "pushtx"
         case .header(let hash):
             return "header/\(hash)"
         case .fees:
@@ -51,6 +54,8 @@ extension Samourai: TargetType {
     var method: Moya.Method {
         switch self {
         case .addxpub:
+            return .post
+        case .pushtx:
             return .post
         default:
             return .get
@@ -67,6 +72,8 @@ extension Samourai: TargetType {
             return .requestParameters(parameters: parameters(active: active, new: new, bip49: bip49, bip84: bip84), encoding: URLEncoding.default)
         case let .addxpub(xpub, type, segwit):
             return .requestParameters(parameters: parameters(xpub: xpub, type: type, segwit: segwit), encoding: URLEncoding.default)
+        case let .pushtx(tx):
+            return .requestParameters(parameters: ["tx": tx], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
