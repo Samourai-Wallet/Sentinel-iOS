@@ -46,7 +46,7 @@ class PushTXViewController: UIViewController {
             return
         }
         
-        let samouraiAPI = MoyaProvider<Samourai>()
+        let samouraiAPI = MoyaProvider<Samourai>(session: TorManager.shared.sessionHandler.session())
         samouraiAPI.request(.pushtx(tx: rawTx)) { result in
             switch result {
             case let .success(moyaResponse):
