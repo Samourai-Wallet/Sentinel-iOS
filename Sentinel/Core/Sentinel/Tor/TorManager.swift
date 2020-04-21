@@ -71,7 +71,9 @@ class TorManager : NSObject {
                             self.state = .connected
                             self.torController?.removeObserver(completeObs)
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
-                                self.sessionHandler.torSessionEstablished(conf!)
+                                if let configuration = conf {
+                                    self.sessionHandler.torSessionEstablished(configuration)
+                                }
                             })
                             weakDelegate?.torConnFinished()
                         }
