@@ -84,6 +84,9 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
     }
     
     func showTorInitIfEnabled() {
+        if TorManager.shared.state == .connected {
+            return
+        }
         if let isTorEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool {
             if isTorEnabled {
                 let initTorVC = InitializingTorViewController()
