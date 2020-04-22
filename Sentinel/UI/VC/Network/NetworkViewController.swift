@@ -88,21 +88,21 @@ class NetworkViewController: UIViewController {
     
     private func torIsInitializing() {
         labelStatus.text = NSLocalizedString("Tor initializing...", comment: "")
-        viewStreetLight.backgroundColor = UIColor.orange
+        viewStreetLight.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
     }
     
     private func torDidConnect() {
         labelStatus.text = NSLocalizedString("Enabled", comment: "")
-        viewStreetLight.backgroundColor = UIColor.green
+        viewStreetLight.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
         buttonRenew.isHidden = false
         buttonTor.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
     }
     
     private func torDidStop() {
         labelStatus.text = NSLocalizedString("Disabled", comment: "")
-        viewStreetLight.backgroundColor = UIColor.red
+        viewStreetLight.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
