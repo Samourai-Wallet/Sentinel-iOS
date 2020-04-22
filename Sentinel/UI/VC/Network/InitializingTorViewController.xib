@@ -17,10 +17,48 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sentinel" translatesAutoresizingMaskIntoConstraints="NO" id="IKA-SP-cNn">
+                    <rect key="frame" x="159" y="400" width="96" height="96"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nic-EY-b2d" userLabel="LoadingContainerView">
+                    <rect key="frame" x="0.0" y="496" width="414" height="366"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="GvB-T6-cxJ">
+                            <rect key="frame" x="197" y="173" width="20" height="20"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initializing Tor..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG2-Xk-sur">
+                            <rect key="frame" x="20" y="201" width="374" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="GvB-T6-cxJ" firstAttribute="centerY" secondItem="nic-EY-b2d" secondAttribute="centerY" id="N59-7o-uDN"/>
+                        <constraint firstAttribute="trailing" secondItem="rG2-Xk-sur" secondAttribute="trailing" constant="20" symbolic="YES" id="hPq-n7-6UL"/>
+                        <constraint firstItem="rG2-Xk-sur" firstAttribute="top" secondItem="GvB-T6-cxJ" secondAttribute="bottom" constant="8" symbolic="YES" id="l4R-3J-hme"/>
+                        <constraint firstItem="GvB-T6-cxJ" firstAttribute="centerX" secondItem="nic-EY-b2d" secondAttribute="centerX" id="v2r-nc-trW"/>
+                        <constraint firstItem="rG2-Xk-sur" firstAttribute="leading" secondItem="nic-EY-b2d" secondAttribute="leading" constant="20" symbolic="YES" id="wsJ-gb-ONz"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="0.15577822920000001" green="0.17330455780000001" blue="0.19479134679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nic-EY-b2d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8eM-6a-Kjy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nic-EY-b2d" secondAttribute="trailing" id="KrZ-aE-mn0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nic-EY-b2d" secondAttribute="bottom" id="Qza-XP-EeZ"/>
+                <constraint firstItem="nic-EY-b2d" firstAttribute="top" secondItem="IKA-SP-cNn" secondAttribute="bottom" id="UPD-zz-gGu"/>
+                <constraint firstItem="IKA-SP-cNn" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gqo-ET-0eI"/>
+                <constraint firstItem="IKA-SP-cNn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yF5-JJ-mHw"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="94"/>
         </view>
     </objects>
+    <resources>
+        <image name="sentinel" width="96" height="96"/>
+    </resources>
 </document>
