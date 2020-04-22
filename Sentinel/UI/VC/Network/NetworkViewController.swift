@@ -45,9 +45,11 @@ class NetworkViewController: UIViewController {
         if TorManager.shared.state == .connected {
             TorManager.shared.stopTor()
             torDidStop()
+            UserDefaults.standard.set(false, forKey: "isUsingTor")
         } else {
             TorManager.shared.startTor(delegate: self)
             torIsInitializing()
+            UserDefaults.standard.set(true, forKey: "isUsingTor")
         }
     }
     
