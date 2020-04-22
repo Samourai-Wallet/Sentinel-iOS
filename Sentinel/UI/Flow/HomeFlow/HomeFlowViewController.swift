@@ -87,6 +87,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         if let isTorEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool {
             if isTorEnabled {
                 let initTorVC = InitializingTorViewController()
+                initTorVC.modalPresentationStyle = .overCurrentContext
                 self.present(initTorVC, animated: false, completion: nil)
             } else {
                 NSLog("TOR disabled in user defaults.")
