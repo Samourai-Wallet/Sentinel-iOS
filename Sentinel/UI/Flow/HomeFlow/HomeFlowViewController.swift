@@ -42,8 +42,20 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         self.navigationItem.leftBarButtonItems = [settings]
     }
     
+    func showTorInitIfEnabled() {
+        if let isTorEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool {
+            if isTorEnabled {
+                let initTorVC = InitializingTorViewController()
+                self.present(initTorVC, animated: false, completion: nil)
+            } else {
+                NSLog("TOR disabled in user defaults.")
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showTorInitIfEnabled()
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
