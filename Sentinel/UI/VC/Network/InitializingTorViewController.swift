@@ -18,6 +18,18 @@ class InitializingTorViewController: UIViewController {
 
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.startAnimating()
+        
+        initializeTor()
+    }
+    
+    func initializeTor() {
+        switch TorManager.shared.state {
+        case .none, .stopped:
+            TorManager.shared.startTor(delegate: self)
+        default:
+            NSLog("Tor is already running")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
 }
