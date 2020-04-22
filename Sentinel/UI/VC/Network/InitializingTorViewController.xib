@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InitializingTorViewController" customModule="Sentinel" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="GvB-T6-cxJ" id="IWm-LQ-Y8e"/>
+                <outlet property="initializingLabel" destination="rG2-Xk-sur" id="eOa-D0-lYc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

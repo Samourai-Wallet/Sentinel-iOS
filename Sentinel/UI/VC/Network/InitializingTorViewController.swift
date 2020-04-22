@@ -9,22 +9,30 @@
 import UIKit
 
 class InitializingTorViewController: UIViewController {
-
+    
+    @IBOutlet weak var initializingLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.startAnimating()
     }
 
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension InitializingTorViewController : TorManagerDelegate {
+    func torConnProgress(_ progress: Int) {
+        DispatchQueue.main.async {
+            self.initializingLabel.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
+        }
     }
-    */
-
+    
+    func torConnFinished() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
