@@ -53,14 +53,11 @@ class NetworkViewController: UIViewController {
     
     @IBAction func renewPressed(_ sender: Any) {
         TorManager.shared.closeAllCircuits { (success) in
-            // TODO - notify if NYM renew was successful
-            
             TorManager.shared.torReconnect { (success) in
                 if success {
-                    NSLog("Tor reconnect successful. Tor identity renewed.")
-                    self.showLocalizedToast("Tor identity renewed")
+                    self.showLocalizedToast(NSLocalizedString("Tor identity renewed", comment: ""))
                 } else {
-                    NSLog("Tor reconnect failed")
+                    self.showLocalizedToast(NSLocalizedString("Renew failed", comment: ""))
                 }
             }
         }
