@@ -26,7 +26,6 @@ extension MoyaProvider {
             request(target: target).done({ (response) in
                 do {
                     let decoded = try JSONDecoder().decode(type, from: response.data)
-                    NSLog(target.baseURL.absoluteString + " -> " + response.debugDescription) // TODO remove debug output
                     seal.fulfill(decoded)
                 } catch let err {
                     seal.reject(err)
