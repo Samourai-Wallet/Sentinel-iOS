@@ -23,7 +23,7 @@ class NetworkViewController: UIViewController {
         self.title = NSLocalizedString("Network", comment: "")
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
         navigationController?.navigationBar.tintColor = .white
-        let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dissmiss))
+        let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dismissView))
         self.navigationItem.leftBarButtonItems = [close]
         
         #if DEBUG
@@ -37,7 +37,7 @@ class NetworkViewController: UIViewController {
         updateViews()
     }
     
-    @objc func dissmiss() {
+    @objc func dismissView() {
         dismiss(animated: true, completion: nil)
     }
     
