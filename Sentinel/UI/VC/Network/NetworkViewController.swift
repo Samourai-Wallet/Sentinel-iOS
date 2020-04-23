@@ -15,7 +15,6 @@ class NetworkViewController: UIViewController {
     @IBOutlet weak var buttonRenew: UIButton!
     @IBOutlet weak var labelStatus: UILabel!
     @IBOutlet weak var viewStreetLight: UIView!
-    @IBOutlet weak var buttonTorInfo: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +24,6 @@ class NetworkViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         let close = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(dismissView))
         self.navigationItem.leftBarButtonItems = [close]
-        
-        #if DEBUG
-        buttonTorInfo.isHidden = true
-        #else
-        buttonTorInfo.isHidden = true
-        #endif
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,10 +56,6 @@ class NetworkViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    @IBAction func debugPressed(_ sender: Any) {
-        TorManager.shared.showDebugInfo()
     }
     
     private func updateViews() {

@@ -125,18 +125,6 @@ class TorManager : NSObject {
         // killTor()
     }
     
-    func showDebugInfo() {
-        if let thread = TorThread.active {
-            NSLog("Active TOR thread: \(thread)")
-        } else {
-            NSLog("No active TOR thread")
-        }
-        
-        getCircuits { (circuits) in
-            NSLog("\(circuits.count) circuits established")
-        }
-    }
-    
     func torReconnect(_ callback: ((_ success: Bool) -> Void)? = nil) {
         // Sends "SIGNAL RELOAD" and "SIGNAL NEWNYM" to the Tor thread.
         torController?.resetConnection(callback)
