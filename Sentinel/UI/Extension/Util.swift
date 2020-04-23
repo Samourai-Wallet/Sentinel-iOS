@@ -117,8 +117,11 @@ extension UIBarButtonItem {
 
         let menuBarItem = UIBarButtonItem(customView: button)
         menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
-        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        // Navigation bar buttons should be 25x25 according to HIG
+        // See https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/custom-icons/
+        menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 25).isActive = true
 
         return menuBarItem
     }
