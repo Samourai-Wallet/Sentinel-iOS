@@ -5,7 +5,7 @@ PODS:
     - CryptoSwift (~> 0.10.0)
     - secp256k1.swift (~> 0.1.4)
   - Locksmith (4.0.0)
-  - lottie-ios (2.5.0)
+  - lottie-ios (2.5.3)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -27,8 +27,8 @@ PODS:
   - RealmSwift (3.20.0):
     - Realm (= 3.20.0)
   - secp256k1.swift (0.1.4)
-  - Starscream (3.0.5)
-  - SwiftRichString (2.0.1)
+  - Starscream (3.0.6)
+  - SwiftRichString (3.7.1)
   - Toast-Swift (5.0.1)
 
 DEPENDENCIES:
@@ -43,25 +43,24 @@ DEPENDENCIES:
   - RealmSwift (~> 3.20.0)
   - secp256k1.swift (~> 0.1.4)
   - Starscream (~> 3.0.5)
-  - SwiftRichString (~> 2.0.1)
+  - SwiftRichString (~> 3.7.1)
   - Toast-Swift (~> 5.0.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
+    - Alamofire
     - CryptoSwift
     - Locksmith
     - lottie-ios
+    - Moya
     - PromiseKit
     - QRCodeReader.swift
     - ReachabilitySwift
+    - Realm
+    - RealmSwift
     - secp256k1.swift
     - Starscream
     - SwiftRichString
-  trunk:
-    - Alamofire
-    - Moya
-    - Realm
-    - RealmSwift
     - Toast-Swift
 
 EXTERNAL SOURCES:
@@ -79,7 +78,7 @@ SPEC CHECKSUMS:
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
   HDWalletKit: 6ee3b97f4565f052e6739ba26749e2002782d0e2
   Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
-  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
   QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
@@ -87,10 +86,10 @@ SPEC CHECKSUMS:
   Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
   RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
-  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
-  SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwiftRichString: 9a6a70b4fe2cf428e38348b5ada5400da74621fd
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: b580adfc754263cb900d53659e84ec2908c4f917
+PODFILE CHECKSUM: 155697955539c595a26948bb22e61e6964c2c93d
 
 COCOAPODS: 1.9.1

@@ -12,7 +12,7 @@ target 'Sentinel' do
   pod 'CryptoSwift', '~> 0.10.0'
   pod 'Moya', '~> 14.0.0'
   pod 'secp256k1.swift', '~> 0.1.4'
-  pod 'SwiftRichString', '~> 2.0.1'
+  pod 'SwiftRichString', '~> 3.7.1'
   pod 'lottie-ios', '~> 2.5.0'
   pod 'RealmSwift', '~> 3.20.0'
   pod 'Locksmith', '~> 4.0.0'
