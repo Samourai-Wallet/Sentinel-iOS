@@ -16,10 +16,8 @@ class StreetPriceViewController: UIViewController {
     @IBOutlet var streetPriceTableView: UITableView!
     
     let exchanges = ["Localbitcoins.com",
-                     "WEX",
                      "Bitfinex"]
     let currencies = [["USD", "EUR", "GBP", "CNY", "RUR"],
-                      ["USD", "EUR", "RUR"],
                       ["USD"]]
     
     init(sentinel: Sentinel) {

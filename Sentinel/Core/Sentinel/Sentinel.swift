@@ -361,8 +361,6 @@ extension Sentinel {
             
             var provider: StreetPrice
             switch providerStr {
-            case "WEX":
-                provider = .wex(currency: currencyStr)
             case "Bitfinex":
                 provider = .bitfinex
             default:
@@ -376,11 +374,6 @@ extension Sentinel {
                         guard let currencyDic = json[currencyStr] as? [String: Any] else { seal.reject(Errors.noPrice); return }
                         guard let average = currencyDic["avg_12h"] as? String else { seal.reject(Errors.noPrice); return }
                         _ = UserDefaults.standard.set(Double(average), forKey: "Price")
-                        seal.fulfill(())
-                    }else if providerStr == "WEX" {
-                        guard let currencyDic = json["btc_\(currencyStr.lowercased())"] as? [String: Any] else { seal.reject(Errors.noPrice); return }
-                        guard let average = currencyDic["avg"] as? Double else { seal.reject(Errors.noPrice); return }
-                        _ = UserDefaults.standard.set(average, forKey: "Price")
                         seal.fulfill(())
                     }else{
                         guard let average = json["mid"] as? String else { seal.reject(Errors.noPrice); return }
