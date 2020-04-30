@@ -3,10 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4CD7D62449EB2A00A077DC /* Tor.framework */; };
+		1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */; };
+		1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CD7DC2449ED7300A077DC /* TorManager.swift */; };
+		1BBA28B6244C99C00041F7CA /* TorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28B5244C99C00041F7CA /* TorConfig.swift */; };
+		1BBA28B8244C9DF00041F7CA /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */; };
+		1BBA28BC244D89BB0041F7CA /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */; };
+		1BBA28BD244D89BB0041F7CA /* NetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */; };
+		1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */; };
+		1BBA28C3245028430041F7CA /* InitializingTorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */; };
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
 		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
 		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
@@ -69,6 +78,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B4CD7D62449EB2A00A077DC /* Tor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tor.framework; path = Carthage/Build/iOS/Tor.framework; sourceTree = "<group>"; };
+		1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Tor.framework.dSYM; path = Carthage/Build/iOS/Tor.framework.dSYM; sourceTree = "<group>"; };
+		1B4CD7DC2449ED7300A077DC /* TorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorManager.swift; sourceTree = "<group>"; };
+		1BBA28B5244C99C00041F7CA /* TorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorConfig.swift; sourceTree = "<group>"; };
+		1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
+		1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
+		1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkViewController.xib; sourceTree = "<group>"; };
+		1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializingTorViewController.swift; sourceTree = "<group>"; };
+		1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitializingTorViewController.xib; sourceTree = "<group>"; };
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
@@ -155,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */,
 				5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +181,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B4CD7DA2449EB5800A077DC /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				1B4CD7D62449EB2A00A077DC /* Tor.framework */,
+				1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */,
+			);
+			name = Carthage;
+			sourceTree = "<group>";
+		};
+		1BBA28B4244C998F0041F7CA /* Tor */ = {
+			isa = PBXGroup;
+			children = (
+				1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */,
+				1B4CD7DC2449ED7300A077DC /* TorManager.swift */,
+				1BBA28B5244C99C00041F7CA /* TorConfig.swift */,
+			);
+			path = Tor;
+			sourceTree = "<group>";
+		};
+		1BBA28B9244D893F0041F7CA /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */,
+				1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */,
+				1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */,
+				1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		8019763220CA8EB70066CAC6 /* Pincode */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +232,7 @@
 		801E166F20C06326003D80FE = {
 			isa = PBXGroup;
 			children = (
+				1B4CD7DA2449EB5800A077DC /* Carthage */,
 				801E167A20C06326003D80FE /* Sentinel */,
 				801E167920C06326003D80FE /* Products */,
 				C6A3F8AF070575C496E5E047 /* Pods */,
@@ -251,6 +301,7 @@
 		8047AB9A20C1635E007541F8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				1BBA28B9244D893F0041F7CA /* Network */,
 				803AD348216F2AC70009390F /* PushTX */,
 				80B04C8720DBBDB400FA94B8 /* Cover */,
 				8019763220CA8EB70066CAC6 /* Pincode */,
@@ -319,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				8087CCB620C343CD00A03D90 /* Realm */,
+				1BBA28B4244C998F0041F7CA /* Tor */,
 				806A8ADD20C1E654008AC0CF /* Sentinel.swift */,
 				8087CCB420C3130800A03D90 /* AddressType.swift */,
 			);
@@ -501,6 +553,7 @@
 				801E167520C06326003D80FE /* Frameworks */,
 				801E167620C06326003D80FE /* Resources */,
 				D0EDEE2B67B3FF4539A316D1 /* [CP] Embed Pods Frameworks */,
+				1B4CD7DB2449EC1900A077DC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -565,6 +618,7 @@
 				802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */,
 				802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
+				1BBA28C3245028430041F7CA /* InitializingTorViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
 				802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */,
 				802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */,
@@ -573,7 +627,9 @@
 				80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
 				8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */,
+				1BBA28BD244D89BB0041F7CA /* NetworkViewController.xib in Resources */,
 				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
+				1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
 				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
 				806D588220C5DA1F003C5290 /* data.json in Resources */,
@@ -589,6 +645,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B4CD7DB2449EC1900A077DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Tor.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Tor.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		42E8B929B193505FB805FAFA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -636,18 +711,22 @@
 				8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */,
 				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
+				1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,
 				8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */,
 				806A8AE720C205CC008AC0CF /* Util.swift in Sources */,
 				806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */,
 				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
+				1BBA28BC244D89BB0041F7CA /* NetworkViewController.swift in Sources */,
 				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
 				806A8AE320C1F723008AC0CF /* Trx.swift in Sources */,
 				80C4044E20C496480086318C /* WalletViewController.swift in Sources */,
 				80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
 				8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */,
+				1BBA28B8244C9DF00041F7CA /* SessionHandler.swift in Sources */,
 				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
+				1BBA28B6244C99C00041F7CA /* TorConfig.swift in Sources */,
 				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
 				80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */,
 				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
@@ -666,6 +745,7 @@
 				8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */,
 				8087CCB520C3130800A03D90 /* AddressType.swift in Sources */,
 				80C4045220C4A2880086318C /* TrxViewController.swift in Sources */,
+				1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +950,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2A49Z99PS8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -896,6 +980,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

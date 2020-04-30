@@ -22,6 +22,16 @@
 	<string>public.app-category.finance</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>d2oagweysnavqgcfsfawqwql2rwxend7xxpriq676lzsmtfwbt75qbqd.onion</key>
+			<string></string>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>The camera is needed to scan QR codes.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
