@@ -1,5 +1,5 @@
 # Sentinel iOS
-Sentinel Watch Only Bitcoin Wallet for iOS(iPhone, iPad and iPod touch)
+Sentinel Watch Only Bitcoin Wallet for iOS (iPhone, iPad and iPod touch)
 
 ### Build:
 Requirements: Xcode Version 9.4+, Cocoapods Version 1.5.3+
@@ -8,11 +8,11 @@ Run `pod install` in the project directory. When it's finished, you can now open
 
 ### BIP44:
 
-Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) (https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
+Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) by Marek Palatinus and Pavol Rusnak.
 
 ### BIP49 (Segwit):
 
-Sentinel implementation based on [original BIP] (https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) by Daniel Weigl.
+Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) by Daniel Weigl.
 
 ### BIP84 (Segwit):
 
@@ -28,7 +28,7 @@ Sentinel implementation based on [original BIP](https://github.com/bitcoin/bips/
 
 ### License:
 
-[Unlicense](https://github.com/Samourai-Wallet/Sentinel-iOS/blob/develop/LICENSE) (https://github.com/Samourai-Wallet/Sentinel-iOS/blob/develop/LICENSE)
+[Unlicense](https://github.com/Samourai-Wallet/Sentinel-iOS/blob/develop/LICENSE)
 
 ### Contributing:
 
