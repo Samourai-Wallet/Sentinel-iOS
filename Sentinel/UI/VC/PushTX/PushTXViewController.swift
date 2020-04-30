@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+import Moya
 import QRCodeReader
 
 class PushTXViewController: UIViewController {
@@ -42,31 +42,26 @@ class PushTXViewController: UIViewController {
             return
         }
         
-        var request = URLRequest(url: URL(string: "https://api.samouraiwallet.com/v2/pushtx/")!)
-        request.httpMethod = HTTPMethod.post.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        guard let rawTx = textView.text else {
+            return
+        }
         
-        request.httpBody = "tx=\(textView.text!)".data(using: .utf8)!
-        Alamofire.request(request).responseJSON { (response) in
-            
-            guard response.result.error == nil else {
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
-                self.alert(title: "Error", message: "Failed to push the transaction. \(response.result.error!.localizedDescription)", close: "OK!")
-                return
+        let samouraiAPI = MoyaProvider<Samourai>(session: TorManager.shared.sessionHandler.session())
+        samouraiAPI.request(.pushtx(tx: rawTx)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let statusCode = moyaResponse.statusCode
+                
+                switch statusCode {
+                case 200:
+                    self.alert(title: "Done", message: "Transaction pushed successfully.", close: "OK", action: self.close)
+                default:
+                    self.alert(title: "Info", message: "Something went wrong. HTTP \(statusCode)", close: "OK")
+                }
+            case let .failure(error):
+                self.alert(title: "Error", message: "Failed to push the transaction. \(error.localizedDescription)", close: "OK")
             }
             
-            guard !(response.response?.statusCode == 200) else {
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
-                self.alert(title: "Done", message: "Transaction pushed successfully.", close: "OK", action: self.close)
-                return
-            }
-            
-            guard let json = response.result.value as? [String: Any] else {
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
-                return
-            }
-
-            self.alert(title: "Error", message: "Failed to push the transaction. \(json["error"] ?? "Unkown error")", close: "OK")
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }

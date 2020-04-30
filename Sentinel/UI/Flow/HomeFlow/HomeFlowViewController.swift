@@ -37,27 +37,30 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         
         let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
         let settings = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
-        self.navigationItem.rightBarButtonItems = [add]
+        let network = UIBarButtonItem.menuButton(self, action: #selector(showNetworkSettings), imageName: "network")
+        self.navigationItem.rightBarButtonItems = [add, network]
         self.navigationItem.leftBarButtonItems = [settings]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showTorInitIfEnabled()
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @objc func toggleBarItems() {
+        let network = UIBarButtonItem.menuButton(self, action: #selector(showNetworkSettings), imageName: "network")
         if isEditingToggles {
             let edit = UIBarButtonItem(title: NSLocalizedString("Edit", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
             let settings = UIBarButtonItem(title: NSLocalizedString("Settings", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(showSettings))
-            self.navigationItem.rightBarButtonItems = [edit]
+            self.navigationItem.rightBarButtonItems = [edit, network]
             self.navigationItem.leftBarButtonItems = [settings]
             bottomMergedVC.animationContainer.isHidden = false
             bottomMergedVC.bottomScrollView.isScrollEnabled = true
         }else{
             let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showNewAddress))
             let done = UIBarButtonItem(title: NSLocalizedString("Done", comment: ""), style: UIBarButtonItemStyle.plain, target: self, action: #selector(toggleBarItems))
-            self.navigationItem.rightBarButtonItems = [add]
+            self.navigationItem.rightBarButtonItems = [add, network]
             self.navigationItem.leftBarButtonItems = [done]
             bottomMergedVC.animationContainer.isHidden = true
             bottomMergedVC.bottomScrollView.isScrollEnabled = false
@@ -72,6 +75,27 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         let vc = UINavigationController(rootViewController: SettingsViewController(sentinel: sentinel))
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func showNetworkSettings() {
+        let vc = UINavigationController(rootViewController: NetworkViewController())
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func showTorInitIfEnabled() {
+        if TorManager.shared.state == .connected {
+            return
+        }
+        if let isTorEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool {
+            if isTorEnabled {
+                let initTorVC = InitializingTorViewController()
+                initTorVC.modalPresentationStyle = .overCurrentContext
+                self.present(initTorVC, animated: false, completion: nil)
+            } else {
+                NSLog("TOR disabled in user defaults.")
+            }
+        }
     }
     
     @objc func showNewAddress() {
