@@ -25,6 +25,10 @@ class DojoManager {
         case paired
     }
     
+    public static let shared = DojoManager()
+    
+    var state = DojoState.none
+    
     // TODO
 }
 
