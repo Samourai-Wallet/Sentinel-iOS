@@ -35,6 +35,14 @@ struct Pairing : Codable {
     var urlString: String?
     
     func validate() -> Bool {
+        guard type != nil else {
+            NSLog("No pairing type provided")
+            return false
+        }
+        guard version != nil else {
+            NSLog("No Dojo version provided")
+            return false
+        }
         guard apiKey != nil else {
             NSLog("No API key provided")
             return false
