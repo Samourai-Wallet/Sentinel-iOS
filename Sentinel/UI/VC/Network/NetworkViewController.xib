@@ -12,7 +12,7 @@
             <connections>
                 <outlet property="buttonRenew" destination="pKo-pT-S4U" id="hAe-jA-iij"/>
                 <outlet property="buttonTor" destination="UVE-7h-IHB" id="FwI-Ir-oX1"/>
-                <outlet property="labelStatus" destination="iav-O0-hyi" id="dat-BA-OXz"/>
+                <outlet property="labelStatusTor" destination="iav-O0-hyi" id="dat-BA-OXz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewStreetLightTor" destination="9dV-Xc-kx7" id="UzD-5H-LEO"/>
             </connections>
