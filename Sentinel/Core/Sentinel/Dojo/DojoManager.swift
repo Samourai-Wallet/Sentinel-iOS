@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Dojo {
+class DojoManager {
     // TODO
 }
 

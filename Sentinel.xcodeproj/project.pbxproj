@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0E567E245C517F00FF0DC3 /* Dojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E567D245C517F00FF0DC3 /* Dojo.swift */; };
+		1B0E567E245C517F00FF0DC3 /* DojoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E567D245C517F00FF0DC3 /* DojoManager.swift */; };
 		1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4CD7D62449EB2A00A077DC /* Tor.framework */; };
 		1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */; };
 		1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CD7DC2449ED7300A077DC /* TorManager.swift */; };
@@ -79,7 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B0E567D245C517F00FF0DC3 /* Dojo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dojo.swift; sourceTree = "<group>"; };
+		1B0E567D245C517F00FF0DC3 /* DojoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoManager.swift; sourceTree = "<group>"; };
 		1B4CD7D62449EB2A00A077DC /* Tor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tor.framework; path = Carthage/Build/iOS/Tor.framework; sourceTree = "<group>"; };
 		1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Tor.framework.dSYM; path = Carthage/Build/iOS/Tor.framework.dSYM; sourceTree = "<group>"; };
 		1B4CD7DC2449ED7300A077DC /* TorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorManager.swift; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 		1B0E567C245C516400FF0DC3 /* Dojo */ = {
 			isa = PBXGroup;
 			children = (
-				1B0E567D245C517F00FF0DC3 /* Dojo.swift */,
+				1B0E567D245C517F00FF0DC3 /* DojoManager.swift */,
 			);
 			path = Dojo;
 			sourceTree = "<group>";
@@ -731,7 +731,7 @@
 				1BBA28BC244D89BB0041F7CA /* NetworkViewController.swift in Sources */,
 				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
 				806A8AE320C1F723008AC0CF /* Trx.swift in Sources */,
-				1B0E567E245C517F00FF0DC3 /* Dojo.swift in Sources */,
+				1B0E567E245C517F00FF0DC3 /* DojoManager.swift in Sources */,
 				80C4044E20C496480086318C /* WalletViewController.swift in Sources */,
 				80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
