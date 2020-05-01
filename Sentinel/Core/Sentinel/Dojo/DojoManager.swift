@@ -1,5 +1,5 @@
 //
-//  Dojo.swift
+//  DojoManager.swift
 //  Sentinel
 //
 //  Created by Gigi on 01.05.20.
@@ -14,7 +14,7 @@ protocol DojoManagerDelegate : class {
     func dojoConnFailed()
 }
 
-class DojoManager {
+class DojoManager : NSObject {
     
     enum DojoState {
         case none
@@ -28,6 +28,10 @@ class DojoManager {
     public static let shared = DojoManager()
     
     var state = DojoState.none
+    
+    override init() {
+        super.init()
+    }
     
     // TODO
 }
