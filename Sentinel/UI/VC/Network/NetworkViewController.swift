@@ -11,10 +11,16 @@ import Toast_Swift
 
 class NetworkViewController: UIViewController {
     
+    // Tor
     @IBOutlet weak var buttonTor: UIButton!
     @IBOutlet weak var buttonRenew: UIButton!
     @IBOutlet weak var labelStatusTor: UILabel!
     @IBOutlet weak var viewStreetLightTor: UIView!
+    
+    // Dojo
+    @IBOutlet weak var buttonDojo: UIButton!
+    @IBOutlet weak var labelStatusDojo: UILabel!
+    @IBOutlet weak var viewStreetLightDojo: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
