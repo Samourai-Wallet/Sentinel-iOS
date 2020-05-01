@@ -14,7 +14,7 @@ class NetworkViewController: UIViewController {
     @IBOutlet weak var buttonTor: UIButton!
     @IBOutlet weak var buttonRenew: UIButton!
     @IBOutlet weak var labelStatus: UILabel!
-    @IBOutlet weak var viewStreetLight: UIView!
+    @IBOutlet weak var viewStreetLightTor: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,21 +77,21 @@ class NetworkViewController: UIViewController {
     
     private func torIsInitializing() {
         labelStatus.text = NSLocalizedString("Tor initializing...", comment: "")
-        viewStreetLight.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
     }
     
     private func torDidConnect() {
         labelStatus.text = NSLocalizedString("Enabled", comment: "")
-        viewStreetLight.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
         buttonRenew.isHidden = false
         buttonTor.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
     }
     
     private func torDidStop() {
         labelStatus.text = NSLocalizedString("Disabled", comment: "")
-        viewStreetLight.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
