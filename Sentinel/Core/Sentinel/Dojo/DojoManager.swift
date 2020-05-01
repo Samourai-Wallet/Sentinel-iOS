@@ -8,7 +8,23 @@
 
 import Foundation
 
+protocol DojoManagerDelegate : class {
+    func dojoConnProgress(_ progress: Int)
+    func dojoConnFinished()
+    func dojoConnFailed()
+}
+
 class DojoManager {
+    
+    enum DojoState {
+        case none
+        case pairingValid
+        case torInitializing
+        case torConnected
+        case authenticating
+        case paired
+    }
+    
     // TODO
 }
 
