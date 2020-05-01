@@ -64,6 +64,10 @@ class NetworkViewController: UIViewController {
         }
     }
     
+    @IBAction func dojoButtonPressed(_ sender: Any) {
+        // TODO
+    }
+    
     private func updateViews() {
         switch (TorManager.shared.state) {
         case .connected:
