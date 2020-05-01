@@ -66,9 +66,12 @@ class NetworkViewController: UIViewController {
     
     @IBAction func dojoButtonPressed(_ sender: Any) {
         // TODO
+        DojoManager.shared.state = .torInitializing
+        updateViews()
     }
     
     private func updateViews() {
+        // Tor
         switch (TorManager.shared.state) {
         case .connected:
             torDidConnect()
@@ -77,6 +80,16 @@ class NetworkViewController: UIViewController {
         case .started:
             torIsInitializing()
         }
+        
+        // Dojo
+        switch (DojoManager.shared.state) {
+        case .paired:
+            dojoDidConnect()
+        case .none, .pairingValid:
+            dojoDidStop()
+        case .torInitializing, .torConnected, .authenticating:
+            dojoIsInitializing()
+        }
     }
     
     private func showLocalizedToast(_ message: String) {
@@ -84,6 +97,10 @@ class NetworkViewController: UIViewController {
             self.view.makeToast(NSLocalizedString(message, comment: ""))
         }
     }
+    
+    //
+    // Tor
+    //
     
     private func torIsInitializing() {
         labelStatusTor.text = NSLocalizedString("Tor initializing...", comment: "")
@@ -104,6 +121,28 @@ class NetworkViewController: UIViewController {
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
+    }
+    
+    //
+    // Dojo
+    //
+    
+    private func dojoIsInitializing() {
+        labelStatusDojo.text = NSLocalizedString("Dojo initializing...", comment: "")
+        viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
+        buttonDojo.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
+    }
+    
+    private func dojoDidConnect() {
+        labelStatusDojo.text = NSLocalizedString("Enabled", comment: "")
+        viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
+        buttonDojo.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
+    }
+    
+    private func dojoDidStop() {
+        labelStatusDojo.text = NSLocalizedString("Disabled", comment: "")
+        viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
+        buttonDojo.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
 }
 
