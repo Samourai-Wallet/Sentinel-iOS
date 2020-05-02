@@ -65,9 +65,13 @@ class NetworkViewController: UIViewController {
     }
     
     @IBAction func dojoButtonPressed(_ sender: Any) {
-        // TODO
-        DojoManager.shared.state = .torInitializing
-        updateViews()
+        if TorManager.shared.isEnabled() {
+            DojoManager.shared.state = .torInitializing
+            updateViews()
+        } else {
+            // TODO
+            showLocalizedToast("Tor must be enabled for Dojo pairing")
+        }
     }
     
     private func updateViews() {
