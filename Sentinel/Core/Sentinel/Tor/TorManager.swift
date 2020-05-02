@@ -36,6 +36,15 @@ class TorManager : NSObject {
         torController = TorController(socketHost: "127.0.0.1", port: 39060)
         torThread = TorThread(configuration: TorManager.configuration)
     }
+    
+    func isEnabled() -> Bool {
+        switch (TorManager.shared.state) {
+        case .stopped, .none:
+            return false
+        case .started, .connected:
+            return true
+        }
+    }
 
     func startTor(delegate: TorManagerDelegate?) {
         if state == .none {
