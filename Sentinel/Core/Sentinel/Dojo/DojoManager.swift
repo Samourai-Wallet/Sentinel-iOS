@@ -46,7 +46,8 @@ class DojoManager : NSObject {
             NSLog("Pairing details: ")
             NSLog("\(pairing)")
             return true
-        } catch  {
+        } catch {
+            // TODO: Completion handler to handle success/error and show in UI
             NSLog("Error decoding JSON data. Invalid Dojo pairing details?")
             NSLog("\(error)")
             return false
