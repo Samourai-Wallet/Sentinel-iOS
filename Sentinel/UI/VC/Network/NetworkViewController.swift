@@ -82,17 +82,7 @@ class NetworkViewController: UIViewController {
         let pasteDetails = NSLocalizedString("Paste Details", comment: "")
         alert.addAction(UIAlertAction(title: pasteDetails, style: .default , handler:{ (UIAlertAction) in
             NSLog("Paste Details")
-            let pasteboardString: String? = UIPasteboard.general.string
-            guard let pairingString = pasteboardString else {
-                NSLog("Empty clipboard") // TODO
-                return
-            }
-            
-            let isValidString = DojoManager.shared.setupDojo(jsonString: pairingString)
-            if isValidString {
-                DojoManager.shared.state = .pairingValid
-                self.updateViews()
-            }
+            self.setupDojoFromClipboard()
         }))
 
         let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
@@ -106,6 +96,21 @@ class NetworkViewController: UIViewController {
         }))
 
         self.present(alert, animated: true, completion: {})
+    }
+    
+    private func setupDojoFromClipboard() {
+        let pasteboardString: String? = UIPasteboard.general.string
+        guard let pairingString = pasteboardString else {
+            NSLog("Empty clipboard") // TODO
+            return
+        }
+        NSLog("\(pairingString)")
+        
+        let isValidString = DojoManager.shared.setupDojo(jsonString: pairingString)
+        if isValidString {
+            DojoManager.shared.state = .pairingValid
+            self.updateViews()
+        }
     }
     
     private func updateViews() {

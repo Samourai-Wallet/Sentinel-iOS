@@ -55,33 +55,21 @@ class DojoManager : NSObject {
     }
 }
 
-struct Pairing : Codable {
-    var type: String?
-    var version: String?
-    var apikey: String?
-    var url: String?
+struct PairingDetails : Codable {
+    let type: String
+    let version: String
+    let apikey: String
+    let url: String
     
     func validate() -> Bool {
-        guard type != nil else {
-            NSLog("No pairing type provided")
-            return false
-        }
-        guard version != nil else {
-            NSLog("No Dojo version provided")
-            return false
-        }
-        guard apikey != nil else {
-            NSLog("No API key provided")
-            return false
-        }
-        guard let urlStr = self.url else {
-            NSLog("No URL provided")
-            return false
-        }
-        guard URL(string: urlStr) != nil else {
+        guard URL(string: url) != nil else {
             NSLog("URL validation failed")
             return false
         }
         return true
     }
+}
+
+struct Pairing : Codable {
+    let pairing: PairingDetails
 }
