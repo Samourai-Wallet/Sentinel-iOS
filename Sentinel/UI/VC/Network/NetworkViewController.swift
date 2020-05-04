@@ -66,12 +66,34 @@ class NetworkViewController: UIViewController {
     
     @IBAction func dojoButtonPressed(_ sender: Any) {
         if TorManager.shared.isEnabled() {
-            DojoManager.shared.state = .torInitializing
-            updateViews()
+            showDojoActionSheet(sender)
         } else {
             // TODO
             showLocalizedToast("Tor must be enabled for Dojo pairing")
         }
+    }
+    
+    func showDojoActionSheet(_ sender: Any) {
+        let dojoTitle = NSLocalizedString("Power Sentinel with your own personal DOJO full node", comment: "")
+        let dojoMessage = NSLocalizedString("Powering Samourai Wallet with your own personal node offers the best level of privacy and independence when interacting with the bitcoin network. Dojo makes running a full node easy and simple.", comment: "")
+        
+        let alert = UIAlertController(title: dojoTitle, message: dojoMessage, preferredStyle: .actionSheet)
+
+        let pasteDetails = NSLocalizedString("Paste Details", comment: "")
+        alert.addAction(UIAlertAction(title: pasteDetails, style: .default , handler:{ (UIAlertAction)in
+            NSLog("Paste Details")
+        }))
+
+        let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
+        alert.addAction(UIAlertAction(title: scanQRCode, style: .default , handler:{ (UIAlertAction)in
+            NSLog("Scan QR Code")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+            NSLog("Dojo action sheet dismissed")
+        }))
+
+        self.present(alert, animated: true, completion: {})
     }
     
     private func updateViews() {
