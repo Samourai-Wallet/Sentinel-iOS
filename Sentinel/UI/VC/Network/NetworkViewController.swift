@@ -80,16 +80,28 @@ class NetworkViewController: UIViewController {
         let alert = UIAlertController(title: dojoTitle, message: dojoMessage, preferredStyle: .actionSheet)
 
         let pasteDetails = NSLocalizedString("Paste Details", comment: "")
-        alert.addAction(UIAlertAction(title: pasteDetails, style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: pasteDetails, style: .default , handler:{ (UIAlertAction) in
             NSLog("Paste Details")
+            let pasteboardString: String? = UIPasteboard.general.string
+            guard let pairingString = pasteboardString else {
+                NSLog("Empty clipboard") // TODO
+                return
+            }
+            
+            let isValidString = DojoManager.shared.setupDojo(jsonString: pairingString)
+            if isValidString {
+                DojoManager.shared.state = .pairingValid
+                self.updateViews()
+            }
         }))
 
         let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
-        alert.addAction(UIAlertAction(title: scanQRCode, style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: scanQRCode, style: .default , handler:{ (UIAlertAction) in
+            // TODO
             NSLog("Scan QR Code")
         }))
 
-        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
             NSLog("Dojo action sheet dismissed")
         }))
 

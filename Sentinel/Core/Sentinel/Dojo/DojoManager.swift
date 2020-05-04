@@ -34,13 +34,31 @@ class DojoManager : NSObject {
     }
     
     // TODO
+    func setupDojo(jsonString: String) -> Bool {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            NSLog("Error parsing JSON string")
+            return false
+        }
+        let decoder = JSONDecoder()
+        
+        do {
+            let pairing = try decoder.decode(Pairing.self, from: jsonData)
+            NSLog("Pairing details: ")
+            NSLog("\(pairing)")
+            return true
+        } catch  {
+            NSLog("Error decoding JSON data. Invalid Dojo pairing details?")
+            NSLog("\(error)")
+            return false
+        }
+    }
 }
 
 struct Pairing : Codable {
     var type: String?
     var version: String?
-    var apiKey: String?
-    var urlString: String?
+    var apikey: String?
+    var url: String?
     
     func validate() -> Bool {
         guard type != nil else {
@@ -51,11 +69,11 @@ struct Pairing : Codable {
             NSLog("No Dojo version provided")
             return false
         }
-        guard apiKey != nil else {
+        guard apikey != nil else {
             NSLog("No API key provided")
             return false
         }
-        guard let urlStr = self.urlString else {
+        guard let urlStr = self.url else {
             NSLog("No URL provided")
             return false
         }
