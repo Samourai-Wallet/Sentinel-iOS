@@ -11,6 +11,7 @@
 		1B4CD7D82449EB2A00A077DC /* Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4CD7D62449EB2A00A077DC /* Tor.framework */; };
 		1B4CD7D92449EB2A00A077DC /* Tor.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */; };
 		1B4CD7DD2449ED7300A077DC /* TorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4CD7DC2449ED7300A077DC /* TorManager.swift */; };
+		1B7E3A492461531D004DBCFA /* DojoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7E3A482461531D004DBCFA /* DojoProvider.swift */; };
 		1BBA28B6244C99C00041F7CA /* TorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28B5244C99C00041F7CA /* TorConfig.swift */; };
 		1BBA28B8244C9DF00041F7CA /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */; };
 		1BBA28BC244D89BB0041F7CA /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */; };
@@ -83,6 +84,7 @@
 		1B4CD7D62449EB2A00A077DC /* Tor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Tor.framework; path = Carthage/Build/iOS/Tor.framework; sourceTree = "<group>"; };
 		1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Tor.framework.dSYM; path = Carthage/Build/iOS/Tor.framework.dSYM; sourceTree = "<group>"; };
 		1B4CD7DC2449ED7300A077DC /* TorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorManager.swift; sourceTree = "<group>"; };
+		1B7E3A482461531D004DBCFA /* DojoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DojoProvider.swift; sourceTree = "<group>"; };
 		1BBA28B5244C99C00041F7CA /* TorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TorConfig.swift; sourceTree = "<group>"; };
 		1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 				1B4CD7D72449EB2A00A077DC /* Tor.framework.dSYM */,
 			);
 			name = Carthage;
+			sourceTree = "<group>";
+		};
+		1B7E3A4A2461538F004DBCFA /* Dojo */ = {
+			isa = PBXGroup;
+			children = (
+				1B7E3A482461531D004DBCFA /* DojoProvider.swift */,
+			);
+			path = Dojo;
 			sourceTree = "<group>";
 		};
 		1BBA28B4244C998F0041F7CA /* Tor */ = {
@@ -427,6 +437,7 @@
 		80724C0320C069B3005EC9A1 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1B7E3A4A2461538F004DBCFA /* Dojo */,
 				8068206720C6B28600F5F0B2 /* StreetPrices */,
 				807E26CD20C0AAD700B03C4A /* Samourai */,
 			);
@@ -749,6 +760,7 @@
 				80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */,
 				8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */,
 				806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */,
+				1B7E3A492461531D004DBCFA /* DojoProvider.swift in Sources */,
 				806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */,
 				8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */,
 				806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */,
