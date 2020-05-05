@@ -14,9 +14,15 @@ protocol DojoManagerDelegate : class {
     func dojoConnFailed()
 }
 
-class Dojo : NSObject {
+class DojoParams : NSObject {
     
     let pairingDetails : PairingDetails
+    var apiKey: String {
+        return pairingDetails.apikey
+    }
+    var url: String {
+        return pairingDetails.url
+    }
     
     init(with details: PairingDetails) {
         self.pairingDetails = details
@@ -38,7 +44,7 @@ class DojoManager : NSObject {
     public static let shared = DojoManager()
     
     var state = DojoState.none
-    var dojo : Dojo?
+    var dojoParams : DojoParams?
     
     override init() {
         super.init()
@@ -55,7 +61,7 @@ class DojoManager : NSObject {
             let pairing = try decoder.decode(Pairing.self, from: jsonData)
             NSLog("Pairing details: ")
             NSLog("\(pairing)")
-            self.dojo = Dojo(with: pairing.pairing)
+            self.dojoParams = DojoParams(with: pairing.pairing)
             return true
         } catch {
             // TODO: Completion handler to handle success/error and show in UI
@@ -66,7 +72,7 @@ class DojoManager : NSObject {
     }
     
     func getApiKey() -> String? {
-        guard let pairedDojo = self.dojo else {
+        guard let pairedDojo = self.dojoParams else {
             return nil
         }
         return pairedDojo.pairingDetails.apikey
