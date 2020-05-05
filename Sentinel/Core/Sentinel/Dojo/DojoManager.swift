@@ -72,10 +72,7 @@ class DojoManager : NSObject {
                 return false
             }
         } catch {
-            // TODO: Completion handler to handle success/error and show in UI
-            NSLog("Error decoding JSON data. Invalid Dojo pairing details?")
             failWithMessage("Invalid pairing details", delegate, error)
-            NSLog("\(error)")
             return false
         }
     }
@@ -123,7 +120,7 @@ class DojoManager : NSObject {
                     delegate.dojoConnProgress(100, localizedMessage: "Successfully connected to Dojo") // TODO: i18n
                     delegate.dojoConnFinished()
                 } catch {
-                    failWithMessage("Error decoding JSON data (Dojo auth)", delegate, error)
+                    failWithMessage("Authentication with Dojo failed", delegate, error)
                 }
             case let .failure(error):
                 failWithMessage("Failed to connect to Dojo", delegate, error)
