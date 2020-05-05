@@ -151,8 +151,11 @@ extension NetworkViewController {
     }
     
     private func showDojoDisableAlert(_ sender: Any) {
+        // According to the iOS HIG, "Yes" and "No" should be avoided in alerts
+        // See: https://developer.apple.com/design/human-interface-guidelines/ios/views/alerts/
+        
         // TODO: i18n
-        let alert = UIAlertController(title: "Confirm", message: "Disable Dojo?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Disable Dojo?", message: "You will have to scan/paste your pairing details again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
             DojoManager.shared.disableDojo()
