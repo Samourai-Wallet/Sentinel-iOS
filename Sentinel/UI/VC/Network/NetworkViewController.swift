@@ -40,6 +40,40 @@ class NetworkViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    private func updateViews() {
+        // Tor
+        switch (TorManager.shared.state) {
+        case .connected:
+            torDidConnect()
+        case .stopped, .none:
+            torDidStop()
+        case .started:
+            torIsInitializing()
+        }
+        
+        // Dojo
+        switch (DojoManager.shared.state) {
+        case .paired:
+            dojoDidConnect()
+        case .none, .pairingValid:
+            dojoDidStop()
+        case .authenticating:
+            dojoIsInitializing()
+        }
+    }
+    
+    private func showLocalizedToast(_ message: String) {
+        DispatchQueue.main.async {
+            self.view.makeToast(NSLocalizedString(message, comment: ""))
+        }
+    }
+    
+}
+
+// MARK: Tor
+
+extension NetworkViewController {
+    
     @IBAction func torButtonPressed(_ sender: Any) {
         if TorManager.shared.state == .connected {
             TorManager.shared.stopTor()
@@ -63,6 +97,47 @@ class NetworkViewController: UIViewController {
             }
         }
     }
+    
+    private func torIsInitializing() {
+        labelStatusTor.text = NSLocalizedString("Tor initializing...", comment: "")
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
+        buttonRenew.isHidden = true
+        buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
+    }
+    
+    private func torDidConnect() {
+        labelStatusTor.text = NSLocalizedString("Enabled", comment: "")
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
+        buttonRenew.isHidden = false
+        buttonTor.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
+    }
+    
+    private func torDidStop() {
+        labelStatusTor.text = NSLocalizedString("Disabled", comment: "")
+        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
+        buttonRenew.isHidden = true
+        buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
+    }
+    
+}
+
+extension NetworkViewController : TorManagerDelegate {
+    func torConnProgress(_ progress: Int) {
+        DispatchQueue.main.async {
+            self.labelStatusTor.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
+        }
+    }
+    
+    func torConnFinished() {
+        DispatchQueue.main.async {
+            self.torDidConnect()
+        }
+    }
+}
+
+// MARK: Dojo
+
+extension NetworkViewController {
     
     @IBAction func dojoButtonPressed(_ sender: Any) {
         if TorManager.shared.isEnabled() {
@@ -116,63 +191,6 @@ class NetworkViewController: UIViewController {
         }
     }
     
-    private func updateViews() {
-        // Tor
-        switch (TorManager.shared.state) {
-        case .connected:
-            torDidConnect()
-        case .stopped, .none:
-            torDidStop()
-        case .started:
-            torIsInitializing()
-        }
-        
-        // Dojo
-        switch (DojoManager.shared.state) {
-        case .paired:
-            dojoDidConnect()
-        case .none, .pairingValid:
-            dojoDidStop()
-        case .authenticating:
-            dojoIsInitializing()
-        }
-    }
-    
-    private func showLocalizedToast(_ message: String) {
-        DispatchQueue.main.async {
-            self.view.makeToast(NSLocalizedString(message, comment: ""))
-        }
-    }
-    
-    //
-    // Tor
-    //
-    
-    private func torIsInitializing() {
-        labelStatusTor.text = NSLocalizedString("Tor initializing...", comment: "")
-        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
-        buttonRenew.isHidden = true
-        buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
-    }
-    
-    private func torDidConnect() {
-        labelStatusTor.text = NSLocalizedString("Enabled", comment: "")
-        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
-        buttonRenew.isHidden = false
-        buttonTor.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
-    }
-    
-    private func torDidStop() {
-        labelStatusTor.text = NSLocalizedString("Disabled", comment: "")
-        viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
-        buttonRenew.isHidden = true
-        buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
-    }
-    
-    //
-    // Dojo
-    //
-    
     private func dojoIsInitializing() {
         labelStatusDojo.text = NSLocalizedString("Dojo initializing...", comment: "")
         viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
@@ -190,18 +208,5 @@ class NetworkViewController: UIViewController {
         viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonDojo.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
-}
-
-extension NetworkViewController : TorManagerDelegate {
-    func torConnProgress(_ progress: Int) {
-        DispatchQueue.main.async {
-            self.labelStatusTor.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
-        }
-    }
     
-    func torConnFinished() {
-        DispatchQueue.main.async {
-            self.torDidConnect()
-        }
-    }
 }
