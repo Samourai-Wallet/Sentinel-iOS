@@ -181,7 +181,7 @@ extension NetworkViewController {
         }
         NSLog("\(pairingString)")
         
-        let isValidPairingString = DojoManager.shared.setupDojo(jsonString: pairingString)
+        let isValidPairingString = DojoManager.shared.setupDojo(jsonString: pairingString, delegate: delegate)
         if isValidPairingString {
             DojoManager.shared.state = .pairingValid
             self.updateViews()
@@ -221,7 +221,7 @@ extension NetworkViewController : DojoManagerDelegate {
         self.dojoDidConnect()
     }
     
-    func dojoConnFailed(_ error: Error, message: String) {
+    func dojoConnFailed(message: String) {
         self.dojoDidStop()
         self.showLocalizedToast(message)
     }

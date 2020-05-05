@@ -13,7 +13,7 @@ import Moya
 protocol DojoManagerDelegate : class {
     func dojoConnProgress(_ progress: Int, localizedMessage: String)
     func dojoConnFinished()
-    func dojoConnFailed(_ error: Error, message: String)
+    func dojoConnFailed(message: String)
 }
 
 class DojoParams : NSObject {
@@ -50,9 +50,9 @@ class DojoManager : NSObject {
         super.init()
     }
     
-    func setupDojo(jsonString: String) -> Bool {
+    func setupDojo(jsonString: String, delegate: DojoManagerDelegate) -> Bool {
         guard let jsonData = jsonString.data(using: .utf8) else {
-            NSLog("Error parsing JSON string")
+            failWithMessage("Error parsing JSON string", delegate)
             return false
         }
         let decoder = JSONDecoder()
@@ -68,12 +68,13 @@ class DojoManager : NSObject {
                 self.state = .pairingValid
                 return true
             } else {
-                NSLog("Invalid pairing details (validation failed)")
+                failWithMessage("Invalid pairing details", delegate)
                 return false
             }
         } catch {
             // TODO: Completion handler to handle success/error and show in UI
             NSLog("Error decoding JSON data. Invalid Dojo pairing details?")
+            failWithMessage("Invalid pairing details", delegate, error)
             NSLog("\(error)")
             return false
         }
@@ -106,43 +107,41 @@ class DojoManager : NSObject {
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
-                let statusCode = moyaResponse.statusCode
-
-                delegate.dojoConnProgress(95, localizedMessage: "Authentication successful") // TODO: i18n
+                delegate.dojoConnProgress(90, localizedMessage: "Connection established") // TODO: i18n
                 
-                // TODO
-                NSLog("HTTP \(statusCode)")
-                NSLog("\(data)")
+                let decoder = JSONDecoder()
                 
                 do {
-                    try moyaResponse.filterSuccessfulStatusCodes()
+                    let authResponse = try decoder.decode(DojoAuthResponse.self, from: data)
+                    let accessToken = authResponse.authorizations.accessToken
+                    let refreshToken = authResponse.authorizations.refreshToken
+                    delegate.dojoConnProgress(95, localizedMessage: "Authenticated") // TODO: i18n
                     
-                    let decoder = JSONDecoder()
+                    saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    self.state = .paired
                     
-                    do {
-                        let authResponse = try decoder.decode(DojoAuthResponse.self, from: data)
-                        let accessToken = authResponse.authorizations.accessToken
-                        let refreshToken = authResponse.authorizations.refreshToken
-                        saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
-                        self.state = .paired
-                        
-                        delegate.dojoConnProgress(100, localizedMessage: "Successfully connected to Dojo") // TODO: i18n
-                        delegate.dojoConnFinished()
-                    } catch {
-                        // TODO: Handle success/error and show in UI
-                        NSLog("Error decoding JSON data returned from Dojo authentication process")
-                        NSLog("\(error)")
-                    }
+                    delegate.dojoConnProgress(100, localizedMessage: "Successfully connected to Dojo") // TODO: i18n
+                    delegate.dojoConnFinished()
                 } catch {
-                    // TODO
-                    NSLog("Error \(error)")
+                    failWithMessage("Error decoding JSON data (Dojo auth)", delegate, error)
                 }
             case let .failure(error):
-                // TODO
-                NSLog("ERROR! \(error)")
+                failWithMessage("Failed to connect to Dojo", delegate, error)
             }
         }
     }
+}
+
+private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
+    failWithMessage(message, delegate, nil)
+}
+
+private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate, _ error: Error?) {
+    NSLog("\(message)")
+    if let e = error {
+        NSLog("\(e)")
+    }
+    delegate.dojoConnFailed(message: message)
 }
 
 func saveAccessTokens(accessToken: String, refreshToken: String) {
