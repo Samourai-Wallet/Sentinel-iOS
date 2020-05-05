@@ -157,7 +157,7 @@ extension NetworkViewController {
         let pasteDetails = NSLocalizedString("Paste Details", comment: "")
         alert.addAction(UIAlertAction(title: pasteDetails, style: .default , handler:{ (UIAlertAction) in
             NSLog("Paste Details")
-            self.setupDojoFromClipboard()
+            self.setupDojoFromClipboard(delegate: self)
         }))
 
         let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
@@ -173,7 +173,7 @@ extension NetworkViewController {
         self.present(alert, animated: true, completion: {})
     }
     
-    private func setupDojoFromClipboard() {
+    private func setupDojoFromClipboard(delegate: DojoManagerDelegate) {
         let pasteboardString: String? = UIPasteboard.general.string
         guard let pairingString = pasteboardString else {
             NSLog("Empty clipboard") // TODO
@@ -186,7 +186,7 @@ extension NetworkViewController {
             DojoManager.shared.state = .pairingValid
             self.updateViews()
             
-            DojoManager.shared.pairWithDojo()
+            DojoManager.shared.pairWithDojo(delegate: delegate)
             // TODO
         }
     }
@@ -207,6 +207,23 @@ extension NetworkViewController {
         labelStatusDojo.text = NSLocalizedString("Disabled", comment: "")
         viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonDojo.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
+    }
+    
+}
+
+extension NetworkViewController : DojoManagerDelegate {
+    
+    func dojoConnProgress(_ progress: Int, localizedMessage: String) {
+        self.labelStatusDojo.text = localizedMessage
+    }
+    
+    func dojoConnFinished() {
+        self.dojoDidConnect()
+    }
+    
+    func dojoConnFailed(_ error: Error, message: String) {
+        self.dojoDidStop()
+        self.showLocalizedToast(message)
     }
     
 }

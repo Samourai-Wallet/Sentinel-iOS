@@ -11,9 +11,9 @@ import Locksmith
 import Moya
 
 protocol DojoManagerDelegate : class {
-    func dojoConnProgress(_ progress: Int)
+    func dojoConnProgress(_ progress: Int, localizedMessage: String)
     func dojoConnFinished()
-    func dojoConnFailed()
+    func dojoConnFailed(_ error: Error, message: String)
 }
 
 class DojoParams : NSObject {
@@ -65,6 +65,7 @@ class DojoManager : NSObject {
             let params = DojoParams(with: pairing.pairing)
             if params.pairingDetails.isValid() {
                 self.dojoParams = params
+                self.state = .pairingValid
                 return true
             } else {
                 NSLog("Invalid pairing details (validation failed)")
@@ -92,11 +93,13 @@ class DojoManager : NSObject {
         return URL(string: pairedDojo.pairingDetails.url)
     }
     
-    func pairWithDojo() {
+    func pairWithDojo(delegate: DojoManagerDelegate) {
         guard let apiKey = DojoManager.shared.getApiKey() else {
             NSLog("Dojo API Key not set.")
             return
         }
+        
+        delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo Node...") // TODO: i18n
         
         let dojoAPI = MoyaProvider<Dojo>(session: TorManager.shared.sessionHandler.session())
         dojoAPI.request(.login(apiKey: apiKey)) { result in
@@ -105,6 +108,8 @@ class DojoManager : NSObject {
                 let data = moyaResponse.data
                 let statusCode = moyaResponse.statusCode
 
+                delegate.dojoConnProgress(95, localizedMessage: "Authentication successful") // TODO: i18n
+                
                 // TODO
                 NSLog("HTTP \(statusCode)")
                 NSLog("\(data)")
@@ -119,6 +124,10 @@ class DojoManager : NSObject {
                         let accessToken = authResponse.authorizations.accessToken
                         let refreshToken = authResponse.authorizations.refreshToken
                         saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
+                        self.state = .paired
+                        
+                        delegate.dojoConnProgress(100, localizedMessage: "Successfully connected to Dojo") // TODO: i18n
+                        delegate.dojoConnFinished()
                     } catch {
                         // TODO: Handle success/error and show in UI
                         NSLog("Error decoding JSON data returned from Dojo authentication process")
