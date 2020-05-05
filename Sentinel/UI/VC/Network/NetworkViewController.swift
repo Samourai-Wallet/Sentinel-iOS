@@ -110,6 +110,9 @@ class NetworkViewController: UIViewController {
         if isValidString {
             DojoManager.shared.state = .pairingValid
             self.updateViews()
+            
+            DojoManager.shared.pairWithDojo()
+            // TODO
         }
     }
     

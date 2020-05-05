@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Moya
 
 protocol DojoManagerDelegate : class {
     func dojoConnProgress(_ progress: Int)
@@ -76,6 +77,38 @@ class DojoManager : NSObject {
             return nil
         }
         return pairedDojo.pairingDetails.apikey
+    }
+    
+    func pairWithDojo() {
+        guard let apiKey = DojoManager.shared.getApiKey() else {
+            NSLog("Dojo API Key not set.")
+            return
+        }
+        
+        let dojoAPI = MoyaProvider<Dojo>(session: TorManager.shared.sessionHandler.session())
+        dojoAPI.request(.login(apiKey: apiKey)) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let data = moyaResponse.data
+                let statusCode = moyaResponse.statusCode
+
+                // TODO
+                NSLog("HTTP \(statusCode)")
+                NSLog("\(data)")
+                
+                do {
+                    try moyaResponse.filterSuccessfulStatusCodes()
+                    let data = try moyaResponse.mapJSON()
+                    NSLog("\(data)")
+                } catch {
+                    // TODO
+                    NSLog("Error \(error)")
+                }
+            case let .failure(error):
+                // TODO
+                NSLog("ERROR! \(error)")
+            }
+        }
     }
 }
 
