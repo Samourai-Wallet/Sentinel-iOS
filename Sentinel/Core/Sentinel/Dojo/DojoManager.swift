@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Locksmith
 import Moya
 
 protocol DojoManagerDelegate : class {
@@ -105,8 +106,19 @@ class DojoManager : NSObject {
                 
                 do {
                     try moyaResponse.filterSuccessfulStatusCodes()
-                    let data = try moyaResponse.mapJSON()
-                    NSLog("\(data)")
+                    
+                    let decoder = JSONDecoder()
+                    
+                    do {
+                        let authResponse = try decoder.decode(DojoAuthResponse.self, from: data)
+                        let accessToken = authResponse.authorizations.accessToken
+                        let refreshToken = authResponse.authorizations.refreshToken
+                        saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    } catch {
+                        // TODO: Handle success/error and show in UI
+                        NSLog("Error decoding JSON data returned from Dojo authentication process")
+                        NSLog("\(error)")
+                    }
                 } catch {
                     // TODO
                     NSLog("Error \(error)")
@@ -117,6 +129,23 @@ class DojoManager : NSObject {
             }
         }
     }
+}
+
+func saveAccessTokens(accessToken: String, refreshToken: String) {
+    do {
+        try Locksmith.saveData(data: ["access_token" : accessToken], forUserAccount: "account")
+        try Locksmith.saveData(data: ["refresh_token" : refreshToken], forUserAccount: "account")
+        NSLog("Access tokens stored in keychain")
+    } catch {
+        NSLog("Error saving access tokens")
+        NSLog("\(error)") // TODO
+    }
+}
+
+// MARK: Pairing
+
+struct Pairing : Codable {
+    let pairing: PairingDetails
 }
 
 struct PairingDetails : Codable {
@@ -134,6 +163,16 @@ struct PairingDetails : Codable {
     }
 }
 
-struct Pairing : Codable {
-    let pairing: PairingDetails
+struct DojoAuthResponse : Codable {
+    let authorizations: AuthorizationTokens
+}
+
+struct AuthorizationTokens : Codable {
+    let accessToken: String
+    let refreshToken: String
+    
+    private enum CodingKeys : String, CodingKey {
+        case accessToken = "access_token"
+        case refreshToken = "refresh_token"
+    }
 }
