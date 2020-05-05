@@ -133,7 +133,7 @@ class NetworkViewController: UIViewController {
             dojoDidConnect()
         case .none, .pairingValid:
             dojoDidStop()
-        case .torInitializing, .torConnected, .authenticating:
+        case .authenticating:
             dojoIsInitializing()
         }
     }

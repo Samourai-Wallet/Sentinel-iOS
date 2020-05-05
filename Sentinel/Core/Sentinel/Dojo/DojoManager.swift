@@ -37,8 +37,6 @@ class DojoManager : NSObject {
     enum DojoState {
         case none
         case pairingValid
-        case torInitializing
-        case torConnected
         case authenticating
         case paired
     }
