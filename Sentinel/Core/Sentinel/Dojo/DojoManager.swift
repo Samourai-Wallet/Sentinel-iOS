@@ -14,6 +14,16 @@ protocol DojoManagerDelegate : class {
     func dojoConnFailed()
 }
 
+class Dojo : NSObject {
+    
+    let pairingDetails : PairingDetails
+    
+    init(with details: PairingDetails) {
+        self.pairingDetails = details
+    }
+    
+}
+
 class DojoManager : NSObject {
     
     enum DojoState {
@@ -28,12 +38,12 @@ class DojoManager : NSObject {
     public static let shared = DojoManager()
     
     var state = DojoState.none
+    var dojo : Dojo?
     
     override init() {
         super.init()
     }
     
-    // TODO
     func setupDojo(jsonString: String) -> Bool {
         guard let jsonData = jsonString.data(using: .utf8) else {
             NSLog("Error parsing JSON string")
@@ -45,6 +55,7 @@ class DojoManager : NSObject {
             let pairing = try decoder.decode(Pairing.self, from: jsonData)
             NSLog("Pairing details: ")
             NSLog("\(pairing)")
+            self.dojo = Dojo(with: pairing.pairing)
             return true
         } catch {
             // TODO: Completion handler to handle success/error and show in UI
@@ -52,6 +63,13 @@ class DojoManager : NSObject {
             NSLog("\(error)")
             return false
         }
+    }
+    
+    func getApiKey() -> String? {
+        guard let pairedDojo = self.dojo else {
+            return nil
+        }
+        return pairedDojo.pairingDetails.apikey
     }
 }
 
