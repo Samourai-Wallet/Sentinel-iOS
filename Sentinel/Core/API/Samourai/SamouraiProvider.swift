@@ -23,9 +23,12 @@ enum Samourai {
 extension Samourai: TargetType {
     
     var baseURL: URL {
-        if TorManager.shared.state == .connected {
+        switch Sentinel.state {
+        case .dojoTor:
+            return DojoManager.shared.getDojoUrl()!
+        case .samouraiTor:
             return URL(string: "http://d2oagweysnavqgcfsfawqwql2rwxend7xxpriq676lzsmtfwbt75qbqd.onion/v2/")!
-        } else {
+        case .samouraiClear:
             return URL(string: "https://api.samouraiwallet.com/v2/")!
         }
     }

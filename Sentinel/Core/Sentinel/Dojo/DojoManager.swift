@@ -79,6 +79,13 @@ class DojoManager : NSObject {
         return pairedDojo.pairingDetails.apikey
     }
     
+    func getDojoUrl() -> URL? {
+        guard let pairedDojo = self.dojoParams else {
+            return nil
+        }
+        return URL(string: pairedDojo.pairingDetails.url)
+    }
+    
     func pairWithDojo() {
         guard let apiKey = DojoManager.shared.getApiKey() else {
             NSLog("Dojo API Key not set.")
