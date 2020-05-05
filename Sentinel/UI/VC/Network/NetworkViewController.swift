@@ -219,6 +219,7 @@ extension NetworkViewController : DojoManagerDelegate {
     
     func dojoConnFinished() {
         self.dojoDidConnect()
+        self.showLocalizedToast("Successfully connected to Dojo")
     }
     
     func dojoConnFailed(message: String) {
