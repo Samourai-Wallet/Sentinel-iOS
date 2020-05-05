@@ -97,7 +97,8 @@ class DojoManager : NSObject {
             return
         }
         
-        delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo Node...") // TODO: i18n
+        self.state = .authenticating
+        delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo...") // TODO: i18n
         
         let dojoAPI = MoyaProvider<Dojo>(session: TorManager.shared.sessionHandler.session())
         dojoAPI.request(.login(apiKey: apiKey)) { result in

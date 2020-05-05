@@ -58,7 +58,7 @@ class NetworkViewController: UIViewController {
         case .none, .pairingValid:
             dojoDidStop()
         case .authenticating:
-            dojoIsInitializing()
+            dojoIsConnecting()
         }
     }
     
@@ -191,10 +191,10 @@ extension NetworkViewController {
         }
     }
     
-    private func dojoIsInitializing() {
-        labelStatusDojo.text = NSLocalizedString("Dojo initializing...", comment: "")
+    private func dojoIsConnecting() {
+        labelStatusDojo.text = NSLocalizedString("Connecting to Dojo...", comment: "")
         viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
-        buttonDojo.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
+        buttonDojo.setTitle(NSLocalizedString("CONNECTING...", comment: ""), for: .normal)
     }
     
     private func dojoDidConnect() {
@@ -214,6 +214,7 @@ extension NetworkViewController {
 extension NetworkViewController : DojoManagerDelegate {
     
     func dojoConnProgress(_ progress: Int, localizedMessage: String) {
+        self.dojoIsConnecting()
         self.labelStatusDojo.text = localizedMessage
     }
     
