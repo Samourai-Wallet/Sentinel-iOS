@@ -140,15 +140,28 @@ extension NetworkViewController : TorManagerDelegate {
 extension NetworkViewController {
     
     @IBAction func dojoButtonPressed(_ sender: Any) {
-        if TorManager.shared.isEnabled() {
-            showDojoActionSheet(sender)
-        } else {
-            // TODO
+        switch Sentinel.state {
+        case .samouraiClear:
             showLocalizedToast("Tor must be enabled for Dojo pairing")
+        case .samouraiTor:
+            showDojoActionSheet(sender)
+        case .dojoTor:
+            showDojoDisableAlert(sender)
         }
     }
     
-    func showDojoActionSheet(_ sender: Any) {
+    private func showDojoDisableAlert(_ sender: Any) {
+        // TODO: i18n
+        let alert = UIAlertController(title: "Confirm", message: "Disable Dojo?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
+            DojoManager.shared.disableDojo()
+            self.updateViews()
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showDojoActionSheet(_ sender: Any) {
         let dojoTitle = NSLocalizedString("Power Sentinel with your own personal DOJO full node", comment: "")
         let dojoMessage = NSLocalizedString("Powering Samourai Wallet with your own personal node offers the best level of privacy and independence when interacting with the bitcoin network. Dojo makes running a full node easy and simple.", comment: "")
         

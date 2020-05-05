@@ -128,6 +128,11 @@ class DojoManager : NSObject {
             }
         }
     }
+    
+    func disableDojo() {
+        state = .none
+        wipeAccessTokens()
+    }
 }
 
 private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
