@@ -181,8 +181,8 @@ extension NetworkViewController {
         }
         NSLog("\(pairingString)")
         
-        let isValidString = DojoManager.shared.setupDojo(jsonString: pairingString)
-        if isValidString {
+        let isValidPairingString = DojoManager.shared.setupDojo(jsonString: pairingString)
+        if isValidPairingString {
             DojoManager.shared.state = .pairingValid
             self.updateViews()
             
