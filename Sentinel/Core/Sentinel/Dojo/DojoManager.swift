@@ -138,11 +138,25 @@ class DojoManager : NSObject {
 
 func saveAccessTokens(accessToken: String, refreshToken: String) {
     do {
-        try Locksmith.saveData(data: ["access_token" : accessToken], forUserAccount: "account")
-        try Locksmith.saveData(data: ["refresh_token" : refreshToken], forUserAccount: "account")
+        // We have to store the access tokens in a separate keychain user account ("samouraiDojo")
+        // because the code that checks if a PIN is set or not simply checks if *anything* is
+        // stored in the regular keychain account (called "account").
+        //
+        // See RootNavigationController viewDidLoad() and checkForPin()
+        try Locksmith.updateData(data: ["access_token" : accessToken], forUserAccount: "samouraiDojo")
+        try Locksmith.updateData(data: ["refresh_token" : refreshToken], forUserAccount: "samouraiDojo")
         NSLog("Access tokens stored in keychain")
     } catch {
         NSLog("Error saving access tokens")
+        NSLog("\(error)") // TODO
+    }
+}
+
+func wipeAccessTokens() {
+    do {
+        try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojo")
+    } catch {
+        NSLog("Error wiping access tokens from keychain")
         NSLog("\(error)") // TODO
     }
 }
