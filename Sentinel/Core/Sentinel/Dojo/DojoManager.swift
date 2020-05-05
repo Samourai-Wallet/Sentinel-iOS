@@ -61,8 +61,15 @@ class DojoManager : NSObject {
             let pairing = try decoder.decode(Pairing.self, from: jsonData)
             NSLog("Pairing details: ")
             NSLog("\(pairing)")
-            self.dojoParams = DojoParams(with: pairing.pairing)
-            return true
+            
+            let params = DojoParams(with: pairing.pairing)
+            if params.pairingDetails.isValid() {
+                self.dojoParams = params
+                return true
+            } else {
+                NSLog("Invalid pairing details (validation failed)")
+                return false
+            }
         } catch {
             // TODO: Completion handler to handle success/error and show in UI
             NSLog("Error decoding JSON data. Invalid Dojo pairing details?")
@@ -152,7 +159,7 @@ struct PairingDetails : Codable {
     let apikey: String
     let url: String
     
-    func validate() -> Bool {
+    func isValid() -> Bool {
         guard URL(string: url) != nil else {
             NSLog("URL validation failed")
             return false
