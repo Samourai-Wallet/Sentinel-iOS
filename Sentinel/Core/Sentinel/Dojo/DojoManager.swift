@@ -50,6 +50,7 @@ class DojoManager : NSObject {
         super.init()
     }
     
+    // TODO: Refactor: return Optional(DojoParams) instead of Bool
     func setupDojo(jsonString: String, delegate: DojoManagerDelegate) -> Bool {
         guard let jsonData = jsonString.data(using: .utf8) else {
             failWithMessage("Error parsing JSON string", delegate)
@@ -66,6 +67,7 @@ class DojoManager : NSObject {
             if params.pairingDetails.isValid() {
                 self.dojoParams = params
                 self.state = .pairingValid
+                savePairingDetails(pairingDetails: jsonString)
                 return true
             } else {
                 failWithMessage("Invalid pairing details", delegate)
@@ -131,7 +133,7 @@ class DojoManager : NSObject {
     
     func disableDojo() {
         state = .none
-        wipeAccessTokens()
+        wipePairingDetailsAndAccessTokens()
     }
 }
 
@@ -145,6 +147,17 @@ private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate,
         NSLog("\(e)")
     }
     delegate.dojoConnFailed(message: message)
+}
+
+// MARK: Storage
+
+func savePairingDetails(pairingDetails: String) {
+    do {
+        try Locksmith.updateData(data: ["pairing_details" : pairingDetails], forUserAccount: "samouraiDojo")
+    } catch {
+        NSLog("Error saving pairing details")
+        NSLog("\(error)") // TODO
+    }
 }
 
 func saveAccessTokens(accessToken: String, refreshToken: String) {
@@ -163,7 +176,7 @@ func saveAccessTokens(accessToken: String, refreshToken: String) {
     }
 }
 
-func wipeAccessTokens() {
+func wipePairingDetailsAndAccessTokens() {
     do {
         try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojo")
     } catch {
