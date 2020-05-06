@@ -146,6 +146,18 @@ class DojoManager : NSObject {
         
         return pairingStrings
     }
+    
+    func getAccessTokenFromKeychain() -> String? {
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: "samouraiDojoTokens")
+        guard let accessToken = dictionary?["access_token"] as? String else {
+            NSLog("No access token stored in keychain")
+            return nil
+        }
+        
+        return accessToken
+    }
+    
+    // TODO: Move functions below in this scope
 }
 
 private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
