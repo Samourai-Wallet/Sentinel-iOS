@@ -122,6 +122,16 @@ class DojoManager : NSObject {
         state = .none
         wipePairingDetailsAndAccessTokens()
     }
+    
+    func getPairingStringFromKeychain() -> String? {
+        let dictionary = Locksmith.loadDataForUserAccount(userAccount: "samouraiDojo")
+        guard let pairingStrings = dictionary?["pairing_details"] as? String else {
+            NSLog("No pairing details stored in keychain")
+            return nil
+        }
+        
+        return pairingStrings
+    }
 }
 
 private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
