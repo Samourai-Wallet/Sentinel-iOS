@@ -156,8 +156,8 @@ func saveAccessTokens(accessToken: String, refreshToken: String) {
         // stored in the regular keychain account (called "account").
         //
         // See RootNavigationController viewDidLoad() and checkForPin()
-        try Locksmith.updateData(data: ["access_token" : accessToken], forUserAccount: "samouraiDojo")
-        try Locksmith.updateData(data: ["refresh_token" : refreshToken], forUserAccount: "samouraiDojo")
+        let dataDict = ["access_token" : accessToken, "refresh_token" : refreshToken]
+        try Locksmith.updateData(data: dataDict, forUserAccount: "samouraiDojoTokens")
         NSLog("Access tokens stored in keychain")
     } catch {
         NSLog("Error saving access tokens")
@@ -168,6 +168,7 @@ func saveAccessTokens(accessToken: String, refreshToken: String) {
 func wipePairingDetailsAndAccessTokens() {
     do {
         try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojo")
+        try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojoTokens")
     } catch {
         NSLog("Error wiping access tokens from keychain")
         NSLog("\(error)") // TODO
