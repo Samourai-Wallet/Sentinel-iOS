@@ -75,13 +75,16 @@ class NetworkViewController: UIViewController {
 extension NetworkViewController {
     
     @IBAction func torButtonPressed(_ sender: Any) {
-        if TorManager.shared.state == .connected {
-            TorManager.shared.stopTor()
-            torDidStop()
-            Settings.disableTor()
-        } else {
+        switch Sentinel.state {
+        case .samouraiClear:
             TorManager.shared.startTor(delegate: self)
             torIsInitializing()
+        case .samouraiTor:
+            TorManager.shared.stopTor()
+            Settings.disableTor()
+            updateViews()
+        case .dojoTor:
+            showTorDisableAlert(sender)
         }
     }
     
@@ -116,6 +119,20 @@ extension NetworkViewController {
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonRenew.isHidden = true
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
+    }
+    
+    private func showTorDisableAlert(_ sender: Any) {
+        // TODO: i18n
+        let alert = UIAlertController(title: "Disable Tor?", message: "You will be disconnected from your Dojo. You will have to scan/paste your pairing details again.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
+            DojoManager.shared.disableDojo()
+            TorManager.shared.stopTor()
+            Settings.disableDojo()
+            Settings.disableTor()
+            self.updateViews()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -165,7 +182,7 @@ extension NetworkViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
             DojoManager.shared.disableDojo()
-            UserDefaults.standard.set(false, forKey: "isDojoEnabled")
+            Settings.disableDojo()
             self.updateViews()
         }))
         self.present(alert, animated: true, completion: nil)
