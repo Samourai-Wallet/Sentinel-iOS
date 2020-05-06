@@ -206,8 +206,6 @@ extension NetworkViewController {
         }
         
         DojoManager.shared.state = .pairingValid
-        self.updateViews() // TODO: refactor to update state via delegate (delegate.stateChanged)
-        
         DojoManager.shared.pairWithDojo(parameters: dojoParams, delegate: delegate)
         // TODO
     }
@@ -235,17 +233,17 @@ extension NetworkViewController {
 extension NetworkViewController : DojoManagerDelegate {
     
     func dojoConnProgress(_ progress: Int, localizedMessage: String) {
-        self.dojoIsConnecting()
+        self.updateViews()
         self.labelStatusDojo.text = localizedMessage
     }
     
     func dojoConnFinished() {
-        self.dojoDidConnect()
+        self.updateViews()
         self.showLocalizedToast("Successfully connected to Dojo")
     }
     
     func dojoConnFailed(message: String) {
-        self.dojoDidStop()
+        self.updateViews()
         self.showLocalizedToast(message)
     }
     

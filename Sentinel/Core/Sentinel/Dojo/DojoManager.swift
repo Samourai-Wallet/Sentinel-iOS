@@ -133,6 +133,8 @@ private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate,
     if let e = error {
         NSLog("\(e)")
     }
+    
+    DojoManager.shared.state = .none
     delegate.dojoConnFailed(message: message)
 }
 
