@@ -10,7 +10,7 @@ import Foundation
 
 protocol TorManagerDelegate : class {
     func torConnProgress(_ progress: Int)
-    func torConnFinished() // TODO: Rename
+    func torCircuitEstablished()
     func torSessionEstablished()
 }
 
@@ -78,7 +78,7 @@ class TorManager : NSObject {
                     completeObs = self.torController?.addObserver(forCircuitEstablished: { established in
                         if established {
                             NSLog("Success! Circuit established")
-                            weakDelegate?.torConnFinished()
+                            weakDelegate?.torCircuitEstablished()
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
                                 if let configuration = conf {
                                     self.sessionHandler.torSessionEstablished(configuration)

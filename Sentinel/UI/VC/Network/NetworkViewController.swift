@@ -127,7 +127,7 @@ extension NetworkViewController : TorManagerDelegate {
         }
     }
     
-    func torConnFinished() {
+    func torCircuitEstablished() {
         DispatchQueue.main.async {
             self.labelStatusTor.text = NSLocalizedString("Connected", comment: "")
         }

@@ -48,7 +48,7 @@ extension InitializingTorViewController : TorManagerDelegate {
         }
     }
     
-    func torConnFinished() {
+    func torCircuitEstablished() {
         DispatchQueue.main.async {
             self.initializingLabel.text = NSLocalizedString("Tor connected", comment: "")
         }
