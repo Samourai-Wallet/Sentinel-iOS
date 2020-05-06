@@ -50,11 +50,10 @@ class DojoManager : NSObject {
         super.init()
     }
     
-    // TODO: Refactor: return Optional(DojoParams) instead of Bool
-    func setupDojo(jsonString: String, delegate: DojoManagerDelegate) -> Bool {
+    func getPairingDetails(jsonString: String, delegate: DojoManagerDelegate) -> DojoParams? {
         guard let jsonData = jsonString.data(using: .utf8) else {
             failWithMessage("Error parsing JSON string", delegate)
-            return false
+            return nil
         }
         let decoder = JSONDecoder()
         
@@ -68,22 +67,15 @@ class DojoManager : NSObject {
                 self.dojoParams = params
                 self.state = .pairingValid
                 savePairingDetails(pairingDetails: jsonString)
-                return true
+                return params
             } else {
                 failWithMessage("Invalid pairing details", delegate)
-                return false
+                return nil
             }
         } catch {
             failWithMessage("Invalid pairing details", delegate, error)
-            return false
-        }
-    }
-    
-    func getApiKey() -> String? {
-        guard let pairedDojo = self.dojoParams else {
             return nil
         }
-        return pairedDojo.pairingDetails.apikey
     }
     
     func getDojoUrl() -> URL? {
@@ -93,17 +85,12 @@ class DojoManager : NSObject {
         return URL(string: pairedDojo.pairingDetails.url)
     }
     
-    func pairWithDojo(delegate: DojoManagerDelegate) {
-        guard let apiKey = DojoManager.shared.getApiKey() else {
-            NSLog("Dojo API Key not set.")
-            return
-        }
-        
+    func pairWithDojo(parameters: DojoParams, delegate: DojoManagerDelegate) {
         self.state = .authenticating
         delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo...") // TODO: i18n
         
         let dojoAPI = MoyaProvider<Dojo>(session: TorManager.shared.sessionHandler.session())
-        dojoAPI.request(.login(apiKey: apiKey)) { result in
+        dojoAPI.request(.login(apiKey: parameters.apiKey)) { result in
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data

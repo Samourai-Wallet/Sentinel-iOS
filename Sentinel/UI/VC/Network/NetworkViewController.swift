@@ -196,15 +196,20 @@ extension NetworkViewController {
             return
         }
         NSLog("\(pairingString)")
-        
-        let isValidPairingString = DojoManager.shared.setupDojo(jsonString: pairingString, delegate: delegate)
-        if isValidPairingString {
-            DojoManager.shared.state = .pairingValid
-            self.updateViews()
-            
-            DojoManager.shared.pairWithDojo(delegate: delegate)
-            // TODO
+        setupDojo(pairing: pairingString, delegate: delegate)
+    }
+    
+    private func setupDojo(pairing: String, delegate: DojoManagerDelegate) {
+        guard let dojoParams = DojoManager.shared.getPairingDetails(jsonString: pairing, delegate: delegate) else {
+            NSLog("Failed to parse pairing details") // TODO
+            return
         }
+        
+        DojoManager.shared.state = .pairingValid
+        self.updateViews() // TODO: refactor to update state via delegate (delegate.stateChanged)
+        
+        DojoManager.shared.pairWithDojo(parameters: dojoParams, delegate: delegate)
+        // TODO
     }
     
     private func dojoIsConnecting() {
