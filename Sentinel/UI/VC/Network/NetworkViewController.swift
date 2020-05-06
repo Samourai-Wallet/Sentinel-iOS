@@ -159,6 +159,7 @@ extension NetworkViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
             DojoManager.shared.disableDojo()
+            UserDefaults.standard.set(false, forKey: "isDojoEnabled")
             self.updateViews()
         }))
         self.present(alert, animated: true, completion: nil)
@@ -238,6 +239,7 @@ extension NetworkViewController : DojoManagerDelegate {
     }
     
     func dojoConnFinished() {
+        UserDefaults.standard.set(true, forKey: "isDojoEnabled")
         self.updateViews()
         self.showLocalizedToast("Successfully connected to Dojo")
     }
