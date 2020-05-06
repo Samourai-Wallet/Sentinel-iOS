@@ -50,7 +50,7 @@ extension InitializingTorViewController : TorManagerDelegate {
     
     func torConnFinished() {
         DispatchQueue.main.async {
-            self.initializingLabel.text = NSLocalizedString("Connected", comment: "")
+            self.initializingLabel.text = NSLocalizedString("Tor connected", comment: "")
         }
     }
     
@@ -66,7 +66,7 @@ extension InitializingTorViewController : TorManagerDelegate {
 extension InitializingTorViewController : DojoManagerDelegate {
     func dojoConnProgress(_ progress: Int, localizedMessage: String) {
         DispatchQueue.main.async {
-            self.initializingLabel.text = NSLocalizedString("Connecting to Dojo", comment: "") + " \(progress)%"
+            self.initializingLabel.text = NSLocalizedString("Tor connected, connecting to Dojo", comment: "")
         }
     }
     
