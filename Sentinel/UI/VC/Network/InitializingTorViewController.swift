@@ -49,7 +49,7 @@ extension InitializingTorViewController : TorManagerDelegate {
     }
     
     func torConnFinished() {
-        if Sentinel.isDojoEnabled {
+        if Settings.isDojoEnabled {
             DojoManager.shared.connectToDojoWithStoredCredentials(delegate: self)
         } else {
             dismissView()

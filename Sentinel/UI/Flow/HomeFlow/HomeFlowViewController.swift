@@ -87,7 +87,7 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         if TorManager.shared.state == .connected {
             return
         }
-        if Sentinel.isTorEnabled {
+        if Settings.isTorEnabled {
             let initTorVC = InitializingTorViewController()
             initTorVC.modalPresentationStyle = .overCurrentContext
             self.present(initTorVC, animated: false, completion: nil)

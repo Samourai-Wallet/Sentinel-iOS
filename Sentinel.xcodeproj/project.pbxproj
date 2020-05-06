@@ -18,6 +18,7 @@
 		1BBA28BD244D89BB0041F7CA /* NetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */; };
 		1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */; };
 		1BBA28C3245028430041F7CA /* InitializingTorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */; };
+		1BBC7A072462C1D800EC9EE8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC7A062462C1D800EC9EE8 /* Settings.swift */; };
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
 		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
 		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
@@ -91,6 +92,7 @@
 		1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkViewController.xib; sourceTree = "<group>"; };
 		1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializingTorViewController.swift; sourceTree = "<group>"; };
 		1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitializingTorViewController.xib; sourceTree = "<group>"; };
+		1BBC7A062462C1D800EC9EE8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				8087CCB620C343CD00A03D90 /* Realm */,
 				1BBA28B4244C998F0041F7CA /* Tor */,
 				806A8ADD20C1E654008AC0CF /* Sentinel.swift */,
+				1BBC7A062462C1D800EC9EE8 /* Settings.swift */,
 				8087CCB420C3130800A03D90 /* AddressType.swift */,
 			);
 			path = Sentinel;
@@ -732,6 +735,7 @@
 				803AD34A216F2AE00009390F /* PushTXViewController.swift in Sources */,
 				8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */,
 				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
+				1BBC7A072462C1D800EC9EE8 /* Settings.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
 				1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,

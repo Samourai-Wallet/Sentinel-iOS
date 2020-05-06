@@ -78,11 +78,10 @@ extension NetworkViewController {
         if TorManager.shared.state == .connected {
             TorManager.shared.stopTor()
             torDidStop()
-            UserDefaults.standard.set(false, forKey: "isTorEnabled")
+            Settings.disableTor()
         } else {
             TorManager.shared.startTor(delegate: self)
             torIsInitializing()
-            UserDefaults.standard.set(true, forKey: "isTorEnabled")
         }
     }
     
@@ -129,6 +128,7 @@ extension NetworkViewController : TorManagerDelegate {
     }
     
     func torConnFinished() {
+        Settings.enableTor()
         DispatchQueue.main.async {
             self.torDidConnect()
         }
