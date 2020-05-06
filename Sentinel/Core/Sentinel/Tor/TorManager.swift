@@ -81,9 +81,9 @@ class TorManager : NSObject {
                             weakDelegate?.torCircuitEstablished()
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
                                 if let configuration = conf {
+                                    self.state = .connected
                                     self.sessionHandler.torSessionEstablished(configuration)
                                     weakDelegate?.torSessionEstablished()
-                                    self.state = .connected
                                 }
                             })
                             self.torController?.removeObserver(completeObs)
