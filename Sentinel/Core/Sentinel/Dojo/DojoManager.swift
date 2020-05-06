@@ -85,6 +85,21 @@ class DojoManager : NSObject {
         return URL(string: pairedDojo.pairingDetails.url)
     }
     
+    func connectToDojoWithStoredCredentials(delegate: DojoManagerDelegate) {
+        guard let pairingString = DojoManager.shared.getPairingStringFromKeychain() else {
+            NSLog("Failed to get pairing details from keychain") // TODO
+            delegate.dojoConnFailed(message: "FAILED") // TODO
+            return
+        }
+        guard let pairingDetails = DojoManager.shared.parsePairingDetails(jsonString: pairingString, delegate: delegate) else {
+            NSLog("Failed to parse pairing details") // TODO
+            delegate.dojoConnFailed(message: "FAILED") // TODO
+            return
+        }
+        pairWithDojo(parameters: pairingDetails, delegate: delegate)
+    }
+    
+    // TODO: Rename to connectToDojo
     func pairWithDojo(parameters: DojoParams, delegate: DojoManagerDelegate) {
         self.state = .authenticating
         delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo...") // TODO: i18n
@@ -153,6 +168,7 @@ private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate,
 func savePairingDetails(pairingDetails: String) {
     do {
         try Locksmith.updateData(data: ["pairing_details" : pairingDetails], forUserAccount: "samouraiDojo")
+        NSLog("Pairing details stored in keychain")
     } catch {
         NSLog("Error saving pairing details")
         NSLog("\(error)") // TODO
