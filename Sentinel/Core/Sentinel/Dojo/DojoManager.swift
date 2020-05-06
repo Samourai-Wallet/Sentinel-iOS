@@ -96,11 +96,10 @@ class DojoManager : NSObject {
             delegate.dojoConnFailed(message: "FAILED") // TODO
             return
         }
-        pairWithDojo(parameters: pairingDetails, delegate: delegate)
+        connectToDojo(parameters: pairingDetails, delegate: delegate)
     }
     
-    // TODO: Rename to connectToDojo
-    func pairWithDojo(parameters: DojoParams, delegate: DojoManagerDelegate) {
+    func connectToDojo(parameters: DojoParams, delegate: DojoManagerDelegate) {
         self.state = .authenticating
         delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo...") // TODO: i18n
         

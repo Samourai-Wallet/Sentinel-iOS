@@ -207,7 +207,7 @@ extension NetworkViewController {
         }
         
         DojoManager.shared.state = .pairingValid
-        DojoManager.shared.pairWithDojo(parameters: dojoParams, delegate: delegate)
+        DojoManager.shared.connectToDojo(parameters: dojoParams, delegate: delegate)
         // TODO
     }
     
