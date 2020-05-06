@@ -557,4 +557,19 @@ extension Sentinel {
         
         return .samouraiClear
     }
+    
+    static var isTorEnabled : Bool {
+        guard let isEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool else {
+            return false
+        }
+        return isEnabled
+    }
+    
+    static var isDojoEnabled : Bool {
+        guard let isEnabled = UserDefaults.standard.value(forKey: "isDojoEnabled") as? Bool else {
+            return false
+        }
+        return isEnabled
+    }
+    
 }
