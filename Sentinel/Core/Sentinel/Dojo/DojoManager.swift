@@ -50,7 +50,7 @@ class DojoManager : NSObject {
         super.init()
     }
     
-    func getPairingDetails(jsonString: String, delegate: DojoManagerDelegate) -> DojoParams? {
+    func parsePairingDetails(jsonString: String, delegate: DojoManagerDelegate) -> DojoParams? {
         guard let jsonData = jsonString.data(using: .utf8) else {
             failWithMessage("Error parsing JSON string", delegate)
             return nil
