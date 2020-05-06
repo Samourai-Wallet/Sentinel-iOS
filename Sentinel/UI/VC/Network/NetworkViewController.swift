@@ -128,6 +128,12 @@ extension NetworkViewController : TorManagerDelegate {
     }
     
     func torConnFinished() {
+        DispatchQueue.main.async {
+            self.labelStatusTor.text = NSLocalizedString("Connected", comment: "")
+        }
+    }
+    
+    func torSessionEstablished() {
         Settings.enableTor()
         DispatchQueue.main.async {
             self.torDidConnect()

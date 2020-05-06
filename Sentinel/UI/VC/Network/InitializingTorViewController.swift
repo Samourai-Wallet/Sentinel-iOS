@@ -49,6 +49,12 @@ extension InitializingTorViewController : TorManagerDelegate {
     }
     
     func torConnFinished() {
+        DispatchQueue.main.async {
+            self.initializingLabel.text = NSLocalizedString("Connected", comment: "")
+        }
+    }
+    
+    func torSessionEstablished() {
         if Settings.isDojoEnabled {
             DojoManager.shared.connectToDojoWithStoredCredentials(delegate: self)
         } else {
