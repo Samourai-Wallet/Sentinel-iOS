@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TorManagerDelegate : class {
-    func torConnProgress(_ progress: Int)
+    func torConnectionProgress(_ progress: Int)
     func torCircuitEstablished()
     func torSessionEstablished()
 }
@@ -96,7 +96,7 @@ class TorManager : NSObject {
 
                         if type == "STATUS_CLIENT" && action == "BOOTSTRAP" {
                             let progress = Int(arguments!["PROGRESS"]!)!
-                            weakDelegate?.torConnProgress(progress)
+                            weakDelegate?.torConnectionProgress(progress)
                             if progress >= 100 {
                                 self.torController?.removeObserver(progressObserver)
                             }

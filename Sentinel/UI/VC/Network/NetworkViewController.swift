@@ -121,7 +121,7 @@ extension NetworkViewController {
 }
 
 extension NetworkViewController : TorManagerDelegate {
-    func torConnProgress(_ progress: Int) {
+    func torConnectionProgress(_ progress: Int) {
         DispatchQueue.main.async {
             self.labelStatusTor.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
         }

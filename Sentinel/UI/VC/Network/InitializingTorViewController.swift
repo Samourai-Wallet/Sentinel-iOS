@@ -42,7 +42,7 @@ class InitializingTorViewController: UIViewController {
 }
 
 extension InitializingTorViewController : TorManagerDelegate {
-    func torConnProgress(_ progress: Int) {
+    func torConnectionProgress(_ progress: Int) {
         DispatchQueue.main.async {
             self.initializingLabel.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
         }
