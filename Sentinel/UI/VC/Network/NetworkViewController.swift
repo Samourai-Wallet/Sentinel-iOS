@@ -8,6 +8,7 @@
 
 import UIKit
 import Toast_Swift
+import QRCodeReader
 
 class NetworkViewController: UIViewController {
     
@@ -21,6 +22,14 @@ class NetworkViewController: UIViewController {
     @IBOutlet weak var buttonDojo: UIButton!
     @IBOutlet weak var labelStatusDojo: UILabel!
     @IBOutlet weak var viewStreetLightDojo: UIView!
+    
+    // QR Scanner
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+        }
+        return QRCodeReaderViewController(builder: builder)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -209,8 +218,10 @@ extension NetworkViewController {
 
         let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
         alert.addAction(UIAlertAction(title: scanQRCode, style: .default , handler:{ (UIAlertAction) in
-            // TODO: QR Code Scanner
             NSLog("Scan QR Code")
+            self.readerVC.delegate = self
+            self.readerVC.modalPresentationStyle = .formSheet
+            self.present(self.readerVC, animated: true, completion: nil)
         }))
 
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler:{ (UIAlertAction) in
@@ -277,4 +288,18 @@ extension NetworkViewController : DojoManagerDelegate {
         self.showLocalizedToast(message)
     }
     
+}
+
+extension NetworkViewController: QRCodeReaderViewControllerDelegate {
+    
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
+        setupDojo(pairing: result.value, delegate: self)
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        dismiss(animated: true, completion: nil)
+    }
 }
