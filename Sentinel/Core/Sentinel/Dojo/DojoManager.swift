@@ -87,13 +87,11 @@ class DojoManager : NSObject {
     
     func connectToDojoWithStoredCredentials(delegate: DojoManagerDelegate) {
         guard let pairingString = DojoManager.shared.getPairingStringFromKeychain() else {
-            NSLog("Failed to get pairing details from keychain") // TODO
-            delegate.dojoConnFailed(message: "FAILED") // TODO
+            delegate.dojoConnFailed(message: "Failed to get pairing details from keychain")
             return
         }
         guard let pairingDetails = DojoManager.shared.parsePairingDetails(jsonString: pairingString, delegate: delegate) else {
-            NSLog("Failed to parse pairing details") // TODO
-            delegate.dojoConnFailed(message: "FAILED") // TODO
+            delegate.dojoConnFailed(message: "Failed to parse pairing details")
             return
         }
         connectToDojo(parameters: pairingDetails, delegate: delegate)
@@ -101,14 +99,14 @@ class DojoManager : NSObject {
     
     func connectToDojo(parameters: DojoParams, delegate: DojoManagerDelegate) {
         self.state = .authenticating
-        delegate.dojoConnProgress(25, localizedMessage: "Connecting to Dojo...") // TODO: i18n
+        delegate.dojoConnProgress(25, localizedMessage: NSLocalizedString("Connecting to Dojo...", comment: ""))
         
         let dojoAPI = MoyaProvider<Dojo>(session: TorManager.shared.sessionHandler.session())
         dojoAPI.request(.login(apiKey: parameters.apiKey)) { result in
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
-                delegate.dojoConnProgress(90, localizedMessage: "Connection established") // TODO: i18n
+                delegate.dojoConnProgress(90, localizedMessage: NSLocalizedString("Connection established", comment: ""))
                 
                 let decoder = JSONDecoder()
                 
@@ -116,12 +114,12 @@ class DojoManager : NSObject {
                     let authResponse = try decoder.decode(DojoAuthResponse.self, from: data)
                     let accessToken = authResponse.authorizations.accessToken
                     let refreshToken = authResponse.authorizations.refreshToken
-                    delegate.dojoConnProgress(95, localizedMessage: "Authenticated") // TODO: i18n
+                    delegate.dojoConnProgress(95, localizedMessage: NSLocalizedString("Authenticated", comment: ""))
                     
                     saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
                     self.state = .paired
                     
-                    delegate.dojoConnProgress(100, localizedMessage: "Successfully connected to Dojo") // TODO: i18n
+                    delegate.dojoConnProgress(100, localizedMessage: NSLocalizedString("Successfully connected to Dojo", comment: ""))
                     delegate.dojoConnFinished()
                 } catch {
                     failWithMessage("Authentication with Dojo failed", delegate, error)

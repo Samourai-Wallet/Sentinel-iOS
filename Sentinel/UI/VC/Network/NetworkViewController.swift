@@ -122,10 +122,14 @@ extension NetworkViewController {
     }
     
     private func showTorDisableAlert(_ sender: Any) {
-        // TODO: i18n
-        let alert = UIAlertController(title: "Disable Tor?", message: "You will be disconnected from your Dojo. You will have to scan/paste your pairing details again.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
+        let alertTitle = NSLocalizedString("Disable Tor?", comment: "")
+        let alertMessage = NSLocalizedString("You will be disconnected from your Dojo. You will have to scan/paste your pairing details again.", comment: "")
+        let alertCancel = NSLocalizedString("Cancel", comment: "")
+        let alertDisable = NSLocalizedString("Disable", comment: "")
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: alertCancel, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: alertDisable, style: .destructive, handler: { action in
             DojoManager.shared.disableDojo()
             TorManager.shared.stopTor()
             Settings.disableDojo()
@@ -176,11 +180,14 @@ extension NetworkViewController {
     private func showDojoDisableAlert(_ sender: Any) {
         // According to the iOS HIG, "Yes" and "No" should be avoided in alerts
         // See: https://developer.apple.com/design/human-interface-guidelines/ios/views/alerts/
+        let alertTitle = NSLocalizedString("Disable Dojo?", comment: "")
+        let alertMessage = NSLocalizedString("You will have to scan/paste your pairing details again.", comment: "")
+        let alertCancel = NSLocalizedString("Cancel", comment: "")
+        let alertDisable = NSLocalizedString("Disable", comment: "")
         
-        // TODO: i18n
-        let alert = UIAlertController(title: "Disable Dojo?", message: "You will have to scan/paste your pairing details again.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Disable", style: .destructive, handler: { action in
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: alertCancel, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: alertDisable, style: .destructive, handler: { action in
             DojoManager.shared.disableDojo()
             Settings.disableDojo()
             self.updateViews()
