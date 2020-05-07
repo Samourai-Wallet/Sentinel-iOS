@@ -116,16 +116,16 @@ class DojoManager : NSObject {
                     let refreshToken = authResponse.authorizations.refreshToken
                     delegate.dojoConnProgress(95, localizedMessage: NSLocalizedString("Authenticated", comment: ""))
                     
-                    saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
+                    self.saveAccessTokens(accessToken: accessToken, refreshToken: refreshToken)
                     self.state = .paired
                     
                     delegate.dojoConnProgress(100, localizedMessage: NSLocalizedString("Successfully connected to Dojo", comment: ""))
                     delegate.dojoConnFinished()
                 } catch {
-                    failWithMessage("Authentication with Dojo failed", delegate, error)
+                    self.failWithMessage("Authentication with Dojo failed", delegate, error)
                 }
             case let .failure(error):
-                failWithMessage("Failed to connect to Dojo", delegate, error)
+                self.failWithMessage("Failed to connect to Dojo", delegate, error)
             }
         }
     }
@@ -155,58 +155,56 @@ class DojoManager : NSObject {
         return accessToken
     }
     
-    // TODO: Move functions below in this scope
-}
-
-private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
-    failWithMessage(message, delegate, nil)
-}
-
-private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate, _ error: Error?) {
-    NSLog("\(message)")
-    if let e = error {
-        NSLog("\(e)")
+    private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate) {
+        failWithMessage(message, delegate, nil)
     }
-    
-    DojoManager.shared.state = .none
-    delegate.dojoConnFailed(message: message)
-}
 
-// MARK: Storage
-
-func savePairingDetails(pairingDetails: String) {
-    do {
-        try Locksmith.updateData(data: ["pairing_details" : pairingDetails], forUserAccount: "samouraiDojo")
-        NSLog("Pairing details stored in keychain")
-    } catch {
-        NSLog("Error saving pairing details")
-        NSLog("\(error)") // TODO
+    private func failWithMessage(_ message: String, _ delegate: DojoManagerDelegate, _ error: Error?) {
+        NSLog("\(message)")
+        if let e = error {
+            NSLog("\(e)")
+        }
+        
+        DojoManager.shared.state = .none
+        delegate.dojoConnFailed(message: message)
     }
-}
 
-func saveAccessTokens(accessToken: String, refreshToken: String) {
-    do {
-        // We have to store the access tokens in a separate keychain user account ("samouraiDojo")
-        // because the code that checks if a PIN is set or not simply checks if *anything* is
-        // stored in the regular keychain account (called "account").
-        //
-        // See RootNavigationController viewDidLoad() and checkForPin()
-        let dataDict = ["access_token" : accessToken, "refresh_token" : refreshToken]
-        try Locksmith.updateData(data: dataDict, forUserAccount: "samouraiDojoTokens")
-        NSLog("Access tokens stored in keychain")
-    } catch {
-        NSLog("Error saving access tokens")
-        NSLog("\(error)") // TODO
+    // MARK: Storage
+
+    func savePairingDetails(pairingDetails: String) {
+        do {
+            try Locksmith.updateData(data: ["pairing_details" : pairingDetails], forUserAccount: "samouraiDojo")
+            NSLog("Pairing details stored in keychain")
+        } catch {
+            NSLog("Error saving pairing details")
+            NSLog("\(error)") // TODO
+        }
     }
-}
 
-func wipePairingDetailsAndAccessTokens() {
-    do {
-        try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojo")
-        try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojoTokens")
-    } catch {
-        NSLog("Error wiping access tokens from keychain")
-        NSLog("\(error)") // TODO
+    func saveAccessTokens(accessToken: String, refreshToken: String) {
+        do {
+            // We have to store the access tokens in a separate keychain user account ("samouraiDojo")
+            // because the code that checks if a PIN is set or not simply checks if *anything* is
+            // stored in the regular keychain account (called "account").
+            //
+            // See RootNavigationController viewDidLoad() and checkForPin()
+            let dataDict = ["access_token" : accessToken, "refresh_token" : refreshToken]
+            try Locksmith.updateData(data: dataDict, forUserAccount: "samouraiDojoTokens")
+            NSLog("Access tokens stored in keychain")
+        } catch {
+            NSLog("Error saving access tokens")
+            NSLog("\(error)") // TODO
+        }
+    }
+
+    func wipePairingDetailsAndAccessTokens() {
+        do {
+            try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojo")
+            try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojoTokens")
+        } catch {
+            NSLog("Error wiping access tokens from keychain")
+            NSLog("\(error)") // TODO
+        }
     }
 }
 
