@@ -17,10 +17,10 @@ extension Dojo : TargetType {
     
     var baseURL: URL {
         guard let dojo = DojoManager.shared.dojoParams else {
-            NSLog("Dojo not initialized")
-            return URL(string: "")! // TODO - throw error
+            NSLog("Trying to authenticate with Dojo, but Dojo is not initialized.")
+            return URL(string: "-")!
         }
-        
+
         return URL(string: dojo.url)!
     }
     
