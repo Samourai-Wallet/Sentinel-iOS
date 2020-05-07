@@ -177,7 +177,7 @@ class DojoManager : NSObject {
             NSLog("Pairing details stored in keychain")
         } catch {
             NSLog("Error saving pairing details")
-            NSLog("\(error)") // TODO
+            NSLog("\(error)")
         }
     }
 
@@ -193,7 +193,7 @@ class DojoManager : NSObject {
             NSLog("Access tokens stored in keychain")
         } catch {
             NSLog("Error saving access tokens")
-            NSLog("\(error)") // TODO
+            NSLog("\(error)")
         }
     }
 
@@ -203,7 +203,7 @@ class DojoManager : NSObject {
             try Locksmith.deleteDataForUserAccount(userAccount: "samouraiDojoTokens")
         } catch {
             NSLog("Error wiping access tokens from keychain")
-            NSLog("\(error)") // TODO
+            NSLog("\(error)")
         }
     }
 }
