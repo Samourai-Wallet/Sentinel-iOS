@@ -209,7 +209,7 @@ extension NetworkViewController {
 
         let scanQRCode = NSLocalizedString("Scan QR Code", comment: "")
         alert.addAction(UIAlertAction(title: scanQRCode, style: .default , handler:{ (UIAlertAction) in
-            // TODO
+            // TODO: QR Code Scanner
             NSLog("Scan QR Code")
         }))
 
@@ -223,7 +223,7 @@ extension NetworkViewController {
     private func setupDojoFromClipboard(delegate: DojoManagerDelegate) {
         let pasteboardString: String? = UIPasteboard.general.string
         guard let pairingString = pasteboardString else {
-            NSLog("Empty clipboard") // TODO
+            delegate.dojoConnFailed(message: NSLocalizedString("Empty clipboard", comment: ""))
             return
         }
         NSLog("\(pairingString)")
@@ -232,13 +232,11 @@ extension NetworkViewController {
     
     private func setupDojo(pairing: String, delegate: DojoManagerDelegate) {
         guard let dojoParams = DojoManager.shared.parsePairingDetails(jsonString: pairing, delegate: delegate) else {
-            NSLog("Failed to parse pairing details") // TODO
             return
         }
         
         DojoManager.shared.state = .pairingValid
         DojoManager.shared.connectToDojo(parameters: dojoParams, delegate: delegate)
-        // TODO
     }
     
     private func dojoIsConnecting() {
