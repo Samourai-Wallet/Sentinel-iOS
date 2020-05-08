@@ -47,7 +47,7 @@ class TorManager : NSObject {
         }
     }
 
-    func startTor(delegate: TorManagerDelegate?) {
+    func startTor(delegate: TorManagerDelegate?, _ callback: ((_ success: Bool) -> Void)? = nil) {
         if state == .none {
             torThread?.start()
         }
@@ -84,6 +84,7 @@ class TorManager : NSObject {
                                     self.state = .connected
                                     self.sessionHandler.torSessionEstablished(configuration)
                                     weakDelegate?.torSessionEstablished()
+                                    callback?(true)
                                 }
                             })
                             self.torController?.removeObserver(completeObs)
@@ -107,6 +108,7 @@ class TorManager : NSObject {
                     })
                 } else {
                     NSLog("Didn't connect to control port.")
+                    callback?(false)
                 }
             })
         })
