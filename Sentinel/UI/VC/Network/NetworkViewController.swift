@@ -87,7 +87,7 @@ extension NetworkViewController {
         switch Sentinel.state {
         case .samouraiClear:
             TorManager.shared.startTor(delegate: self)
-            torIsInitializing()
+            updateViews()
         case .samouraiTor:
             TorManager.shared.stopTor()
             Settings.disableTor()
@@ -178,8 +178,7 @@ extension NetworkViewController {
     @IBAction func dojoButtonPressed(_ sender: Any) {
         switch Sentinel.state {
         case .samouraiClear:
-            showLocalizedToast("Tor must be enabled for Dojo pairing")
-            // TODO: Enable Tor before Dojo
+            showDojoActionSheet(sender)
         case .samouraiTor:
             showDojoActionSheet(sender)
         case .dojoTor:
@@ -248,7 +247,24 @@ extension NetworkViewController {
         }
         
         DojoManager.shared.state = .pairingValid
-        DojoManager.shared.connectToDojo(parameters: dojoParams, delegate: delegate)
+        
+        switch Sentinel.state {
+        case .samouraiClear:
+            // Tor not running - start Tor
+            TorManager.shared.startTor(delegate: self, { connected in
+                DispatchQueue.main.async {
+                    guard connected == true else {
+                        return // Tor connection failure. Delegate is notified in startTor()
+                    }
+                    // Tor connected. Connect to Dojo
+                    DojoManager.shared.connectToDojo(parameters: dojoParams, delegate: delegate)
+                }
+            })
+            updateViews()
+        default:
+            // Tor already running - connect to Dojo
+            DojoManager.shared.connectToDojo(parameters: dojoParams, delegate: delegate)
+        }
     }
     
     private func dojoIsConnecting() {
