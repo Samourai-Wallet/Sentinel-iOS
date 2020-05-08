@@ -179,6 +179,7 @@ extension NetworkViewController {
         switch Sentinel.state {
         case .samouraiClear:
             showLocalizedToast("Tor must be enabled for Dojo pairing")
+            // TODO: Enable Tor before Dojo
         case .samouraiTor:
             showDojoActionSheet(sender)
         case .dojoTor:
