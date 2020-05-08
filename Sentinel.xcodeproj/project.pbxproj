@@ -16,8 +16,8 @@
 		1BBA28B8244C9DF00041F7CA /* SessionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */; };
 		1BBA28BC244D89BB0041F7CA /* NetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */; };
 		1BBA28BD244D89BB0041F7CA /* NetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */; };
-		1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */; };
-		1BBA28C3245028430041F7CA /* InitializingTorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */; };
+		1BBA28C2245028430041F7CA /* InitializingNetworkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBA28C0245028430041F7CA /* InitializingNetworkViewController.swift */; };
+		1BBA28C3245028430041F7CA /* InitializingNetworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA28C1245028430041F7CA /* InitializingNetworkViewController.xib */; };
 		1BBC7A072462C1D800EC9EE8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BBC7A062462C1D800EC9EE8 /* Settings.swift */; };
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
 		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
@@ -90,8 +90,8 @@
 		1BBA28B7244C9DF00041F7CA /* SessionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionHandler.swift; sourceTree = "<group>"; };
 		1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewController.swift; sourceTree = "<group>"; };
 		1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkViewController.xib; sourceTree = "<group>"; };
-		1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializingTorViewController.swift; sourceTree = "<group>"; };
-		1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitializingTorViewController.xib; sourceTree = "<group>"; };
+		1BBA28C0245028430041F7CA /* InitializingNetworkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializingNetworkViewController.swift; sourceTree = "<group>"; };
+		1BBA28C1245028430041F7CA /* InitializingNetworkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitializingNetworkViewController.xib; sourceTree = "<group>"; };
 		1BBC7A062462C1D800EC9EE8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 		1BBA28B9244D893F0041F7CA /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				1BBA28C0245028430041F7CA /* InitializingTorViewController.swift */,
-				1BBA28C1245028430041F7CA /* InitializingTorViewController.xib */,
+				1BBA28C0245028430041F7CA /* InitializingNetworkViewController.swift */,
+				1BBA28C1245028430041F7CA /* InitializingNetworkViewController.xib */,
 				1BBA28BA244D89BB0041F7CA /* NetworkViewController.swift */,
 				1BBA28BB244D89BB0041F7CA /* NetworkViewController.xib */,
 			);
@@ -643,7 +643,7 @@
 				802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */,
 				802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */,
 				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
-				1BBA28C3245028430041F7CA /* InitializingTorViewController.xib in Resources */,
+				1BBA28C3245028430041F7CA /* InitializingNetworkViewController.xib in Resources */,
 				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
 				802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */,
 				802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */,
@@ -737,7 +737,7 @@
 				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
 				1BBC7A072462C1D800EC9EE8 /* Settings.swift in Sources */,
 				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
-				1BBA28C2245028430041F7CA /* InitializingTorViewController.swift in Sources */,
+				1BBA28C2245028430041F7CA /* InitializingNetworkViewController.swift in Sources */,
 				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,
 				8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */,
 				806A8AE720C205CC008AC0CF /* Util.swift in Sources */,

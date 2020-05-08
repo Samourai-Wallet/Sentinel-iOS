@@ -1,5 +1,5 @@
 //
-//  InitializingTorViewController.swift
+//  InitializingNetworkViewController.swift
 //  Sentinel
 //
 //  Created by Gigi on 22.04.20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitializingTorViewController: UIViewController {
+class InitializingNetworkViewController: UIViewController {
     
     @IBOutlet weak var initializingLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -41,7 +41,7 @@ class InitializingTorViewController: UIViewController {
 
 }
 
-extension InitializingTorViewController : TorManagerDelegate {
+extension InitializingNetworkViewController : TorManagerDelegate {
     func torConnectionProgress(_ progress: Int) {
         DispatchQueue.main.async {
             self.initializingLabel.text = NSLocalizedString("Bootstrapped", comment: "") + " \(progress)%"
@@ -63,7 +63,7 @@ extension InitializingTorViewController : TorManagerDelegate {
     }
 }
 
-extension InitializingTorViewController : DojoManagerDelegate {
+extension InitializingNetworkViewController : DojoManagerDelegate {
     func dojoConnProgress(_ progress: Int, localizedMessage: String) {
         DispatchQueue.main.async {
             self.initializingLabel.text = NSLocalizedString("Tor connected, connecting to Dojo", comment: "")
