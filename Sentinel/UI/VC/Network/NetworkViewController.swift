@@ -113,7 +113,7 @@ extension NetworkViewController {
         labelStatusTor.text = NSLocalizedString("Tor initializing...", comment: "")
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
         buttonRenew.isHidden = true
-        buttonTor.setTitle(NSLocalizedString("LOADING...", comment: ""), for: .normal)
+        buttonTor.setTitle(NSLocalizedString("LOADING", comment: ""), for: .normal)
     }
     
     private func torDidConnect() {
@@ -270,7 +270,7 @@ extension NetworkViewController {
     private func dojoIsConnecting() {
         labelStatusDojo.text = NSLocalizedString("Connecting to Dojo...", comment: "")
         viewStreetLightDojo.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
-        buttonDojo.setTitle(NSLocalizedString("CONNECTING...", comment: ""), for: .normal)
+        buttonDojo.setTitle(NSLocalizedString("CONNECTING", comment: ""), for: .normal)
     }
     
     private func dojoDidConnect() {
