@@ -15,6 +15,7 @@ class NetworkViewController: UIViewController {
     // Tor
     @IBOutlet weak var buttonTor: UIButton!
     @IBOutlet weak var buttonRenew: UIButton!
+    @IBOutlet weak var buttonRenewWidth: NSLayoutConstraint!
     @IBOutlet weak var labelStatusTor: UILabel!
     @IBOutlet weak var viewStreetLightTor: UIView!
     
@@ -113,6 +114,7 @@ extension NetworkViewController {
         labelStatusTor.text = NSLocalizedString("Tor initializing...", comment: "")
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.7137254902, green: 0.6980392157, blue: 0.3764705882, alpha: 1)
         buttonRenew.isHidden = true
+        buttonRenewWidth.constant = 0
         buttonTor.setTitle(NSLocalizedString("LOADING", comment: ""), for: .normal)
     }
     
@@ -120,6 +122,7 @@ extension NetworkViewController {
         labelStatusTor.text = NSLocalizedString("Enabled", comment: "")
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.3568627451, green: 0.8470588235, blue: 0.4117647059, alpha: 1)
         buttonRenew.isHidden = false
+        buttonRenewWidth.constant = 55
         buttonTor.setTitle(NSLocalizedString("DISABLE", comment: ""), for: .normal)
     }
     
@@ -127,6 +130,8 @@ extension NetworkViewController {
         labelStatusTor.text = NSLocalizedString("Disabled", comment: "")
         viewStreetLightTor.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.1764705882, blue: 0.1764705882, alpha: 1)
         buttonRenew.isHidden = true
+        buttonRenewWidth.isActive = true
+        buttonRenewWidth.constant = 0
         buttonTor.setTitle(NSLocalizedString("ENABLE", comment: ""), for: .normal)
     }
     
