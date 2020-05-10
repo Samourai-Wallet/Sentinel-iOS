@@ -1,0 +1,63 @@
+/*
+ English.strings
+ Sentinel
+ 
+ Created by Farzad Nazifi on 8/22/18.
+ Copyright © 2018 Samourai. All rights reserved.
+ */
+
+// MARK: HomeFlowViewController
+"Settings" = "Paramètres";
+
+
+// MARK: HomeFlowViewController
+"New PIN" = "Nouveau PIN";
+"Confirm PIN" = "Confirmer PIN";
+"Enter PIN" = "Saisir PIN";
+"Remove PIN" = "Retirer PIN";
+"Done" = "Terminé";
+"Confirm" = "Confirmer";
+"Edit" = "Éditer";
+
+
+// MARK: ExportViewController
+"Export" = "Exporter";
+"Export wallet" = "Exporter le portefeuille";
+"Export Password" = "Exporter Mot de Passe";
+"Please enter a password" = "Veuillez saisir un mot de passe";
+"Cancel" = "Annuler";
+"Password here" = "Mot de Passe içi";
+
+
+// MARK: ImportViewController
+"Imported" = "Importé";
+"Your wallet has been successfully imported." = "Votre portefeuille a été importé avec succès.";
+"OK" = "OK";
+"Failed" = "Échec";
+
+
+// MARK: SettingsViewController
+"Street Price" = "Cours Actuel";
+"Import Watchlist" = "Importer la Liste de Suivi";
+"Export Watchlist" = "Exporter la Liste de Suivi";
+"Remove pincode" = "Retirer code PIN";
+"Scramble pincode" = "Affichage aléatoire code PIN";
+"Set pincode" = "Définir code PIN";
+
+
+// MARK: QRMakerViewController
+"Receiving Address" = "Adresse de Réception";
+"Segwit" = "Segwit";
+"Segwit Compatibility" = "Compatibilité Segwit";
+"Standard" = "Standard";
+"Copied" = "Copiée";
+"Public key has been copied to your clipboard!" = "La clé publique a été copiée dans le presse-papier!";
+
+
+// MARK: WalletsViewController
+"Account QR" = "Compte QR";
+"Rename" = "Renommer";
+"Remove" = "Retirer";
+
+// MARK: TrxViewController
+"Transaction" = "Transaction";

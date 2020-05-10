@@ -1,6 +1,11 @@
 PODS:
   - Alamofire (4.7.2)
   - CryptoSwift (0.10.0)
+  - HDWalletKit (0.1.1):
+    - CryptoSwift (~> 0.10.0)
+    - secp256k1.swift (~> 0.1.4)
+  - Locksmith (4.0.0)
+  - lottie-ios (2.5.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
@@ -15,28 +20,76 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (6.2.8):
     - PromiseKit/CorePromise
+  - QRCodeReader.swift (8.2.0)
+  - ReachabilitySwift (4.1.0)
+  - Realm (3.7.1):
+    - Realm/Headers (= 3.7.1)
+  - Realm/Headers (3.7.1)
+  - RealmSwift (3.7.1):
+    - Realm (= 3.7.1)
   - Result (3.2.4)
+  - secp256k1.swift (0.1.4)
+  - Starscream (3.0.5)
+  - SwiftRichString (2.0.1)
 
 DEPENDENCIES:
   - CryptoSwift (~> 0.10.0)
+  - HDWalletKit (from `https://github.com/Samourai-Wallet/HDWalletKit.git`, commit `bfedd45259d61d8de9465f91e14f1322e79cdf81`)
+  - Locksmith (~> 4.0.0)
+  - lottie-ios (~> 2.5.0)
   - Moya (~> 11.0.2)
   - PromiseKit (~> 6.2.8)
+  - QRCodeReader.swift (~> 8.2.0)
+  - ReachabilitySwift (~> 4.1.0)
+  - RealmSwift (~> 3.7.1)
+  - secp256k1.swift (~> 0.1.4)
+  - Starscream (~> 3.0.5)
+  - SwiftRichString (~> 2.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - CryptoSwift
+    - Locksmith
+    - lottie-ios
     - Moya
     - PromiseKit
+    - QRCodeReader.swift
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
     - Result
+    - secp256k1.swift
+    - Starscream
+    - SwiftRichString
+
+EXTERNAL SOURCES:
+  HDWalletKit:
+    :commit: bfedd45259d61d8de9465f91e14f1322e79cdf81
+    :git: https://github.com/Samourai-Wallet/HDWalletKit.git
+
+CHECKOUT OPTIONS:
+  HDWalletKit:
+    :commit: bfedd45259d61d8de9465f91e14f1322e79cdf81
+    :git: https://github.com/Samourai-Wallet/HDWalletKit.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CryptoSwift: 6c778d69282bed3b4e975ff97a79d074f20bb011
+  HDWalletKit: 6ee3b97f4565f052e6739ba26749e2002782d0e2
+  Locksmith: e9bebbaaa4cee3c511bc358a44f843c3fe00e21f
+  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   PromiseKit: 6788ce1a0ed5448b83d4aaf56b9fc49fb7647d32
+  QRCodeReader.swift: 003eb32f18a5a675b936ec82ba0ff368cddbff45
+  ReachabilitySwift: 6849231cd4e06559f3b9ef4a97a0a0f96d41e09f
+  Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
+  RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
+  Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
+  SwiftRichString: 3b29b5f2eb0eb244497532f2fd2ec26318eae584
 
-PODFILE CHECKSUM: e02981f0279fa652a0dd18b179dda4f2503dc591
+PODFILE CHECKSUM: b5336c3f57f88f5d0de222f1f060dbd9e976439f
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

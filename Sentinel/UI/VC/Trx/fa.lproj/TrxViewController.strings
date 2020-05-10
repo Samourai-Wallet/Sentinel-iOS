@@ -1,0 +1,27 @@
+
+/* Class = "UITextView"; text = "--"; ObjectID = "2h4-eQ-Awe"; */
+"2h4-eQ-Awe.text" = "--";
+
+/* Class = "UILabel"; text = "Status"; ObjectID = "9vt-GQ-zBr"; */
+"9vt-GQ-zBr.text" = "وضعیت";
+
+/* Class = "UILabel"; text = "Transaction ID"; ObjectID = "Mcl-nj-UkM"; */
+"Mcl-nj-UkM.text" = "شناسه تراکنش";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "OMx-PI-zp1"; */
+"OMx-PI-zp1.text" = "تاریخ";
+
+/* Class = "UILabel"; text = "--"; ObjectID = "efm-Qy-H7Q"; */
+"efm-Qy-H7Q.text" = "--";
+
+/* Class = "UILabel"; text = "--"; ObjectID = "seL-ij-FYp"; */
+"seL-ij-FYp.text" = "--";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "xSz-Vp-lYw"; */
+"xSz-Vp-lYw.text" = "0";
+
+/* Class = "UILabel"; text = "--"; ObjectID = "yoM-dJ-koa"; */
+"yoM-dJ-koa.text" = "--";
+
+/* Class = "UILabel"; text = "Current Value"; ObjectID = "zBF-ab-rnS"; */
+"zBF-ab-rnS.text" = "ارزض فعلی";

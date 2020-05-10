@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PushTXViewController" customModule="Sentinel" customModuleProvider="target">
+            <connections>
+                <outlet property="textView" destination="bZG-Wc-tLU" id="aJz-Ug-m1H"/>
+                <outlet property="view" destination="iN0-l3-epB" id="MZl-Ta-4dI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-Wc-tLU">
+                    <rect key="frame" x="10" y="65" width="355" height="250"/>
+                    <color key="backgroundColor" red="0.12901830673217773" green="0.14069026708602905" blue="0.16164737939834595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="ZE3-J9-dSm"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rZ-xJ-v4b">
+                    <rect key="frame" x="10" y="36" width="94" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1F-th-u5h">
+                    <rect key="frame" x="339" y="36" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="21" id="0li-fg-fu5"/>
+                        <constraint firstAttribute="height" constant="21" id="RsB-Q8-HWL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <state key="normal" image="Scan"/>
+                    <connections>
+                        <action selector="scanAction:" destination="-1" eventType="touchUpInside" id="eJH-HD-Nbe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.15218323469161987" green="0.17199999094009399" blue="0.19716167449951172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bZG-Wc-tLU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="7TK-2e-53I"/>
+                <constraint firstItem="5rZ-xJ-v4b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="e3w-7q-Stq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bZG-Wc-tLU" secondAttribute="trailing" constant="10" id="fhe-3D-Rmw"/>
+                <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="5rZ-xJ-v4b" secondAttribute="bottom" constant="8" id="h2b-v8-I5g"/>
+                <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="45" id="njU-mp-p3C"/>
+                <constraint firstItem="bZG-Wc-tLU" firstAttribute="top" secondItem="t1F-th-u5h" secondAttribute="bottom" constant="8" id="r2d-zp-Uls"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="t1F-th-u5h" secondAttribute="trailing" constant="15" id="zJI-ZL-vn0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Scan" width="19" height="19"/>
+    </resources>
+</document>

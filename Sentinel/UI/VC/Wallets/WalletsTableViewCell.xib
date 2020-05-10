@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoMono-Regular.ttf">
+            <string>RobotoMono-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" editingAccessoryType="detailButton" rowHeight="126" id="AY5-R2-z5N" customClass="WalletsTableViewCell" customModule="Sentinel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="484" height="95"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AY5-R2-z5N" id="vH7-K9-sHS">
+                <rect key="frame" x="0.0" y="0.0" width="484" height="94.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GKt-qw-wvt">
+                        <rect key="frame" x="24" y="10" width="445" height="74.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="ECN-gO-Ykb">
+                                <rect key="frame" x="0.0" y="0.0" width="314" height="74.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" verticalHuggingPriority="249" text="My Cold Storage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAj-X1-Mso">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="47.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="ds7a8das98das78dds7a8das98das78dds7a8das98das78d" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBb-2f-p1f">
+                                        <rect key="frame" x="0.0" y="27.5" width="314" height="47"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="sg9-As-rGG">
+                                <rect key="frame" x="344" y="0.0" width="101" height="74.5"/>
+                                <subviews>
+                                    <label opaque="NO" contentMode="left" text="0.24232" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZx-tT-X94">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" contentMode="left" verticalHuggingPriority="249" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9o-jH-hpQ">
+                                        <rect key="frame" x="75.5" y="27.5" width="25.5" height="47"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GKt-qw-wvt" secondAttribute="trailing" constant="15" id="We0-UE-9Ae"/>
+                    <constraint firstAttribute="bottom" secondItem="GKt-qw-wvt" secondAttribute="bottom" constant="10" id="aCY-pW-def"/>
+                    <constraint firstItem="GKt-qw-wvt" firstAttribute="leading" secondItem="vH7-K9-sHS" secondAttribute="leading" constant="24" id="geP-S0-7VP"/>
+                    <constraint firstItem="GKt-qw-wvt" firstAttribute="top" secondItem="vH7-K9-sHS" secondAttribute="top" constant="10" id="jO1-aO-g34"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.1529411765" green="0.17254901959999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="addrLabel" destination="QBb-2f-p1f" id="SIq-ic-ZlD"/>
+                <outlet property="balanceLabel" destination="aZx-tT-X94" id="HX0-2h-0rq"/>
+                <outlet property="currencyLabel" destination="P9o-jH-hpQ" id="ae7-LQ-uGO"/>
+                <outlet property="nameLabel" destination="EAj-X1-Mso" id="H8A-rV-tiy"/>
+            </connections>
+            <point key="canvasLocation" x="209" y="-264"/>
+        </tableViewCell>
+    </objects>
+</document>

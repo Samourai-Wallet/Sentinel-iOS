@@ -5,7 +5,6 @@
    - [Balance screen](#Balance-screen) 
    - [Watchlist](#Watchlist)
    - [Deposit](#Deposit)
-   - [sweep-private-key](#sweep-private-key) 
 - [Settings:](#settings) 
    - [Street-price](#Street-price) 
    - [Block-explorer](#Block-explorer) 
@@ -13,7 +12,6 @@
    - [Restore-wallet](#Restore-wallet) 
    - [Use-PIN-code](#Use-PIN-code) 
    - [Scramble-PIN-entry](#Scramble-PIN-entry) 
-   - [Haptic-PIN-entry](#Haptic-PIN-entry) 
    - [About-Sentinel](#About-Sentinel) 
 
 ## Basic-Functionality

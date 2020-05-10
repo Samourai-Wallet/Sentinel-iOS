@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoMono-Regular.ttf">
+            <string>RobotoMono-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="95" id="8HG-gH-qPR" customClass="TransactionTableViewCell" customModule="Sentinel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="445" height="95"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8HG-gH-qPR" id="MnO-HL-mIl">
+                <rect key="frame" x="0.0" y="0.0" width="445" height="94.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="IjL-rV-HYd">
+                        <rect key="frame" x="15" y="10" width="415" height="74.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="R38-rg-Tcx">
+                                <rect key="frame" x="0.0" y="16" width="50" height="43"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="arrowIn" translatesAutoresizingMaskIntoConstraints="NO" id="VZb-Le-EHw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="pen-bs-tVX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="17:10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="HJ4-SM-Din">
+                                        <rect key="frame" x="0.0" y="27" width="50" height="16"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="qTq-SE-WWT"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fin-xP-qlY">
+                                <rect key="frame" x="90" y="17.5" width="325" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ug9-x7-pBB">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" contentMode="left" text="5.0 BTC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0y5-9J-YNs">
+                                                <rect key="frame" x="0.0" y="0.0" width="259" height="21"/>
+                                                <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="18"/>
+                                                <color key="textColor" red="0.35686274509803922" green="0.84313725490196079" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Wallet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-rL-Oef">
+                                                <rect key="frame" x="0.0" y="24" width="259" height="16"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL4-2M-0pk">
+                                        <rect key="frame" x="269" y="0.0" width="56" height="40"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" red="1" green="0.87058823529411766" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" red="0.15218323469161987" green="0.17199999094009399" blue="0.19716167449951172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="IjL-rV-HYd" secondAttribute="trailing" constant="15" id="Ioa-Px-cJ2"/>
+                    <constraint firstItem="IjL-rV-HYd" firstAttribute="top" secondItem="MnO-HL-mIl" secondAttribute="top" constant="10" id="c1n-eR-eKz"/>
+                    <constraint firstItem="IjL-rV-HYd" firstAttribute="leading" secondItem="MnO-HL-mIl" secondAttribute="leading" constant="15" id="elu-Co-GQJ"/>
+                    <constraint firstAttribute="bottom" secondItem="IjL-rV-HYd" secondAttribute="bottom" constant="10" id="qh6-a6-fwU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="indicatorImageView" destination="VZb-Le-EHw" id="wBL-b1-DnU"/>
+                <outlet property="statusLabel" destination="sL4-2M-0pk" id="H8A-j3-9b0"/>
+                <outlet property="timeLabel" destination="HJ4-SM-Din" id="bfB-V6-mez"/>
+                <outlet property="valueLabel" destination="0y5-9J-YNs" id="UjR-QS-Ctm"/>
+                <outlet property="walletNameLabel" destination="JTa-rL-Oef" id="QdF-k9-nPs"/>
+            </connections>
+            <point key="canvasLocation" x="364.5" y="-243"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrowIn" width="372" height="372"/>
+    </resources>
+</document>

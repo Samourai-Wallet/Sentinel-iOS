@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewWalletViewController" customModule="Sentinel" customModuleProvider="target">
+            <connections>
+                <outlet property="addressTextField" destination="yCU-ot-GkU" id="9s2-5N-Nir"/>
+                <outlet property="nameTextField" destination="10w-kL-0bz" id="xas-8Z-RZQ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="uDS-AD-uYW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yCU-ot-GkU">
+                    <rect key="frame" x="15" y="211" width="345" height="40"/>
+                    <color key="backgroundColor" red="0.13333333333333333" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="zco-hq-PmT"/>
+                    </constraints>
+                    <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="73I-IO-7ZO">
+                    <rect key="frame" x="15" y="89" width="345" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10w-kL-0bz">
+                    <rect key="frame" x="15" y="120" width="345" height="40"/>
+                    <color key="backgroundColor" red="0.13333333333333333" green="0.15294117647058825" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Rcq-I5-Ifq"/>
+                    </constraints>
+                    <color key="textColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.94999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBY-cC-rv8">
+                    <rect key="frame" x="15" y="180" width="63" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPE-vi-DBh">
+                    <rect key="frame" x="0.0" y="30" width="375" height="44"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="New Item" id="QYG-EH-ybU">
+                            <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0nR-Ii-iLf">
+                                <connections>
+                                    <action selector="cancelAction:" destination="-1" id="yuL-dX-GT6"/>
+                                </connections>
+                            </barButtonItem>
+                            <rightBarButtonItems>
+                                <barButtonItem systemItem="save" id="l6O-f6-xAk">
+                                    <connections>
+                                        <action selector="createAction:" destination="-1" id="7Cb-Ai-DNO"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem image="Scan" id="VTV-mR-obs">
+                                    <connections>
+                                        <action selector="scanAction:" destination="-1" id="0JO-hr-5g3"/>
+                                    </connections>
+                                </barButtonItem>
+                            </rightBarButtonItems>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" red="0.15218323469161987" green="0.17199999094009399" blue="0.19716167449951172" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yCU-ot-GkU" secondAttribute="trailing" constant="15" id="1og-zm-OlE"/>
+                <constraint firstItem="nPE-vi-DBh" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="7sq-mx-Mib"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="73I-IO-7ZO" secondAttribute="trailing" constant="15" id="9HW-RF-jpU"/>
+                <constraint firstItem="73I-IO-7ZO" firstAttribute="top" secondItem="nPE-vi-DBh" secondAttribute="bottom" constant="15" id="BcK-H1-MSd"/>
+                <constraint firstItem="zBY-cC-rv8" firstAttribute="top" secondItem="10w-kL-0bz" secondAttribute="bottom" constant="20" id="EtW-Sk-cDL"/>
+                <constraint firstItem="yCU-ot-GkU" firstAttribute="top" secondItem="zBY-cC-rv8" secondAttribute="bottom" constant="10" id="GgX-eI-Fid"/>
+                <constraint firstItem="nPE-vi-DBh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="Iay-91-D00"/>
+                <constraint firstItem="yCU-ot-GkU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="J7T-ip-yts"/>
+                <constraint firstItem="zBY-cC-rv8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Kab-YP-127"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="10w-kL-0bz" secondAttribute="trailing" constant="15" id="KhN-k7-ihe"/>
+                <constraint firstItem="10w-kL-0bz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Qth-Rx-PJC"/>
+                <constraint firstItem="nPE-vi-DBh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dKd-Hh-7Op"/>
+                <constraint firstItem="10w-kL-0bz" firstAttribute="top" secondItem="73I-IO-7ZO" secondAttribute="bottom" constant="10" id="rBS-Gh-Lkt"/>
+                <constraint firstItem="73I-IO-7ZO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="zjf-7d-Kbf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Scan" width="19" height="19"/>
+    </resources>
+</document>

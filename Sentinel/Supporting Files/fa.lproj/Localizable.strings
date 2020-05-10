@@ -1,0 +1,62 @@
+/*
+ English.strings
+ Sentinel
+ 
+ Created by Farzad Nazifi on 8/22/18.
+ Copyright © 2018 Samourai. All rights reserved.
+ */
+
+// MARK: HomeFlowViewController
+"Settings" = "تنظیمات";
+
+
+// MARK: HomeFlowViewController
+"New PIN" = "پین جدید";
+"Confirm PIN" = "تایید پین";
+"Enter PIN" = "واردکردن پین";
+"Remove PIN" = "حذف پین";
+"Done" = "تمام";
+"Confirm" = "تایید";
+"Edit" = "ویرایش";
+
+// MARK: ExportViewController
+"Export" = "بیرون‌بری";
+"Export wallet" = "کیف‌پول بیرون‌بردن";
+"Export Password" = "رمز‌عبور بیرون‌بری";
+"Please enter a password" = "لطفا رمز‌عبور را وارد‌کنید";
+"Cancel" = "لغو";
+"Password here" = "رمز‌عبور اینجا";
+
+
+// MARK: ImportViewController
+"Imported" = "اضافه شده";
+"Your wallet has been successfully imported." = "کیف‌پول با موفقیت اضافه شد";
+"OK" = "تایید";
+"Failed" = "ناموق";
+
+
+// MARK: SettingsViewController
+"Street Price" = "قیت بازار";
+"Import Watchlist" = "اظافه‌کردن فهرست پیگیری";
+"Export Watchlist" = "بیرون‌بری فهرست پیگیری";
+"Remove pincode" = "حذف پین‌کد";
+"Scramble pincode" = "تقلاسازی پین‌کد";
+"Set pincode" = "پین‌کد گذاشتن";
+
+
+// MARK: QRMakerViewController
+"Receiving Address" = "آدرس دریافت‌سازی";
+"Segwit" = "Segwit";
+"Segwit Compatibility" = "Segwit Compatibility";
+"Standard" = "Standard";
+"Copied" = "کپی‌شد";
+"Public key has been copied to your clipboard!" = "کلید عمومی کپی شد";
+
+
+// MARK: WalletsViewController
+"Account QR" = "بارکد حساب‌";
+"Rename" = "تغییر نام";
+"Remove" = "حذف";
+
+// MARK: TrxViewController
+"Transaction" = "تراکنش";

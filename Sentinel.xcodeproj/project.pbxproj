@@ -8,20 +8,144 @@
 
 /* Begin PBXBuildFile section */
 		5DEE9D098471CDF1759850A9 /* Pods_Sentinel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 206EA544E973294A55265168 /* Pods_Sentinel.framework */; };
+		80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */; };
+		8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */; };
+		8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8019763520CA8ED20066CAC6 /* PincodeViewController.xib */; };
+		8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */; };
 		801E167C20C06326003D80FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801E167B20C06326003D80FE /* AppDelegate.swift */; };
-		801E168120C06326003D80FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E167F20C06326003D80FE /* Main.storyboard */; };
 		801E168320C06327003D80FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801E168220C06327003D80FE /* Assets.xcassets */; };
 		801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801E168420C06327003D80FE /* LaunchScreen.storyboard */; };
+		802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 802828CF212DAE1A003C1E56 /* Localizable.strings */; };
+		802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D2212DB155003C1E56 /* ImportViewController.xib */; };
+		802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D5212DB21F003C1E56 /* QRMakerViewController.xib */; };
+		802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */; };
+		802828D9212DB365003C1E56 /* TrxViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802828DB212DB365003C1E56 /* TrxViewController.xib */; };
+		803AD34A216F2AE00009390F /* PushTXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803AD349216F2ADF0009390F /* PushTXViewController.swift */; };
+		803AD34C216F2AE70009390F /* PushTXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 803AD34B216F2AE70009390F /* PushTXViewController.xib */; };
+		8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB8C20C1588E007541F8 /* BalanceViewController.xib */; };
+		8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB8E20C1589B007541F8 /* BalanceViewController.swift */; };
+		8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */; };
+		8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9420C15CB7007541F8 /* TransactionsViewController.swift */; };
+		8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9620C15EFD007541F8 /* TransactionTableViewCell.swift */; };
+		8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */; };
+		8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */; };
+		8047ABA020C163D5007541F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8047AB9F20C163D5007541F8 /* Transition.swift */; };
+		8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */; };
+		8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */; };
+		806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8ADD20C1E654008AC0CF /* Sentinel.swift */; };
+		806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE020C1F660008AC0CF /* Xpub.swift */; };
+		806A8AE320C1F723008AC0CF /* Trx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE220C1F723008AC0CF /* Trx.swift */; };
+		806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */; };
+		806A8AE720C205CC008AC0CF /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AE620C205CC008AC0CF /* Util.swift */; };
+		806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */; };
+		806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB520D5514800438F5C /* RootNavigationViewController.xib */; };
+		806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D1CB820D551C100438F5C /* HomeFlowViewController.xib */; };
+		806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D586720C549F0003C5290 /* SettingsViewController.swift */; };
+		806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D586920C549F8003C5290 /* SettingsViewController.xib */; };
+		806D588220C5DA1F003C5290 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 806D588120C5DA1F003C5290 /* data.json */; };
+		806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */; };
+		806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 806D588720C5F204003C5290 /* StreetPriceViewController.xib */; };
+		806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0A20C089C200C6F76E /* Transaction.swift */; };
+		806E2A0D20C092F000C6F76E /* HD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0C20C092F000C6F76E /* HD.swift */; };
+		806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806E2A0E20C09A9500C6F76E /* Unspent.swift */; };
+		80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */; };
+		8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */; };
+		8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8087CCAC20C2C66700A03D90 /* WalletsViewController.xib */; };
+		8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCAE20C2C66C00A03D90 /* WalletsViewController.swift */; };
+		8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8087CCB020C2C6D800A03D90 /* WalletsTableViewCell.xib */; };
+		8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */; };
+		8087CCB520C3130800A03D90 /* AddressType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB420C3130800A03D90 /* AddressType.swift */; };
+		8087CCB820C3444300A03D90 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8087CCB720C3444300A03D90 /* Wallet.swift */; };
+		80B04C8920DBBDF800FA94B8 /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */; };
+		80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */; };
+		80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80B2039520C80A6400CF0086 /* ExportViewController.xib */; };
+		80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2039720C80A7000CF0086 /* ExportViewController.swift */; };
+		80C4044E20C496480086318C /* WalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4044D20C496480086318C /* WalletViewController.swift */; };
+		80C4045020C496670086318C /* WalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80C4044F20C496660086318C /* WalletViewController.xib */; };
+		80C4045220C4A2880086318C /* TrxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045120C4A2880086318C /* TrxViewController.swift */; };
+		80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045720C4AE3A0086318C /* QRMakerViewController.swift */; };
+		80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C4045B20C4AEEA0086318C /* QRMaker.swift */; };
+		80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F1FFA620C4394F004245EF /* WalletTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		206EA544E973294A55265168 /* Pods_Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		800029F0213341C4006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		800029FA213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
+		800029FB213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
+		800029FC213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/TrxViewController.strings; sourceTree = "<group>"; };
+		800029FE213346B6006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80002A0021334831006D6CC2 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/ImportViewController.strings; sourceTree = "<group>"; };
+		80002A02213348C4006D6CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImportViewController.strings; sourceTree = "<group>"; };
+		80002A0421334993006D6CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
+		80002A06213349E9006D6CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
+		80002A0821334A07006D6CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TrxViewController.strings; sourceTree = "<group>"; };
+		80002A0A21334E89006D6CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BottomMergedViewController.xib; sourceTree = "<group>"; };
+		8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeViewController.swift; sourceTree = "<group>"; };
+		8019763520CA8ED20066CAC6 /* PincodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PincodeViewController.xib; sourceTree = "<group>"; };
+		8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationViewController.swift; sourceTree = "<group>"; };
 		801E167820C06326003D80FE /* Sentinel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		801E167B20C06326003D80FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		801E168020C06326003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801E168220C06327003D80FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		801E168520C06327003D80FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801E168720C06327003D80FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		802828CE212DAE1A003C1E56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		802828D1212DB155003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ImportViewController.xib; sourceTree = "<group>"; };
+		802828D4212DB21F003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/QRMakerViewController.xib; sourceTree = "<group>"; };
+		802828D7212DB2EB003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NewWalletViewController.xib; sourceTree = "<group>"; };
+		802828DA212DB365003C1E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TrxViewController.xib; sourceTree = "<group>"; };
+		802DB0B120E4D6100008DC85 /* Sentinel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sentinel.entitlements; sourceTree = "<group>"; };
+		803AD349216F2ADF0009390F /* PushTXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTXViewController.swift; sourceTree = "<group>"; };
+		803AD34B216F2AE70009390F /* PushTXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PushTXViewController.xib; sourceTree = "<group>"; };
+		80458F302152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ImportViewController.strings; sourceTree = "<group>"; };
+		80458F312152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/QRMakerViewController.strings; sourceTree = "<group>"; };
+		80458F322152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/NewWalletViewController.strings; sourceTree = "<group>"; };
+		80458F332152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TrxViewController.strings; sourceTree = "<group>"; };
+		80458F352152B6130066BE9F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8047AB8C20C1588E007541F8 /* BalanceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalanceViewController.xib; sourceTree = "<group>"; };
+		8047AB8E20C1589B007541F8 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
+		8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionsViewController.xib; sourceTree = "<group>"; };
+		8047AB9420C15CB7007541F8 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		8047AB9620C15EFD007541F8 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFlowViewController.swift; sourceTree = "<group>"; };
+		8047AB9F20C163D5007541F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPricesProvider.swift; sourceTree = "<group>"; };
+		8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		806A8ADD20C1E654008AC0CF /* Sentinel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentinel.swift; sourceTree = "<group>"; };
+		806A8AE020C1F660008AC0CF /* Xpub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xpub.swift; sourceTree = "<group>"; };
+		806A8AE220C1F723008AC0CF /* Trx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trx.swift; sourceTree = "<group>"; };
+		806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseKit_Moya_Decode.swift; sourceTree = "<group>"; };
+		806A8AE620C205CC008AC0CF /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletViewController.swift; sourceTree = "<group>"; };
+		806D1CB520D5514800438F5C /* RootNavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootNavigationViewController.xib; sourceTree = "<group>"; };
+		806D1CB820D551C100438F5C /* HomeFlowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFlowViewController.xib; sourceTree = "<group>"; };
+		806D586720C549F0003C5290 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		806D586920C549F8003C5290 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		806D588120C5DA1F003C5290 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetPriceViewController.swift; sourceTree = "<group>"; };
+		806D588720C5F204003C5290 /* StreetPriceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreetPriceViewController.xib; sourceTree = "<group>"; };
+		806E2A0A20C089C200C6F76E /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		806E2A0C20C092F000C6F76E /* HD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HD.swift; sourceTree = "<group>"; };
+		806E2A0E20C09A9500C6F76E /* Unspent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unspent.swift; sourceTree = "<group>"; };
+		80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamouraiProvider.swift; sourceTree = "<group>"; };
+		807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel-Bridging-Header.h"; sourceTree = "<group>"; };
+		8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMergedViewController.swift; sourceTree = "<group>"; };
+		8087CCAC20C2C66700A03D90 /* WalletsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsViewController.xib; sourceTree = "<group>"; };
+		8087CCAE20C2C66C00A03D90 /* WalletsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsViewController.swift; sourceTree = "<group>"; };
+		8087CCB020C2C6D800A03D90 /* WalletsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletsTableViewCell.xib; sourceTree = "<group>"; };
+		8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletsTableViewCell.swift; sourceTree = "<group>"; };
+		8087CCB420C3130800A03D90 /* AddressType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressType.swift; sourceTree = "<group>"; };
+		8087CCB720C3444300A03D90 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
+		80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewController.swift; sourceTree = "<group>"; };
+		80B2039520C80A6400CF0086 /* ExportViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExportViewController.xib; sourceTree = "<group>"; };
+		80B2039720C80A7000CF0086 /* ExportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportViewController.swift; sourceTree = "<group>"; };
+		80C4044D20C496480086318C /* WalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewController.swift; sourceTree = "<group>"; };
+		80C4044F20C496660086318C /* WalletViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletViewController.xib; sourceTree = "<group>"; };
+		80C4045120C4A2880086318C /* TrxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrxViewController.swift; sourceTree = "<group>"; };
+		80C4045720C4AE3A0086318C /* QRMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMakerViewController.swift; sourceTree = "<group>"; };
+		80C4045B20C4AEEA0086318C /* QRMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRMaker.swift; sourceTree = "<group>"; };
+		80F1FFA620C4394F004245EF /* WalletTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransaction.swift; sourceTree = "<group>"; };
 		88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.debug.xcconfig"; sourceTree = "<group>"; };
 		DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +162,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8019763220CA8EB70066CAC6 /* Pincode */ = {
+			isa = PBXGroup;
+			children = (
+				8019763320CA8ECB0066CAC6 /* PincodeViewController.swift */,
+				8019763520CA8ED20066CAC6 /* PincodeViewController.xib */,
+			);
+			path = Pincode;
+			sourceTree = "<group>";
+		};
+		8019763920CAA7860066CAC6 /* RootNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				8019763A20CAA7970066CAC6 /* RootNavigationViewController.swift */,
+				806D1CB520D5514800438F5C /* RootNavigationViewController.xib */,
+			);
+			path = RootNavigation;
+			sourceTree = "<group>";
+		};
 		801E166F20C06326003D80FE = {
 			isa = PBXGroup;
 			children = (
@@ -59,13 +201,275 @@
 		801E167A20C06326003D80FE /* Sentinel */ = {
 			isa = PBXGroup;
 			children = (
+				802DB0B120E4D6100008DC85 /* Sentinel.entitlements */,
+				807E26CC20C0AABC00B03C4A /* Core */,
+				8047AB8B20C15801007541F8 /* UI */,
+				807E26CE20C0AB1600B03C4A /* Supporting Files */,
+			);
+			path = Sentinel;
+			sourceTree = "<group>";
+		};
+		803AD348216F2AC70009390F /* PushTX */ = {
+			isa = PBXGroup;
+			children = (
+				803AD349216F2ADF0009390F /* PushTXViewController.swift */,
+				803AD34B216F2AE70009390F /* PushTXViewController.xib */,
+			);
+			path = PushTX;
+			sourceTree = "<group>";
+		};
+		8047AB8B20C15801007541F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB9B20C16369007541F8 /* Flow */,
+				8047AB9A20C1635E007541F8 /* VC */,
+				8047AB9E20C163A4007541F8 /* Extension */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8047AB9020C15C88007541F8 /* Balance */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB8E20C1589B007541F8 /* BalanceViewController.swift */,
+				8047AB8C20C1588E007541F8 /* BalanceViewController.xib */,
+			);
+			path = Balance;
+			sourceTree = "<group>";
+		};
+		8047AB9120C15C92007541F8 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB9420C15CB7007541F8 /* TransactionsViewController.swift */,
+				8047AB9220C15CA9007541F8 /* TransactionsViewController.xib */,
+				8047AB9620C15EFD007541F8 /* TransactionTableViewCell.swift */,
+				8047AB9820C15F0C007541F8 /* TransactionTableViewCell.xib */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		8047AB9A20C1635E007541F8 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				803AD348216F2AC70009390F /* PushTX */,
+				80B04C8720DBBDB400FA94B8 /* Cover */,
+				8019763220CA8EB70066CAC6 /* Pincode */,
+				8068206B20C6DF1500F5F0B2 /* Export */,
+				8068206A20C6DF0D00F5F0B2 /* Import */,
+				806D588320C5F1EF003C5290 /* StreetPrice */,
+				806D586620C54866003C5290 /* Settings */,
+				80C4045620C4AE250086318C /* QRMaker */,
+				80C4044C20C4963A0086318C /* Wallet */,
+				8087CCAB20C2C64600A03D90 /* Wallets */,
+				806A8AED20C20E31008AC0CF /* NewWallet */,
+				8047AB9020C15C88007541F8 /* Balance */,
+				8047AB9120C15C92007541F8 /* Transactions */,
+				80C4045320C4A28E0086318C /* Trx */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		8047AB9B20C16369007541F8 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8019763920CAA7860066CAC6 /* RootNavigation */,
+				806D1CB720D551B200438F5C /* HomeFlow */,
+				8087CCA520C2B79900A03D90 /* BottomMerged */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		8047AB9E20C163A4007541F8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB9F20C163D5007541F8 /* Transition.swift */,
+				806A8AE420C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift */,
+				806A8AE620C205CC008AC0CF /* Util.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8068206720C6B28600F5F0B2 /* StreetPrices */ = {
+			isa = PBXGroup;
+			children = (
+				8068206820C6B2A300F5F0B2 /* StreetPricesProvider.swift */,
+			);
+			path = StreetPrices;
+			sourceTree = "<group>";
+		};
+		8068206A20C6DF0D00F5F0B2 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				8068206C20C6DF2100F5F0B2 /* ImportViewController.swift */,
+				802828D2212DB155003C1E56 /* ImportViewController.xib */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		8068206B20C6DF1500F5F0B2 /* Export */ = {
+			isa = PBXGroup;
+			children = (
+				80B2039720C80A7000CF0086 /* ExportViewController.swift */,
+				80B2039520C80A6400CF0086 /* ExportViewController.xib */,
+			);
+			path = Export;
+			sourceTree = "<group>";
+		};
+		806A8ADF20C1E658008AC0CF /* Sentinel */ = {
+			isa = PBXGroup;
+			children = (
+				8087CCB620C343CD00A03D90 /* Realm */,
+				806A8ADD20C1E654008AC0CF /* Sentinel.swift */,
+				8087CCB420C3130800A03D90 /* AddressType.swift */,
+			);
+			path = Sentinel;
+			sourceTree = "<group>";
+		};
+		806A8AED20C20E31008AC0CF /* NewWallet */ = {
+			isa = PBXGroup;
+			children = (
+				806A8AF020C20E7B008AC0CF /* NewWalletViewController.swift */,
+				802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */,
+			);
+			path = NewWallet;
+			sourceTree = "<group>";
+		};
+		806D1CB720D551B200438F5C /* HomeFlow */ = {
+			isa = PBXGroup;
+			children = (
+				8047AB9C20C16377007541F8 /* HomeFlowViewController.swift */,
+				806D1CB820D551C100438F5C /* HomeFlowViewController.xib */,
+			);
+			path = HomeFlow;
+			sourceTree = "<group>";
+		};
+		806D586620C54866003C5290 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				806D586720C549F0003C5290 /* SettingsViewController.swift */,
+				806D586920C549F8003C5290 /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		806D588320C5F1EF003C5290 /* StreetPrice */ = {
+			isa = PBXGroup;
+			children = (
+				806D588520C5F1FF003C5290 /* StreetPriceViewController.swift */,
+				806D588720C5F204003C5290 /* StreetPriceViewController.xib */,
+			);
+			path = StreetPrice;
+			sourceTree = "<group>";
+		};
+		80724C0320C069B3005EC9A1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8068206720C6B28600F5F0B2 /* StreetPrices */,
+				807E26CD20C0AAD700B03C4A /* Samourai */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		807E26CC20C0AABC00B03C4A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				80724C0320C069B3005EC9A1 /* API */,
+				806A8ADF20C1E658008AC0CF /* Sentinel */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		807E26CD20C0AAD700B03C4A /* Samourai */ = {
+			isa = PBXGroup;
+			children = (
+				80724C0420C069C5005EC9A1 /* SamouraiProvider.swift */,
+				806E2A0A20C089C200C6F76E /* Transaction.swift */,
+				806E2A0C20C092F000C6F76E /* HD.swift */,
+				806A8AE020C1F660008AC0CF /* Xpub.swift */,
+				806A8AE220C1F723008AC0CF /* Trx.swift */,
+				806E2A0E20C09A9500C6F76E /* Unspent.swift */,
+			);
+			path = Samourai;
+			sourceTree = "<group>";
+		};
+		807E26CE20C0AB1600B03C4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				802828CF212DAE1A003C1E56 /* Localizable.strings */,
 				801E167B20C06326003D80FE /* AppDelegate.swift */,
-				801E167F20C06326003D80FE /* Main.storyboard */,
+				807E26C420C0A95000B03C4A /* Sentinel-Bridging-Header.h */,
 				801E168220C06327003D80FE /* Assets.xcassets */,
 				801E168420C06327003D80FE /* LaunchScreen.storyboard */,
 				801E168720C06327003D80FE /* Info.plist */,
 			);
-			path = Sentinel;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8087CCA520C2B79900A03D90 /* BottomMerged */ = {
+			isa = PBXGroup;
+			children = (
+				8087CCA620C2B7CE00A03D90 /* BottomMergedViewController.swift */,
+				806D588120C5DA1F003C5290 /* data.json */,
+				80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */,
+			);
+			path = BottomMerged;
+			sourceTree = "<group>";
+		};
+		8087CCAB20C2C64600A03D90 /* Wallets */ = {
+			isa = PBXGroup;
+			children = (
+				8087CCAE20C2C66C00A03D90 /* WalletsViewController.swift */,
+				8087CCAC20C2C66700A03D90 /* WalletsViewController.xib */,
+				8087CCB220C2C6DD00A03D90 /* WalletsTableViewCell.swift */,
+				8087CCB020C2C6D800A03D90 /* WalletsTableViewCell.xib */,
+			);
+			path = Wallets;
+			sourceTree = "<group>";
+		};
+		8087CCB620C343CD00A03D90 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				8087CCB720C3444300A03D90 /* Wallet.swift */,
+				80F1FFA620C4394F004245EF /* WalletTransaction.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		80B04C8720DBBDB400FA94B8 /* Cover */ = {
+			isa = PBXGroup;
+			children = (
+				80B04C8A20DBBDFF00FA94B8 /* CoverViewController.swift */,
+				80B04C8820DBBDF800FA94B8 /* CoverViewController.xib */,
+			);
+			path = Cover;
+			sourceTree = "<group>";
+		};
+		80C4044C20C4963A0086318C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				80C4044D20C496480086318C /* WalletViewController.swift */,
+				80C4044F20C496660086318C /* WalletViewController.xib */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		80C4045320C4A28E0086318C /* Trx */ = {
+			isa = PBXGroup;
+			children = (
+				80C4045120C4A2880086318C /* TrxViewController.swift */,
+				802828DB212DB365003C1E56 /* TrxViewController.xib */,
+			);
+			path = Trx;
+			sourceTree = "<group>";
+		};
+		80C4045620C4AE250086318C /* QRMaker */ = {
+			isa = PBXGroup;
+			children = (
+				80C4045720C4AE3A0086318C /* QRMakerViewController.swift */,
+				802828D5212DB21F003C1E56 /* QRMakerViewController.xib */,
+				80C4045B20C4AEEA0086318C /* QRMaker.swift */,
+			);
+			path = QRMaker;
 			sourceTree = "<group>";
 		};
 		A948E45EF0799050BC9BF0E6 /* Frameworks */ = {
@@ -119,6 +523,15 @@
 				TargetAttributes = {
 					801E167720C06326003D80FE = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -129,6 +542,8 @@
 			knownRegions = (
 				en,
 				Base,
+				fa,
+				fr,
 			);
 			mainGroup = 801E166F20C06326003D80FE;
 			productRefGroup = 801E167920C06326003D80FE /* Products */;
@@ -145,9 +560,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8087CCB120C2C6D800A03D90 /* WalletsTableViewCell.xib in Resources */,
+				806D1CB920D551C100438F5C /* HomeFlowViewController.xib in Resources */,
+				802828D6212DB2EB003C1E56 /* NewWalletViewController.xib in Resources */,
+				802828CD212DAE1A003C1E56 /* Localizable.strings in Resources */,
+				8047AB9320C15CA9007541F8 /* TransactionsViewController.xib in Resources */,
+				8087CCAD20C2C66700A03D90 /* WalletsViewController.xib in Resources */,
+				802828D3212DB21F003C1E56 /* QRMakerViewController.xib in Resources */,
+				802828D0212DB155003C1E56 /* ImportViewController.xib in Resources */,
+				802828D9212DB365003C1E56 /* TrxViewController.xib in Resources */,
+				80B2039620C80A6400CF0086 /* ExportViewController.xib in Resources */,
+				80002A0921334E89006D6CC2 /* BottomMergedViewController.xib in Resources */,
 				801E168620C06327003D80FE /* LaunchScreen.storyboard in Resources */,
+				8019763620CA8ED20066CAC6 /* PincodeViewController.xib in Resources */,
+				806D588820C5F204003C5290 /* StreetPriceViewController.xib in Resources */,
 				801E168320C06327003D80FE /* Assets.xcassets in Resources */,
-				801E168120C06326003D80FE /* Main.storyboard in Resources */,
+				806D586A20C549F8003C5290 /* SettingsViewController.xib in Resources */,
+				806D588220C5DA1F003C5290 /* data.json in Resources */,
+				80C4045020C496670086318C /* WalletViewController.xib in Resources */,
+				80B04C8920DBBDF800FA94B8 /* CoverViewController.xib in Resources */,
+				806D1CB620D5514800438F5C /* RootNavigationViewController.xib in Resources */,
+				8047AB9920C15F0C007541F8 /* TransactionTableViewCell.xib in Resources */,
+				8047AB8D20C1588E007541F8 /* BalanceViewController.xib in Resources */,
+				803AD34C216F2AE70009390F /* PushTXViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,17 +616,37 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sentinel/Pods-Sentinel-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/HDWalletKit/HDWalletKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Locksmith/Locksmith.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftRichString/SwiftRichString.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDWalletKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Locksmith.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftRichString.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -205,27 +660,115 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8087CCB820C3444300A03D90 /* Wallet.swift in Sources */,
+				803AD34A216F2AE00009390F /* PushTXViewController.swift in Sources */,
+				8068206920C6B2A300F5F0B2 /* StreetPricesProvider.swift in Sources */,
+				806D588620C5F1FF003C5290 /* StreetPriceViewController.swift in Sources */,
+				80F1FFA720C4394F004245EF /* WalletTransaction.swift in Sources */,
+				8047ABA020C163D5007541F8 /* Transition.swift in Sources */,
+				8087CCA720C2B7CE00A03D90 /* BottomMergedViewController.swift in Sources */,
+				806A8AE720C205CC008AC0CF /* Util.swift in Sources */,
+				806A8AF120C20E7B008AC0CF /* NewWalletViewController.swift in Sources */,
+				806E2A0F20C09A9500C6F76E /* Unspent.swift in Sources */,
+				806E2A0D20C092F000C6F76E /* HD.swift in Sources */,
+				806A8AE320C1F723008AC0CF /* Trx.swift in Sources */,
+				80C4044E20C496480086318C /* WalletViewController.swift in Sources */,
+				80C4045820C4AE3A0086318C /* QRMakerViewController.swift in Sources */,
 				801E167C20C06326003D80FE /* AppDelegate.swift in Sources */,
+				8019763B20CAA7970066CAC6 /* RootNavigationViewController.swift in Sources */,
+				80724C0520C069C5005EC9A1 /* SamouraiProvider.swift in Sources */,
+				8047AB9520C15CB7007541F8 /* TransactionsViewController.swift in Sources */,
+				80B04C8B20DBBDFF00FA94B8 /* CoverViewController.swift in Sources */,
+				8047AB9D20C16377007541F8 /* HomeFlowViewController.swift in Sources */,
+				806E2A0B20C089C200C6F76E /* Transaction.swift in Sources */,
+				8068206D20C6DF2100F5F0B2 /* ImportViewController.swift in Sources */,
+				8087CCAF20C2C66C00A03D90 /* WalletsViewController.swift in Sources */,
+				80C4045C20C4AEEA0086318C /* QRMaker.swift in Sources */,
+				80B2039820C80A7000CF0086 /* ExportViewController.swift in Sources */,
+				8047AB9720C15EFD007541F8 /* TransactionTableViewCell.swift in Sources */,
+				806A8ADE20C1E654008AC0CF /* Sentinel.swift in Sources */,
+				806A8AE520C1F8C8008AC0CF /* PromiseKit_Moya_Decode.swift in Sources */,
+				8019763420CA8ECB0066CAC6 /* PincodeViewController.swift in Sources */,
+				806D586820C549F0003C5290 /* SettingsViewController.swift in Sources */,
+				8087CCB320C2C6DD00A03D90 /* WalletsTableViewCell.swift in Sources */,
+				806A8AE120C1F660008AC0CF /* Xpub.swift in Sources */,
+				8047AB8F20C1589B007541F8 /* BalanceViewController.swift in Sources */,
+				8087CCB520C3130800A03D90 /* AddressType.swift in Sources */,
+				80C4045220C4A2880086318C /* TrxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		801E167F20C06326003D80FE /* Main.storyboard */ = {
+		80002A0B21334E89006D6CC2 /* BottomMergedViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				801E168020C06326003D80FE /* Base */,
+				80002A0A21334E89006D6CC2 /* Base */,
 			);
-			name = Main.storyboard;
+			name = BottomMergedViewController.xib;
 			sourceTree = "<group>";
 		};
 		801E168420C06327003D80FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				801E168520C06327003D80FE /* Base */,
+				800029F0213341C4006D6CC2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		802828CF212DAE1A003C1E56 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828CE212DAE1A003C1E56 /* en */,
+				800029FE213346B6006D6CC2 /* fa */,
+				80458F352152B6130066BE9F /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		802828D2212DB155003C1E56 /* ImportViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D1212DB155003C1E56 /* Base */,
+				80002A0021334831006D6CC2 /* fa */,
+				80002A02213348C4006D6CC2 /* en */,
+				80458F302152B6130066BE9F /* fr */,
+			);
+			name = ImportViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828D5212DB21F003C1E56 /* QRMakerViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D4212DB21F003C1E56 /* Base */,
+				800029FA213346B6006D6CC2 /* fa */,
+				80002A0421334993006D6CC2 /* en */,
+				80458F312152B6130066BE9F /* fr */,
+			);
+			name = QRMakerViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828D8212DB2EB003C1E56 /* NewWalletViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828D7212DB2EB003C1E56 /* Base */,
+				800029FB213346B6006D6CC2 /* fa */,
+				80002A06213349E9006D6CC2 /* en */,
+				80458F322152B6130066BE9F /* fr */,
+			);
+			name = NewWalletViewController.xib;
+			sourceTree = "<group>";
+		};
+		802828DB212DB365003C1E56 /* TrxViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				802828DA212DB365003C1E56 /* Base */,
+				800029FC213346B6006D6CC2 /* fa */,
+				80002A0821334A07006D6CC2 /* en */,
+				80458F332152B6130066BE9F /* fr */,
+			);
+			name = TrxViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -235,6 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -295,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -350,16 +895,22 @@
 			baseConfigurationReference = 88AAA009AC52563C30B77C84 /* Pods-Sentinel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				DEVELOPMENT_TEAM = 2A49Z99PS8;
+				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samourai.Sentinel;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.samourai.sentinel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7f07d49b-f1fd-43d5-afc3-cd2ac733165f";
+				PROVISIONING_PROFILE_SPECIFIER = "Sentinel iOS dev";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Supporting Files/Sentinel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -370,16 +921,20 @@
 			baseConfigurationReference = DA9C582EE45C0AA5A5CDD6FB /* Pods-Sentinel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sentinel/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.samourai.Sentinel;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.samourai.sentinel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Supporting Files/Sentinel-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
