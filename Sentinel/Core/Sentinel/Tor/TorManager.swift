@@ -9,8 +9,9 @@
 import Foundation
 
 protocol TorManagerDelegate : class {
-    func torConnProgress(_ progress: Int)
-    func torConnFinished()
+    func torConnectionProgress(_ progress: Int)
+    func torCircuitEstablished()
+    func torSessionEstablished()
 }
 
 class TorManager : NSObject {
@@ -36,8 +37,17 @@ class TorManager : NSObject {
         torController = TorController(socketHost: "127.0.0.1", port: 39060)
         torThread = TorThread(configuration: TorManager.configuration)
     }
+    
+    func isEnabled() -> Bool {
+        switch (TorManager.shared.state) {
+        case .stopped, .none:
+            return false
+        case .started, .connected:
+            return true
+        }
+    }
 
-    func startTor(delegate: TorManagerDelegate?) {
+    func startTor(delegate: TorManagerDelegate?, _ callback: ((_ success: Bool) -> Void)? = nil) {
         if state == .none {
             torThread?.start()
         }
@@ -68,14 +78,16 @@ class TorManager : NSObject {
                     completeObs = self.torController?.addObserver(forCircuitEstablished: { established in
                         if established {
                             NSLog("Success! Circuit established")
-                            self.state = .connected
-                            self.torController?.removeObserver(completeObs)
+                            weakDelegate?.torCircuitEstablished()
                             self.torController?.getSessionConfiguration({ (conf: URLSessionConfiguration?) in
                                 if let configuration = conf {
+                                    self.state = .connected
                                     self.sessionHandler.torSessionEstablished(configuration)
+                                    weakDelegate?.torSessionEstablished()
+                                    callback?(true)
                                 }
                             })
-                            weakDelegate?.torConnFinished()
+                            self.torController?.removeObserver(completeObs)
                         }
                     })
                     
@@ -85,7 +97,7 @@ class TorManager : NSObject {
 
                         if type == "STATUS_CLIENT" && action == "BOOTSTRAP" {
                             let progress = Int(arguments!["PROGRESS"]!)!
-                            weakDelegate?.torConnProgress(progress)
+                            weakDelegate?.torConnectionProgress(progress)
                             if progress >= 100 {
                                 self.torController?.removeObserver(progressObserver)
                             }
@@ -96,6 +108,7 @@ class TorManager : NSObject {
                     })
                 } else {
                     NSLog("Didn't connect to control port.")
+                    callback?(false)
                 }
             })
         })

@@ -87,14 +87,12 @@ class HomeFlowViewController: UIViewController, NewWalletViewControllerDelegate 
         if TorManager.shared.state == .connected {
             return
         }
-        if let isTorEnabled = UserDefaults.standard.value(forKey: "isTorEnabled") as? Bool {
-            if isTorEnabled {
-                let initTorVC = InitializingTorViewController()
-                initTorVC.modalPresentationStyle = .overCurrentContext
-                self.present(initTorVC, animated: false, completion: nil)
-            } else {
-                NSLog("TOR disabled in user defaults.")
-            }
+        if Settings.isTorEnabled {
+            let initNetworkVC = InitializingNetworkViewController()
+            initNetworkVC.modalPresentationStyle = .overCurrentContext
+            self.present(initNetworkVC, animated: false, completion: nil)
+        } else {
+            NSLog("TOR disabled in user defaults.")
         }
     }
     

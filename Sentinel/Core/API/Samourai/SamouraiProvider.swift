@@ -23,9 +23,12 @@ enum Samourai {
 extension Samourai: TargetType {
     
     var baseURL: URL {
-        if TorManager.shared.state == .connected {
+        switch Sentinel.state {
+        case .dojoTor:
+            return DojoManager.shared.getDojoUrl()!
+        case .samouraiTor:
             return URL(string: "http://d2oagweysnavqgcfsfawqwql2rwxend7xxpriq676lzsmtfwbt75qbqd.onion/v2/")!
-        } else {
+        case .samouraiClear:
             return URL(string: "https://api.samouraiwallet.com/v2/")!
         }
     }
@@ -69,11 +72,11 @@ extension Samourai: TargetType {
     var task: Task {
         switch self {
         case let .multiaddr(active, new, bip49, bip84), let .unspent(active, new, bip49, bip84):
-            return .requestParameters(parameters: parameters(active: active, new: new, bip49: bip49, bip84: bip84), encoding: URLEncoding.default)
+            return .requestParameters(parameters: dojorize(parameters(active: active, new: new, bip49: bip49, bip84: bip84)), encoding: URLEncoding.default)
         case let .addxpub(xpub, type, segwit):
-            return .requestParameters(parameters: parameters(xpub: xpub, type: type, segwit: segwit), encoding: URLEncoding.default)
+            return .requestParameters(parameters: dojorize(parameters(xpub: xpub, type: type, segwit: segwit)), encoding: URLEncoding.default)
         case let .pushtx(tx):
-            return .requestParameters(parameters: ["tx": tx], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: dojorize(["tx": tx]), encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
@@ -114,6 +117,16 @@ extension Samourai {
         if let segwit = segwit {
             parameters["segwit"] = segwit
         }
-        return parameters
+        return dojorize(parameters)
+    }
+    
+    private func dojorize(_ parameters: [String: Any]) -> [String: Any] {
+        var paramsWithAuth = parameters
+        if Sentinel.state == .dojoTor {
+            if let accessToken = DojoManager.shared.getAccessTokenFromKeychain() {
+                paramsWithAuth["at"] = accessToken
+            }
+        }
+        return paramsWithAuth
     }
 }

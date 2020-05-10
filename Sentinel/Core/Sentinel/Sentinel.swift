@@ -529,3 +529,33 @@ extension Sentinel {
         }
     }
 }
+
+// MARK: App State
+
+extension Sentinel {
+    
+    enum SentinelState {
+        case samouraiClear  // Samourai backend over https
+        case samouraiTor    // Samourai backend over TOR
+        case dojoTor        // Using Dojo over TOR
+    }
+    
+    static var state : SentinelState {
+        switch DojoManager.shared.state {
+        case .paired:
+            return .dojoTor
+        default:
+            break
+        }
+        
+        switch TorManager.shared.state {
+        case .connected:
+            return .samouraiTor
+        default:
+            break
+        }
+        
+        return .samouraiClear
+    }
+    
+}
