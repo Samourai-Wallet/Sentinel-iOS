@@ -1,6 +1,8 @@
 # Sentinel iOS
 Sentinel Watch Only Bitcoin Wallet for iOS(iPhone, iPad and iPod touch)
 
+# This repository is now maintained at https://code.samourai.io/wallet/Sentinel-iOS
+
 ### Build:
 Requirements: Xcode Version 9.4+, Cocoapods Version 1.5.3+
 
